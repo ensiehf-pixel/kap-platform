@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="راهکار KAP برای صنعت — مدیریت بار بدون اختلال در تولید، کاهش شدت انرژی و پیشگیری از خطرات">
+  <title>راهکار صنعت | KAP — مدیریت هوشمند بار صنعتی</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero{padding-top:140px;padding-bottom:80px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);}
+    .page-hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    .page-hero__content .hero__badge{margin-bottom:24px;}
+    .page-hero__content h1{margin-bottom:20px;}
+    .page-hero__content p{font-size:1.02rem;line-height:1.85;color:#616161;margin-bottom:32px;max-width:520px;}
+    .page-hero__visual img{width:100%;border-radius:16px;box-shadow:0 8px 32px rgba(13,27,42,.1);}
+    .pain-section{padding:80px 0;background:#f5f5f5;}
+    .pain-section h2{text-align:center;margin-bottom:48px;}
+    .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+    .pain-item{background:#fff;border:1px solid #eee;border-radius:12px;padding:24px;position:relative;padding-right:40px;}
+    .pain-item::before{content:'?';position:absolute;top:24px;right:16px;width:24px;height:24px;border-radius:50%;background:#FFF3E0;color:#FF5722;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.8rem;}
+    .pain-item p{font-size:0.92rem;color:#616161;line-height:1.7;}
+    .how-section{padding:80px 0;background:#fff;}
+    .how-section h2{text-align:center;margin-bottom:16px;}
+    .how-section>div>p{text-align:center;color:#616161;margin-bottom:48px;font-size:1rem;}
+    .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+    .how-card{text-align:center;padding:28px 20px;background:#f9f9f9;border-radius:12px;transition:all .3s;}
+    .how-card:hover{background:#FFF3E0;transform:translateY(-4px);}
+    .how-card__num{width:40px;height:40px;border-radius:50%;background:#FF5722;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 14px;font-size:0.9rem;}
+    .how-card h4{font-size:0.95rem;margin-bottom:6px;}
+    .how-card p{font-size:0.82rem;color:#9E9E9E;line-height:1.5;}
+    .value-section{padding:80px 0;background:#f5f5f5;}
+    .value-section h2{text-align:center;margin-bottom:48px;}
+    .value-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+    .value-chip{display:flex;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:20px;border:1px solid #eee;transition:all .3s;}
+    .value-chip:hover{border-color:#FF8A50;box-shadow:0 4px 16px rgba(255,87,34,.1);}
+    .value-chip svg{width:24px;height:24px;color:#FF5722;flex-shrink:0;}
+    .value-chip span{font-size:0.9rem;font-weight:500;color:#0D1B2A;}
+    .faq-section{padding:80px 0;background:#fff;}
+    .faq-section h2{text-align:center;margin-bottom:48px;}
+    .faq-list{max-width:740px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid #eee;padding:20px 0;}
+    .faq-item summary{font-weight:600;font-size:0.95rem;cursor:pointer;color:#0D1B2A;list-style:none;display:flex;align-items:center;gap:12px;}
+    .faq-item summary::before{content:'▸';color:#FF5722;font-size:1.1rem;transition:transform .3s;}
+    .faq-item[open] summary::before{transform:rotate(90deg);}
+    .faq-item p{margin-top:12px;font-size:0.9rem;color:#616161;line-height:1.8;padding-right:28px;}
+    .page-cta{padding:80px 0;background:linear-gradient(165deg,#0D1B2A,#1B2838);text-align:center;}
+    .page-cta h2{color:#fff;margin-bottom:16px;}
+    .page-cta p{color:rgba(255,255,255,.6);margin-bottom:32px;}
+    @media(max-width:1024px){.page-hero__inner{grid-template-columns:1fr;text-align:center;}.page-hero__content p{margin-left:auto;margin-right:auto;}.how-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:768px){.how-grid{grid-template-columns:1fr;}.pain-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo"><div class="logo__icon"><svg viewBox="0 0 48 48" fill="none"><path d="M24 4L44 16V32L24 44L4 32V16L24 4Z" fill="#FF5722" opacity="0.15"/><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/><path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/></svg></div><div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div></a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link">خانه</a>
+        <a href="solutions.html" class="nav__link active" style="color:#FF5722;">راهکارها</a>
+        <a href="how-it-works.html" class="nav__link">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html" class="nav__link">MVP و پایلوت</a>
+        <a href="knowledge.html" class="nav__link">دانش و مقالات</a>
+        <a href="about.html" class="nav__link">درباره کاپ</a>
+        <a href="faq.html" class="nav__link">سوالات متداول</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="contact.html" class="header__cta">درخواست پایلوت</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <div class="page-hero__content">
+        <div class="hero__badge">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5l2-5z"/></svg>
+          راهکار صنعت
+        </div>
+        <h1>مدیریت انرژی در صنعت فقط به معنی <span class="highlight">کمتر مصرف کردن</span> نیست</h1>
+        <p>محدودیت برق، هزینه انرژی و الزامات تولید باعث می‌شوند تصمیم درباره بارهای الکتریکی به شناخت دقیق‌تری نیاز داشته باشد. کاپ به شناسایی فرصت‌های مدیریت مصرف و بار و سنجش نتیجه اقدامات کمک می‌کند؛ با درنظرگرفتن محدودیت‌های عملیاتی هر مجموعه.</p>
+        <a href="contact.html" class="btn-primary">بررسی امکان همکاری
+          <svg viewBox="0 0 20 20" fill="none"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="page-hero__visual">
+        <img src="assets/images/technology_illustration.jpg" alt="مدیریت بار صنعتی هوشمند KAP" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="pain-section">
+    <div class="container">
+      <h2>وقتی برق محدود می‌شود:</h2>
+      <div class="pain-grid">
+        <div class="pain-item"><p>کدام بار باید مدیریت شود؟</p></div>
+        <div class="pain-item"><p>کدام بار نباید قطع شود؟</p></div>
+        <div class="pain-item"><p>چه زمانی جابه‌جایی مصرف امکان‌پذیر است؟</p></div>
+        <div class="pain-item"><p>اقدام چه اثری روی مصرف و پیک گذاشته؟</p></div>
+        <div class="pain-item"><p>آیا نتیجه قابل اثبات است؟</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How KAP Helps -->
+  <section class="how-section">
+    <div class="container">
+      <h2>KAP چه کمکی می‌کند؟</h2>
+      <p>چرخه ارزش‌آفرینی کاپ در محیط صنعتی:</p>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-card__num">۱</div>
+          <h4>پایش</h4>
+          <p>شناخت بهتر الگوی مصرف</p>
+        </div>
+        <div class="how-card">
+          <div class="how-card__num">۲</div>
+          <h4>تحلیل</h4>
+          <p>شناسایی مصرف یا بار قابل بررسی</p>
+        </div>
+        <div class="how-card">
+          <div class="how-card__num">۳</div>
+          <h4>تصمیم</h4>
+          <p>پیشنهاد اقدام متناسب با محدودیت‌های فرایند</p>
+        </div>
+        <div class="how-card">
+          <div class="how-card__num">۴</div>
+          <h4>سنجش</h4>
+          <p>ارزیابی نتیجه نسبت به خط مبنا</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Props -->
+  <section class="value-section">
+    <div class="container">
+      <h2>چه چیزی به دست می‌آورید؟</h2>
+      <div class="value-grid">
+        <div class="value-chip">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>
+          <span>دید بهتر نسبت به مصرف</span>
+        </div>
+        <div class="value-chip">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2"/></svg>
+          <span>شناخت بارهای قابل مدیریت</span>
+        </div>
+        <div class="value-chip">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg>
+          <span>کاهش تصمیم‌گیری حدسی</span>
+        </div>
+        <div class="value-chip">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10" stroke="currentColor" stroke-width="2"/></svg>
+          <span>امکان سنجش نتیجه اقدامات</span>
+        </div>
+        <div class="value-chip">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/></svg>
+          <span>پیشگیری از خطرات و نشتی جریان</span>
+        </div>
+        <div class="value-chip">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2"/></svg>
+          <span>داده مناسب‌تر برای برنامه‌ریزی انرژی</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>سوالات متداول — صنعت</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>آیا KAP قرار است دستگاه‌های کارخانه را خاموش کند؟</summary>
+          <p>خیر؛ چنین رویکردی مبنای محصول نیست. در صنعت، کنترل باید با محدودیت فرایند، بارهای حیاتی، تداوم تولید و مجوزهای عملیاتی هماهنگ باشد.</p>
+        </details>
+        <details class="faq-item">
+          <summary>KAP در زمان محدودیت برق چه کمکی می‌کند؟</summary>
+          <p>هدف می‌تواند شناخت بهتر بارهای قابل مدیریت و ارزیابی سناریوهای کاهش یا جابه‌جایی بار باشد تا تصمیم‌گیری صرفاً حدسی نباشد.</p>
+        </details>
+        <details class="faq-item">
+          <summary>آیا KAP می‌تواند از خاموشی جلوگیری کند؟</summary>
+          <p>KAP نمی‌تواند جلوگیری از خاموشی شبکه را تضمین کند. اما مدیریت بهتر مصرف و بار می‌تواند به تصمیم‌گیری سمت تقاضا کمک کند.</p>
+        </details>
+        <details class="faq-item">
+          <summary>آیا KAP نشتی جریان و خطرات ایمنی را تشخیص می‌دهد؟</summary>
+          <p>با تحلیل الگوهای غیرعادی مصرف و تغییرات ناگهانی بار، KAP می‌تواند هشدار اولیه درباره مشکلات احتمالی عایقی، اضافه‌بار و نشتی جریان ارائه دهد. این جایگزین کلیدهای محافظ جان (RCD) نیست بلکه لایه مکملی از مانیتورینگ هوشمند است.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="page-cta">
+    <div class="container">
+      <h2>آیا مدیریت بار در مجموعه شما امکان‌پذیر است؟</h2>
+      <p>موضوع خود را بنویسید تا بررسی کنیم.</p>
+      <a href="contact.html" class="btn-primary">شروع گفتگو
+        <svg viewBox="0 0 20 20" fill="none"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="logo__icon" style="width:32px;height:32px;"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </div>
+      <div class="footer__nav">
+        <a href="solutions.html">راهکارها</a>
+        <a href="how-it-works.html">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html">MVP و پایلوت</a>
+        <a href="about.html">درباره کاپ</a>
+        <a href="faq.html">سوالات متداول</a>
+        <a href="contact.html">تماس با ما</a>
+      </div>
+      <p class="footer__vision">چشم‌انداز کاپ، پیوند ظرفیت‌های پراکنده مدیریت مصرف در نیروگاه مجازی کشور است.</p>
+      <p class="footer__copy">© ۱۴۰۵ کارا انرژی پردازان (KAP). تمامی حقوق محفوظ است.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

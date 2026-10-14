@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="فناوری و معماری KAP — سنسورهای CT، سخت‌افزار اختصاصی و نرم‌افزار هوش مصنوعی">
+  <title>فناوری و معماری | KAP</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .tech-hero{padding-top:140px;padding-bottom:60px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);}
+    .tech-section{padding:80px 0;background:#fff;}
+    .tech-section:nth-child(even){background:#fafafa;}
+    .tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    .tech-detail-card{background:#fff;border:1px solid #eee;border-radius:16px;padding:40px;margin-bottom:32px;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);}
+    .tech-detail-card:hover{border-color:#FF8A50;box-shadow:0 8px 32px rgba(255,87,34,0.1);transform:translateY(-4px);}
+    .tech-detail-card h3{font-size:1.3rem;margin-bottom:12px;}
+    .tech-detail-card p{color:#757575;line-height:1.85;}
+    .spec-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:32px;}
+    .spec-item{background:#FFF3E0;border-radius:12px;padding:24px;text-align:center;}
+    .spec-item .value{font-size:1.8rem;font-weight:800;color:#FF5722;}
+    .spec-item .label{font-size:0.82rem;color:#616161;margin-top:4px;}
+    @media(max-width:768px){.tech-grid{grid-template-columns:1fr;gap:32px;}}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <div class="logo__icon">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/><path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/></svg>
+        </div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html#articles" class="nav__link">مقالات</a>
+        <a href="technology-detail.html" class="nav__link" style="color:#FF5722;">فناوری</a>
+        <a href="products.html" class="nav__link">محصولات</a>
+        <a href="index.html#contact" class="nav__link">درباره ما</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="demo.html" class="header__cta">درخواست دمو</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="tech-hero">
+    <div class="container" style="text-align:center;">
+      <span class="section-badge">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.5 5H15l-4.5 3.5L12 14 8 10.5 4 14l1.5-5.5L1 5h5.5L8 0z"/></svg>
+        فناوری و معماری
+      </span>
+      <h1>فناوری و معماری KAP</h1>
+      <p style="max-width:650px;margin:16px auto 0;color:#757575;font-size:1.05rem;line-height:1.85;">
+        KAP با تلفیق سنسورهای CT پیشرفته، سخت‌افزار سفارشی و نرم‌افزار هوش مصنوعی،
+        راه‌حل یکپارچه‌ای برای مدیریت هوشمند شبکه برق ارائه می‌دهد.
+      </p>
+    </div>
+  </section>
+
+  <!-- CT Sensor Section -->
+  <section class="tech-section" id="ct-sensor">
+    <div class="container">
+      <div class="tech-grid">
+        <div>
+          <span class="section-badge">سنسور اختصاصی</span>
+          <h2>سنسور CT اختصاصی KAP</h2>
+          <p style="color:#757575;line-height:1.9;margin:20px 0;">
+            سنسورهای CT (ترانسفورماتور جریان) اختصاصی KAP با طراحی منحصربه‌فرد، قادر به تفکیک بار مصرفی
+            هر دستگاه خانگی هستند — بدون نیاز به نصب سنسور مجزا روی هر وسیله. این سنسورها مستقیماً
+            در داخل کنتور هوشمند نصب شده و با دقت بالا، الگوی مصرف هر دستگاه را شناسایی می‌کنند.
+          </p>
+          <div class="spec-list">
+            <div class="spec-item"><div class="value">±۰.۵٪</div><div class="label">دقت اندازه‌گیری</div></div>
+            <div class="spec-item"><div class="value">۱۶</div><div class="label">کانال همزمان</div></div>
+            <div class="spec-item"><div class="value">۵۰kHz</div><div class="label">نرخ نمونه‌برداری</div></div>
+            <div class="spec-item"><div class="value">۱۰ سال</div><div class="label">عمر مفید</div></div>
+          </div>
+        </div>
+        <div>
+          <img src="assets/images/technology_illustration.jpg" alt="سنسور CT اختصاصی KAP" style="border-radius:16px;box-shadow:0 8px 32px rgba(13,27,42,0.1);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Smart Meter Integration -->
+  <section class="tech-section" id="smart-meter">
+    <div class="container">
+      <div class="tech-grid">
+        <div>
+          <img src="assets/images/hero_illustration.jpg" alt="یکپارچگی با کنتور هوشمند" style="border-radius:16px;box-shadow:0 8px 32px rgba(13,27,42,0.1);">
+        </div>
+        <div>
+          <span class="section-badge">یکپارچگی سخت‌افزار</span>
+          <h2>یکپارچگی با کنتور هوشمند</h2>
+          <p style="color:#757575;line-height:1.9;margin:20px 0;">
+            فناوری KAP به گونه‌ای طراحی شده که مستقیماً روی کنتورهای هوشمند موجود نصب می‌شود —
+            بدون نیاز به هیچ‌گونه تغییر در زیرساخت شبکه توزیع. با همکاری سازندگان جهانی کنتور،
+            ماژول‌های KAP به صورت plug-and-play به کنتورها متصل شده و بلافاصله شروع به جمع‌آوری
+            و تحلیل داده‌ها می‌کنند.
+          </p>
+          <ul style="color:#616161;line-height:2.2;list-style:none;padding:0;">
+            <li>✅ سازگار با کنتورهای فاز ۱ و فاز ۳</li>
+            <li>✅ نصب بدون قطع سرویس مشترکین</li>
+            <li>✅ پشتیبانی از پروتکل‌های DLMS/COSEM</li>
+            <li>✅ ارتباط بی‌سیم NB-IoT و LoRa</li>
+            <li>✅ آپدیت فریمور از راه دور (OTA)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fault Detection -->
+  <section class="tech-section" id="fault-detection">
+    <div class="container">
+      <div class="tech-grid">
+        <div>
+          <span class="section-badge">تشخیص خطا</span>
+          <h2>تشخیص خطا در شعاع ۱۰ متر</h2>
+          <p style="color:#757575;line-height:1.9;margin:20px 0;">
+            سیستم تشخیص خطای KAP با استفاده از الگوریتم‌های یادگیری عمیق، قادر به شناسایی آنی
+            انواع خطاهای شبکه توزیع شامل اتصال کوتاه، نشتی جریان، عدم تعادل فاز و خرابی تجهیزات
+            در شعاع ۱۰ متر از محل نصب کنتور است. هشدارهای آنی از طریق اپلیکیشن و SMS
+            به اپراتورهای شبکه ارسال می‌شود.
+          </p>
+          <div class="spec-list">
+            <div class="spec-item"><div class="value">۹۵٪</div><div class="label">دقت تشخیص خطا</div></div>
+            <div class="spec-item"><div class="value">&lt;۲ ثانیه</div><div class="label">زمان تشخیص</div></div>
+            <div class="spec-item"><div class="value">۱۰ متر</div><div class="label">شعاع پوشش</div></div>
+            <div class="spec-item"><div class="value">۶۰٪</div><div class="label">کاهش زمان قطعی</div></div>
+          </div>
+        </div>
+        <div>
+          <img src="assets/images/article_ai_analytics.jpg" alt="تشخیص خطای شبکه" style="border-radius:16px;box-shadow:0 8px 32px rgba(13,27,42,0.1);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:80px 0;background:#0D1B2A;text-align:center;">
+    <div class="container">
+      <h2 style="color:#fff;margin-bottom:16px;">آماده‌اید فناوری KAP را از نزدیک ببینید؟</h2>
+      <p style="color:rgba(255,255,255,0.6);margin-bottom:32px;">تیم فنی ما آماده ارائه دموی اختصاصی برای سازمان شماست</p>
+      <a href="demo.html" class="btn-primary" target="_blank" rel="noopener noreferrer">درخواست دمو رایگان</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="logo__icon" style="width:32px;height:32px;"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </div>
+      <p class="footer__copy">© ۱۴۰۵ کارا پردازان انرژی. تمامی حقوق محفوظ است.</p>
+      <div class="footer__links"><a href="index.html">صفحه اصلی</a><a href="products.html">محصولات</a><a href="index.html#contact">تماس</a></div>
+    </div>
+  </footer>
+</body>
+</html>

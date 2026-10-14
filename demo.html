@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="درخواست دمو از محصولات KAP — کارا پردازان انرژی">
+  <title>درخواست دمو | KAP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <div class="logo__icon">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/><path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/></svg>
+        </div>
+        <div class="logo__text">
+          <span class="logo__brand">KAP</span>
+          <span class="logo__subtitle">ENERGY INTELLIGENCE</span>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html#articles" class="nav__link">مقالات</a>
+        <a href="technology-detail.html" class="nav__link">فناوری</a>
+        <a href="products.html" class="nav__link">محصولات</a>
+        <a href="index.html#contact" class="nav__link">درباره ما</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="index.html#contact" class="header__cta">تماس با ما</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <section class="hero" style="padding-top:140px;padding-bottom:80px;background:linear-gradient(165deg,#fff 0%,#fafafa 50%,#FFF3E0 100%);">
+    <div class="container">
+      <div style="max-width:700px;margin:0 auto;text-align:center;">
+        <span class="section-badge">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5l2-5z"/></svg>
+          درخواست نمایش محصول
+        </span>
+        <h1 style="margin-bottom:20px;">درخواست دمو از محصولات KAP</h1>
+        <p class="hero__desc" style="margin:0 auto 48px;max-width:600px;">
+          با ثبت درخواست دمو، تیم فنی KAP با شما تماس گرفته و یک جلسه نمایشی اختصاصی
+          از نرم‌افزار تحلیل شبکه، داشبورد مدیریت انرژی و عملکرد سنسورهای CT ترتیب می‌دهد.
+        </p>
+
+        <div style="background:#fff;border-radius:16px;padding:48px;box-shadow:0 8px 32px rgba(13,27,42,0.1);text-align:right;">
+          <form class="contact__form" onsubmit="handleSubmit(event)" style="gap:20px;">
+            <div class="form-group">
+              <label for="firstName"><span class="required">*</span> نام</label>
+              <input type="text" id="firstName" placeholder="نام شما" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName"><span class="required">*</span> نام خانوادگی</label>
+              <input type="text" id="lastName" placeholder="نام خانوادگی شما" required>
+            </div>
+            <div class="form-group">
+              <label for="email"><span class="required">*</span> ایمیل سازمانی</label>
+              <input type="email" id="email" placeholder="you@company.com" required dir="ltr">
+            </div>
+            <div class="form-group">
+              <label for="company"><span class="required">*</span> نام شرکت</label>
+              <input type="text" id="company" placeholder="نام شرکت یا سازمان" required>
+            </div>
+            <div class="form-group">
+              <label for="jobTitle">عنوان شغلی</label>
+              <input type="text" id="jobTitle" placeholder="مثال: مدیر بهره‌برداری">
+            </div>
+            <div class="form-group">
+              <label for="phone">شماره تماس</label>
+              <input type="tel" id="phone" placeholder="۰۹۱۲۱۲۳۴۵۶۷" dir="ltr">
+            </div>
+            <div class="form-group full-width">
+              <label for="message">توضیحات اضافی</label>
+              <textarea id="message" placeholder="هرگونه توضیح یا سوال خود را بنویسید..."></textarea>
+            </div>
+            <div class="contact__submit">
+              <button type="submit" class="btn-submit" id="submit-btn">ارسال درخواست دمو</button>
+            </div>
+          </form>
+        </div>
+
+        <div style="margin-top:48px;display:flex;gap:32px;justify-content:center;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <div style="font-size:2rem;font-weight:800;color:#FF5722;">۲۴ ساعته</div>
+            <div style="font-size:0.85rem;color:#757575;">پاسخگویی به درخواست‌ها</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:2rem;font-weight:800;color:#FF5722;">رایگان</div>
+            <div style="font-size:0.85rem;color:#757575;">جلسه دمو اختصاصی</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:2rem;font-weight:800;color:#FF5722;">آنلاین</div>
+            <div style="font-size:0.85rem;color:#757575;">یا حضوری در محل شما</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="logo__icon" style="width:32px;height:32px;">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/></svg>
+        </div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </div>
+      <p class="footer__copy">© ۱۴۰۵ کارا پردازان انرژی. تمامی حقوق محفوظ است.</p>
+      <div class="footer__links"><a href="index.html">صفحه اصلی</a><a href="products.html">محصولات</a><a href="index.html#contact">تماس</a></div>
+    </div>
+  </footer>
+
+  <script>
+  function handleSubmit(e){e.preventDefault();var b=document.getElementById('submit-btn'),o=b.textContent;b.textContent='در حال ارسال...';b.style.opacity='0.7';setTimeout(function(){b.textContent='✓ درخواست ثبت شد!';b.style.opacity='1';b.style.background='#2E7D32';setTimeout(function(){b.textContent=o;b.style.background='';e.target.reset();},2500);},1200);}
+  </script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KAP — پلتفرم مدیریت هوشمند مصرف برق و مدیریت بار | هوش مصنوعی، اینترنت اشیاء (IoT)، تحلیل داده‌های انرژی و اقتصاد دیجیتال انرژی">
+  <meta name="keywords" content="KAP, مدیریت مصرف برق, مدیریت بار, نیروگاه مجازی, VPP, هوش مصنوعی, IoT, اقتصاد دیجیتال انرژی, صرفه‌جویی انرژی">
+  <title>KAP | مدیریت هوشمند مصرف برق و مدیریت بار</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================================
+       0. HEADER / NAVBAR
+       ================================ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="logo" id="logo">
+        <div class="logo__icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4L44 16V32L24 44L4 32V16L24 4Z" fill="#FF5722" opacity="0.15"/>
+            <path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/>
+            <path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/>
+            <path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/>
+            <path d="M24 10L38 18L24 26L10 18L24 10Z" fill="white" opacity="0.3"/>
+            <path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="logo__text">
+          <span class="logo__brand">KAP</span>
+          <span class="logo__subtitle">ENERGY INTELLIGENCE</span>
+        </div>
+      </a>
+
+      <!-- Navigation -->
+      <nav class="nav" id="nav">
+        <a href="solutions.html" class="nav__link">راهکارها</a>
+        <a href="how-it-works.html" class="nav__link">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html" class="nav__link">MVP و پایلوت</a>
+        <a href="knowledge.html" class="nav__link">دانش و مقالات</a>
+        <a href="about.html" class="nav__link">درباره کاپ</a>
+        <a href="faq.html" class="nav__link">سوالات متداول</a>
+      </nav>
+
+      <!-- CTA & Mobile Toggle -->
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="contact.html" class="header__cta" id="header-cta">
+          <svg viewBox="0 0 20 20" fill="none" style="width:16px; height:16px;">
+            <path d="M2.5 5.833h15M2.5 10h15M2.5 14.167h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          تماس با ما
+        </a>
+        <a href="https://kap-energy-platform.vercel.app/" class="header__cta header__cta--mvp" id="header-mvp" target="_blank" rel="noopener noreferrer" style="background: var(--navy-900); font-size: 0.82rem; padding: 8px 18px;">
+          🚀 نسخه MVP
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================================
+       1. HERO SECTION — حکمرانی انرژی
+       ================================ -->
+  <section class="hero" id="hero">
+    <div class="container hero__inner">
+
+      <!-- Content -->
+      <div class="hero__content">
+        <div class="hero__badge">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5l2-5z"/></svg>
+          حکمرانی انرژی و هوش مصنوعی مدیریت بار
+        </div>
+
+        <h1 id="hero-title" style="font-size: clamp(1.55rem, 2.3vw, 2.15rem); line-height: 1.45; margin-bottom: 20px;">
+          حکمرانی انرژی: معماری تاب‌آوری و
+          <span class="highlight">پایداری ملی</span>
+          در عصر ناترازی
+        </h1>
+
+        <p class="hero__desc" style="font-size: 0.96rem; line-height: 1.95; color: #424242; margin-bottom: 16px;">
+          در دورانی که شریان‌های انرژی تحت فشارهای ساختاری و بحران‌های غیرقابل پیش‌بینی در آستانه فروپاشی قرار دارند، <strong style="color: var(--navy-900); font-weight: 700;">KAP</strong> صرفاً یک ابزار تحلیلی نیست، بلکه زیرساختی حیاتی برای بقا و پایداری ملی است. با ترکیب پایش دقیق اینترنت اشیاء در لبه شبکه و الگوریتم‌های هوش مصنوعی پیش‌بینانه، داده‌های خام برق را به راهکارهای هوشمند مدیریت بار زمان واقعی تبدیل می‌کنیم.
+        </p>
+
+        <p class="hero__desc" style="font-size: 0.96rem; line-height: 1.95; color: #424242; margin-bottom: 30px;">
+          از طریق یک مدل استقرار انقلابی و کاملاً رایگان، <strong style="color: var(--navy-900); font-weight: 700;">KAP</strong> به میلیون‌ها خانوار و کسب‌وکار این قدرت را می‌دهد تا بدون کوچکترین آسیبی به رفاه و امنیت خود، <strong style="color: var(--orange-500); font-weight: 700;">۱۵ درصد</strong> از مصرف برق خود را کنترل کنند. این صرفه‌جویی‌های پنهان، با تبدیل شدن به گواهی‌های صرفه‌جویی انرژی معتبر و قابل معامله، به یک <strong style="color: var(--navy-900); font-weight: 700;">نیروگاه مجازی متمرکز و یکپارچه</strong> تبدیل می‌شوند؛ راهکاری استراتژیک و اقتصادی که کشور را در سخت‌ترین شرایط بحران، استوار نگه می‌دارد.
+        </p>
+
+        <div class="hero__actions">
+          <a href="how-it-works.html" class="btn-primary" id="hero-cta">
+            کاپ چگونه کار می‌کند؟
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="contact.html" class="btn-outline" id="hero-collab">
+            همکاری با کاپ
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M10 4V16M10 16L5 11M10 16L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="https://kap-energy-platform.vercel.app/" class="btn-primary" target="_blank" rel="noopener noreferrer" style="background: var(--navy-900);">
+            مشاهده نسخه MVP زنده 🚀
+          </a>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="hero__visual">
+        <div class="hero__image-wrapper">
+          <img src="assets/images/hero_hub.png"
+               alt="هاب هوش مصنوعی مدیریت انرژی KAP — پایداری و بهینه‌سازی شبکه"
+               loading="eager"
+               id="hero-img">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================
+       2. PROBLEM SECTION — بخش مسئله
+       ================================ -->
+  <section class="problem-section" id="problem">
+    <div class="container">
+      <div class="problem__header reveal">
+        <span class="section-badge">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-4H7V4h2v4z"/></svg>
+          چالش اصلی
+        </span>
+        <h2>برای مدیریت انرژی، دانستن عدد مصرف کافی نیست.</h2>
+      </div>
+
+      <div class="problem__grid">
+        <div class="problem-card reveal reveal-delay-1">
+          <div class="problem-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>مصرف قابل اصلاح کجاست؟</h3>
+          <p>مصرف خارج از نیاز، الگوهای غیرعادی و فرصت‌های قابل مدیریت همیشه از روی قبض مشخص نیستند.</p>
+        </div>
+
+        <div class="problem-card reveal reveal-delay-2">
+          <div class="problem-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>چه اقدامی مناسب است؟</h3>
+          <p>هر خانه، ساختمان یا صنعت محدودیت‌ها و شرایط بهره‌برداری خودش را دارد.</p>
+        </div>
+
+        <div class="problem-card reveal reveal-delay-3">
+          <div class="problem-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>آیا نتیجه گرفتیم؟</h3>
+          <p>بدون خط مبنا و سنجش نتیجه، نمی‌توان فقط از روی کاهش یک عدد درباره اثر اقدام قضاوت کرد.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================
+       3. PRODUCT LOOP — حلقه محصول
+       ================================ -->
+  <section class="product-loop" id="product-loop">
+    <div class="container">
+      <div class="loop__header reveal">
+        <span class="section-badge">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.5 5H15l-4.5 3.5L12 14 8 10.5 4 14l1.5-5.5L1 5h5.5L8 0z"/></svg>
+          چرخه ارزش کاپ
+        </span>
+        <h2>کاپ چه می‌کند؟</h2>
+        <p>این دقیقاً هسته ارزش‌آفرینی پلتفرم است — نه صرف نصب حسگر یا نمایش داشبورد.</p>
+      </div>
+
+      <div class="loop__steps reveal">
+        <div class="loop-step">
+          <div class="loop-step__number">۱</div>
+          <div class="loop-step__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>اندازه‌گیری</h4>
+          <p>پایش مصرف در نقاط موردنظر</p>
+        </div>
+        <div class="loop-step__arrow">→</div>
+        <div class="loop-step">
+          <div class="loop-step__number">۲</div>
+          <div class="loop-step__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>تحلیل</h4>
+          <p>شناسایی الگوها و فرصت‌ها</p>
+        </div>
+        <div class="loop-step__arrow">→</div>
+        <div class="loop-step">
+          <div class="loop-step__number">۳</div>
+          <div class="loop-step__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h4>شناخت فرصت</h4>
+          <p>یافتن مصرف قابل اصلاح</p>
+        </div>
+        <div class="loop-step__arrow">→</div>
+        <div class="loop-step">
+          <div class="loop-step__number">۴</div>
+          <div class="loop-step__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>اقدام</h4>
+          <p>پیشنهاد متناسب با شرایط</p>
+        </div>
+        <div class="loop-step__arrow">→</div>
+        <div class="loop-step">
+          <div class="loop-step__number">۵</div>
+          <div class="loop-step__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>سنجش نتیجه</h4>
+          <p>ارزیابی اثر نسبت به خط مبنا</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================
+       4. AUDIENCES — سگمنت مخاطبان
+       ================================ -->
+  <section class="audiences" id="audiences">
+    <div class="container">
+      <div class="audiences__header reveal">
+        <span class="section-badge">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 0114 0H3z"/></svg>
+          راهکارها
+        </span>
+        <h2>هر محیط، مسئله انرژی خودش را دارد</h2>
+        <p>مدیریت مصرف یک خانه، دانشگاه، کارخانه و شبکه برق نیازهای متفاوتی دارد.</p>
+      </div>
+
+      <div class="audiences__grid">
+        <a href="solution-home.html" class="audience-card reveal reveal-delay-1" id="sol-home">
+          <div class="audience-card__icon">🏠</div>
+          <h3>خانه‌ها</h3>
+          <p>مدیریت ساده‌تر مصرف با حفظ آسایش</p>
+          <span class="audience-card__link">بیشتر بدانید ←</span>
+        </a>
+
+        <a href="solution-education.html" class="audience-card reveal reveal-delay-2" id="sol-edu">
+          <div class="audience-card__icon">🎓</div>
+          <h3>دانشگاه‌ها و مراکز آموزشی</h3>
+          <p>شناسایی مصرف قابل اصلاح بدون اختلال در فعالیت آموزشی</p>
+          <span class="audience-card__link">بیشتر بدانید ←</span>
+        </a>
+
+        <a href="solution-business.html" class="audience-card reveal reveal-delay-3" id="sol-biz">
+          <div class="audience-card__icon">🏢</div>
+          <h3>ساختمان‌های اداری و تجاری</h3>
+          <p>تصمیم‌گیری بر اساس مصرف واقعی، ساعات فعالیت و نتیجه اقدامات</p>
+          <span class="audience-card__link">بیشتر بدانید ←</span>
+        </a>
+
+        <a href="solution-industry.html" class="audience-card reveal reveal-delay-1" id="sol-ind">
+          <div class="audience-card__icon">🏭</div>
+          <h3>صنعت</h3>
+          <p>مدیریت بار با توجه به فرایند، تداوم تولید و محدودیت‌های عملیاتی</p>
+          <span class="audience-card__link">بیشتر بدانید ←</span>
+        </a>
+
+        <a href="solution-power.html" class="audience-card reveal reveal-delay-2" id="sol-pwr">
+          <div class="audience-card__icon">⚡</div>
+          <h3>صنعت برق و رگولاتور</h3>
+          <p>شناخت و سنجش ظرفیت پراکنده مدیریت تقاضا</p>
+          <span class="audience-card__link">بیشتر بدانید ←</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================
+       5. E-COMMERCE — اقتصاد دیجیتال انرژی
+       ================================ -->
+  <section class="ecommerce" id="ecommerce">
+    <div class="container ecommerce__inner">
+
+      <div class="ecommerce__content reveal">
+        <span class="section-badge">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 3h16v1H0V3zm0 4h16v1H0V7zm0 4h10v1H0v-1z"/></svg>
+          اقتصاد دیجیتال انرژی
+        </span>
+        <h2>معامله‌پذیر نمودن ارزش انرژی الکتریکی</h2>
+        <p class="ecommerce__desc">
+          کاپ فراتر از پایش و تحلیل، بستری هوشمند برای تبدیل صرفه‌جویی تأیید‌شده به یک دارایی معامله‌پذیر فراهم می‌سازد. از گواهی‌های صرفه‌جویی انرژی تا تجهیزات کنترل هوشمند، همراه با ۵ سال خدمات پس از فروش و پشتیبانی تخصصی.
+        </p>
+        <div class="ecommerce__features">
+          <div class="ecom-feat">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/></svg>
+            <span>تراکنش‌های امن و شفاف</span>
+          </div>
+          <div class="ecom-feat">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/><path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2"/></svg>
+            <span>گواهی صرفه‌جویی قابل معامله</span>
+          </div>
+          <div class="ecom-feat">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg>
+            <span>۵ سال خدمات و پشتیبانی</span>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-primary" id="ecom-cta">
+          اطلاعات بیشتر
+          <svg viewBox="0 0 20 20" fill="none"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="ecommerce__visual reveal">
+        <img src="assets/images/ecommerce_hero.jpg" alt="کارت اعتباری هوشمند انرژی و اپلیکیشن KAP" loading="lazy">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================
+       6. KEY METRICS — Infinite Marquee
+       ================================ -->
+  <section class="marquee-section" id="metrics" aria-label="آمار کلیدی KAP">
+    <div class="marquee-track" id="marquee-track">
+      <div class="marquee-item">
+        <div class="marquee-item__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="marquee-item__value">۱۳ میلیون</div>
+          <div class="marquee-item__label">قرارداد کنتور هوشمند</div>
+        </div>
+      </div>
+      <div class="marquee-divider"></div>
+
+      <div class="marquee-item">
+        <div class="marquee-item__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="marquee-item__value">۹۵٪</div>
+          <div class="marquee-item__label">دقت تشخیص خطای شبکه</div>
+        </div>
+      </div>
+      <div class="marquee-divider"></div>
+
+      <div class="marquee-item">
+        <div class="marquee-item__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M23 6l-9.5 9.5-5-5L1 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 6h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="marquee-item__value">۱۸٪</div>
+          <div class="marquee-item__label">کاهش مصرف پیک برق</div>
+        </div>
+      </div>
+      <div class="marquee-divider"></div>
+
+      <div class="marquee-item">
+        <div class="marquee-item__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="marquee-item__value">۳.۷ گیگاوات</div>
+          <div class="marquee-item__label">کاهش پیک بار</div>
+        </div>
+      </div>
+      <div class="marquee-divider"></div>
+
+      <div class="marquee-item">
+        <div class="marquee-item__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/><path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2"/><path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div>
+          <div class="marquee-item__value">هدف ۱۰۰</div>
+          <div class="marquee-item__label">دانشگاه و دانشکده</div>
+        </div>
+      </div>
+      <div class="marquee-divider"></div>
+
+      <div class="marquee-item">
+        <div class="marquee-item__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div>
+          <div class="marquee-item__value">۵,۰۰۰</div>
+          <div class="marquee-item__label">مدرسه</div>
+        </div>
+      </div>
+      <div class="marquee-divider"></div>
+
+      <div class="marquee-item">
+        <div class="marquee-item__icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="marquee-item__value">کاملاً رایگان</div>
+          <div class="marquee-item__label">بدون هیچ هزینه‌ای برای مشترکین</div>
+        </div>
+      </div>
+      <div class="marquee-divider"></div>
+    </div>
+  </section>
+
+  <!-- ================================
+       7. ARTICLES / INSIGHTS
+       ================================ -->
+  <section class="articles" id="articles">
+    <div class="container">
+
+      <div class="articles__header reveal">
+        <span class="section-badge">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 3h12v1H2V3zm0 3h12v1H2V6zm0 3h8v1H2V9zm0 3h12v1H2v-1z"/></svg>
+          دانش و مقالات
+        </span>
+        <h2>آخرین مقالات و بینش‌های تخصصی</h2>
+        <p>جدیدترین تحقیقات و تحلیل‌های تیم کاپ در حوزه مدیریت هوشمند انرژی</p>
+      </div>
+
+      <div class="articles__grid">
+
+        <!-- Card 1 — Existing -->
+        <article class="article-card reveal reveal-delay-1" id="article-card-1">
+          <div class="article-card__image-wrapper">
+            <img src="assets/images/article_ai_analytics.jpg" alt="هوش مصنوعی در تشخیص خطای شبکه" class="article-card__image" loading="lazy">
+            <span class="article-card__tag">هوش مصنوعی</span>
+          </div>
+          <div class="article-card__body">
+            <h3 class="article-card__title">نقش الگوریتم‌های یادگیری عمیق در تشخیص خطای شبکه توزیع</h3>
+            <p class="article-card__desc">بررسی عملکرد مدل‌های هوش مصنوعی KAP در شناسایی بلادرنگ خطاها با دقت ۹۵ درصد.</p>
+            <a href="article-ai.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+              بیشتر بخوانید
+              <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2 — Existing -->
+        <article class="article-card reveal reveal-delay-2" id="article-card-2">
+          <div class="article-card__image-wrapper">
+            <img src="assets/images/technology_illustration.jpg" alt="سنسور CT" class="article-card__image" loading="lazy">
+            <span class="article-card__tag">سخت‌افزار</span>
+          </div>
+          <div class="article-card__body">
+            <h3 class="article-card__title">معرفی نسل جدید سنسورهای CT اختصاصی برای کنتورهای هوشمند</h3>
+            <p class="article-card__desc">سنسورهای CT طراحی‌شده با توانایی اندازه‌گیری بار هر دستگاه بدون نیاز به پلاگین اضافی.</p>
+            <a href="article-ct.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+              بیشتر بخوانید
+              <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3 — Existing -->
+        <article class="article-card reveal reveal-delay-3" id="article-card-3">
+          <div class="article-card__image-wrapper">
+            <img src="assets/images/hero_illustration.jpg" alt="مدیریت بار هوشمند" class="article-card__image" loading="lazy">
+            <span class="article-card__tag">شبکه هوشمند</span>
+          </div>
+          <div class="article-card__body">
+            <h3 class="article-card__title">تأثیر مدیریت بار هوشمند بر کاهش ۱۸٪ مصرف پیک برق</h3>
+            <p class="article-card__desc">گزارش عملکرد پروژه‌های اجرایی KAP در بهینه‌سازی مصرف و کاهش پیک بار.</p>
+            <a href="article-grid.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+              بیشتر بخوانید
+              <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 4 — NEW: VPP -->
+        <article class="article-card reveal reveal-delay-1" id="article-card-4">
+          <div class="article-card__image-wrapper">
+            <img src="assets/images/hero_smart_energy.jpg" alt="نیروگاه مجازی" class="article-card__image" loading="lazy">
+            <span class="article-card__tag">نیروگاه مجازی</span>
+          </div>
+          <div class="article-card__body">
+            <h3 class="article-card__title">نیروگاه مجازی (VPP) چیست و مصرف‌کننده چه نقشی در آن دارد؟</h3>
+            <p class="article-card__desc">چگونه تجمیع ظرفیت‌های پراکنده مدیریت مصرف می‌تواند به پایداری شبکه ملی برق کمک کند.</p>
+            <a href="article-vpp.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+              بیشتر بخوانید
+              <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 5 — NEW: Elderly Care -->
+        <article class="article-card reveal reveal-delay-2" id="article-card-5">
+          <div class="article-card__image-wrapper">
+            <img src="assets/images/hero_illustration.jpg" alt="مراقبت هوشمند سالمندان" class="article-card__image" loading="lazy">
+            <span class="article-card__tag">سلامت و IoT</span>
+          </div>
+          <div class="article-card__body">
+            <h3 class="article-card__title">مراقبت هوشمند از سالمندان با تحلیل الگوی مصرف برق خانگی</h3>
+            <p class="article-card__desc">چگونه تغییرات غیرعادی در الگوی مصرف برق می‌تواند نشانه‌ای از تغییر در وضعیت سالمندان باشد.</p>
+            <a href="article-elderly.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+              بیشتر بخوانید
+              <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 6 — NEW: Energy Intensity -->
+        <article class="article-card reveal reveal-delay-3" id="article-card-6">
+          <div class="article-card__image-wrapper">
+            <img src="assets/images/technology_illustration.jpg" alt="شدت انرژی و GDP" class="article-card__image" loading="lazy">
+            <span class="article-card__tag">اقتصاد انرژی</span>
+          </div>
+          <div class="article-card__body">
+            <h3 class="article-card__title">شدت مصرف انرژی در ایران و تأثیر ناترازی برق بر تولید ناخالص داخلی</h3>
+            <p class="article-card__desc">چرا کاهش شدت انرژی حیاتی است و مدیریت مصرف چگونه می‌تواند به رشد GDP کمک کند.</p>
+            <a href="article-energy-intensity.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+              بیشتر بخوانید
+              <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================
+       8. VISION — چشم‌انداز
+       ================================ -->
+  <section class="vision" id="vision">
+    <div class="container">
+      <div class="vision__inner reveal">
+        <h2>از یک تصمیم بهتر در یک ساختمان، تا ظرفیت قابل مدیریت در مقیاس شبکه</h2>
+        <p class="vision__desc">چشم‌انداز کاپ، پیوند ظرفیت‌های پراکنده مدیریت مصرف در نیروگاه مجازی کشور است.</p>
+        <div class="vision__actions">
+          <a href="about.html" class="btn-primary" id="vision-cta">
+            درباره کاپ بیشتر بدانید
+            <svg viewBox="0 0 20 20" fill="none"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://kap-energy-platform.vercel.app/" class="btn-outline" target="_blank" rel="noopener noreferrer" id="vision-mvp">
+            مشاهده نسخه MVP زنده
+            <svg viewBox="0 0 20 20" fill="none"><path d="M10 4V16M10 16L5 11M10 16L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================
+       FOOTER
+       ================================ -->
+  <footer class="footer" id="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <div class="logo__icon" style="width: 32px; height: 32px;">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/>
+            <path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/>
+            <path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/>
+          </svg>
+        </div>
+        <div class="logo__text">
+          <span class="logo__brand">KAP</span>
+          <span class="logo__subtitle">ENERGY INTELLIGENCE</span>
+        </div>
+      </div>
+
+      <div class="footer__nav">
+        <a href="solutions.html">راهکارها</a>
+        <a href="how-it-works.html">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html">MVP و پایلوت</a>
+        <a href="about.html">درباره کاپ</a>
+        <a href="faq.html">سوالات متداول</a>
+        <a href="contact.html">تماس با ما</a>
+      </div>
+
+      <p class="footer__vision">چشم‌انداز کاپ، پیوند ظرفیت‌های پراکنده مدیریت مصرف در نیروگاه مجازی کشور است.</p>
+
+      <p class="footer__copy">© ۱۴۰۵ کارا انرژی پردازان (KAP). تمامی حقوق محفوظ است.</p>
+
+      <div class="footer__links">
+        <a href="#">حریم خصوصی</a>
+        <a href="#">شرایط استفاده</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

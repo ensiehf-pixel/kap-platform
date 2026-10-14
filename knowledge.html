@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="دانش و مقالات تخصصی KAP — تحلیل‌های داده‌محور درباره ناترازی انرژی، هوش مصنوعی، نیروگاه مجازی VPP، اینترنت اشیاء و اقتصاد انرژی">
+  <title>دانش و مقالات تخصصی | KAP — هوش و اقتصاد انرژی</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero{padding-top:140px;padding-bottom:60px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);text-align:center;}
+    .page-hero h1{max-width:750px;margin:0 auto 20px;}
+    .page-hero p{max-width:650px;margin:0 auto;color:#616161;font-size:1.05rem;line-height:1.85;}
+    
+    .filter-bar{display:flex;justify-content:center;gap:12px;margin:40px auto 0;flex-wrap:wrap;}
+    .filter-btn{padding:8px 20px;border-radius:24px;border:1px solid #e0e0e0;background:#fff;font-size:0.88rem;font-weight:600;color:#616161;cursor:pointer;transition:all .3s;}
+    .filter-btn:hover,.filter-btn.active{background:#FF5722;color:#fff;border-color:#FF5722;box-shadow:0 4px 12px rgba(255,87,34,0.25);}
+
+    .articles-hub{padding:60px 0 100px;background:#fff;}
+    .articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:32px;}
+    
+    .article-card{background:#fff;border-radius:16px;border:1px solid #eee;overflow:hidden;transition:all .35s ease;display:flex;flex-direction:column;}
+    .article-card:hover{transform:translateY(-8px);border-color:#FF8A50;box-shadow:0 12px 32px rgba(13,27,42,0.08);}
+    .article-card__img-wrap{position:relative;height:210px;overflow:hidden;background:#f5f5f5;}
+    .article-card__img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+    .article-card:hover .article-card__img{transform:scale(1.05);}
+    .article-card__tag{position:absolute;top:16px;right:16px;background:rgba(13,27,42,0.85);backdrop-filter:blur(6px);color:#fff;font-size:0.75rem;padding:4px 12px;border-radius:20px;font-weight:600;}
+    
+    .article-card__content{padding:24px;display:flex;flex-direction:column;flex-grow:1;}
+    .article-card__meta{font-size:0.8rem;color:#9E9E9E;margin-bottom:12px;display:flex;gap:16px;}
+    .article-card__title{font-size:1.15rem;font-weight:700;color:#0D1B2A;line-height:1.5;margin-bottom:12px;}
+    .article-card__excerpt{font-size:0.9rem;color:#616161;line-height:1.8;margin-bottom:20px;flex-grow:1;}
+    .article-card__link{color:#FF5722;font-weight:700;font-size:0.88rem;display:inline-flex;align-items:center;gap:6px;transition:gap .2s;}
+    .article-card__link:hover{gap:10px;}
+    .article-card__link svg{width:16px;height:16px;}
+
+    .case-studies-banner{background:#f9f9f9;border-top:1px solid #eee;border-bottom:1px solid #eee;padding:80px 0;}
+    .case-study-box{background:#fff;border-radius:16px;padding:36px;border:1px solid #e0e0e0;box-shadow:0 4px 20px rgba(13,27,42,0.04);}
+    
+    @media(max-width:768px){.articles-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <div class="logo__icon"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/><path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link">خانه</a>
+        <a href="solutions.html" class="nav__link">راهکارها</a>
+        <a href="how-it-works.html" class="nav__link">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html" class="nav__link">MVP و پایلوت</a>
+        <a href="knowledge.html" class="nav__link active" style="color:#FF5722;">دانش و مقالات</a>
+        <a href="about.html" class="nav__link">درباره کاپ</a>
+        <a href="faq.html" class="nav__link">سوالات متداول</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="contact.html" class="header__cta">درخواست پایلوت</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero__badge" style="margin:0 auto 24px;"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5l2-5z"/></svg> پژوهش و دانش انرژی</div>
+      <h1>مخزن مقالات و تحلیل‌های تخصصی <span class="highlight">انرژی دیجیتال</span></h1>
+      <p>بررسی روندهای جهانی نیروگاه مجازی، یادگیری عمیق در شبکه برق، اینترنت اشیاء صنعتی و اقتصاد انرژی در ایران</p>
+      
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterArticles('all')">همه مقالات</button>
+        <button class="filter-btn" onclick="filterArticles('ai')">هوش مصنوعی و داده</button>
+        <button class="filter-btn" onclick="filterArticles('vpp')">نیروگاه مجازی و شبکه</button>
+        <button class="filter-btn" onclick="filterArticles('iot')">اینترنت اشیاء و مراقبت هوشمند</button>
+        <button class="filter-btn" onclick="filterArticles('economy')">اقتصاد و سیاست‌گذاری</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles Hub -->
+  <section class="articles-hub">
+    <div class="container">
+      <div class="articles-grid" id="articles-grid">
+
+        <!-- Article 1: Grid Peak -->
+        <article class="article-card" data-cat="vpp">
+          <div class="article-card__img-wrap">
+            <img src="assets/images/hero_illustration.jpg" alt="کاهش مصرف پیک برق" class="article-card__img" loading="lazy">
+            <span class="article-card__tag">شبکه هوشمند</span>
+          </div>
+          <div class="article-card__content">
+            <div class="article-card__meta"><span>📅 ۲۸ مرداد ۱۴۰۵</span><span>⏱ ۷ دقیقه</span></div>
+            <h3 class="article-card__title">تأثیر مدیریت بار هوشمند بر کاهش ۱۸٪ مصرف پیک برق</h3>
+            <p class="article-card__excerpt">چگونه تعدیل بار در زمان واقعی می‌تواند اوج مصرف برق را مهار کند و پایداری شبکه را در شرایط ناترازی ارتقا دهد.</p>
+            <a href="article-grid.html" class="article-card__link">مطالعه مقاله کامل <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+
+        <!-- Article 2: AI Analytics -->
+        <article class="article-card" data-cat="ai">
+          <div class="article-card__img-wrap">
+            <img src="assets/images/article_ai_analytics.jpg" alt="یادگیری عمیق در شبکه برق" class="article-card__img" loading="lazy">
+            <span class="article-card__tag">هوش مصنوعی</span>
+          </div>
+          <div class="article-card__content">
+            <div class="article-card__meta"><span>📅 ۱۵ شهریور ۱۴۰۵</span><span>⏱ ۸ دقیقه</span></div>
+            <h3 class="article-card__title">نقش الگوریتم‌های یادگیری عمیق در تشخیص خطای شبکه توزیع</h3>
+            <p class="article-card__excerpt">پیش‌بینی نوسانات ولتاژ، تشخیص نشتی‌های پنهان و الگوهای غیرعادی در جریان با شبکه‌های عصبی و یادگیری ماشین.</p>
+            <a href="article-ai.html" class="article-card__link">مطالعه مقاله کامل <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+
+        <!-- Article 3: Smart Meters -->
+        <article class="article-card" data-cat="iot">
+          <div class="article-card__img-wrap">
+            <img src="assets/images/article_smart_meter.jpg" alt="کنتورهای دیجیتال" class="article-card__img" loading="lazy">
+            <span class="article-card__tag">سخت‌افزار و IoT</span>
+          </div>
+          <div class="article-card__content">
+            <div class="article-card__meta"><span>📅 ۲ شهریور ۱۴۰۵</span><span>⏱ ۶ دقیقه</span></div>
+            <h3 class="article-card__title">تحول کنتورهای دیجیتال و سنسورهای هوشمند در پایش بلادرنگ</h3>
+            <p class="article-card__excerpt">پایش غیرتهاجمی با سنسورهای کلمپی CT و انتقال داده کم‌مصرف در مقایسه با سیستم‌های گران‌قیمت قدیمی.</p>
+            <a href="article-ct.html" class="article-card__link">مطالعه مقاله کامل <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+
+        <!-- Article 4: VPP -->
+        <article class="article-card" data-cat="vpp">
+          <div class="article-card__img-wrap">
+            <img src="assets/images/hero_smart_energy.jpg" alt="نیروگاه مجازی VPP" class="article-card__img" loading="lazy">
+            <span class="article-card__tag">نیروگاه مجازی VPP</span>
+          </div>
+          <div class="article-card__content">
+            <div class="article-card__meta"><span>📅 شهریور ۱۴۰۵</span><span>⏱ ۸ دقیقه</span></div>
+            <h3 class="article-card__title">نیروگاه مجازی (VPP) چیست و چگونه ناترازی برق ایران را حل می‌کند؟</h3>
+            <p class="article-card__excerpt">تجمیع بارهای منعطف، مشارکت صنایع و خانه‌ها در مدیریت تقاضا و معامله‌پذیر کردن ارزش برق بدون نیاز به ساخت نیروگاه حرارتی.</p>
+            <a href="article-vpp.html" class="article-card__link">مطالعه مقاله کامل <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+
+        <!-- Article 5: Elderly Care -->
+        <article class="article-card" data-cat="iot">
+          <div class="article-card__img-wrap">
+            <img src="assets/images/hero_illustration.jpg" alt="مراقبت از سالمندان با برق" class="article-card__img" loading="lazy">
+            <span class="article-card__tag">مراقبت هوشمند</span>
+          </div>
+          <div class="article-card__content">
+            <div class="article-card__meta"><span>📅 شهریور ۱۴۰۵</span><span>⏱ ۶ دقیقه</span></div>
+            <h3 class="article-card__title">مراقبت هوشمند از سالمندان با تحلیل الگوی مصرف برق خانگی</h3>
+            <p class="article-card__excerpt">پایش نامحسوس و حفظ ۱۰۰ درصدی حریم خصوصی (بدون دوربین) با تکیه بر یادگیری روتین‌های روزمره زیستی سالمند.</p>
+            <a href="article-elderly.html" class="article-card__link">مطالعه مقاله کامل <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+
+        <!-- Article 6: Energy Intensity -->
+        <article class="article-card" data-cat="economy">
+          <div class="article-card__img-wrap">
+            <img src="assets/images/technology_illustration.jpg" alt="شدت مصرف انرژی و GDP" class="article-card__img" loading="lazy">
+            <span class="article-card__tag">اقتصاد انرژی</span>
+          </div>
+          <div class="article-card__content">
+            <div class="article-card__meta"><span>📅 شهریور ۱۴۰۵</span><span>⏱ ۹ دقیقه</span></div>
+            <h3 class="article-card__title">شدت مصرف انرژی در ایران و تأثیر ناترازی برق بر تولید ناخالص داخلی (GDP)</h3>
+            <p class="article-card__excerpt">چرا کاهش شدت انرژی حیاتی است، قطعی برق چه زیانی به تولید می‌زند و چگونه هوش مصنوعی انرژی اقتصاد را نجات می‌دهد.</p>
+            <a href="article-energy-intensity.html" class="article-card__link">مطالعه مقاله کامل <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies & Data Security -->
+  <section class="case-studies-banner">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+        <div class="case-study-box">
+          <span style="color:#FF5722;font-weight:700;font-size:0.85rem;">مطالعه موردی</span>
+          <h3 style="margin:12px 0 16px;color:#0D1B2A;">پایلوت مدیریت مصرف در مجتمع آموزشی و پژوهشی</h3>
+          <p style="color:#616161;font-size:0.92rem;line-height:1.8;margin-bottom:16px;">
+            در پایلوت دانشگاه تهران و مجتمع‌های منتخب، با تفکیک بارهای سرمایشی و پایش مصارف ساعات تعطیلی، بیش از ۱۵٪ کاهش مصرف انرژی بدون کاهش ساعات کاری یا افت رفاه ثبت گردید.
+          </p>
+          <a href="mvp-pilot.html" style="color:#FF5722;font-weight:700;font-size:0.85rem;">مشاهده شواهد پایلوت ←</a>
+        </div>
+        
+        <div class="case-study-box">
+          <span style="color:#FF5722;font-weight:700;font-size:0.85rem;">امنیت داده‌ها</span>
+          <h3 style="margin:12px 0 16px;color:#0D1B2A;">رمزنگاری لایه‌بندی شده و استانداردهای حریم خصوصی</h3>
+          <p style="color:#616161;font-size:0.92rem;line-height:1.8;margin-bottom:16px;">
+            داده‌های الکتریسیته و انرژی سازمان‌ها با پروتکل‌های ایزوله و رمزنگاری‌شده پردازش می‌شوند. هیچ سازمان ثالثی به جزئیات فرآیندهای صنعتی یا مشخصات محرمانه دسترسی نخواهد داشت.
+          </p>
+          <a href="faq.html" style="color:#FF5722;font-weight:700;font-size:0.85rem;">مطالعه اصول امنیت در FAQ ←</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="logo__icon" style="width: 32px; height: 32px;"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </div>
+      <div class="footer__nav">
+        <a href="solutions.html">راهکارها</a>
+        <a href="how-it-works.html">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html">MVP و پایلوت</a>
+        <a href="about.html">درباره کاپ</a>
+        <a href="faq.html">سوالات متداول</a>
+        <a href="contact.html">تماس با ما</a>
+      </div>
+      <p class="footer__vision">چشم‌انداز کاپ، پیوند ظرفیت‌های پراکنده مدیریت مصرف در نیروگاه مجازی کشور است.</p>
+      <p class="footer__copy">© ۱۴۰۵ کارا انرژی پردازان (KAP). تمامی حقوق محفوظ است.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function filterArticles(category) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      const cards = document.querySelectorAll('.article-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-cat') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="سوالات متداول (FAQ) — پاسخ به پرسش‌های کلیدی درباره پلتفرم هوشمند انرژی کاپ، پایلوت‌ها و فناوری‌ها">
+  <title>سوالات متداول | KAP — مدیریت هوشمند مصرف برق</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero{padding-top:140px;padding-bottom:70px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);text-align:center;}
+    .page-hero h1{max-width:700px;margin:0 auto 20px;}
+    .page-hero p{max-width:600px;margin:0 auto;color:#616161;font-size:1.05rem;line-height:1.85;}
+    .faq-section{padding:80px 0 100px;background:#fff;}
+    .faq-container{max-width:850px;margin:0 auto;}
+    .faq-item{border:1px solid #e0e0e0;border-radius:12px;margin-bottom:16px;background:#fff;overflow:hidden;transition:all .3s ease;}
+    .faq-item:hover{border-color:#FF8A50;box-shadow:0 4px 16px rgba(255,87,34,0.06);}
+    .faq-question{width:100%;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;text-align:right;font-size:1.05rem;font-weight:700;color:#0D1B2A;font-family:inherit;outline:none;}
+    .faq-question svg{width:20px;height:20px;color:#FF5722;transition:transform .3s ease;flex-shrink:0;margin-right:16px;}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease, padding .35s ease;padding:0 28px;background:#fafafa;color:#616161;font-size:0.95rem;line-height:1.9;}
+    .faq-item.active{border-color:#FF5722;box-shadow:0 6px 20px rgba(255,87,34,0.1);}
+    .faq-item.active .faq-question svg{transform:rotate(180deg);}
+    .faq-item.active .faq-answer{max-height:600px;padding:16px 28px 24px;}
+    .faq-cta{padding:70px 0;background:linear-gradient(165deg,#0D1B2A,#1B2838);text-align:center;}
+    .faq-cta h2{color:#fff;margin-bottom:16px;font-size:1.4rem;}
+    .faq-cta p{color:rgba(255,255,255,0.7);margin-bottom:30px;}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <div class="logo__icon"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/><path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link">خانه</a>
+        <a href="solutions.html" class="nav__link">راهکارها</a>
+        <a href="how-it-works.html" class="nav__link">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html" class="nav__link">MVP و پایلوت</a>
+        <a href="index.html#articles" class="nav__link">دانش و مقالات</a>
+        <a href="about.html" class="nav__link">درباره کاپ</a>
+        <a href="contact.html" class="nav__link">تماس با ما</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="contact.html" class="header__cta">درخواست پایلوت</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero__badge" style="margin:0 auto 24px;"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5l2-5z"/></svg> مرکز راهنما و سوالات متداول</div>
+      <h1>پاسخ به سوالات متداول درباره <span class="highlight">پلتفرم KAP</span></h1>
+      <p>همه آنچه درباره فناوری‌ها، استقرار پایلوت، امنیت داده‌ها و صرفه‌جویی اقتصادی نیاز دارید بدانید.</p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container faq-container">
+
+      <!-- Q1 -->
+      <div class="faq-item active">
+        <button class="faq-question">
+          <span>کاپ دقیقاً چه کاری انجام می‌دهد و تفاوت آن با BMS چیست؟</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          سامانه‌های متداول BMS و کنتورهای سنتی تنها مصرف کل را ثبت می‌کنند و نیاز به سیم‌کشی‌های سنگین و سخت‌افزارهای گران‌قیمت دارند. کاپ فراتر از یک سامانه پایش ساده است؛ پلتفرمی مبتنی بر هوش مصنوعی و اینترنت اشیاء (IoT) است که الگوهای پنهان مصرف را شناسایی کرده، پتانسیل انعطاف بار را پیش‌بینی می‌کند و ارزش صرفه‌جویی و مدیریت تقاضا را در قالب یک بستر هوشمند تبادل انرژی (نیروگاه مجازی) معامله‌پذیر می‌سازد.
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>آیا کاپ وسایل برقی یا خط تولید من را به اجبار قطع می‌کند؟</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          خیر، یکی از اصول بنیادین کاپ «حفظ اختیار و تداوم فعالیت کاربر» است. در فاز پایلوت و عملیاتی، سیستم صرفاً تحلیل‌های دقیق، فرصت‌های اصلاح مصرف و هشدارهای پیشگیرانه را به مدیران یا ساکنان پیشنهاد می‌دهد و هیچ مداخله کنترلی ناخواسته در فرآیند تولید یا رفاه ساکنان اعمال نمی‌شود. کنترل خودکار صرفاً برای تجهیزات غیربحرانی و با تأیید و تنظیم اختصاصی کاربر قابل فعال‌سازی است.
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>آیا برای راه‌اندازی کاپ نیازی به تغییر سیم‌کشی یا زیرساخت ساختمان است؟</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          خیر. کاپ از سنسورهای کلمپی غیرتهاجمی (Split-Core CT) و ماژول‌های IoT سبک استفاده می‌کند که بدون قطع برق و بدون دستکاری کابل‌های ساختمانی، در چند دقیقه روی تابلوی برق نصب می‌شوند. همچنین این پلتفرم قابلیت اتصال مستقیم به کنتورهای هوشمند دیجیتال موجود در شبکه برق را داراست.
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>طرح پایلوت رایگان شامل چه مراکزی می‌شود و چگونه می‌توان ثبت‌نام کرد؟</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          کاپ در راستای مسئولیت اجتماعی و توسعه زیست‌بوم نوآوری انرژی، هدف استقرار در ۱۰۰ دانشگاه و ۵۰۰۰ مدرسه کشور را به صورت پایلوت رایگان در دستور کار دارد. خانه‌ها و مجتمع‌های مسکونی منتخب نیز می‌توانند در طرح بتا ثبت‌نام کنند. برای صنایع و مجتمع‌های تجاری بزرگ، مدل مشارکت بر اساس سهم از صرفه‌جویی حاصله (Shared Savings) پیشنهاد می‌شود.
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>فناوری مراقبت هوشمند از سالمندان کاپ چگونه کار می‌کند؟ آیا دوربین نصب می‌شود؟</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          به هیچ عنوان دوربینی نصب نمی‌شود و حریم خصوصی ۱۰۰٪ محفوظ است. سیستم با الگوریتم‌های تفکیک بار (NILM)، روتین‌های روزمره سالمند را از روی روشن شدن کتری برقی، یخچال، چراغ‌ها و تلویزیون یاد می‌گیرد. در صورت انحراف محسوس از الگو (مانند روشن نماندن کتری در صبح یا روشن ماندن مداوم چراغ سرویس در نیمه‌شب)، هشداری ملایم به خانواده ارسال می‌گردد.
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>نیروگاه مجازی (VPP) چیست و چه منفعتی برای کسب‌وکارها دارد؟</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          نیروگاه مجازی ظرفیت‌های پراکنده کاهش بار در صدها ساختمان و کارخانه را با هوش مصنوعی تجمیع می‌کند. صنایع و مجتمع‌ها با مشارکت اختیاری در جابجایی بار ساعات اوج مصرف شبکه، علاوه بر اجتناب از خاموشی‌های ناگهانی، پاداش‌های مالی یا اعتبار گواهی صرفه‌جویی دریافت می‌کنند.
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>امنیت داده‌های مصرف برق ما چگونه تضمین می‌شود؟</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          داده‌های مصرف با پروتکل‌های پیشرفته رمزنگاری (TLS/SSL و AES-256) به سرورهای امن منتقل و ذخیره می‌شوند. داده‌های مصرف هر مشترک کاملاً ایزوله بوده و هیچ دسترسی غیرمجازی به اطلاعات فرآیندی، نام تجهیزات یا اسرار تجاری امکان‌پذیر نیست.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="faq-cta">
+    <div class="container">
+      <h2>سؤال دیگری دارید که در اینجا نیست؟</h2>
+      <p>کارشناسان انرژی و هوش مصنوعی کاپ آماده پاسخگویی و ارائه مشاوره تخصصی هستند.</p>
+      <a href="contact.html" class="btn-primary" style="background:#FF5722;color:#fff;">ارتباط با ما <svg viewBox="0 0 20 20" fill="none"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="logo__icon" style="width: 32px; height: 32px;"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </div>
+      <div class="footer__nav">
+        <a href="solutions.html">راهکارها</a>
+        <a href="how-it-works.html">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html">MVP و پایلوت</a>
+        <a href="about.html">درباره کاپ</a>
+        <a href="faq.html">سوالات متداول</a>
+        <a href="contact.html">تماس با ما</a>
+      </div>
+      <p class="footer__vision">چشم‌انداز کاپ، پیوند ظرفیت‌های پراکنده مدیریت مصرف در نیروگاه مجازی کشور است.</p>
+      <p class="footer__copy">© ۱۴۰۵ کارا انرژی پردازان (KAP). تمامی حقوق محفوظ است.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Accordion interaction
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

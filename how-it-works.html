@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="چگونه KAP کار می‌کند — چرخه ۵ مرحله‌ای ارزش‌آفرینی: پایش، تحلیل، شناخت فرصت، اقدام و سنجش نتیجه نسبت به خط مبنا">
+  <title>چگونه کار می‌کند | KAP — معماری و فرایند عملکرد</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero{padding-top:140px;padding-bottom:80px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);text-align:center;}
+    .page-hero h1{max-width:700px;margin:0 auto 20px;}
+    .page-hero p{max-width:640px;margin:0 auto 32px;color:#616161;font-size:1.05rem;line-height:1.85;}
+    .steps-section{padding:80px 0;background:#fff;}
+    .steps-section h2{text-align:center;margin-bottom:60px;}
+    .step-row{display:grid;grid-template-columns:80px 1fr;gap:32px;align-items:start;margin-bottom:48px;max-width:750px;margin-left:auto;margin-right:auto;}
+    .step-row:last-child{margin-bottom:0;}
+    .step-num{width:64px;height:64px;border-radius:50%;background:#FFF3E0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:900;color:#FF5722;flex-shrink:0;position:relative;}
+    .step-num::after{content:'';position:absolute;bottom:-48px;left:50%;width:2px;height:48px;background:#eee;transform:translateX(-50%);}
+    .step-row:last-child .step-num::after{display:none;}
+    .step-body h3{font-size:1.2rem;margin-bottom:10px;color:#0D1B2A;}
+    .step-body p{font-size:0.95rem;color:#616161;line-height:1.85;}
+    .mvp-link{padding:70px 0;background:#f5f5f5;text-align:center;}
+    .mvp-link p{color:#616161;margin-bottom:24px;font-size:1rem;}
+    @media(max-width:768px){.step-row{grid-template-columns:1fr;text-align:center;}.step-num{margin:0 auto;}.step-num::after{display:none;}}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <div class="logo__icon"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/><path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link">خانه</a>
+        <a href="solutions.html" class="nav__link">راهکارها</a>
+        <a href="how-it-works.html" class="nav__link active" style="color:#FF5722;">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html" class="nav__link">MVP و پایلوت</a>
+        <a href="knowledge.html" class="nav__link">دانش و مقالات</a>
+        <a href="about.html" class="nav__link">درباره کاپ</a>
+        <a href="faq.html" class="nav__link">سوالات متداول</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="contact.html" class="header__cta">درخواست پایلوت</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero__badge" style="margin:0 auto 24px;"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5l2-5z"/></svg> نحوه عملکرد و معماری</div>
+      <h1>از داده مصرف تا <span class="highlight">نتیجه ملموس</span></h1>
+      <p>کاپ فقط مصرف را نمایش نمی‌دهد. هدف این است که داده‌های خام انرژی به شناخت عمیق فرصت‌ها، تصمیم‌های عملیاتی و صرفه‌جویی قابل اثبات تبدیل شوند.</p>
+    </div>
+  </section>
+
+  <!-- 5 Steps Section -->
+  <section class="steps-section">
+    <div class="container">
+      <h2>چرخه ۵ مرحله‌ای کاپ</h2>
+
+      <div class="step-row reveal">
+        <div class="step-num">۱</div>
+        <div class="step-body">
+          <h3>پایش بلادرنگ (Monitoring)</h3>
+          <p>مصرف الکتریکی در نقاط کلیدی بدون قطع برق و با سنسورهای کلمپی یا اتصال به کنتورهای هوشمند دیجیتال اندازه‌گیری می‌شود. داده‌ها به صورت امن و لحظه‌ای ثبت و به ابر منتقل می‌گردند.</p>
+        </div>
+      </div>
+
+      <div class="step-row reveal">
+        <div class="step-num">۲</div>
+        <div class="step-body">
+          <h3>تحلیل الگوها و رفتار (Analysis)</h3>
+          <p>موتور هوش مصنوعی کاپ رفتار مصرفی را در ساعات کاری، پیک بار شبکه و زمان‌های تعطیلی پردازش می‌کند. تلفات پنهان، بار تجهیزات استندبای و نوسانات ولتاژ تفکیک و آشکار می‌شوند.</p>
+        </div>
+      </div>
+
+      <div class="step-row reveal">
+        <div class="step-num">۳</div>
+        <div class="step-body">
+          <h3>شناخت فرصت‌های مدیریت بار (Opportunity Identification)</h3>
+          <p>سیستم گلوگاه‌هایی را که بدون لطمه به رفاه یا خط تولید قابل بهینه‌سازی هستند مشخص می‌کند؛ از تنظیم زمان‌بندی پمپ‌ها و چیلرها تا جابجایی فرآیندهای پرمصرف به ساعات کم‌بار.</p>
+        </div>
+      </div>
+
+      <div class="step-row reveal">
+        <div class="step-num">۴</div>
+        <div class="step-body">
+          <h3>اقدام عملیاتی با حفظ اختیار کاربر (Action)</h3>
+          <p>پیشنهادهای اجرایی متناسب با شرایط هر سایت ارائه می‌شوند. در کاپ هیچ مداخله ناخواسته یا قطعی اجباری رخ نمی‌دهد؛ تصمیم‌گیری در اختیار مدیر یا ساکن است.</p>
+        </div>
+      </div>
+
+      <div class="step-row reveal">
+        <div class="step-num">۵</div>
+        <div class="step-body">
+          <h3>سنجش نتیجه نسبت به خط مبنا (Impact Measurement)</h3>
+          <p>اثربخشی هر اقدام نسبت به خط پایه مصرف (Baseline) و متغیرهای آب‌وهوایی ارزیابی می‌شود تا ریال به ریال صرفه‌جویی مالی و کاهش بار پیک مستند و قابل‌اثبات باشد.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MVP Link -->
+  <section class="mvp-link">
+    <div class="container">
+      <h3 style="margin-bottom:12px;color:#0D1B2A;">مشاهده اجرای زنده در پلتفرم</h3>
+      <p>عملکرد واقعی داشبورد و الگوریتم‌های تحلیل مصرف را در نسخه آزمایشی آنلاین تجربه کنید:</p>
+      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+        <a href="mvp-pilot.html" class="btn-outline">گزارش وضعیت MVP و پایلوت</a>
+        <a href="https://kap-energy-platform.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">مشاهده نسخه MVP زنده 🚀</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="logo__icon" style="width: 32px; height: 32px;"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </div>
+      <div class="footer__nav">
+        <a href="solutions.html">راهکارها</a>
+        <a href="how-it-works.html">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html">MVP و پایلوت</a>
+        <a href="about.html">درباره کاپ</a>
+        <a href="faq.html">سوالات متداول</a>
+        <a href="contact.html">تماس با ما</a>
+      </div>
+      <p class="footer__vision">چشم‌انداز کاپ، پیوند ظرفیت‌های پراکنده مدیریت مصرف در نیروگاه مجازی کشور است.</p>
+      <p class="footer__copy">© ۱۴۰۵ کارا انرژی پردازان (KAP). تمامی حقوق محفوظ است.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

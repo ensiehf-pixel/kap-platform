@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MVP و پایلوت KAP — وضعیت فعلی پروژه، قابلیت‌های امروز و مسیر توسعه آینده">
+  <title>MVP و پایلوت | KAP — سامانه مدیریت هوشمند مصرف برق</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero{padding-top:140px;padding-bottom:80px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);text-align:center;}
+    .page-hero h1{max-width:700px;margin:0 auto 20px;}
+    .page-hero p{max-width:640px;margin:0 auto;color:#616161;font-size:1.05rem;line-height:1.85;}
+    .mvp-section{padding:80px 0;background:#fff;}
+    .mvp-section h2{text-align:center;margin-bottom:48px;}
+    .mvp-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:900px;margin:0 auto;}
+    .mvp-col h3{font-size:1.1rem;margin-bottom:20px;color:#0D1B2A;display:flex;align-items:center;gap:8px;}
+    .mvp-col h3 span{width:8px;height:8px;border-radius:50%;display:inline-block;}
+    .mvp-col ul{list-style:none;padding:0;}
+    .mvp-col ul li{padding:10px 0;border-bottom:1px solid #f0f0f0;font-size:0.92rem;color:#616161;display:flex;align-items:center;gap:10px;}
+    .mvp-col ul li svg{width:18px;height:18px;flex-shrink:0;}
+    .done-col h3 span{background:#4CAF50;}
+    .done-col li svg{color:#4CAF50;}
+    .dev-col h3 span{background:#FF9800;}
+    .dev-col li svg{color:#FF9800;}
+    .pilot-evidence{padding:80px 0;background:#f5f5f5;}
+    .pilot-box{max-width:700px;margin:0 auto;background:#fff;border-radius:16px;padding:40px;border:1px solid #eee;box-shadow:0 4px 16px rgba(13,27,42,.06);}
+    .pilot-box h2{margin-bottom:20px;font-size:1.3rem;}
+    .pilot-box p{font-size:0.95rem;color:#616161;line-height:1.85;margin-bottom:16px;}
+    .pilot-box .highlight-stat{display:inline-block;background:#FFF3E0;color:#FF5722;font-weight:800;padding:4px 16px;border-radius:8px;font-size:1.2rem;margin-bottom:16px;}
+    .pilot-box .note{font-size:0.82rem;color:#9E9E9E;border-top:1px solid #eee;padding-top:16px;margin-top:16px;line-height:1.7;}
+    .demo-cta{padding:80px 0;background:linear-gradient(165deg,#0D1B2A,#1B2838);text-align:center;}
+    .demo-cta h2{color:#fff;margin-bottom:16px;}
+    .demo-cta p{color:rgba(255,255,255,.6);margin-bottom:32px;}
+    @media(max-width:768px){.mvp-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <header class="header scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <div class="logo__icon"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/><path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link">خانه</a>
+        <a href="solutions.html" class="nav__link">راهکارها</a>
+        <a href="how-it-works.html" class="nav__link">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html" class="nav__link active" style="color:#FF5722;">MVP و پایلوت</a>
+        <a href="knowledge.html" class="nav__link">دانش و مقالات</a>
+        <a href="about.html" class="nav__link">درباره کاپ</a>
+        <a href="faq.html" class="nav__link">سوالات متداول</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="contact.html" class="header__cta">درخواست پایلوت</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero__badge" style="margin:0 auto 24px;"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5l2-5z"/></svg> MVP و پایلوت عملیاتی</div>
+      <h1>کاپ امروز در چه <span class="highlight">مرحله‌ای</span> است؟</h1>
+      <p>پلتفرم فناورانه در حوزه هوش مصنوعی، اینترنت اشیاء (IoT)، تحلیل داده‌های انرژی، مدیریت هوشمند بار و اقتصاد دیجیتال انرژی که هدف آن ایجاد نسل جدیدی از زیرساخت‌های مدیریت و تبادل انرژی الکتریکی می‌باشد.</p>
+    </div>
+  </section>
+
+  <!-- Platform Statement Box -->
+  <section style="padding: 40px 0; background: #fafafa; border-bottom: 1px solid #eee;">
+    <div class="container">
+      <div style="max-width: 860px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 32px 36px; border: 1px solid #e0e0e0; box-shadow: 0 4px 16px rgba(13,27,42,0.04); display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 280px;">
+          <h3 style="color: #0D1B2A; margin-bottom: 12px; font-size: 1.15rem;">فراتر از سامانه‌های متداول BMS و مانیتورینگ</h3>
+          <p style="color: #616161; font-size: 0.94rem; line-height: 1.85; margin: 0;">
+            این طرح با رویکردی نوآورانه، فراتر از سامانه‌های متداول مدیریت ساختمان BMS و سامانه‌های ساده پایش مصرف انرژی، به دنبال ایجاد بستری هوشمند برای شناسایی، تحلیل، کنترل و در ادامه <strong>معامله‌پذیر نمودن ارزش انرژی الکتریکی</strong> است.
+          </p>
+        </div>
+        <a href="https://kap-energy-platform.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="white-space: nowrap; padding: 14px 24px;">
+          مشاهده نسخه MVP زنده 🚀
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mvp-section">
+    <div class="container">
+      <h2>وضعیت قابلیت‌ها</h2>
+      <div class="mvp-grid">
+        <div class="mvp-col done-col">
+          <h3><span></span> MVP امروز چه می‌کند؟</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> پایش مصرف</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> انتقال و ذخیره داده</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> تحلیل الگوی مصرف</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> شناسایی فرصت‌های قابل بررسی</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> گزارش و Dashboard</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> توسعه هشدارها و توصیه‌ها</li>
+          </ul>
+        </div>
+        <div class="mvp-col dev-col">
+          <h3><span></span> چه چیزی هنوز در حال توسعه است؟</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> کنترل خودکار گسترده</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> تفکیک کامل همه بارها</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> استقرار انبوه</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> اتصال کامل به گواهی صرفه‌جویی</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> VPP در مقیاس ملی</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pilot-evidence">
+    <div class="container">
+      <div class="pilot-box reveal">
+        <h2>نتایج پایلوت اولیه</h2>
+        <div class="highlight-stat">کاهش ۱۵٪ مصرف</div>
+        <p>در پایلوت اولیه، مؤسسان کاهش ۱۵٪ مصرف انرژی نسبت به خط پایه اعلامی را گزارش کرده‌اند.</p>
+        <p>پروژه دانشگاه تهران در دست اجرا و ۱۰ پروژه موفق تکمیل شده است.</p>
+        <p class="note">⚠️ این نتیجه، تضمین عملکرد همه سایت‌ها نیست و توسعه روش اندازه‌گیری و صحه‌گذاری بخشی از مسیر فعلی پروژه است.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-cta">
+    <div class="container">
+      <h2>نسخه زنده پلتفرم را مشاهده کنید</h2>
+      <p>داشبورد MVP کاپ آنلاین و در دسترس است.</p>
+      <a href="https://kap-energy-platform.vercel.app/" class="btn-primary" target="_blank" rel="noopener noreferrer">مشاهده نسخه MVP زنده 🚀 <svg viewBox="0 0 20 20" fill="none"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </section>
+
+  <footer class="footer" id="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="logo__icon" style="width:32px;height:32px;"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </div>
+      <div class="footer__nav">
+        <a href="solutions.html">راهکارها</a>
+        <a href="how-it-works.html">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html">MVP و پایلوت</a>
+        <a href="about.html">درباره کاپ</a>
+        <a href="faq.html">سوالات متداول</a>
+        <a href="contact.html">تماس با ما</a>
+      </div>
+      <p class="footer__vision">چشم‌انداز کاپ، پیوند ظرفیت‌های پراکنده مدیریت مصرف در نیروگاه مجازی کشور است.</p>
+      <p class="footer__copy">© ۱۴۰۵ کارا انرژی پردازان (KAP). تمامی حقوق محفوظ است.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

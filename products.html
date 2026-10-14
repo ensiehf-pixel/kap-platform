@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="محصولات سخت‌افزاری KAP — سنسورهای CT، ماژول کنتور هوشمند و تجهیزات مانیتورینگ شبکه">
+  <title>محصولات سخت‌افزاری | KAP</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .products-hero{padding-top:140px;padding-bottom:60px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);}
+    .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;padding:80px 0;}
+    .product-card{background:#fff;border:1px solid #eee;border-radius:16px;overflow:hidden;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);}
+    .product-card:hover{border-color:#FF8A50;box-shadow:0 8px 32px rgba(255,87,34,0.12);transform:translateY(-6px);}
+    .product-card img{width:100%;height:220px;object-fit:cover;}
+    .product-card__body{padding:28px;}
+    .product-card__body h3{font-size:1.15rem;margin-bottom:10px;}
+    .product-card__body p{color:#757575;font-size:0.9rem;line-height:1.75;margin-bottom:16px;}
+    .product-tag{display:inline-block;padding:4px 12px;border-radius:20px;background:#FFF3E0;color:#FF5722;font-size:0.75rem;font-weight:600;margin-bottom:12px;}
+    .product-specs{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;}
+    .product-specs span{padding:6px 14px;border-radius:8px;background:#f5f5f5;font-size:0.78rem;color:#616161;}
+    @media(max-width:1024px){.products-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:768px){.products-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <div class="logo__icon">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/><path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/></svg>
+        </div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html#articles" class="nav__link">مقالات</a>
+        <a href="technology-detail.html" class="nav__link">فناوری</a>
+        <a href="products.html" class="nav__link" style="color:#FF5722;">محصولات</a>
+        <a href="index.html#contact" class="nav__link">درباره ما</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="demo.html" class="header__cta">درخواست دمو</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="products-hero">
+    <div class="container" style="text-align:center;">
+      <span class="section-badge">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.5 5H15l-4.5 3.5L12 14 8 10.5 4 14l1.5-5.5L1 5h5.5L8 0z"/></svg>
+        محصولات سخت‌افزاری
+      </span>
+      <h1>محصولات سخت‌افزاری KAP</h1>
+      <p style="max-width:600px;margin:16px auto 0;color:#757575;font-size:1.05rem;">
+        مجموعه کاملی از سنسورها، ماژول‌ها و تجهیزات مانیتورینگ شبکه برق
+      </p>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section>
+    <div class="container">
+      <div class="products-grid">
+
+        <div class="product-card">
+          <img src="assets/images/technology_illustration.jpg" alt="سنسور CT کلمپی">
+          <div class="product-card__body">
+            <span class="product-tag">سنسور</span>
+            <h3>سنسور CT کلمپی KAP-CT100</h3>
+            <p>سنسور ترانسفورماتور جریان کلمپی برای نصب بدون قطع سیم. مناسب کنتورهای تکفاز و سه‌فاز تا جریان ۱۰۰ آمپر.</p>
+            <div class="product-specs">
+              <span>۱۰۰A نامی</span>
+              <span>کلاس ۰.۵</span>
+              <span>IP54</span>
+              <span>خروجی دیجیتال</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="assets/images/article_ai_analytics.jpg" alt="ماژول تحلیل هوشمند">
+          <div class="product-card__body">
+            <span class="product-tag">ماژول</span>
+            <h3>ماژول تحلیل هوشمند KAP-AI200</h3>
+            <p>ماژول پردازشی مبتنی بر هوش مصنوعی برای تحلیل بلادرنگ الگوی مصرف و تشخیص خطا. قابل نصب داخل کنتور هوشمند.</p>
+            <div class="product-specs">
+              <span>ARM Cortex-M7</span>
+              <span>Edge AI</span>
+              <span>۲MB RAM</span>
+              <span>OTA Update</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="assets/images/hero_illustration.jpg" alt="گیتوی ارتباطی">
+          <div class="product-card__body">
+            <span class="product-tag">گیتوی</span>
+            <h3>گیتوی ارتباطی KAP-GW300</h3>
+            <p>گیتوی ارتباطی چندپروتکله برای اتصال کنتورهای هوشمند به پلتفرم ابری KAP. پشتیبانی از NB-IoT، LoRa و Wi-Fi.</p>
+            <div class="product-specs">
+              <span>NB-IoT</span>
+              <span>LoRaWAN</span>
+              <span>Wi-Fi</span>
+              <span>IP67</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:80px 0;background:#0D1B2A;text-align:center;">
+    <div class="container">
+      <h2 style="color:#fff;margin-bottom:16px;">نیاز به مشاوره فنی دارید؟</h2>
+      <p style="color:rgba(255,255,255,0.6);margin-bottom:32px;">تیم مهندسی KAP آماده ارائه مشاوره تخصصی و پیشنهاد بهترین راه‌حل برای شماست</p>
+      <a href="demo.html" class="btn-primary">درخواست مشاوره رایگان</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="logo__icon" style="width:32px;height:32px;"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </div>
+      <p class="footer__copy">© ۱۴۰۵ کارا پردازان انرژی. تمامی حقوق محفوظ است.</p>
+      <div class="footer__links"><a href="index.html">صفحه اصلی</a><a href="technology-detail.html">فناوری</a><a href="index.html#contact">تماس</a></div>
+    </div>
+  </footer>
+</body>
+</html>

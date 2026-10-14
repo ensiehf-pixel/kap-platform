@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="نقش الگوریتم‌های یادگیری عمیق در تشخیص خطای شبکه توزیع — مقاله فنی KAP">
+  <title>یادگیری عمیق در تشخیص خطای شبکه | KAP</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .article-hero{padding-top:140px;padding-bottom:60px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);}
+    .article-content{max-width:800px;margin:0 auto;padding:60px 24px 100px;}
+    .article-content p{color:#616161;font-size:1.02rem;line-height:2;margin-bottom:24px;}
+    .article-content h2{margin:48px 0 16px;font-size:1.5rem;}
+    .article-content h3{margin:32px 0 12px;font-size:1.2rem;}
+    .article-content img{width:100%;border-radius:16px;margin:32px 0;box-shadow:0 4px 16px rgba(13,27,42,0.08);}
+    .article-content blockquote{border-right:4px solid #FF5722;padding:16px 24px;background:#FFF3E0;border-radius:0 12px 12px 0;margin:32px 0;font-size:0.95rem;color:#0D1B2A;}
+    .article-meta{display:flex;gap:24px;align-items:center;margin-bottom:32px;color:#9E9E9E;font-size:0.85rem;}
+    .article-meta span{display:flex;align-items:center;gap:6px;}
+    .tag-inline{display:inline-block;padding:4px 12px;border-radius:20px;background:#FFF3E0;color:#FF5722;font-size:0.78rem;font-weight:600;}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <div class="logo__icon"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/><path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link">خانه</a>
+        <a href="solutions.html" class="nav__link">راهکارها</a>
+        <a href="how-it-works.html" class="nav__link">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html" class="nav__link">MVP و پایلوت</a>
+        <a href="knowledge.html" class="nav__link" style="color:#FF5722;">دانش و مقالات</a>
+        <a href="about.html" class="nav__link">درباره کاپ</a>
+        <a href="contact.html" class="nav__link">تماس با ما</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="contact.html" class="header__cta">درخواست پایلوت</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="article-hero">
+    <div class="container" style="text-align:center;">
+      <span class="tag-inline">هوش مصنوعی</span>
+      <h1 style="margin-top:16px;max-width:700px;margin-left:auto;margin-right:auto;">نقش الگوریتم‌های یادگیری عمیق در تشخیص خطای شبکه توزیع</h1>
+      <div class="article-meta" style="justify-content:center;margin-top:20px;">
+        <span>📅 ۱۵ شهریور ۱۴۰۵</span>
+        <span>⏱ ۸ دقیقه مطالعه</span>
+        <span>✍️ تیم تحقیقات KAP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Body -->
+  <div class="article-content">
+    <img src="assets/images/article_ai_analytics.jpg" alt="داشبورد تحلیل هوش مصنوعی شبکه برق">
+
+    <p>
+      شبکه‌های توزیع برق با افزایش پیچیدگی و گسترش مصرف‌کنندگان، نیازمند سیستم‌های تشخیص خطای
+      هوشمند و بلادرنگ هستند. روش‌های سنتی مبتنی بر آستانه‌گذاری ساده، دیگر پاسخگوی نیازهای
+      شبکه‌های مدرن نیستند. در این مقاله، رویکرد KAP در استفاده از الگوریتم‌های یادگیری عمیق
+      برای تشخیص آنی خطاهای شبکه را بررسی می‌کنیم.
+    </p>
+
+    <h2>چالش‌های تشخیص خطا در شبکه‌های توزیع</h2>
+    <p>
+      شبکه‌های توزیع برق به دلیل ساختار شاخه‌ای، تنوع بار مصرفی و شرایط محیطی متغیر،
+      با چالش‌های متعددی در زمینه تشخیص خطا مواجه هستند. اتصال کوتاه، نشتی جریان،
+      اضافه‌بار و عدم تعادل فاز از جمله خطاهای رایج هستند که در صورت عدم شناسایی
+      به موقع، می‌توانند خسارات جبران‌ناپذیری ایجاد کنند.
+    </p>
+
+    <blockquote>
+      سیستم تشخیص خطای KAP با دقت ۹۵ درصد و زمان تشخیص کمتر از ۲ ثانیه،
+      عملکردی بسیار بالاتر از سیستم‌های سنتی ارائه می‌دهد.
+    </blockquote>
+
+    <h2>معماری مدل یادگیری عمیق KAP</h2>
+    <p>
+      تیم تحقیقات KAP از ترکیب شبکه‌های عصبی کانولوشنی (CNN) و شبکه‌های بازگشتی (LSTM)
+      برای تحلیل سیگنال‌های الکتریکی استفاده می‌کند. CNN برای استخراج ویژگی‌های فرکانسی
+      و LSTM برای تحلیل الگوهای زمانی به کار گرفته شده‌اند.
+    </p>
+
+    <h3>مراحل پردازش داده</h3>
+    <p>
+      ۱. جمع‌آوری داده خام از سنسورهای CT با نرخ ۵۰kHz<br>
+      ۲. پیش‌پردازش و نرمال‌سازی سیگنال<br>
+      ۳. استخراج ویژگی توسط لایه‌های CNN<br>
+      ۴. تحلیل زمانی توسط LSTM<br>
+      ۵. طبقه‌بندی نوع خطا و ارسال هشدار
+    </p>
+
+    <h2>نتایج و عملکرد</h2>
+    <p>
+      مدل KAP روی مجموعه داده‌ای شامل ۵۰۰,۰۰۰ نمونه واقعی از شبکه‌های توزیع ایران
+      آموزش دیده و نتایج زیر را کسب کرده است:
+    </p>
+    <p>
+      • دقت کلی تشخیص: ۹۵.۳٪<br>
+      • نرخ تشخیص اتصال کوتاه: ۹۸.۱٪<br>
+      • نرخ تشخیص نشتی جریان: ۹۳.۷٪<br>
+      • نرخ هشدار کاذب: کمتر از ۲٪<br>
+      • کاهش زمان قطعی: ۶۰٪
+    </p>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="demo.html" class="btn-primary" target="_blank" rel="noopener noreferrer">درخواست دمو از سیستم تشخیص خطا</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="logo__icon" style="width:32px;height:32px;"><svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/></svg></div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </div>
+      <div class="footer__nav">
+        <a href="solutions.html">راهکارها</a>
+        <a href="how-it-works.html">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html">MVP و پایلوت</a>
+        <a href="about.html">درباره کاپ</a>
+        <a href="faq.html">سوالات متداول</a>
+        <a href="contact.html">تماس با ما</a>
+      </div>
+      <p class="footer__vision">چشم‌انداز کاپ، پیوند ظرفیت‌های پراکنده مدیریت مصرف در نیروگاه مجازی کشور است.</p>
+      <p class="footer__copy">© ۱۴۰۵ کارا انرژی پردازان (KAP). تمامی حقوق محفوظ است.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="راهکارهای کاپ برای مدیریت هوشمند مصرف برق — خانه، دانشگاه، اداری، صنعت و صنعت برق">
+  <title>راهکارها | KAP — مدیریت هوشمند مصرف برق</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sol-hero{padding-top:140px;padding-bottom:80px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);text-align:center;}
+    .sol-hero h1{max-width:700px;margin:0 auto 20px;}
+    .sol-hero p{max-width:600px;margin:0 auto;color:#616161;font-size:1.05rem;line-height:1.85;}
+    .sol-cards{padding:80px 0;background:#fff;}
+    .sol-cards__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;}
+    .sol-big-card{background:#fff;border:1px solid #eee;border-radius:16px;padding:40px 32px;transition:all .35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
+    .sol-big-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:#FF5722;transform:scaleX(0);transition:transform .35s cubic-bezier(.16,1,.3,1);}
+    .sol-big-card:hover{transform:translateY(-8px);box-shadow:0 8px 32px rgba(13,27,42,.1);border-color:#FF8A50;}
+    .sol-big-card:hover::before{transform:scaleX(1);}
+    .sol-big-card__icon{font-size:3rem;margin-bottom:20px;}
+    .sol-big-card h3{font-size:1.25rem;margin-bottom:12px;}
+    .sol-big-card p{font-size:0.92rem;color:#616161;line-height:1.8;margin-bottom:24px;}
+    .sol-big-card .btn-outline{font-size:0.88rem;padding:12px 24px;}
+    .sol-loop-banner{padding:60px 0;background:#f5f5f5;text-align:center;}
+    .sol-loop-banner h2{margin-bottom:16px;font-size:1.5rem;}
+    .sol-loop-banner p{color:#616161;margin-bottom:32px;font-size:1rem;}
+    .sol-loop-steps{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:32px;}
+    .sol-loop-chip{padding:10px 20px;background:#FFF3E0;color:#FF5722;border-radius:9999px;font-weight:600;font-size:0.88rem;}
+    .sol-loop-chip span{margin:0 6px;color:#BDBDBD;}
+    .sol-cta-banner{padding:80px 0;background:linear-gradient(165deg,#0D1B2A 0%,#1B2838 100%);text-align:center;}
+    .sol-cta-banner h2{color:#fff;margin-bottom:16px;}
+    .sol-cta-banner p{color:rgba(255,255,255,.6);margin-bottom:32px;font-size:1rem;}
+    @media(max-width:768px){.sol-cards__grid{grid-template-columns:1fr;}.sol-loop-steps{flex-direction:column;align-items:center;}}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" id="logo">
+        <div class="logo__icon">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M24 4L44 16V32L24 44L4 32V16L24 4Z" fill="#FF5722" opacity="0.15"/><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/><path d="M24 10L38 18L24 26L10 18L24 10Z" fill="white" opacity="0.3"/><path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/></svg>
+        </div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link">خانه</a>
+        <a href="solutions.html" class="nav__link active" style="color:#FF5722;">راهکارها</a>
+        <a href="how-it-works.html" class="nav__link">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html" class="nav__link">MVP و پایلوت</a>
+        <a href="knowledge.html" class="nav__link">دانش و مقالات</a>
+        <a href="about.html" class="nav__link">درباره کاپ</a>
+        <a href="faq.html" class="nav__link">سوالات متداول</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="contact.html" class="header__cta" id="header-cta">
+          <svg viewBox="0 0 20 20" fill="none" style="width:16px;height:16px;"><path d="M2.5 5.833h15M2.5 10h15M2.5 14.167h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          تماس با ما
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="sol-hero">
+    <div class="container">
+      <div class="hero__badge" style="margin:0 auto 24px;">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5l2-5z"/></svg>
+        راهکارهای مدیریت انرژی
+      </div>
+      <h1>هر محیط، مسئله انرژی خودش را دارد</h1>
+      <p>مدیریت مصرف برق در یک خانه با یک دانشگاه، کارخانه یا شبکه برق یکسان نیست. کاپ راهکار را با نوع مصرف، محدودیت‌های بهره‌برداری و هدف هر مجموعه تطبیق می‌دهد.</p>
+    </div>
+  </section>
+
+  <!-- Solution Cards -->
+  <section class="sol-cards">
+    <div class="container">
+      <div class="sol-cards__grid">
+
+        <div class="sol-big-card reveal">
+          <div class="sol-big-card__icon">🏠</div>
+          <h3>مصرف برق خانه را بهتر بشناسید</h3>
+          <p>قبض بالا رفته، اما معلوم نیست چه چیزی را می‌توان اصلاح کرد؟ کاپ به شناسایی فرصت‌های قابل مدیریت و سنجش نتیجه تغییرات کمک می‌کند؛ با هدف حفظ آسایش زندگی روزمره.</p>
+          <a href="solution-home.html" class="btn-outline">راهکار برای خانه‌ها ←</a>
+        </div>
+
+        <div class="sol-big-card reveal">
+          <div class="sol-big-card__icon">🎓</div>
+          <h3>مدیریت مصرف بدون اختلال در فعالیت آموزشی</h3>
+          <p>از روشنایی و سرمایش تا فضاهای اداری و تأسیسات؛ کاپ به مجموعه‌های آموزشی کمک می‌کند مصرف قابل اصلاح را بهتر بشناسند، اقدامات را اولویت‌بندی کنند و نتیجه را بسنجند.</p>
+          <a href="solution-education.html" class="btn-outline">راهکار برای مراکز آموزشی ←</a>
+        </div>
+
+        <div class="sol-big-card reveal">
+          <div class="sol-big-card__icon">🏢</div>
+          <h3>مصرف متناسب با ساعات واقعی فعالیت</h3>
+          <p>آیا ساختمان در زمانی که فعالیتی ندارد همچنان بار قابل‌توجهی دارد؟ کاپ به شناخت الگوهای مصرف، فرصت‌های قابل اصلاح و سنجش اثر اقدامات کمک می‌کند.</p>
+          <a href="solution-business.html" class="btn-outline">راهکار ساختمان‌ها ←</a>
+        </div>
+
+        <div class="sol-big-card reveal">
+          <div class="sol-big-card__icon">🏭</div>
+          <h3>مدیریت بار، بدون نادیده‌گرفتن تولید</h3>
+          <p>در صنعت، «کمتر مصرف کردن» به‌تنهایی راه‌حل نیست. باید بدانیم کدام بار، چه زمانی و تا چه اندازه قابل مدیریت است، بدون اینکه فرایند و تداوم تولید آسیب ببیند.</p>
+          <a href="solution-industry.html" class="btn-outline">راهکار صنایع ←</a>
+        </div>
+
+        <div class="sol-big-card reveal">
+          <div class="sol-big-card__icon">⚡</div>
+          <h3>ظرفیت مدیریت تقاضا را قابل مشاهده و قابل سنجش کنید</h3>
+          <p>برای شبکه، سؤال فقط «چقدر برق مصرف می‌شود؟» نیست؛ مهم است بدانیم چه ظرفیتی، در کجا و چه زمانی قابل مدیریت است و نتیجه اقدام چگونه تأیید می‌شود.</p>
+          <a href="solution-power.html" class="btn-outline">راهکار صنعت برق ←</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared Logic Banner -->
+  <section class="sol-loop-banner">
+    <div class="container">
+      <h2>یک منطق مشترک در همه راهکارها</h2>
+      <p>چرخه ارزش‌آفرینی کاپ در تمام محیط‌ها یکسان است:</p>
+      <div class="sol-loop-steps">
+        <div class="sol-loop-chip">پایش <span>→</span> تحلیل <span>→</span> شناخت فرصت <span>→</span> اقدام <span>→</span> سنجش نتیجه</div>
+      </div>
+      <a href="how-it-works.html" class="btn-primary">
+        بیشتر بدانید
+        <svg viewBox="0 0 20 20" fill="none"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="sol-cta-banner">
+    <div class="container">
+      <h2>نمی‌دانید کدام راهکار مناسب شماست؟</h2>
+      <p>موضوع و نوع فعالیت خود را برای ما بنویسید تا درخواست شما به مسیر مناسب هدایت شود.</p>
+      <a href="contact.html" class="btn-primary" id="sol-contact-cta">
+        با ما گفتگو کنید
+        <svg viewBox="0 0 20 20" fill="none"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="logo__icon" style="width:32px;height:32px;">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/><path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/><path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/></svg>
+        </div>
+        <div class="logo__text"><span class="logo__brand">KAP</span><span class="logo__subtitle">ENERGY INTELLIGENCE</span></div>
+      </div>
+      <div class="footer__nav">
+        <a href="solutions.html">راهکارها</a>
+        <a href="how-it-works.html">چگونه کار می‌کند</a>
+        <a href="mvp-pilot.html">MVP و پایلوت</a>
+        <a href="about.html">درباره کاپ</a>
+        <a href="faq.html">سوالات متداول</a>
+        <a href="contact.html">تماس با ما</a>
+      </div>
+      <p class="footer__vision">چشم‌انداز کاپ، پیوند ظرفیت‌های پراکنده مدیریت مصرف در نیروگاه مجازی کشور است.</p>
+      <p class="footer__copy">© ۱۴۰۵ کارا انرژی پردازان (KAP). تمامی حقوق محفوظ است.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
