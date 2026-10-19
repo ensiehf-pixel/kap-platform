@@ -6,6 +6,17 @@
   <meta name="description" content="KAP — پلتفرم مدیریت هوشمند مصرف برق و مدیریت بار | هوش مصنوعی، اینترنت اشیاء (IoT)، تحلیل داده‌های انرژی و اقتصاد دیجیتال انرژی">
   <meta name="keywords" content="KAP, مدیریت مصرف برق, مدیریت بار, نیروگاه مجازی, VPP, هوش مصنوعی, IoT, اقتصاد دیجیتال انرژی, صرفه‌جویی انرژی">
   <title>KAP | مدیریت هوشمند مصرف برق و مدیریت بار</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="theme-color" content="#0D1B2A">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:site_name" content="KAP Energy Group">
+  <meta property="og:title" content="KAP | مدیریت هوشمند مصرف برق و مدیریت بار">
+  <meta property="og:description" content="KAP — پلتفرم مدیریت هوشمند مصرف برق و مدیریت بار | هوش مصنوعی، اینترنت اشیاء (IoT)، تحلیل داده‌های انرژی و اقتصاد دیجیتال انرژی">
+  <meta property="og:image" content="https://kap.energy/assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,51 +26,31 @@
        ================================ -->
   <header class="header" id="header">
     <div class="container header__inner">
-
-      <!-- Logo -->
-      <a href="index.html" class="logo" id="logo">
-        <div class="logo__icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 4L44 16V32L24 44L4 32V16L24 4Z" fill="#FF5722" opacity="0.15"/>
-            <path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/>
-            <path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/>
-            <path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/>
-            <path d="M24 10L38 18L24 26L10 18L24 10Z" fill="white" opacity="0.3"/>
-            <path d="M26 14L22 22H26L22 30L30 20H25L28 14H26Z" fill="white" opacity="0.9"/>
-          </svg>
-        </div>
-        <div class="logo__text">
-          <span class="logo__brand">KAP</span>
-          <span class="logo__subtitle">ENERGY INTELLIGENCE</span>
-        </div>
+      <a href="index.html" class="logo" aria-label="KAP Energy Group — صفحه اصلی">
+        <picture>
+          <source srcset="assets/images/kap-logo.webp" type="image/webp">
+          <img src="assets/images/kap-logo.png" alt="KAP Energy Group" class="logo__img" width="421" height="160">
+        </picture>
       </a>
-
-      <!-- Navigation -->
-      <nav class="nav" id="nav">
+      <nav class="nav" id="nav" aria-label="منوی اصلی">
+        <a href="index.html" class="nav__link nav__link--active" aria-current="page">خانه</a>
         <a href="solutions.html" class="nav__link">راهکارها</a>
         <a href="how-it-works.html" class="nav__link">چگونه کار می‌کند</a>
         <a href="mvp-pilot.html" class="nav__link">MVP و پایلوت</a>
         <a href="knowledge.html" class="nav__link">دانش و مقالات</a>
+        <a href="calculator.html" class="nav__link">ماشین‌حساب مصرف</a>
         <a href="about.html" class="nav__link">درباره کاپ</a>
         <a href="faq.html" class="nav__link">سوالات متداول</a>
+        <a href="contact.html" class="nav__link nav__link--mobile-only">تماس با ما</a>
+        <a href="https://kap-energy-platform.vercel.app/" class="nav__link nav__link--mobile-only" target="_blank" rel="noopener noreferrer">نسخه MVP زنده ↗</a>
       </nav>
-
-      <!-- CTA & Mobile Toggle -->
-      <div style="display: flex; align-items: center; gap: 16px;">
-        <a href="contact.html" class="header__cta" id="header-cta">
-          <svg viewBox="0 0 20 20" fill="none" style="width:16px; height:16px;">
-            <path d="M2.5 5.833h15M2.5 10h15M2.5 14.167h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          تماس با ما
-        </a>
-        <a href="https://kap-energy-platform.vercel.app/" class="header__cta header__cta--mvp" id="header-mvp" target="_blank" rel="noopener noreferrer" style="background: var(--navy-900); font-size: 0.82rem; padding: 8px 18px;">
-          🚀 نسخه MVP
-        </a>
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+      <div class="header__actions">
+        <a href="contact.html" class="header__cta">تماس با ما</a>
+        <a href="https://kap-energy-platform.vercel.app/" class="header__cta header__cta--dark" target="_blank" rel="noopener noreferrer">نسخه MVP ↗</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="باز کردن منو" aria-expanded="false" aria-controls="nav">
           <span></span><span></span><span></span>
         </button>
       </div>
-
     </div>
   </header>
 
@@ -103,16 +94,17 @@
               <path d="M10 4V16M10 16L5 11M10 16L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-          <a href="https://kap-energy-platform.vercel.app/" class="btn-primary" target="_blank" rel="noopener noreferrer" style="background: var(--navy-900);">
-            مشاهده نسخه MVP زنده 🚀
-          </a>
         </div>
+        <a href="https://kap-energy-platform.vercel.app/" class="hero__mvp-link" target="_blank" rel="noopener noreferrer">
+          <span class="hero__mvp-dot" aria-hidden="true"></span>
+          نسخه MVP پلتفرم آنلاین است — مشاهده ↗
+        </a>
       </div>
 
       <!-- Visual -->
       <div class="hero__visual">
         <div class="hero__image-wrapper">
-          <img src="assets/images/hero_hub.png"
+          <img src="assets/images/hero_hub.webp"
                alt="هاب هوش مصنوعی مدیریت انرژی KAP — پایداری و بهینه‌سازی شبکه"
                loading="eager"
                id="hero-img">
@@ -315,7 +307,7 @@
       </div>
 
       <div class="ecommerce__visual reveal">
-        <img src="assets/images/ecommerce_hero.jpg" alt="کارت اعتباری هوشمند انرژی و اپلیکیشن KAP" loading="lazy">
+        <img src="assets/images/ecommerce_hero.webp" alt="کارت اعتباری هوشمند انرژی و اپلیکیشن KAP" loading="lazy">
       </div>
 
     </div>
@@ -425,13 +417,13 @@
         <!-- Card 1 — Existing -->
         <article class="article-card reveal reveal-delay-1" id="article-card-1">
           <div class="article-card__image-wrapper">
-            <img src="assets/images/article_ai_analytics.jpg" alt="هوش مصنوعی در تشخیص خطای شبکه" class="article-card__image" loading="lazy">
+            <img src="assets/images/article_ai_analytics.webp" alt="هوش مصنوعی در تشخیص خطای شبکه" class="article-card__image" loading="lazy">
             <span class="article-card__tag">هوش مصنوعی</span>
           </div>
           <div class="article-card__body">
             <h3 class="article-card__title">نقش الگوریتم‌های یادگیری عمیق در تشخیص خطای شبکه توزیع</h3>
             <p class="article-card__desc">بررسی عملکرد مدل‌های هوش مصنوعی KAP در شناسایی بلادرنگ خطاها با دقت ۹۵ درصد.</p>
-            <a href="article-ai.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+            <a href="article-ai.html" class="article-card__link">
               بیشتر بخوانید
               <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -441,13 +433,13 @@
         <!-- Card 2 — Existing -->
         <article class="article-card reveal reveal-delay-2" id="article-card-2">
           <div class="article-card__image-wrapper">
-            <img src="assets/images/technology_illustration.jpg" alt="سنسور CT" class="article-card__image" loading="lazy">
+            <img src="assets/images/technology_illustration.webp" alt="سنسور CT" class="article-card__image" loading="lazy">
             <span class="article-card__tag">سخت‌افزار</span>
           </div>
           <div class="article-card__body">
             <h3 class="article-card__title">معرفی نسل جدید سنسورهای CT اختصاصی برای کنتورهای هوشمند</h3>
             <p class="article-card__desc">سنسورهای CT طراحی‌شده با توانایی اندازه‌گیری بار هر دستگاه بدون نیاز به پلاگین اضافی.</p>
-            <a href="article-ct.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+            <a href="article-ct.html" class="article-card__link">
               بیشتر بخوانید
               <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -457,13 +449,13 @@
         <!-- Card 3 — Existing -->
         <article class="article-card reveal reveal-delay-3" id="article-card-3">
           <div class="article-card__image-wrapper">
-            <img src="assets/images/hero_illustration.jpg" alt="مدیریت بار هوشمند" class="article-card__image" loading="lazy">
+            <img src="assets/images/hero_illustration.webp" alt="مدیریت بار هوشمند" class="article-card__image" loading="lazy">
             <span class="article-card__tag">شبکه هوشمند</span>
           </div>
           <div class="article-card__body">
             <h3 class="article-card__title">تأثیر مدیریت بار هوشمند بر کاهش ۱۸٪ مصرف پیک برق</h3>
             <p class="article-card__desc">گزارش عملکرد پروژه‌های اجرایی KAP در بهینه‌سازی مصرف و کاهش پیک بار.</p>
-            <a href="article-grid.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+            <a href="article-grid.html" class="article-card__link">
               بیشتر بخوانید
               <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -473,13 +465,13 @@
         <!-- Card 4 — NEW: VPP -->
         <article class="article-card reveal reveal-delay-1" id="article-card-4">
           <div class="article-card__image-wrapper">
-            <img src="assets/images/hero_smart_energy.jpg" alt="نیروگاه مجازی" class="article-card__image" loading="lazy">
+            <img src="assets/images/hero_smart_energy.webp" alt="نیروگاه مجازی" class="article-card__image" loading="lazy">
             <span class="article-card__tag">نیروگاه مجازی</span>
           </div>
           <div class="article-card__body">
             <h3 class="article-card__title">نیروگاه مجازی (VPP) چیست و مصرف‌کننده چه نقشی در آن دارد؟</h3>
             <p class="article-card__desc">چگونه تجمیع ظرفیت‌های پراکنده مدیریت مصرف می‌تواند به پایداری شبکه ملی برق کمک کند.</p>
-            <a href="article-vpp.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+            <a href="article-vpp.html" class="article-card__link">
               بیشتر بخوانید
               <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -489,13 +481,13 @@
         <!-- Card 5 — NEW: Elderly Care -->
         <article class="article-card reveal reveal-delay-2" id="article-card-5">
           <div class="article-card__image-wrapper">
-            <img src="assets/images/hero_illustration.jpg" alt="مراقبت هوشمند سالمندان" class="article-card__image" loading="lazy">
+            <img src="assets/images/hero_illustration.webp" alt="مراقبت هوشمند سالمندان" class="article-card__image" loading="lazy">
             <span class="article-card__tag">سلامت و IoT</span>
           </div>
           <div class="article-card__body">
             <h3 class="article-card__title">مراقبت هوشمند از سالمندان با تحلیل الگوی مصرف برق خانگی</h3>
             <p class="article-card__desc">چگونه تغییرات غیرعادی در الگوی مصرف برق می‌تواند نشانه‌ای از تغییر در وضعیت سالمندان باشد.</p>
-            <a href="article-elderly.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+            <a href="article-elderly.html" class="article-card__link">
               بیشتر بخوانید
               <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -505,13 +497,13 @@
         <!-- Card 6 — NEW: Energy Intensity -->
         <article class="article-card reveal reveal-delay-3" id="article-card-6">
           <div class="article-card__image-wrapper">
-            <img src="assets/images/technology_illustration.jpg" alt="شدت انرژی و GDP" class="article-card__image" loading="lazy">
+            <img src="assets/images/technology_illustration.webp" alt="شدت انرژی و GDP" class="article-card__image" loading="lazy">
             <span class="article-card__tag">اقتصاد انرژی</span>
           </div>
           <div class="article-card__body">
             <h3 class="article-card__title">شدت مصرف انرژی در ایران و تأثیر ناترازی برق بر تولید ناخالص داخلی</h3>
             <p class="article-card__desc">چرا کاهش شدت انرژی حیاتی است و مدیریت مصرف چگونه می‌تواند به رشد GDP کمک کند.</p>
-            <a href="article-energy-intensity.html" class="article-card__link" target="_blank" rel="noopener noreferrer">
+            <a href="article-energy-intensity.html" class="article-card__link">
               بیشتر بخوانید
               <svg viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -548,40 +540,52 @@
        FOOTER
        ================================ -->
   <footer class="footer" id="footer">
-    <div class="container footer__inner">
-
-      <div class="footer__brand">
-        <div class="logo__icon" style="width: 32px; height: 32px;">
-          <svg viewBox="0 0 48 48" fill="none">
-            <path d="M4 16L24 28V44L4 32V16Z" fill="#FF5722" opacity="0.6"/>
-            <path d="M44 16L24 28V44L44 32V16Z" fill="#FF5722" opacity="0.85"/>
-            <path d="M24 4L44 16L24 28L4 16L24 4Z" fill="#FF5722"/>
-          </svg>
+    <div class="container">
+      <div class="ft-grid">
+        <div class="ft-brand">
+          <a href="index.html" aria-label="KAP Energy Group">
+            <picture>
+              <source srcset="assets/images/kap-logo-light.webp" type="image/webp">
+              <img src="assets/images/kap-logo-light.png" alt="KAP Energy Group" class="ft-logo" width="421" height="160" loading="lazy">
+            </picture>
+          </a>
+          <p class="ft-tagline" dir="ltr">Energy, made visible</p>
+          <p>چشم‌انداز کاپ، پیوند ظرفیت‌های پراکنده مدیریت مصرف در نیروگاه مجازی کشور است.</p>
+          <div class="ft-contact">
+            <a href="tel:+982191093189" dir="ltr">021-91093189</a>
+            <a href="mailto:info@kap.energy" dir="ltr">info@kap.energy</a>
+            <a href="https://kap.energy" dir="ltr">kap.energy</a>
+          </div>
         </div>
-        <div class="logo__text">
-          <span class="logo__brand">KAP</span>
-          <span class="logo__subtitle">ENERGY INTELLIGENCE</span>
+        <div class="ft-col">
+          <h4>راهکارها</h4>
+          <a href="solution-home.html">خانه‌ها</a>
+          <a href="solution-education.html">دانشگاه و آموزش</a>
+          <a href="solution-business.html">اداری و تجاری</a>
+          <a href="solution-industry.html">صنعت</a>
+          <a href="solution-power.html">صنعت برق و رگولاتور</a>
+        </div>
+        <div class="ft-col">
+          <h4>فناوری و محصول</h4>
+          <a href="how-it-works.html">چگونه کار می‌کند</a>
+          <a href="technology-detail.html">فناوری و معماری</a>
+          <a href="products.html">محصولات سخت‌افزاری</a>
+          <a href="mvp-pilot.html">MVP و پایلوت</a>
+          <a href="calculator.html">ماشین‌حساب مصرف برق</a>
+        </div>
+        <div class="ft-col">
+          <h4>کاپ</h4>
+          <a href="about.html">درباره کاپ</a>
+          <a href="knowledge.html">دانش و مقالات</a>
+          <a href="faq.html">سوالات متداول</a>
+          <a href="demo.html">درخواست دمو</a>
+          <a href="contact.html">تماس با ما</a>
         </div>
       </div>
-
-      <div class="footer__nav">
-        <a href="solutions.html">راهکارها</a>
-        <a href="how-it-works.html">چگونه کار می‌کند</a>
-        <a href="mvp-pilot.html">MVP و پایلوت</a>
-        <a href="about.html">درباره کاپ</a>
-        <a href="faq.html">سوالات متداول</a>
-        <a href="contact.html">تماس با ما</a>
+      <div class="ft-bottom">
+        <p>© ۱۴۰۵ گروه انرژی کاپ (کارا انرژی پردازان). تمامی حقوق محفوظ است.</p>
+        <a href="https://kap-energy-platform.vercel.app/" target="_blank" rel="noopener noreferrer">نسخه MVP زنده ↗</a>
       </div>
-
-      <p class="footer__vision">چشم‌انداز کاپ، پیوند ظرفیت‌های پراکنده مدیریت مصرف در نیروگاه مجازی کشور است.</p>
-
-      <p class="footer__copy">© ۱۴۰۵ کارا انرژی پردازان (KAP). تمامی حقوق محفوظ است.</p>
-
-      <div class="footer__links">
-        <a href="#">حریم خصوصی</a>
-        <a href="#">شرایط استفاده</a>
-      </div>
-
     </div>
   </footer>
 

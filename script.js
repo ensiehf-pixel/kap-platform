@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Header Scroll Effect ---------- */
   const header = document.getElementById('header');
+  if (!header) return;
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -22,32 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileToggle = document.getElementById('mobile-toggle');
   const nav = document.getElementById('nav');
 
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      const spans = mobileToggle.querySelectorAll('span');
-      if (nav.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-      } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-      }
-    });
-  }
+  const setMenu = (open) => {
+    if (!nav || !mobileToggle) return;
+    nav.classList.toggle('active', open);
+    mobileToggle.setAttribute('aria-expanded', String(open));
+    mobileToggle.setAttribute('aria-label', open ? 'بستن منو' : 'باز کردن منو');
+    const spans = mobileToggle.querySelectorAll('span');
+    spans[0].style.transform = open ? 'rotate(45deg) translate(5px, 5px)' : 'none';
+    spans[1].style.opacity = open ? '0' : '1';
+    spans[2].style.transform = open ? 'rotate(-45deg) translate(5px, -5px)' : 'none';
+  };
 
-  // Close mobile nav on link click
-  document.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-      const spans = mobileToggle.querySelectorAll('span');
-      spans[0].style.transform = 'none';
-      spans[1].style.opacity = '1';
-      spans[2].style.transform = 'none';
-    });
-  });
+  if (mobileToggle && nav) {
+    mobileToggle.addEventListener('click', () => setMenu(!nav.classList.contains('active')));
+    nav.querySelectorAll('.nav__link').forEach(link => link.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+  }
 
   /* ---------- Infinite Marquee Duplication ---------- */
   const marqueeTrack = document.getElementById('marquee-track');
@@ -104,31 +95,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-/* ---------- Form Submission Handler ---------- */
+/* ---------- Form Submission Handler ----------
+   No server backend: compose an email to KAP in the visitor's mail app. */
+const KAP_EMAIL = 'info@kap.energy';
 function handleSubmit(e) {
   e.preventDefault();
-
   const form = e.target;
-  const submitBtn = document.getElementById('submit-btn');
-  const originalText = submitBtn.textContent;
-
-  // Loading state
-  submitBtn.textContent = 'در حال ارسال...';
-  submitBtn.style.opacity = '0.7';
-  submitBtn.style.pointerEvents = 'none';
-
-  // Simulate form submission
-  setTimeout(() => {
-    submitBtn.textContent = '✓ ارسال شد!';
-    submitBtn.style.opacity = '1';
-    submitBtn.style.background = '#2E7D32';
-
-    // Reset after delay
-    setTimeout(() => {
-      submitBtn.textContent = originalText;
-      submitBtn.style.background = '';
-      submitBtn.style.pointerEvents = '';
-      form.reset();
-    }, 2500);
-  }, 1200);
+  const lines = [];
+  const cats = [...document.querySelectorAll('.cat-btn.active')].map(b => b.textContent.trim());
+  if (cats.length) lines.push('نوع فعالیت: ' + cats.join('، '));
+  form.querySelectorAll('input, select, textarea').forEach(el => {
+    if (!el.name && !el.id) return;
+    if (el.type === 'checkbox' || el.type === 'radio') { if (!el.checked) return; }
+    const v = (el.value || '').trim();
+    if (!v) return;
+    const lab = el.id && form.querySelector('label[for="' + el.id + '"]');
+    const name = lab ? lab.textContent.replace('*', '').trim() : (el.name || el.id);
+    lines.push(name + ': ' + v);
+  });
+  const subjectField = form.querySelector('#subject');
+  const subject = (form.dataset.subject || 'پیام از وب‌سایت کاپ') + (subjectField && subjectField.value.trim() ? ' — ' + subjectField.value.trim() : '');
+  const url = 'mailto:' + KAP_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+  window.location.href = url;
+  const status = form.querySelector('.form-status') || Object.assign(document.createElement('p'), { className: 'form-status' });
+  status.setAttribute('role', 'status');
+  status.innerHTML = 'برنامهٔ ایمیل شما باز شد؛ پیام را از آنجا ارسال کنید. اگر باز نشد، مستقیم به <a href="mailto:' + KAP_EMAIL + '" dir="ltr">' + KAP_EMAIL + '</a> بنویسید یا با <a href="tel:+982191093189" dir="ltr">021-91093189</a> تماس بگیرید.';
+  if (!status.parentNode) form.appendChild(status);
 }
