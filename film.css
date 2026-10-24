@@ -6,8 +6,8 @@
 
 .film { display: block; background: #07111B; }
 
-.chapter { position: relative; height: 260vh; }
-.chapter--lab { height: 300vh; }
+.chapter { position: relative; height: 480vh; }
+.chapter--lab { height: 420vh; }
 
 .chapter__stage {
   position: sticky; top: 0; height: 100vh; height: 100svh;
@@ -120,8 +120,8 @@
 .header { transition: background .35s, box-shadow .35s, border-color .35s; }
 
 @media (max-width: 768px) {
-  .chapter { height: 230vh; }
-  .chapter--lab { height: 260vh; }
+  .chapter { height: 420vh; }
+  .chapter--lab { height: 360vh; }
   .chapter__copy { padding-bottom: 40px; }
   .chapter--school .chapter__copy { align-items: flex-start; }
   .chapter__stage { background: #07111B; }
@@ -159,7 +159,7 @@
 @media (prefers-reduced-motion: reduce) { .chapter__seq { display: none; } }
 
 /* chapter 4 — nation */
-.chapter--nation { --focus: 45% 55%; height: 280vh; }
+.chapter--nation { --focus: 45% 55%; height: 420vh; }
 .chapter--nation .chapter__copy { justify-content: flex-start; padding-top: clamp(96px, 14vh, 150px); }
 .chapter--nation .chapter__copy > * { max-width: 640px; }
 .chapter--nation .chapter__shade {
@@ -193,3 +193,12 @@
   .nation__map i { width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; }
 }
 @media (prefers-reduced-motion: reduce) { .nation__map i { opacity: 1; transform: none; animation: none; } }
+
+/* places on the page where the traveling meter comes to rest */
+.meter-slot { width: clamp(120px, 13vw, 180px); aspect-ratio: 600 / 696; margin: 0 auto 26px; position: relative; }
+.meter-slot::after { content: ''; position: absolute; left: 8%; right: 8%; bottom: -10px; height: 18px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 87, 34, .35), rgba(255, 87, 34, 0)); }
+.ecommerce__content .meter-slot { margin: 0 0 22px; }
+@media (prefers-reduced-motion: reduce) {
+  .meter-slot { background: url(assets/scenes/kap-meter-a4.webp) center / contain no-repeat; }
+}

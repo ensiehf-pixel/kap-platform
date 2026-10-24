@@ -1,7 +1,8 @@
-/* KAP cinematic scroll story.
-   - Each chapter has a sticky full-screen photo stage; scroll progress p (0→1) drives frame cross-fades.
-   - One real KAP meter (cut-out) flies between chapters like the bee: it lifts off the lab bench,
-     lands on the classroom wall (lights turn on), lifts off again and lands in the factory (line starts).
+/* KAP cinematic scroll story
+   - Chapters: sticky full-screen stages; scroll progress p (0→1) scrubs video frame sequences and photo cross-fades.
+   - One real KAP meter travels through the whole page like the bee in the reference:
+     lab bench → its place in the intro text → classroom wall → its place in "what KAP does"
+     → factory cabinet → its place in the digital-economy section → it multiplies across the city.
    Transform/opacity only, rAF-throttled. Reduced motion: static finished frames (CSS). */
 (() => {
   'use strict';
@@ -13,253 +14,236 @@
   }
 
   const IMG_W = 1536, IMG_H = 864;
-  // where the meter body sits inside the cut-out image (fractions of its width/height)
+  // the meter body inside the cut-out image (fractions); cut-out is 600 x 696
   const CUT = { x0: 54 / 710, x1: 705 / 710, y0: 34 / 824, y1: 745 / 824, aspect: 696 / 600 };
 
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const smooth = t => t * t * (3 - 2 * t);
   const ramp = (p, a, b) => smooth(clamp((p - a) / (b - a)));
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const focusOf = el => (getComputedStyle(el).getPropertyValue('--focus') || '50% 50%').trim().split(/\s+/).map(v => parseFloat(v) / 100);
 
+  /* ---------- chapters ---------- */
   const S = {};
   chapters.forEach(ch => {
     const frames = {};
     ch.querySelectorAll('.chapter__frame').forEach(f => { frames[f.dataset.f] = f; });
     S[ch.dataset.chapter] = {
-      el: ch,
-      stage: ch.querySelector('.chapter__stage'),
-      box: ch.querySelector('.chapter__frames'),
-      frames,
+      el: ch, box: ch.querySelector('.chapter__frames'), frames,
       copy: ch.querySelector('.chapter__copy'),
       steps: [...ch.querySelectorAll('.chapter__steps li')],
       label: ch.querySelector('[data-on]'),
-      meter: (ch.dataset.meter || '').split(',').map(Number),
       map: ch.querySelector('.nation__map'),
+      meter: (ch.dataset.meter || '').split(',').map(Number),
       on: null, p: 0,
     };
   });
-
-  const progress = s => {
-    const r = s.el.getBoundingClientRect();
-    return clamp(-r.top / Math.max(1, r.height - window.innerHeight));
-  };
-
-  // viewport rect of the meter body inside a chapter photo (object-fit: cover + push-in scale)
-  function meterRect(s) {
-    const box = s.box, r = box.getBoundingClientRect(); // transformed rect
-    const cw = box.offsetWidth, ch = box.offsetHeight;
-    const cs = getComputedStyle(box);
-    const [fx, fy] = (cs.getPropertyValue('--focus') || '50% 50%').trim().split(/\s+/).map(v => parseFloat(v) / 100);
-    const k = Math.max(cw / IMG_W, ch / IMG_H);
-    const ox = (cw - IMG_W * k) * fx, oy = (ch - IMG_H * k) * fy;
-    const scale = r.width / cw;                       // current push-in scale
-    const originX = fx * cw, originY = fy * ch;
-    const left0 = r.left + originX * (scale - 1); // untransformed box left in viewport
-    const top0 = r.top + originY * (scale - 1);
-    const map = (u, v) => [
-      left0 + originX + (ox + u * k - originX) * scale,
-      top0 + originY + (oy + v * k - originY) * scale,
-    ];
-    const [x0, y0, x1, y1] = s.meter;
-    const a = map(x0, y0), b = map(x1, y1);
-    return { x: a[0], y: a[1], w: b[0] - a[0], h: b[1] - a[1] };
-  }
-
-  // place the cut-out so its body fits a target body rect (match height, centre horizontally)
-  function travelerBox(t) {
-    const h = t.h / (CUT.y1 - CUT.y0);
-    const w = h / CUT.aspect;
-    const bodyW = w * (CUT.x1 - CUT.x0);
-    return { x: t.x + t.w / 2 - (w * CUT.x0 + bodyW / 2), y: t.y - h * CUT.y0, w, h };
-  }
-
-  const lerp = (a, b, t) => a + (b - a) * t;
-  function setTraveler(box, opacity, arc = 0, dir = 1) {
-    const vw = window.innerWidth, vh = window.innerHeight;
-    const x = box.x + arc * vw * 0.10 * dir;
-    const y = box.y - arc * vh * 0.06;
-    const sc = 1 + arc * 0.12;
-    const rot = arc * -8 * dir;
-    traveler.style.width = box.w.toFixed(1) + 'px';
-    traveler.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${rot.toFixed(2)}deg) scale(${sc.toFixed(3)})`;
-    traveler.style.opacity = opacity.toFixed(3);
-  }
-
-  // size the dot layer like the cover-fitted photo so dots stay on the city
-  function fitMap(s) {
-    const box = s.box, cw = box.offsetWidth, ch = box.offsetHeight;
-    if (s._fit === cw + 'x' + ch) return; s._fit = cw + 'x' + ch;
-    const [fx, fy] = (getComputedStyle(box).getPropertyValue('--focus') || '50% 50%').trim().split(/\s+/).map(v => parseFloat(v) / 100);
-    const k = Math.max(cw / IMG_W, ch / IMG_H);
-    Object.assign(s.map.style, { width: IMG_W * k + 'px', height: IMG_H * k + 'px', left: (cw - IMG_W * k) * fx + 'px', top: (ch - IMG_H * k) * fy + 'px' });
-  }
-
+  const progress = s => { const r = s.el.getBoundingClientRect(); return clamp(-r.top / Math.max(1, r.height - window.innerHeight)); };
   function setOn(s, on) {
-    if (on === s.on) return;
-    s.on = on;
+    if (on === s.on) return; s.on = on;
     s.el.classList.toggle('is-on', on);
     if (s.label) s.label.textContent = on ? s.label.dataset.on : s.label.dataset.off;
   }
 
-
-  /* ---- scroll-scrubbed video sequences (frames drawn on a canvas, object-fit: cover) ---- */
-  const HD = window.innerWidth > 820 && (navigator.connection ? !navigator.connection.saveData : true);
+  /* ---------- scroll-scrubbed video sequences (AVIF frames on a canvas, cross-blended) ---------- */
+  const HD = window.innerWidth > 820 && !(navigator.connection && navigator.connection.saveData);
   class Seq {
-    constructor(canvas) {
-      this.c = canvas; this.ctx = canvas.getContext('2d');
-      this.name = canvas.dataset.seq; this.n = +canvas.dataset.count; this.rev = canvas.dataset.reverse === '1';
-      this.imgs = new Array(this.n); this.loaded = false; this.cur = -1;
+    constructor(c) {
+      this.c = c; this.ctx = c.getContext('2d');
+      this.name = c.dataset.seq; this.n = +c.dataset.count; this.rev = c.dataset.reverse === '1';
+      this.imgs = new Array(this.n); this.loaded = false; this.key = '';
     }
     load() {
       if (this.loaded) return; this.loaded = true;
       const dir = `assets/seq/${this.name}/${HD ? 'hd' : 'sd'}/`;
-      // first frame shown first, then the rest
-      const order = [...Array(this.n).keys()];
-      if (this.rev) order.reverse();
+      const order = [...Array(this.n).keys()]; if (this.rev) order.reverse();
       order.forEach((i, k) => {
         const im = new Image(); im.decoding = 'async';
-        im.onload = () => { this.imgs[i] = im; if (this.want === i || this.cur === -1) this.draw(this.want ?? i, true); };
-        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.webp'; }, k < 4 ? 0 : 30 + k * 6);
+        im.onload = () => { this.imgs[i] = im; this.key = ''; request(); };
+        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif'; }, k < 6 ? 0 : 20 + k * 8);
       });
     }
-    size() {
+    near(i) { for (let d = 0; d < this.n; d++) { const a = this.imgs[i - d] || this.imgs[i + d]; if (a) return a; } return null; }
+    set(t) { // t: 0→1 along the clip; blends neighbouring frames for smooth motion
+      let f = clamp(t) * (this.n - 1); if (this.rev) f = this.n - 1 - f;
+      const i = Math.floor(f), j = Math.min(this.n - 1, i + 1), a = f - i;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const w = Math.round(this.c.clientWidth * dpr), h = Math.round(this.c.clientHeight * dpr);
-      if (this.c.width !== w || this.c.height !== h) { this.c.width = w; this.c.height = h; this.cur = -1; }
+      const key = `${f.toFixed(2)}|${w}x${h}`; if (key === this.key) return;
+      if (this.c.width !== w || this.c.height !== h) { this.c.width = w; this.c.height = h; }
+      const A = this.imgs[i] || this.near(i), B = this.imgs[j];
+      if (!A) return;
+      this.draw(A, 1);
+      if (B && B !== A && a > 0.02) this.draw(B, a);
+      this.key = key;
     }
-    set(t) { // t: 0→1 along the clip
-      let i = Math.round(clamp(t) * (this.n - 1)); if (this.rev) i = this.n - 1 - i;
-      this.want = i; this.draw(i);
-    }
-    draw(i, force) {
-      this.size();
-      if (!force && i === this.cur) return;
-      let im = this.imgs[i];
-      if (!im) { for (let d = 1; d < this.n && !im; d++) im = this.imgs[i - d] || this.imgs[i + d]; }
-      if (!im) return;
+    draw(im, alpha) {
       const cw = this.c.width, ch = this.c.height, iw = im.naturalWidth, ih = im.naturalHeight;
-      const [fx, fy] = (getComputedStyle(this.c).getPropertyValue('--focus') || '50% 50%').trim().split(/\s+/).map(v => parseFloat(v) / 100);
+      const [fx, fy] = focusOf(this.c);
       const k = Math.max(cw / iw, ch / ih), dw = iw * k, dh = ih * k;
+      this.ctx.globalAlpha = alpha;
       this.ctx.drawImage(im, (cw - dw) * fx, (ch - dh) * fy, dw, dh);
-      this.cur = i;
+      this.ctx.globalAlpha = 1;
     }
   }
   const seqs = {};
   document.querySelectorAll('.chapter__seq').forEach(c => { seqs[c.dataset.seq] = new Seq(c); });
   if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const q = seqs[e.target.dataset.chapter]; if (q) q.load(); } }), { rootMargin: '150% 0px' });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const q = seqs[e.target.dataset.chapter]; if (q) q.load(); } }), { rootMargin: '200% 0px' });
     chapters.forEach(ch => io.observe(ch));
   } else Object.values(seqs).forEach(q => q.load());
   if (seqs.lab) seqs.lab.load();
 
-  const LAB_TAKEOFF = 0.82, LAND = 0.22, TAKEOFF = 0.8;
+  /* ---------- geometry ---------- */
+  // viewport rect of the meter body inside a chapter photo (object-fit: cover + push-in scale)
+  function meterRect(s) {
+    const box = s.box, r = box.getBoundingClientRect();
+    const cw = box.offsetWidth, ch = box.offsetHeight, [fx, fy] = focusOf(box);
+    const k = Math.max(cw / IMG_W, ch / IMG_H), ox = (cw - IMG_W * k) * fx, oy = (ch - IMG_H * k) * fy;
+    const sc = r.width / cw, oX = fx * cw, oY = fy * ch;
+    const left0 = r.left + oX * (sc - 1), top0 = r.top + oY * (sc - 1);
+    const map = (u, v) => [left0 + oX + (ox + u * k - oX) * sc, top0 + oY + (oy + v * k - oY) * sc];
+    const [x0, y0, x1, y1] = s.meter, a = map(x0, y0), b = map(x1, y1);
+    return { x: a[0], y: a[1], w: b[0] - a[0], h: b[1] - a[1] };
+  }
+  // cut-out box whose meter body fits a target body rect (match height, centre horizontally)
+  function bodyFit(t) {
+    const h = t.h / (CUT.y1 - CUT.y0), w = h / CUT.aspect, bodyW = w * (CUT.x1 - CUT.x0);
+    return { x: t.x + t.w / 2 - (w * CUT.x0 + bodyW / 2), y: t.y - h * CUT.y0, w, h };
+  }
+  function fitMap(s) { // dot layer sized like the cover-fitted photo
+    const box = s.box, cw = box.offsetWidth, ch = box.offsetHeight;
+    if (s._fit === cw + 'x' + ch) return; s._fit = cw + 'x' + ch;
+    const [fx, fy] = focusOf(box), k = Math.max(cw / IMG_W, ch / IMG_H);
+    Object.assign(s.map.style, { width: IMG_W * k + 'px', height: IMG_H * k + 'px', left: (cw - IMG_W * k) * fx + 'px', top: (ch - IMG_H * k) * fy + 'px' });
+  }
+  function setTraveler(b, opacity, arc = 0, dir = 1) {
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const x = b.x + arc * vw * 0.08 * dir, y = b.y - arc * vh * 0.05;
+    traveler.style.width = b.w.toFixed(1) + 'px';
+    traveler.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${(arc * -7 * dir).toFixed(2)}deg) scale(${(1 + arc * 0.1).toFixed(3)})`;
+    traveler.style.opacity = opacity.toFixed(3);
+  }
 
+  /* ---------- timing (chapter progress) ---------- */
+  const T = {
+    lab: { video: [0, 0.6], still: [0.6, 0.66], show: [0.7, 0.76], dim: [0.76, 0.9], out: 0.92 },
+    room: { land: 0.1, handoff: 0.04, video: [0.16, 0.88], out: 0.94 },
+    nation: { land: 0.2, lit: 0.26, stable: [0.4, 0.62], on: 0.55 },
+  };
+
+  /* ---------- the route: stops the meter rests at, in page order ---------- */
+  const slots = [...document.querySelectorAll('.meter-slot')].sort((a, b) => a.dataset.slot - b.dataset.slot);
+  const docTop = el => el.getBoundingClientRect().top + window.scrollY;
+  const at = (s, p) => docTop(s.el) + p * (s.el.offsetHeight - window.innerHeight);
+  function route() {
+    const vh = window.innerHeight, R = [];
+    const ch = (s, a, b, extra = {}) => { if (s) R.push({ kind: 'ch', s, in: a, out: b, ...extra }); };
+    const sl = el => {
+      if (!el) return;
+      const r = el.getBoundingClientRect(), c = r.top + window.scrollY + r.height / 2 - vh / 2;
+      R.push({ kind: 'slot', el, in: c - vh * 0.14, out: c + vh * 0.14 });
+    };
+    ch(S.lab, -Infinity, at(S.lab, T.lab.out), { start: true });
+    sl(slots[0]);
+    ch(S.school, at(S.school, T.room.land), at(S.school, T.room.out));
+    sl(slots[1]);
+    ch(S.factory, at(S.factory, T.room.land), at(S.factory, T.room.out));
+    sl(slots[2]);
+    ch(S.nation, at(S.nation, T.nation.land), Infinity, { vanish: true });
+    return R;
+  }
+  const rectOf = st => {
+    if (st.kind === 'slot') { const r = st.el.getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height }; }
+    return bodyFit(meterRect(st.s));
+  };
+  const mix = (P, Q, t) => ({ x: lerp(P.x, Q.x, t), y: lerp(P.y, Q.y, t), w: lerp(P.w, Q.w, t), h: lerp(P.h, Q.h, t) });
+
+  /* ---------- frame ---------- */
   let ticking = false;
   function frame() {
     ticking = false;
-    const lab = S.lab, sch = S.school, fac = S.factory;
-    [lab, sch, fac, S.nation].forEach(s => { if (s) { s.p = progress(s); s.el.style.setProperty('--p', s.p.toFixed(4)); } });
+    const vh = window.innerHeight, vw = window.innerWidth;
+    Object.values(S).forEach(s => { s.p = progress(s); s.el.style.setProperty('--p', s.p.toFixed(4)); });
 
-    /* ---- lab: three assembly beats, then the meter is lifted off the bench ---- */
+    // lab: video (close-up of the screws → whole meter), then the still it lifts off from
+    const lab = S.lab;
     if (lab) {
-      const p = lab.p;
-      if (seqs.lab) seqs.lab.set(clamp(p / 0.5));          // video: close-up of the screws → whole meter, display on
-      lab.frames['3'].style.opacity = ramp(p, 0.5, 0.56);  // hand over to the still the meter lifts off from
+      const p = lab.p, L = T.lab;
+      if (seqs.lab) seqs.lab.set((p - L.video[0]) / (L.video[1] - L.video[0]));
+      if (lab.frames['3']) lab.frames['3'].style.opacity = ramp(p, ...L.still);
       lab.steps.forEach(li => li.classList.toggle('is-on', p >= parseFloat(li.dataset.at)));
-      lab.el.style.setProperty('--dim', (ramp(p, 0.66, 0.86) * 0.82).toFixed(3));
+      lab.el.style.setProperty('--dim', (ramp(p, ...L.dim) * 0.82).toFixed(3));
     }
-    /* ---- school & factory: empty → meter arrives → lights on (→ meter leaves) ---- */
-    for (const s of [sch, fac]) {
+    // classroom & factory: empty wall → meter lands → video (display wakes, lights come on, more light)
+    for (const s of [S.school, S.factory]) {
       if (!s) continue;
-      const p = s.p, f = s.frames;
-      f.off.style.opacity = ramp(p, LAND, LAND + 0.04);
-      const q = seqs[s.el.dataset.chapter];
-      if (q) { q.c.style.opacity = ramp(p, 0.26, 0.3); q.set(clamp((p - 0.3) / 0.42)); }   // video: display wakes, lights come on
-      f.on.style.opacity = q ? ramp(p, 0.72, 0.76) : ramp(p, 0.35, 0.55);
-      if (f['empty-on']) f['empty-on'].style.opacity = ramp(p, TAKEOFF, TAKEOFF + 0.04);
-      s.copy.style.setProperty('--in', ramp(p, 0.05, 0.25).toFixed(3));
-      setOn(s, p > 0.5);
+      const p = s.p, R = T.room, f = s.frames, q = seqs[s.el.dataset.chapter];
+      f.off.style.opacity = ramp(p, R.land, R.land + R.handoff);
+      if (q) { q.c.style.opacity = ramp(p, R.land + R.handoff, R.video[0]); q.set((p - R.video[0]) / (R.video[1] - R.video[0])); }
+      f.on.style.opacity = q ? ramp(p, R.video[1], R.video[1] + 0.03) : ramp(p, 0.35, 0.55);
+      if (f['empty-on']) f['empty-on'].style.opacity = ramp(p, R.out - 0.02, R.out + 0.01); // the meter leaves the wall
+      s.copy.style.setProperty('--in', ramp(p, 0.04, 0.16).toFixed(3));
+      setOn(s, p > 0.45);
     }
-
-    /* ---- nation: crisis → the meter multiplies across the city → stable ---- */
+    // nation: crisis → the meter multiplies across the city → stable
     const nat = S.nation;
     if (nat) {
-      const p = nat.p;
-      nat.frames.stable.style.opacity = ramp(p, 0.42, 0.62);
-      nat.copy.style.setProperty('--in', ramp(p, 0.05, 0.25).toFixed(3));
-      if (nat.map) { fitMap(nat); nat.map.classList.toggle('is-lit', p > 0.3); }
-      setOn(nat, p > 0.55);
+      const p = nat.p, N = T.nation;
+      nat.frames.stable.style.opacity = ramp(p, ...N.stable);
+      nat.copy.style.setProperty('--in', ramp(p, 0.04, 0.18).toFixed(3));
+      if (nat.map) { fitMap(nat); nat.map.classList.toggle('is-lit', p > N.lit); }
+      setOn(nat, p > N.on);
     }
 
-    /* ---- the traveling meter ---- */
-    if (!traveler || !lab || !sch) return;
-    const vh = window.innerHeight;
-    const docY = s => s.el.getBoundingClientRect().top + window.scrollY;
-    const at = (s, p) => docY(s) + p * (s.el.offsetHeight - vh); // scrollY where chapter s reaches progress p
-    const y = window.scrollY;
+    /* ---- the traveling meter: never disappears between stops ---- */
+    if (!traveler) return;
+    const y = window.scrollY, R = route(), FLY = vh * 0.75;
+    // long gaps: it waits beside the text (wide screens) or in the corner (small screens), gently floating
+    const pw = vw >= 1300 ? Math.min(120, (vw - 1200) / 2 - 24) : Math.max(56, Math.min(84, vw * 0.14));
+    const park = vw >= 1300
+      ? { w: pw, h: pw * CUT.aspect, x: 16, y: vh * 0.5 - pw * CUT.aspect / 2 }
+      : { w: pw, h: pw * CUT.aspect, x: 12, y: vh - pw * CUT.aspect - 16 };
+    let done = false;
 
-    const legs = [
-      { from: lab, a: at(lab, LAB_TAKEOFF), to: sch, b: at(sch, LAND), dir: 1 },
-      fac ? { from: sch, a: at(sch, TAKEOFF), to: fac, b: at(fac, LAND), dir: -1 } : null,
-      fac && S.nation ? { from: fac, a: at(fac, TAKEOFF), to: S.nation, b: at(S.nation, 0.28), dir: 1, vanish: true } : null,
-    ].filter(Boolean);
-
-    let shown = false;
-    // resting on the lab bench (fades in over the photo's meter, then becomes "the" meter)
-    if (y < legs[0].a) {
-      const o = ramp(lab.p, 0.6, 0.68);
-      if (o > 0) { setTraveler(travelerBox(meterRect(lab)), o); shown = true; }
-    }
-    // between chapters the meter "parks" at the side like a companion while the text scrolls by
-    const vw = window.innerWidth;
-    const parkW = vw >= 1300 ? Math.min(110, (vw - 1200) / 2 - 16) : 0;
-    const park = { w: parkW || 60, h: (parkW || 60) * CUT.aspect, x: 12, y: vh * 0.5 - (parkW || 60) * CUT.aspect / 2 };
-    const parkO = parkW > 40 ? 1 : 0;
-    const FLY = vh * 0.8;
-    for (const L of legs) {
-      if (y < L.a || y > L.b) continue;
-      const A = travelerBox(meterRect(L.from)), B = travelerBox(meterRect(L.to));
-      const mix = (P, Q, t) => ({ x: lerp(P.x, Q.x, t), y: lerp(P.y, Q.y, t), w: lerp(P.w, Q.w, t), h: lerp(P.h, Q.h, t) });
-      let box, o = 1, arc = 0;
-      if (L.b - L.a < FLY * 2.2) {                       // short hop: one arc
-        const t = smooth(clamp((y - L.a) / (L.b - L.a)));
-        box = mix(A, B, t); arc = Math.sin(Math.PI * t);
-        if (L.vanish) o = 1 - ramp(t, 0.8, 1);
-      } else if (y < L.a + FLY) {                         // lift off → park
-        const t = smooth(clamp((y - L.a) / FLY));
-        box = mix(A, park, t); arc = Math.sin(Math.PI * t) * 0.6; o = lerp(1, parkO, ramp(t, 0.6, 1));
-      } else if (y > L.b - FLY) {                         // park → land
-        const t = smooth(clamp((y - (L.b - FLY)) / FLY));
-        box = mix(park, B, t); arc = Math.sin(Math.PI * t) * 0.6; o = lerp(parkO, 1, ramp(t, 0, 0.4));
-        if (L.vanish) o *= 1 - ramp(t, 0.8, 1);
-      } else {                                            // parked, gently floating
-        box = { ...park, y: park.y + Math.sin(y / 140) * 8 }; o = parkO;
-      }
-      setTraveler(box, o, arc, L.dir);
-      shown = true;
-    }
-    // waiting to take off from the school wall
-    if (!shown && fac && sch.p >= TAKEOFF - 0.06 && y < legs[1].a) {
-      setTraveler(travelerBox(meterRect(sch)), ramp(sch.p, TAKEOFF - 0.06, TAKEOFF - 0.01));
-      shown = true;
-    }
-    // a copy lifts off the factory cabinet (the installed one stays): the meter multiplies
-    if (!shown && fac && S.nation && fac.p >= TAKEOFF - 0.06 && y < legs[legs.length - 1].a) {
-      setTraveler(travelerBox(meterRect(fac)), ramp(fac.p, TAKEOFF - 0.06, TAKEOFF - 0.01));
-      shown = true;
-    }
-    // landing hand-over (after the leg ended)
-    for (const s of [sch, fac]) {
-      if (!shown && s && s.p >= LAND && s.p < LAND + 0.05) {
-        setTraveler(travelerBox(meterRect(s)), 1 - ramp(s.p, LAND, LAND + 0.04));
-        shown = true;
+    for (let i = 0; i < R.length && !done; i++) {
+      const st = R[i];
+      if (y >= st.in && y <= st.out) {                                   // resting at a stop
+        if (st.kind === 'slot') setTraveler(rectOf(st), 1);
+        else if (st.start) setTraveler(rectOf(st), ramp(lab.p, ...T.lab.show));
+        else if (st.vanish) traveler.style.opacity = 0;
+        else {                                                           // installed in the scene: the film shows it
+          const fade = (st.s.el.offsetHeight - vh) * 0.035;
+          setTraveler(rectOf(st), Math.max(1 - ramp(y, st.in, st.in + fade), ramp(y, st.out - fade, st.out)));
+        }
+        done = true;
+      } else if (i < R.length - 1 && y > st.out && y < R[i + 1].in) {   // flying to the next stop
+        const nx = R[i + 1], A = rectOf(st), B = rectOf(nx), dist = nx.in - st.out, dir = i % 2 ? -1 : 1;
+        let box, arc, o = 1, t = 0, landing = true;
+        if (dist < FLY * 2.4) {
+          t = smooth(clamp((y - st.out) / dist)); box = mix(A, B, t); arc = Math.sin(Math.PI * t);
+        } else if (y < st.out + FLY) {
+          t = smooth(clamp((y - st.out) / FLY)); box = mix(A, park, t); arc = Math.sin(Math.PI * t) * 0.6; landing = false;
+        } else if (y > nx.in - FLY) {
+          t = smooth(clamp((y - (nx.in - FLY)) / FLY)); box = mix(park, B, t); arc = Math.sin(Math.PI * t) * 0.6;
+        } else {
+          box = { ...park, y: park.y + Math.sin(y / 160) * 6 }; arc = 0; landing = false;
+        }
+        if (landing && nx.vanish) {                                      // shrinks into the city and becomes many
+          o = 1 - ramp(t, 0.8, 1);
+          const w = box.w * lerp(1, 0.2, ramp(t, 0.45, 1)), cx = box.x + box.w / 2, cy = box.y + box.h / 2;
+          box = { x: cx - w / 2, y: cy - w * CUT.aspect / 2, w, h: w * CUT.aspect };
+        }
+        setTraveler(box, o, arc, dir);
+        done = true;
       }
     }
-    if (!shown) traveler.style.opacity = 0;
+    if (!done) traveler.style.opacity = 0;
   }
 
-  const request = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  function request() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
   window.addEventListener('scroll', request, { passive: true });
-  window.addEventListener('resize', () => { Object.values(seqs).forEach(q => { q.cur = -1; }); request(); }, { passive: true });
+  window.addEventListener('resize', () => { Object.values(seqs).forEach(q => { q.key = ''; }); Object.values(S).forEach(s => { s._fit = ''; }); request(); }, { passive: true });
   window.addEventListener('load', request);
   frame();
 })();
