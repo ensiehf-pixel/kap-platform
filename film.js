@@ -61,7 +61,7 @@
       order.forEach((i, k) => {
         const im = new Image(); im.decoding = 'async';
         im.onload = () => { this.imgs[i] = im; this.key = ''; request(); };
-        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=15'; }, k < 6 ? 0 : 20 + k * 8);
+        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=16'; }, k < 6 ? 0 : 20 + k * 8);
       });
     }
     near(i) { for (let d = 0; d < this.n; d++) { const a = this.imgs[i - d] || this.imgs[i + d]; if (a) return a; } return null; }
@@ -151,6 +151,8 @@
     // land: arrives on its spot · sit: settles onto the wall, takes the room's light, screen off until the power comes on
     // swap: it has taken the exact outline and light of the film's meter, and the film's meter takes over in that instant
     room: { land: 0.08, swap: 0.13, video: [0.15, 0.9], out: 0.95 },
+    // office: the meter lifts off before the cut to the meeting room, and waits beside the page while it goes dark
+    org: { land: 0.08, swap: 0.13, video: [0.15, 0.9], out: 0.44 },
     // nation: the film's first frame is this same meter over the city, so it hands over in place and the film splits it
     nation: { land: 0.1, sit: 0.15, swap: 0.16, video: [0.16, 0.8], stable: [0.8, 0.86], on: 0.6 },
   };
@@ -172,9 +174,10 @@
     ch(S.school, at(S.school, T.room.land), at(S.school, T.room.out));
     sl(slots[1]);
     ch(S.factory, at(S.factory, T.room.land), at(S.factory, T.room.out));
+    ch(S.org, at(S.org, T.org.land), at(S.org, T.org.out));
     sl(slots[2]);
     ch(S.nation, at(S.nation, T.nation.land), at(S.nation, 1) + vh * 50, { end: true });
-    R.forEach(st => { if (st.kind === 'ch' && !st.start) st.T = st.end ? T.nation : T.room; });
+    R.forEach(st => { if (st.kind === 'ch' && !st.start) st.T = st.end ? T.nation : (T[st.s.el.dataset.chapter] || T.room); });
     return R;
   }
   const rectOf = st => {
@@ -223,15 +226,15 @@
       if (lab.copy) lab.copy.style.setProperty('--in', portrait() ? '1' : (1 - ramp(p, L.show[0] - 0.02, L.dim[0] + 0.04)).toFixed(3)); // text steps aside as the meter lifts off
     }
     // classroom & factory: empty wall → meter lands → video (display wakes, lights come on, more light)
-    for (const s of [S.school, S.factory]) {
+    for (const s of [S.school, S.factory, S.org]) {
       if (!s) continue;
-      const p = s.p, R = T.room, f = s.frames, q = seqs[s.el.dataset.chapter];
+      const p = s.p, R = T[s.el.dataset.chapter] || T.room, f = s.frames, q = seqs[s.el.dataset.chapter];
       f.off.style.opacity = p >= R.swap ? 1 : 0;      // the film's meter appears exactly when the flying one hands over
       if (q) { q.c.style.opacity = p >= R.swap ? 1 : 0; q.set((p - R.video[0]) / (R.video[1] - R.video[0])); }
       f.on.style.opacity = q ? ramp(p, R.video[1], R.video[1] + 0.03) : ramp(p, 0.35, 0.55);
       if (f['empty-on']) f['empty-on'].style.opacity = ramp(p, R.out - 0.02, R.out + 0.01); // the meter leaves the wall
       s.copy.style.setProperty('--in', portrait() ? '1' : ramp(p, 0.04, 0.16).toFixed(3));
-      setOn(s, p > 0.45);
+      setOn(s, p > (s === S.org ? 0.6 : 0.45));
     }
     // nation: crisis → the meter multiplies across the city → stable
     const nat = S.nation;
@@ -250,7 +253,7 @@
     // long gaps: it waits beside the text (wide screens) or in the corner (small screens), gently floating
     // long gaps: it waits on the left side of the screen, vertically centred, gently floating
     const pw = vw >= 1024 ? Math.min(180, Math.max(130, vw * 0.1)) : Math.max(96, Math.min(140, vw * 0.27));
-    const park = { w: pw, h: pw * CUT.aspect, x: vw >= 1300 ? Math.max(16, (vw - 1200) / 2 - pw - 12) : 12, y: vh * 0.5 - pw * CUT.aspect / 2 };
+    const park0 = { w: pw, h: pw * CUT.aspect, x: vw >= 1300 ? Math.max(16, (vw - 1200) / 2 - pw - 12) : 12, y: vh * 0.5 - pw * CUT.aspect / 2 };
     let done = false;
 
     for (let i = 0; i < R.length && !done; i++) {
@@ -274,6 +277,8 @@
         done = true;
       } else if (i < R.length - 1 && y > st.out && y < R[i + 1].in) {   // flying to the next stop
         const nx = R[i + 1], A = rectOf(st), B = rectOf(nx), dist = nx.in - st.out, dir = i % 2 ? -1 : 1;
+        // after the office the text sits on the left, so it waits on the right edge there
+        const park = st.s === S.org && vw >= 1024 ? { ...park0, x: vw - park0.w - 16 } : park0;
         let box, arc, o = 1, t = 0;
         if (dist < FLY * 2.4) {
           t = smooth(clamp((y - st.out) / dist)); box = mix(A, B, t); arc = Math.sin(Math.PI * t);

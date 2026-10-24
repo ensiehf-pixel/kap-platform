@@ -30,6 +30,7 @@
 
 .chapter--lab { --focus: 50% 50%; }
 .chapter--school { --focus: 82% 50%; }
+.chapter--org { --focus: 78% 50%; }
 .chapter--factory { --focus: 12% 50%; }
 
 /* legibility shade: dark from the reading side (right in RTL) and bottom */
@@ -39,8 +40,8 @@
     linear-gradient(270deg, rgba(5, 12, 20, .88) 0%, rgba(5, 12, 20, .6) 36%, rgba(5, 12, 20, 0) 64%),
     linear-gradient(0deg, rgba(5, 12, 20, .55) 0%, rgba(5, 12, 20, 0) 40%);
 }
-.chapter--school .chapter__copy { align-items: flex-end; }
-.chapter--school .chapter__shade {
+.chapter--school .chapter__copy, .chapter--org .chapter__copy { align-items: flex-end; }
+.chapter--school .chapter__shade, .chapter--org .chapter__shade {
   background:
     linear-gradient(90deg, rgba(5, 12, 20, .8) 0%, rgba(5, 12, 20, .45) 34%, rgba(5, 12, 20, 0) 60%),
     linear-gradient(0deg, rgba(5, 12, 20, .55) 0%, rgba(5, 12, 20, 0) 40%);
@@ -129,8 +130,8 @@
   .chapter { height: 420vh; }
   .chapter--lab { height: 360vh; }
   .chapter__copy { padding-bottom: 40px; }
-  .chapter--school .chapter__copy { align-items: flex-start; }
-  .chapter__shade, .chapter--factory .chapter__shade, .chapter--school .chapter__shade {
+  .chapter--school .chapter__copy, .chapter--org .chapter__copy { align-items: flex-start; }
+  .chapter__shade, .chapter--factory .chapter__shade, .chapter--school .chapter__shade, .chapter--org .chapter__shade {
     background: linear-gradient(0deg, #07111B 0%, #07111B 44%, rgba(7, 17, 27, .6) 52%, rgba(7, 17, 27, 0) 66%);
   }
   .chapter__lead { font-size: .92rem; line-height: 1.9; }
@@ -210,10 +211,10 @@
 @media (orientation: portrait) {
   .chapter { --film-top: 68px; --film-h: 56.25vw; }
   .chapter__frames { top: var(--film-top); left: 0; width: 100%; transform: none; }
-  .chapter__shade, .chapter--school .chapter__shade, .chapter--factory .chapter__shade, .chapter--nation .chapter__shade {
+  .chapter__shade, .chapter--school .chapter__shade, .chapter--org .chapter__shade, .chapter--factory .chapter__shade, .chapter--nation .chapter__shade {
     background: linear-gradient(180deg, rgba(7, 17, 27, 0) calc(var(--film-top) + var(--film-h) - 36px), #07111B calc(var(--film-top) + var(--film-h)));
   }
-  .chapter .chapter__copy, .chapter--school .chapter__copy, .chapter--nation .chapter__copy {
+  .chapter .chapter__copy, .chapter--school .chapter__copy, .chapter--org .chapter__copy, .chapter--nation .chapter__copy {
     justify-content: flex-start; align-items: flex-start;
     padding-top: calc(var(--film-top) + var(--film-h) + 22px); padding-bottom: 24px;
   }
