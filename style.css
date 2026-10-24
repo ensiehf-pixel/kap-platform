@@ -1771,3 +1771,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .nav__group.open .nav__sub { display: flex; }
   .nav__sublink { padding: 10px 16px; border-bottom: 1px solid var(--gray-200); border-radius: 0; }
 }
+
+/* header: Persian labels are longer — keep buttons on one line and tighten spacing on mid-size screens */
+.header__actions a, .header__actions .btn, .header__actions button { white-space: nowrap; }
+@media (min-width: 1281px) and (max-width: 1500px) {
+  .nav { gap: 16px; }
+  .nav__link { font-size: 0.84rem; }
+  .header__actions { gap: 8px; }
+  .header__actions a { padding-inline: 16px; }
+}
