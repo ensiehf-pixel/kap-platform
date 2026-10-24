@@ -18,6 +18,7 @@
   <meta property="og:image" content="https://kap.energy/assets/images/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="story.css">
 </head>
 <body>
 
@@ -99,20 +100,245 @@
           <span class="hero__mvp-dot" aria-hidden="true"></span>
           نسخه MVP پلتفرم آنلاین است — مشاهده ↗
         </a>
+        <div class="scroll-hint" aria-hidden="true"><span class="scroll-hint__mouse"></span>اسکرول کنید و سفر کنتور کاپ را دنبال کنید</div>
       </div>
 
       <!-- Visual -->
       <div class="hero__visual">
-        <div class="hero__image-wrapper">
-          <img src="assets/images/hero_hub.webp"
-               alt="هاب هوش مصنوعی مدیریت انرژی KAP — پایداری و بهینه‌سازی شبکه"
-               loading="eager"
-               id="hero-img">
+        <div class="lab" id="lab" role="img" aria-label="کنتور هوشمند کاپ در کارگاه تیم کاپ مونتاژ و کالیبره می‌شود">
+          <svg class="lab__bg" viewBox="0 0 600 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="labBg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#13263A"/><stop offset="1" stop-color="#0A1622"/>
+              </linearGradient>
+              <pattern id="labGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+                <path d="M30 0H0V30" fill="none" stroke="#2A4A6B" stroke-width="1" opacity=".55"/>
+              </pattern>
+              <radialGradient id="labSpot" cx=".5" cy=".42" r=".5">
+                <stop offset="0" stop-color="#FF8A50" stop-opacity=".28"/><stop offset="1" stop-color="#FF8A50" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="bench" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#27415C"/><stop offset="1" stop-color="#162B40"/>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="640" fill="url(#labBg)"/>
+            <rect width="600" height="640" fill="url(#labGrid)"/>
+            <circle cx="300" cy="270" r="260" fill="url(#labSpot)"/>
+            <!-- blueprint dimension lines -->
+            <g class="lab__dims" stroke="#5E8DB8" stroke-width="1.2" fill="none" opacity=".8">
+              <path d="M195 70V520M405 70V520" stroke-dasharray="4 6"/>
+              <path d="M195 540H405M195 532v16M405 532v16"/>
+              <path d="M150 70V520M142 70h16M142 520h16"/>
+            </g>
+            <g class="lab__dimtext" fill="#7FA9D1" font-family="Inter, sans-serif" font-size="13">
+              <text x="300" y="530" text-anchor="middle">96 mm</text>
+              <text x="132" y="300" text-anchor="middle" transform="rotate(-90 132 300)">KAP-M1</text>
+            </g>
+            <!-- workbench -->
+            <rect x="0" y="560" width="600" height="80" fill="url(#bench)"/>
+            <rect x="0" y="556" width="600" height="6" fill="#FF5722" opacity=".85"/>
+            <!-- robot arm left -->
+            <g class="lab__arm lab__arm--l">
+              <rect x="18" y="500" width="70" height="56" rx="8" fill="#2E4A66"/>
+              <g class="lab__arm-seg1"><rect x="44" y="330" width="22" height="180" rx="11" fill="#E8ECEF"/>
+                <g class="lab__arm-seg2"><rect x="50" y="318" width="120" height="18" rx="9" fill="#FF5722"/>
+                  <path d="M168 312l22-8v34l-22-8z" fill="#E8ECEF"/></g></g>
+              <circle cx="55" cy="508" r="14" fill="#FF5722"/><circle cx="55" cy="327" r="12" fill="#2E4A66"/>
+            </g>
+            <!-- robot arm right -->
+            <g class="lab__arm lab__arm--r">
+              <rect x="512" y="500" width="70" height="56" rx="8" fill="#2E4A66"/>
+              <g class="lab__arm-seg1"><rect x="534" y="300" width="22" height="210" rx="11" fill="#E8ECEF"/>
+                <g class="lab__arm-seg2"><rect x="430" y="288" width="120" height="18" rx="9" fill="#FF5722"/>
+                  <path d="M432 282l-22-8v34l22-8z" fill="#E8ECEF"/></g></g>
+              <circle cx="545" cy="508" r="14" fill="#FF5722"/><circle cx="545" cy="297" r="12" fill="#2E4A66"/>
+            </g>
+            <!-- sparks -->
+            <g class="lab__sparks" fill="#FFD27A">
+              <circle cx="200" cy="300" r="3"/><circle cx="410" cy="270" r="3"/><circle cx="215" cy="285" r="2"/><circle cx="398" cy="290" r="2"/><circle cx="205" cy="318" r="2"/>
+            </g>
+          </svg>
+
+          <div class="lab__chip">
+            <span class="lab__chip-dot"></span>
+            <span class="lab__chip-text">کارگاه تیم کاپ</span>
+          </div>
+
+          <div class="kap-dock kap-dock--lab" data-dock="0" data-label="lab">
+            <svg class="kap-dock__outline" viewBox="0 0 100 213" preserveAspectRatio="none" aria-hidden="true">
+              <rect x="5" y="53" width="88" height="122" rx="9"/>
+              <rect x="43" y="87" width="48" height="53" rx="3"/>
+              <path d="M16 53V38h66v15M16 175v15h66v-15"/>
+            </svg>
+            <img class="kap-dock__static" src="assets/images/kap-meter.webp" alt="" width="560" height="1193">
+          </div>
+
+          <ol class="lab__steps" aria-label="مراحل ساخت">
+            <li data-step="1">طراحی مدار</li>
+            <li data-step="2">مونتاژ</li>
+            <li data-step="3">کالیبراسیون</li>
+          </ol>
         </div>
       </div>
 
     </div>
   </section>
+
+<!-- ===== SCENE: SCHOOL ===== -->
+  <section class="scene scene--school" id="scene-school" data-scene="1">
+    <div class="container scene__inner">
+      <div class="scene__text">
+        <span class="section-badge">🎓 مدارس و مراکز آموزشی</span>
+        <h2>کنتور کاپ نصب شد، <span class="highlight">کلاس روشن شد</span></h2>
+        <p>کنتور کاپ روی تابلو برق کلاس نصب می‌شود و مصرف روشنایی و سرمایش را لحظه‌به‌لحظه می‌سنجد. چراغ‌ها وقتی لازم است روشن‌اند و مدرسه بدون اختلال در آموزش، مصرف خود را مدیریت می‌کند.</p>
+        <div class="scene__status" aria-live="polite"><span class="scene__led"></span><span data-off="در انتظار نصب کنتور" data-on="نصب شد — کلاس برق دارد">در انتظار نصب کنتور</span></div>
+        <a href="solution-education.html" class="scene__link">راهکار مدارس و دانشگاه‌ها ←</a>
+      </div>
+      <div class="scene__art">
+        <svg class="scene__svg" viewBox="0 0 800 520" role="img" aria-label="کلاس درس؛ با نصب کنتور کاپ چراغ‌های کلاس روشن می‌شود">
+          <defs>
+            <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B3A5C"/><stop offset=".7" stop-color="#C8643A"/><stop offset="1" stop-color="#FF8A50"/></linearGradient>
+            <radialGradient id="cone" cx=".5" cy="0" r="1"><stop offset="0" stop-color="#FFF4D6" stop-opacity=".95"/><stop offset=".6" stop-color="#FFE7A8" stop-opacity=".25"/><stop offset="1" stop-color="#FFE7A8" stop-opacity="0"/></radialGradient>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+          </defs>
+          <!-- room -->
+          <rect width="800" height="520" fill="#F3ECE2"/>
+          <rect y="0" width="800" height="26" fill="#E6DCCF"/>
+          <rect y="330" width="800" height="70" fill="#E3D4C1"/>
+          <rect y="326" width="800" height="6" fill="#CDB89E"/>
+          <rect y="400" width="800" height="120" fill="#D6BE9D"/>
+          <g stroke="#C4A985" stroke-width="2"><path d="M0 440H800M0 480H800"/><path d="M120 400v40M330 440v40M520 400v40M690 440v40M240 480v40M600 480v40"/></g>
+          <!-- window -->
+          <rect x="52" y="78" width="176" height="200" rx="6" fill="#FFFFFF"/>
+          <rect x="62" y="88" width="156" height="180" fill="url(#dusk)"/>
+          <circle cx="160" cy="236" r="18" fill="#FFC27A" opacity=".9"/>
+          <path d="M62 250q40-18 80 0t76-4v22H62z" fill="#13263A" opacity=".55"/>
+          <path d="M140 88v180M62 178h156" stroke="#FFFFFF" stroke-width="6"/>
+          <!-- board -->
+          <rect x="266" y="70" width="300" height="180" rx="6" fill="#A8743F"/>
+          <rect x="276" y="80" width="280" height="160" rx="3" fill="#24443C"/>
+          <rect x="300" y="250" width="232" height="8" rx="3" fill="#8E5F31"/>
+          <g class="school__chalk" fill="none" stroke="#F4F1E8" stroke-width="3" stroke-linecap="round">
+            <text x="416" y="132" fill="#F4F1E8" stroke="none" font-family="Vazirmatn, Tahoma, sans-serif" font-size="26" font-weight="700" text-anchor="middle">درس امروز: انرژی</text>
+            <text x="416" y="176" fill="#FFB38A" stroke="none" font-family="Inter, sans-serif" font-size="24" text-anchor="middle">E = P × t</text>
+            <path d="M330 206q40-22 80 0t80 0" stroke="#FFB38A"/>
+          </g>
+          <!-- clock -->
+          <circle cx="620" cy="70" r="24" fill="#FFFFFF" stroke="#0D1B2A" stroke-width="4"/>
+          <path d="M620 70V54M620 70l10 6" stroke="#0D1B2A" stroke-width="3" stroke-linecap="round"/>
+          <!-- electric panel (dock lives here) -->
+          <rect x="648" y="140" width="118" height="236" rx="10" fill="#D5DBE2" stroke="#AEB8C3" stroke-width="3"/>
+          <rect x="660" y="152" width="94" height="14" rx="4" fill="#AEB8C3"/>
+          <text x="707" y="390" font-family="Vazirmatn, Tahoma, sans-serif" font-size="13" fill="#5B6B7B" text-anchor="middle">تابلو برق کلاس</text>
+          <!-- conduit to lamps -->
+          <path class="wire" d="M707 140V14H120V20" fill="none" stroke="#9AA6B2" stroke-width="5"/>
+          <path class="wire wire--flow" d="M707 140V14H120V20" fill="none" stroke="#FF5722" stroke-width="3" stroke-dasharray="10 14"/>
+          <!-- desks & students -->
+          <g class="school__desks">
+            <g transform="translate(120 330)"><circle cx="40" cy="20" r="17" fill="#3B2A20"/><rect x="18" y="34" width="44" height="40" rx="14" fill="#FF7A45"/><rect x="0" y="66" width="84" height="12" rx="3" fill="#B98A5A"/><path d="M8 78v40M76 78v40" stroke="#7A5A3A" stroke-width="5"/></g>
+            <g transform="translate(270 330)"><circle cx="40" cy="20" r="17" fill="#1F1A17"/><rect x="18" y="34" width="44" height="40" rx="14" fill="#2D6A9F"/><rect x="0" y="66" width="84" height="12" rx="3" fill="#B98A5A"/><path d="M8 78v40M76 78v40" stroke="#7A5A3A" stroke-width="5"/></g>
+            <g transform="translate(420 330)"><circle cx="40" cy="20" r="17" fill="#5A3A22"/><rect x="18" y="34" width="44" height="40" rx="14" fill="#3FA37A"/><rect x="0" y="66" width="84" height="12" rx="3" fill="#B98A5A"/><path d="M8 78v40M76 78v40" stroke="#7A5A3A" stroke-width="5"/></g>
+            <g transform="translate(40 400) scale(1.15)"><circle cx="40" cy="20" r="17" fill="#2A1E16"/><rect x="18" y="34" width="44" height="40" rx="14" fill="#7B4FA0"/><rect x="0" y="66" width="84" height="12" rx="3" fill="#C49668"/><path d="M8 78v30M76 78v30" stroke="#7A5A3A" stroke-width="5"/></g>
+            <g transform="translate(220 400) scale(1.15)"><circle cx="40" cy="20" r="17" fill="#4A2F1C"/><rect x="18" y="34" width="44" height="40" rx="14" fill="#FFB020"/><rect x="0" y="66" width="84" height="12" rx="3" fill="#C49668"/><path d="M8 78v30M76 78v30" stroke="#7A5A3A" stroke-width="5"/></g>
+            <g transform="translate(400 400) scale(1.15)"><circle cx="40" cy="20" r="17" fill="#1F1A17"/><rect x="18" y="34" width="44" height="40" rx="14" fill="#E0457B"/><rect x="0" y="66" width="84" height="12" rx="3" fill="#C49668"/><path d="M8 78v30M76 78v30" stroke="#7A5A3A" stroke-width="5"/></g>
+          </g>
+          <!-- darkness -->
+          <rect class="scene__dark" width="800" height="520" fill="#0B1522"/>
+          <!-- lamps (above darkness) -->
+          <g class="school__lamps">
+            <g transform="translate(120 0)"><path class="lamp__cone" d="M-26 50L-150 520H150L26 50z" fill="url(#cone)"/><path d="M0 14v18" stroke="#2E3B48" stroke-width="3"/><path d="M-26 50h52l-10-18h-32z" fill="#0D1B2A"/><ellipse class="lamp__bulb" cx="0" cy="52" rx="14" ry="6"/></g>
+            <g transform="translate(400 0)"><path class="lamp__cone" d="M-26 50L-150 520H150L26 50z" fill="url(#cone)"/><path d="M0 14v18" stroke="#2E3B48" stroke-width="3"/><path d="M-26 50h52l-10-18h-32z" fill="#0D1B2A"/><ellipse class="lamp__bulb" cx="0" cy="52" rx="14" ry="6"/></g>
+            <g transform="translate(560 0)"><path class="lamp__cone" d="M-26 50L-150 520H150L26 50z" fill="url(#cone)"/><path d="M0 14v18" stroke="#2E3B48" stroke-width="3"/><path d="M-26 50h52l-10-18h-32z" fill="#0D1B2A"/><ellipse class="lamp__bulb" cx="0" cy="52" rx="14" ry="6"/></g>
+          </g>
+        </svg>
+        <div class="kap-dock kap-dock--school" data-dock="1" data-label="school">
+          <img class="kap-dock__static" src="assets/images/kap-meter.webp" alt="" width="560" height="1193" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ===== SCENE: FACTORY ===== -->
+  <section class="scene scene--factory" id="scene-factory" data-scene="2">
+    <div class="container scene__inner">
+      <div class="scene__text">
+        <span class="section-badge">🏭 صنعت</span>
+        <h2>همان کنتور، این بار <span class="highlight">کارخانه را به کار می‌اندازد</span></h2>
+        <p>در کارخانه، کاپ مصرف هر خط و هر دستگاه را جداگانه می‌سنجد. بار ساعت‌های اوج جابه‌جا می‌شود و خط تولید بدون توقف به کارش ادامه می‌دهد.</p>
+        <div class="scene__status" aria-live="polite"><span class="scene__led"></span><span data-off="خط تولید خاموش است" data-on="خط تولید روشن شد و کار می‌کند">خط تولید خاموش است</span></div>
+        <a href="solution-industry.html" class="scene__link">راهکار صنعت ←</a>
+      </div>
+      <div class="scene__art">
+        <svg class="scene__svg" viewBox="0 0 800 520" role="img" aria-label="کارخانه؛ با نصب کنتور کاپ برق کارخانه وصل می‌شود و خط تولید شروع به کار می‌کند">
+          <defs>
+            <linearGradient id="fsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CFE3F1"/><stop offset="1" stop-color="#FFF3E0"/></linearGradient>
+            <filter id="fglow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+          </defs>
+          <rect width="800" height="520" fill="url(#fsky)"/>
+          <!-- smoke -->
+          <g class="factory__smoke" fill="#E3E8EC">
+            <circle class="puff p1" cx="318" cy="96" r="16"/><circle class="puff p2" cx="318" cy="96" r="20"/><circle class="puff p3" cx="318" cy="96" r="14"/>
+            <circle class="puff p1 d" cx="388" cy="116" r="14"/><circle class="puff p2 d" cx="388" cy="116" r="18"/>
+          </g>
+          <!-- chimneys -->
+          <rect x="300" y="96" width="36" height="120" fill="#B7C1CA"/><rect x="300" y="110" width="36" height="10" fill="#FF5722"/>
+          <rect x="372" y="116" width="32" height="100" fill="#B7C1CA"/><rect x="372" y="128" width="32" height="9" fill="#FF5722"/>
+          <!-- building -->
+          <path d="M230 216l60-40v40l60-40v40l60-40v40l60-40v40l60-40v40l60-40v40l50-34v258H230z" fill="#DCE3E9" stroke="#B7C1CA" stroke-width="2"/>
+          <path d="M230 216l60-40v40l60-40v40l60-40v40l60-40v40l60-40v40l60-40v40l50-34" fill="none" stroke="#FF5722" stroke-width="6" stroke-linejoin="round"/>
+          <rect x="230" y="216" width="540" height="10" fill="#D5DBE2"/>
+          <g class="factory__windows">
+            <rect x="262" y="250" width="62" height="40" rx="4"/><rect x="346" y="250" width="62" height="40" rx="4"/><rect x="430" y="250" width="62" height="40" rx="4"/><rect x="514" y="250" width="62" height="40" rx="4"/>
+          </g>
+          <!-- sign + status light -->
+          <rect x="600" y="248" width="150" height="44" rx="8" fill="#0D1B2A"/>
+          <text x="660" y="277" font-family="Vazirmatn, Tahoma, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">خط تولید ۲</text>
+          <circle class="factory__led" cx="728" cy="270" r="8"/>
+          <!-- gears -->
+          <g transform="translate(650 360)"><g class="gear gear--big">
+            <circle r="44" fill="#4A5D70"/><g fill="#4A5D70"><rect x="-8" y="-56" width="16" height="16" rx="3"/><rect x="-8" y="40" width="16" height="16" rx="3"/><rect x="-56" y="-8" width="16" height="16" rx="3"/><rect x="40" y="-8" width="16" height="16" rx="3"/><rect x="-8" y="-56" width="16" height="16" rx="3" transform="rotate(45)"/><rect x="-8" y="40" width="16" height="16" rx="3" transform="rotate(45)"/><rect x="-56" y="-8" width="16" height="16" rx="3" transform="rotate(45)"/><rect x="40" y="-8" width="16" height="16" rx="3" transform="rotate(45)"/></g>
+            <circle r="16" fill="#E8ECEF"/><circle r="6" fill="#FF5722"/></g></g>
+          <g transform="translate(738 352)"><g class="gear gear--small">
+            <circle r="24" fill="#FF5722"/><g fill="#FF5722"><rect x="-6" y="-34" width="12" height="12" rx="2"/><rect x="-6" y="22" width="12" height="12" rx="2"/><rect x="-34" y="-6" width="12" height="12" rx="2"/><rect x="22" y="-6" width="12" height="12" rx="2"/></g>
+            <circle r="8" fill="#E8ECEF"/></g></g>
+          <!-- ground + conveyor -->
+          <rect y="430" width="800" height="90" fill="#C9D2DA"/>
+          <rect x="400" y="440" width="380" height="16" rx="8" fill="#2E3B48"/>
+          <g class="conveyor__rollers" fill="#8796A5"><circle cx="412" cy="448" r="6"/><circle cx="472" cy="448" r="6"/><circle cx="532" cy="448" r="6"/><circle cx="592" cy="448" r="6"/><circle cx="652" cy="448" r="6"/><circle cx="712" cy="448" r="6"/><circle cx="768" cy="448" r="6"/></g>
+          <path d="M420 456v34M760 456v34" stroke="#2E3B48" stroke-width="6"/>
+          <g class="conveyor__boxes">
+            <g class="box b1"><rect x="0" y="0" width="38" height="30" rx="3" fill="#E0A96D"/><path d="M0 10h38M19 0v10" stroke="#B97E45" stroke-width="2"/></g>
+            <g class="box b2"><rect x="0" y="0" width="38" height="30" rx="3" fill="#FF8A50"/><path d="M0 10h38M19 0v10" stroke="#D9622C" stroke-width="2"/></g>
+            <g class="box b3"><rect x="0" y="0" width="38" height="30" rx="3" fill="#E0A96D"/><path d="M0 10h38M19 0v10" stroke="#B97E45" stroke-width="2"/></g>
+          </g>
+          <!-- robot arm -->
+          <g transform="translate(372 442)">
+            <rect x="-26" y="-14" width="52" height="16" rx="4" fill="#2E4A66"/>
+            <g class="robot__a"><rect x="-8" y="-96" width="16" height="88" rx="8" fill="#FF5722"/><circle cy="-96" r="10" fill="#2E4A66"/>
+              <g class="robot__b" transform="translate(0 -96)"><rect x="0" y="-7" width="76" height="14" rx="7" fill="#E8ECEF" stroke="#B7C1CA"/><path d="M76 -12h10v24h-10" fill="none" stroke="#2E4A66" stroke-width="5"/></g></g>
+          </g>
+          <!-- electrical cabinet (dock lives here) -->
+          <rect x="34" y="214" width="150" height="250" rx="10" fill="#3A4B5C"/>
+          <rect x="44" y="224" width="130" height="18" rx="4" fill="#2A3846"/>
+          <text x="109" y="490" font-family="Vazirmatn, Tahoma, sans-serif" font-size="13" fill="#4A5D70" text-anchor="middle">تابلو برق کارخانه</text>
+          <!-- power cable -->
+          <path class="wire" d="M184 300h46" stroke="#5E6E7E" stroke-width="7"/>
+          <path class="wire wire--flow" d="M184 300h46" stroke="#FFC107" stroke-width="3" stroke-dasharray="8 8"/>
+          <!-- darkness -->
+          <rect class="scene__dark" width="800" height="520" fill="#0B1522"/>
+          <!-- lit windows glow (above darkness) -->
+          <g class="factory__glow" fill="#FFD27A">
+            <rect x="262" y="250" width="62" height="40" rx="4"/><rect x="346" y="250" width="62" height="40" rx="4"/><rect x="430" y="250" width="62" height="40" rx="4"/><rect x="514" y="250" width="62" height="40" rx="4"/>
+            <g filter="url(#fglow)" opacity=".8"><rect x="262" y="250" width="62" height="40" rx="4"/><rect x="346" y="250" width="62" height="40" rx="4"/><rect x="430" y="250" width="62" height="40" rx="4"/><rect x="514" y="250" width="62" height="40" rx="4"/></g>
+          </g>
+        </svg>
+        <div class="kap-dock kap-dock--factory" data-dock="2" data-label="factory">
+          <img class="kap-dock__static" src="assets/images/kap-meter.webp" alt="" width="560" height="1193" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- ===== END SCENES ===== -->
 
   <!-- ================================
        2. PROBLEM SECTION — بخش مسئله
@@ -590,5 +816,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="story.js"></script>
 </body>
 </html>
