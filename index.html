@@ -55,18 +55,14 @@
     </div>
   </header>
 
-  <!-- ================================
-       1. CINEMATIC SCROLL STORY — one KAP meter: lab → school → factory
-       ================================ -->
-  <main class="film" id="hero" aria-label="سفر کنتور کاپ">
+  <!-- ===== 1. KAP LAB (hero) ===== -->
 
     <!-- Chapter 1: built by the KAP team -->
-    <section class="chapter chapter--lab" data-chapter="lab" data-meter="354,74,1005,785" aria-labelledby="hero-title">
+  <section class="chapter chapter--lab" id="hero" data-chapter="lab" data-meter="354,74,1005,785" aria-labelledby="hero-title">
       <div class="chapter__stage">
         <div class="chapter__frames">
-          <img class="chapter__frame" data-f="1" src="assets/scenes/lab-1-snap-cover.webp" alt="" width="1536" height="864" fetchpriority="high">
-          <img class="chapter__frame" data-f="2" src="assets/scenes/lab-2-tighten-screws.webp" alt="" width="1536" height="864">
-          <img class="chapter__frame" data-f="3" src="assets/scenes/lab-3-display-on.webp" alt="دست‌های تیم کاپ در حال مونتاژ و روشن کردن کنتور هوشمند KAP" width="1536" height="864">
+          <canvas class="chapter__seq" data-seq="lab" data-count="72" data-reverse="1" aria-hidden="true"></canvas>
+          <img class="chapter__frame chapter__frame--top" data-f="3" src="assets/scenes/lab-3-display-on.webp" alt="دست‌های تیم کاپ در حال مونتاژ و روشن کردن کنتور هوشمند KAP" width="1536" height="864">
         </div>
         <div class="chapter__dim"></div>
         <div class="chapter__shade"></div>
@@ -87,47 +83,6 @@
         <div class="chapter__scroll" aria-hidden="true"><span></span>SCROLL</div>
       </div>
     </section>
-
-    <!-- Chapter 2: school -->
-    <section class="chapter chapter--school" data-chapter="school" data-meter="1050,90,1436,684" aria-labelledby="ch-school-title">
-      <div class="chapter__stage">
-        <div class="chapter__frames">
-          <img class="chapter__frame" data-f="empty-off" src="assets/scenes/school-empty-off.webp" alt="" width="1536" height="864" loading="lazy">
-          <img class="chapter__frame" data-f="off" src="assets/scenes/school-off.webp" alt="" width="1536" height="864" loading="lazy">
-          <img class="chapter__frame" data-f="on" src="assets/scenes/school-on.webp" alt="کلاس درس که با نصب کنتور کاپ روی دیوار، چراغ‌هایش روشن شده است" width="1536" height="864" loading="lazy">
-          <img class="chapter__frame" data-f="empty-on" src="assets/scenes/school-empty-on.webp" alt="" width="1536" height="864" loading="lazy">
-        </div>
-        <div class="chapter__shade"></div>
-        <div class="container chapter__copy">
-          <span class="chapter__kicker">SCHOOL / 02</span>
-          <h2 id="ch-school-title">کنتور نصب شد،<br><span class="highlight">کلاس روشن شد.</span></h2>
-          <p class="chapter__lead">کنتور کاپ روی تابلو برق کلاس می‌نشیند و مصرف روشنایی و سرمایش را لحظه‌به‌لحظه می‌سنجد؛ چراغ‌ها وقتی لازم است روشن‌اند و آموزش بدون وقفه ادامه دارد.</p>
-          <p class="chapter__status" aria-live="polite"><span class="chapter__led"></span><span data-off="در انتظار نصب کنتور" data-on="نصب شد — کلاس برق دارد">در انتظار نصب کنتور</span></p>
-          <a href="solution-education.html" class="chapter__link">راهکار مدارس و دانشگاه‌ها ←</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Chapter 3: factory -->
-    <section class="chapter chapter--factory" data-chapter="factory" data-meter="150,186,444,610" aria-labelledby="ch-factory-title">
-      <div class="chapter__stage">
-        <div class="chapter__frames">
-          <img class="chapter__frame" data-f="empty-off" src="assets/scenes/factory-empty-off.webp" alt="" width="1536" height="864" loading="lazy">
-          <img class="chapter__frame" data-f="off" src="assets/scenes/factory-off.webp" alt="" width="1536" height="864" loading="lazy">
-          <img class="chapter__frame" data-f="on" src="assets/scenes/factory-on.webp" alt="سالن کارخانه که با نصب کنتور کاپ روشن شده و خط تولید به کار افتاده است" width="1536" height="864" loading="lazy">
-        </div>
-        <div class="chapter__shade"></div>
-        <div class="container chapter__copy">
-          <span class="chapter__kicker">INDUSTRY / 03</span>
-          <h2 id="ch-factory-title">همان کنتور،<br><span class="highlight">این بار کارخانه را به کار می‌اندازد.</span></h2>
-          <p class="chapter__lead">در کارخانه، کاپ مصرف هر خط و هر دستگاه را جداگانه می‌سنجد؛ بار ساعت‌های اوج جابه‌جا می‌شود و خط تولید بدون توقف کار می‌کند.</p>
-          <p class="chapter__status" aria-live="polite"><span class="chapter__led"></span><span data-off="خط تولید خاموش است" data-on="خط تولید روشن شد و کار می‌کند">خط تولید خاموش است</span></p>
-          <a href="solution-industry.html" class="chapter__link">راهکار صنعت ←</a>
-        </div>
-      </div>
-    </section>
-    <img class="traveler" id="traveler" src="assets/scenes/kap-meter-a4.webp" alt="" width="600" height="696" aria-hidden="true">
-  </main>
 
   <!-- Intro / manifesto (former hero copy) -->
   <section class="manifesto" id="manifesto">
@@ -180,6 +135,29 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== 2. SCHOOL ===== -->
+
+    <!-- Chapter 2: school -->
+    <section class="chapter chapter--school" data-chapter="school" data-meter="1050,90,1436,684" aria-labelledby="ch-school-title">
+      <div class="chapter__stage">
+        <div class="chapter__frames">
+          <img class="chapter__frame" data-f="empty-off" src="assets/scenes/school-empty-off.webp" alt="" width="1536" height="864" loading="lazy">
+          <img class="chapter__frame" data-f="off" src="assets/scenes/school-off.webp" alt="" width="1536" height="864" loading="lazy">
+          <canvas class="chapter__seq" data-seq="school" data-count="72" aria-hidden="true"></canvas>
+          <img class="chapter__frame" data-f="on" src="assets/scenes/school-on.webp" alt="کلاس درس که با نصب کنتور کاپ روی دیوار، چراغ‌هایش روشن شده است" width="1536" height="864" loading="lazy">
+          <img class="chapter__frame" data-f="empty-on" src="assets/scenes/school-empty-on.webp" alt="" width="1536" height="864" loading="lazy">
+        </div>
+        <div class="chapter__shade"></div>
+        <div class="container chapter__copy">
+          <span class="chapter__kicker">SCHOOL / 02</span>
+          <h2 id="ch-school-title">کنتور نصب شد،<br><span class="highlight">کلاس روشن شد.</span></h2>
+          <p class="chapter__lead">کنتور کاپ روی تابلو برق کلاس می‌نشیند و مصرف روشنایی و سرمایش را لحظه‌به‌لحظه می‌سنجد؛ چراغ‌ها وقتی لازم است روشن‌اند و آموزش بدون وقفه ادامه دارد.</p>
+          <p class="chapter__status" aria-live="polite"><span class="chapter__led"></span><span data-off="در انتظار نصب کنتور" data-on="نصب شد — کلاس برق دارد">در انتظار نصب کنتور</span></p>
+          <a href="solution-education.html" class="chapter__link">راهکار مدارس و دانشگاه‌ها ←</a>
+        </div>
+      </div>
+    </section>
 
   <!-- ================================
        3. PRODUCT LOOP — حلقه محصول
@@ -243,6 +221,28 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== 3. FACTORY ===== -->
+
+    <!-- Chapter 3: factory -->
+    <section class="chapter chapter--factory" data-chapter="factory" data-meter="150,186,444,610" aria-labelledby="ch-factory-title">
+      <div class="chapter__stage">
+        <div class="chapter__frames">
+          <img class="chapter__frame" data-f="empty-off" src="assets/scenes/factory-empty-off.webp" alt="" width="1536" height="864" loading="lazy">
+          <img class="chapter__frame" data-f="off" src="assets/scenes/factory-off.webp" alt="" width="1536" height="864" loading="lazy">
+          <canvas class="chapter__seq" data-seq="factory" data-count="72" aria-hidden="true"></canvas>
+          <img class="chapter__frame" data-f="on" src="assets/scenes/factory-on.webp" alt="سالن کارخانه که با نصب کنتور کاپ روشن شده و خط تولید به کار افتاده است" width="1536" height="864" loading="lazy">
+        </div>
+        <div class="chapter__shade"></div>
+        <div class="container chapter__copy">
+          <span class="chapter__kicker">INDUSTRY / 03</span>
+          <h2 id="ch-factory-title">همان کنتور،<br><span class="highlight">این بار کارخانه را به کار می‌اندازد.</span></h2>
+          <p class="chapter__lead">در کارخانه، کاپ مصرف هر خط و هر دستگاه را جداگانه می‌سنجد؛ بار ساعت‌های اوج جابه‌جا می‌شود و خط تولید بدون توقف کار می‌کند.</p>
+          <p class="chapter__status" aria-live="polite"><span class="chapter__led"></span><span data-off="خط تولید خاموش است" data-on="خط تولید روشن شد و کار می‌کند">خط تولید خاموش است</span></p>
+          <a href="solution-industry.html" class="chapter__link">راهکار صنعت ←</a>
+        </div>
+      </div>
+    </section>
 
   <!-- ================================
        4. AUDIENCES — سگمنت مخاطبان
@@ -540,6 +540,78 @@
     </div>
   </section>
 
+  <!-- ===== 4. NATION ===== -->
+
+    <!-- Chapter 4: nation-wide -->
+    <section class="chapter chapter--nation" data-chapter="nation" data-meter="606,466,634,498" aria-labelledby="ch-nation-title">
+      <div class="chapter__stage">
+        <div class="chapter__frames">
+          <img class="chapter__frame" data-f="crisis" src="assets/scenes/nation-crisis.webp" alt="" width="1536" height="864" loading="lazy">
+          <img class="chapter__frame" data-f="stable" src="assets/scenes/nation-stable.webp" alt="شهری بزرگ در غروب که همهٔ محله‌هایش روشن و پایدار است" width="1536" height="864" loading="lazy">
+          <div class="nation__map" aria-hidden="true">
+            <i style="--x:33.39%;--y:55.86%;--d:0.65"></i>
+            <i style="--x:9.49%;--y:64.91%;--d:0.37"></i>
+            <i style="--x:8.12%;--y:64.24%;--d:0.04"></i>
+            <i style="--x:43.82%;--y:53.96%;--d:0.09"></i>
+            <i style="--x:42.96%;--y:71.74%;--d:0.12"></i>
+            <i style="--x:23.82%;--y:67.06%;--d:0.95"></i>
+            <i style="--x:57.46%;--y:61.63%;--d:0.98"></i>
+            <i style="--x:7.03%;--y:72.48%;--d:0.29"></i>
+            <i style="--x:16.32%;--y:55.08%;--d:0.31"></i>
+            <i style="--x:80.18%;--y:56.56%;--d:0.58"></i>
+            <i style="--x:63.33%;--y:61.06%;--d:0.55"></i>
+            <i style="--x:8.57%;--y:53.72%;--d:0.21"></i>
+            <i style="--x:67.28%;--y:62.36%;--d:0.31"></i>
+            <i style="--x:58.26%;--y:62.96%;--d:0.3"></i>
+            <i style="--x:78.11%;--y:68.74%;--d:0.24"></i>
+            <i style="--x:57.2%;--y:64.65%;--d:0.88"></i>
+            <i style="--x:71.94%;--y:59.08%;--d:0.98"></i>
+            <i style="--x:13.83%;--y:62.14%;--d:0.76"></i>
+            <i style="--x:17.05%;--y:63.8%;--d:0.04"></i>
+            <i style="--x:66.12%;--y:70.28%;--d:0.57"></i>
+            <i style="--x:85.82%;--y:59.69%;--d:0.7"></i>
+            <i style="--x:59.1%;--y:65.94%;--d:0.46"></i>
+            <i style="--x:47.67%;--y:67.92%;--d:0.06"></i>
+            <i style="--x:69.28%;--y:67.52%;--d:0.99"></i>
+            <i style="--x:80.73%;--y:59.0%;--d:0.39"></i>
+            <i style="--x:66.16%;--y:52.84%;--d:0.46"></i>
+            <i style="--x:18.58%;--y:55.07%;--d:0.06"></i>
+            <i style="--x:75.63%;--y:55.35%;--d:0.25"></i>
+            <i style="--x:39.76%;--y:72.79%;--d:0.08"></i>
+            <i style="--x:45.3%;--y:65.22%;--d:0.88"></i>
+            <i style="--x:80.48%;--y:72.61%;--d:0.28"></i>
+            <i style="--x:42.08%;--y:60.74%;--d:0.88"></i>
+            <i style="--x:93.64%;--y:55.86%;--d:0.18"></i>
+            <i style="--x:24.65%;--y:57.8%;--d:0.48"></i>
+            <i style="--x:58.6%;--y:58.49%;--d:0.0"></i>
+            <i style="--x:42.43%;--y:60.99%;--d:0.57"></i>
+            <i style="--x:93.2%;--y:68.54%;--d:0.52"></i>
+            <i style="--x:61.31%;--y:68.2%;--d:0.05"></i>
+            <i style="--x:88.11%;--y:70.64%;--d:0.87"></i>
+            <i style="--x:78.44%;--y:61.53%;--d:0.4"></i>
+            <i style="--x:12.45%;--y:67.22%;--d:0.06"></i>
+            <i style="--x:9.01%;--y:57.22%;--d:0.16"></i>
+            <i style="--x:34.93%;--y:53.55%;--d:0.0"></i>
+            <i style="--x:16.98%;--y:54.7%;--d:0.36"></i>
+            <i style="--x:5.03%;--y:72.86%;--d:0.61"></i>
+            <i style="--x:16.72%;--y:58.24%;--d:0.35"></i>
+          </div>
+        </div>
+        <div class="chapter__shade"></div>
+        <div class="container chapter__copy">
+          <span class="chapter__kicker">NATION / 04</span>
+          <h2 id="ch-nation-title">میلیون‌ها کنتور،<br><span class="highlight">یک کشور استوار.</span></h2>
+          <p class="chapter__lead">از طریق یک مدل استقرار انقلابی و کاملاً رایگان، KAP به میلیون‌ها خانوار و کسب‌وکار این قدرت را می‌دهد تا بدون کوچکترین آسیبی به رفاه و امنیت خود، <strong>۱۵ درصد</strong> از مصرف برق خود را کنترل کنند. راهکاری استراتژیک و اقتصادی که کشور را در سخت‌ترین شرایط بحران، استوار نگه می‌دارد.</p>
+          <ul class="nation__stats">
+            <li><b>۱۵٪</b><span>کنترل مصرف برق</span></li>
+            <li><b>رایگان</b><span>استقرار برای خانوار و کسب‌وکار</span></li>
+            <li><b>بدون آسیب</b><span>به رفاه و امنیت مشترک</span></li>
+          </ul>
+          <p class="chapter__status" aria-live="polite"><span class="chapter__led"></span><span data-off="شبکه زیر فشار ناترازی" data-on="شبکه پایدار — کشور استوار">شبکه زیر فشار ناترازی</span></p>
+        </div>
+      </div>
+    </section>
+
   <!-- ================================
        8. VISION — چشم‌انداز
        ================================ -->
@@ -561,6 +633,8 @@
       </div>
     </div>
   </section>
+
+  <img class="traveler" id="traveler" src="assets/scenes/kap-meter-a4.webp" alt="" width="600" height="696" aria-hidden="true">
 
   <!-- ================================
        FOOTER

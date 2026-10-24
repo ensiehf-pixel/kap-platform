@@ -33,6 +33,7 @@
       steps: [...ch.querySelectorAll('.chapter__steps li')],
       label: ch.querySelector('[data-on]'),
       meter: (ch.dataset.meter || '').split(',').map(Number),
+      map: ch.querySelector('.nation__map'),
       on: null, p: 0,
     };
   });
@@ -83,6 +84,15 @@
     traveler.style.opacity = opacity.toFixed(3);
   }
 
+  // size the dot layer like the cover-fitted photo so dots stay on the city
+  function fitMap(s) {
+    const box = s.box, cw = box.offsetWidth, ch = box.offsetHeight;
+    if (s._fit === cw + 'x' + ch) return; s._fit = cw + 'x' + ch;
+    const [fx, fy] = (getComputedStyle(box).getPropertyValue('--focus') || '50% 50%').trim().split(/\s+/).map(v => parseFloat(v) / 100);
+    const k = Math.max(cw / IMG_W, ch / IMG_H);
+    Object.assign(s.map.style, { width: IMG_W * k + 'px', height: IMG_H * k + 'px', left: (cw - IMG_W * k) * fx + 'px', top: (ch - IMG_H * k) * fy + 'px' });
+  }
+
   function setOn(s, on) {
     if (on === s.on) return;
     s.on = on;
@@ -90,19 +100,70 @@
     if (s.label) s.label.textContent = on ? s.label.dataset.on : s.label.dataset.off;
   }
 
+
+  /* ---- scroll-scrubbed video sequences (frames drawn on a canvas, object-fit: cover) ---- */
+  const HD = window.innerWidth > 820 && (navigator.connection ? !navigator.connection.saveData : true);
+  class Seq {
+    constructor(canvas) {
+      this.c = canvas; this.ctx = canvas.getContext('2d');
+      this.name = canvas.dataset.seq; this.n = +canvas.dataset.count; this.rev = canvas.dataset.reverse === '1';
+      this.imgs = new Array(this.n); this.loaded = false; this.cur = -1;
+    }
+    load() {
+      if (this.loaded) return; this.loaded = true;
+      const dir = `assets/seq/${this.name}/${HD ? 'hd' : 'sd'}/`;
+      // first frame shown first, then the rest
+      const order = [...Array(this.n).keys()];
+      if (this.rev) order.reverse();
+      order.forEach((i, k) => {
+        const im = new Image(); im.decoding = 'async';
+        im.onload = () => { this.imgs[i] = im; if (this.want === i || this.cur === -1) this.draw(this.want ?? i, true); };
+        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.webp'; }, k < 4 ? 0 : 30 + k * 6);
+      });
+    }
+    size() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = Math.round(this.c.clientWidth * dpr), h = Math.round(this.c.clientHeight * dpr);
+      if (this.c.width !== w || this.c.height !== h) { this.c.width = w; this.c.height = h; this.cur = -1; }
+    }
+    set(t) { // t: 0→1 along the clip
+      let i = Math.round(clamp(t) * (this.n - 1)); if (this.rev) i = this.n - 1 - i;
+      this.want = i; this.draw(i);
+    }
+    draw(i, force) {
+      this.size();
+      if (!force && i === this.cur) return;
+      let im = this.imgs[i];
+      if (!im) { for (let d = 1; d < this.n && !im; d++) im = this.imgs[i - d] || this.imgs[i + d]; }
+      if (!im) return;
+      const cw = this.c.width, ch = this.c.height, iw = im.naturalWidth, ih = im.naturalHeight;
+      const [fx, fy] = (getComputedStyle(this.c).getPropertyValue('--focus') || '50% 50%').trim().split(/\s+/).map(v => parseFloat(v) / 100);
+      const k = Math.max(cw / iw, ch / ih), dw = iw * k, dh = ih * k;
+      this.ctx.drawImage(im, (cw - dw) * fx, (ch - dh) * fy, dw, dh);
+      this.cur = i;
+    }
+  }
+  const seqs = {};
+  document.querySelectorAll('.chapter__seq').forEach(c => { seqs[c.dataset.seq] = new Seq(c); });
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const q = seqs[e.target.dataset.chapter]; if (q) q.load(); } }), { rootMargin: '150% 0px' });
+    chapters.forEach(ch => io.observe(ch));
+  } else Object.values(seqs).forEach(q => q.load());
+  if (seqs.lab) seqs.lab.load();
+
   const LAB_TAKEOFF = 0.82, LAND = 0.22, TAKEOFF = 0.8;
 
   let ticking = false;
   function frame() {
     ticking = false;
     const lab = S.lab, sch = S.school, fac = S.factory;
-    [lab, sch, fac].forEach(s => { if (s) { s.p = progress(s); s.el.style.setProperty('--p', s.p.toFixed(4)); } });
+    [lab, sch, fac, S.nation].forEach(s => { if (s) { s.p = progress(s); s.el.style.setProperty('--p', s.p.toFixed(4)); } });
 
     /* ---- lab: three assembly beats, then the meter is lifted off the bench ---- */
     if (lab) {
       const p = lab.p;
-      lab.frames['2'].style.opacity = ramp(p, 0.08, 0.3);
-      lab.frames['3'].style.opacity = ramp(p, 0.32, 0.55);
+      if (seqs.lab) seqs.lab.set(clamp(p / 0.5));          // video: close-up of the screws → whole meter, display on
+      lab.frames['3'].style.opacity = ramp(p, 0.5, 0.56);  // hand over to the still the meter lifts off from
       lab.steps.forEach(li => li.classList.toggle('is-on', p >= parseFloat(li.dataset.at)));
       lab.el.style.setProperty('--dim', (ramp(p, 0.66, 0.86) * 0.82).toFixed(3));
     }
@@ -111,10 +172,22 @@
       if (!s) continue;
       const p = s.p, f = s.frames;
       f.off.style.opacity = ramp(p, LAND, LAND + 0.04);
-      f.on.style.opacity = ramp(p, 0.35, 0.55);
+      const q = seqs[s.el.dataset.chapter];
+      if (q) { q.c.style.opacity = ramp(p, 0.26, 0.3); q.set(clamp((p - 0.3) / 0.42)); }   // video: display wakes, lights come on
+      f.on.style.opacity = q ? ramp(p, 0.72, 0.76) : ramp(p, 0.35, 0.55);
       if (f['empty-on']) f['empty-on'].style.opacity = ramp(p, TAKEOFF, TAKEOFF + 0.04);
       s.copy.style.setProperty('--in', ramp(p, 0.05, 0.25).toFixed(3));
-      setOn(s, p > 0.45);
+      setOn(s, p > 0.5);
+    }
+
+    /* ---- nation: crisis → the meter multiplies across the city → stable ---- */
+    const nat = S.nation;
+    if (nat) {
+      const p = nat.p;
+      nat.frames.stable.style.opacity = ramp(p, 0.42, 0.62);
+      nat.copy.style.setProperty('--in', ramp(p, 0.05, 0.25).toFixed(3));
+      if (nat.map) { fitMap(nat); nat.map.classList.toggle('is-lit', p > 0.3); }
+      setOn(nat, p > 0.55);
     }
 
     /* ---- the traveling meter ---- */
@@ -127,6 +200,7 @@
     const legs = [
       { from: lab, a: at(lab, LAB_TAKEOFF), to: sch, b: at(sch, LAND), dir: 1 },
       fac ? { from: sch, a: at(sch, TAKEOFF), to: fac, b: at(fac, LAND), dir: -1 } : null,
+      fac && S.nation ? { from: fac, a: at(fac, TAKEOFF), to: S.nation, b: at(S.nation, 0.28), dir: 1, vanish: true } : null,
     ].filter(Boolean);
 
     let shown = false;
@@ -135,20 +209,42 @@
       const o = ramp(lab.p, 0.6, 0.68);
       if (o > 0) { setTraveler(travelerBox(meterRect(lab)), o); shown = true; }
     }
+    // between chapters the meter "parks" at the side like a companion while the text scrolls by
+    const vw = window.innerWidth;
+    const parkW = vw >= 1300 ? Math.min(110, (vw - 1200) / 2 - 16) : 0;
+    const park = { w: parkW || 60, h: (parkW || 60) * CUT.aspect, x: 12, y: vh * 0.5 - (parkW || 60) * CUT.aspect / 2 };
+    const parkO = parkW > 40 ? 1 : 0;
+    const FLY = vh * 0.8;
     for (const L of legs) {
-      if (y >= L.a && y <= L.b) {
+      if (y < L.a || y > L.b) continue;
+      const A = travelerBox(meterRect(L.from)), B = travelerBox(meterRect(L.to));
+      const mix = (P, Q, t) => ({ x: lerp(P.x, Q.x, t), y: lerp(P.y, Q.y, t), w: lerp(P.w, Q.w, t), h: lerp(P.h, Q.h, t) });
+      let box, o = 1, arc = 0;
+      if (L.b - L.a < FLY * 2.2) {                       // short hop: one arc
         const t = smooth(clamp((y - L.a) / (L.b - L.a)));
-        const A = travelerBox(meterRect(L.from)), B = travelerBox(meterRect(L.to));
-        const box = { x: lerp(A.x, B.x, t), y: lerp(A.y, B.y, t), w: lerp(A.w, B.w, t), h: lerp(A.h, B.h, t) };
-        // on landing, hand over to the photo's installed meter
-        const o = L.to === sch || L.to === fac ? 1 - ramp(L.to.p, LAND, LAND + 0.04) : 1;
-        setTraveler(box, Math.max(o, t < 1 ? 1 : 0), Math.sin(Math.PI * t), L.dir);
-        shown = true;
+        box = mix(A, B, t); arc = Math.sin(Math.PI * t);
+        if (L.vanish) o = 1 - ramp(t, 0.8, 1);
+      } else if (y < L.a + FLY) {                         // lift off → park
+        const t = smooth(clamp((y - L.a) / FLY));
+        box = mix(A, park, t); arc = Math.sin(Math.PI * t) * 0.6; o = lerp(1, parkO, ramp(t, 0.6, 1));
+      } else if (y > L.b - FLY) {                         // park → land
+        const t = smooth(clamp((y - (L.b - FLY)) / FLY));
+        box = mix(park, B, t); arc = Math.sin(Math.PI * t) * 0.6; o = lerp(parkO, 1, ramp(t, 0, 0.4));
+        if (L.vanish) o *= 1 - ramp(t, 0.8, 1);
+      } else {                                            // parked, gently floating
+        box = { ...park, y: park.y + Math.sin(y / 140) * 8 }; o = parkO;
       }
+      setTraveler(box, o, arc, L.dir);
+      shown = true;
     }
     // waiting to take off from the school wall
     if (!shown && fac && sch.p >= TAKEOFF - 0.06 && y < legs[1].a) {
       setTraveler(travelerBox(meterRect(sch)), ramp(sch.p, TAKEOFF - 0.06, TAKEOFF - 0.01));
+      shown = true;
+    }
+    // a copy lifts off the factory cabinet (the installed one stays): the meter multiplies
+    if (!shown && fac && S.nation && fac.p >= TAKEOFF - 0.06 && y < legs[legs.length - 1].a) {
+      setTraveler(travelerBox(meterRect(fac)), ramp(fac.p, TAKEOFF - 0.06, TAKEOFF - 0.01));
       shown = true;
     }
     // landing hand-over (after the leg ended)
@@ -163,7 +259,7 @@
 
   const request = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
   window.addEventListener('scroll', request, { passive: true });
-  window.addEventListener('resize', request, { passive: true });
+  window.addEventListener('resize', () => { Object.values(seqs).forEach(q => { q.cur = -1; }); request(); }, { passive: true });
   window.addEventListener('load', request);
   frame();
 })();
