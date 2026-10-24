@@ -16,7 +16,7 @@
   <meta property="og:description" content="راهکارهای کاپ برای مدیریت هوشمند مصرف برق — خانه، دانشگاه، اداری، صنعت و صنعت برق">
   <meta property="og:image" content="https://kap.energy/assets/images/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=16">
   <style>
     .sol-hero{padding-top:140px;padding-bottom:80px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);text-align:center;}
     .sol-hero h1{max-width:700px;margin:0 auto 20px;}
@@ -60,7 +60,13 @@
         <a href="how-it-works.html" class="nav__link">چگونه کار می‌کند</a>
         <a href="mvp-pilot.html" class="nav__link">MVP و پایلوت</a>
         <a href="knowledge.html" class="nav__link">دانش و مقالات</a>
-        <a href="calculator.html" class="nav__link">ماشین‌حساب مصرف</a>
+        <div class="nav__group">
+          <button type="button" class="nav__link nav__toggle" aria-expanded="false" aria-controls="nav-wellness">بازی‌های سلامت</button>
+          <div class="nav__sub" id="nav-wellness">
+            <a href="calm-grid.html" class="nav__sublink"><b>شبکهٔ آرام</b><small>بازی تنفس و آرامش</small></a>
+            <a href="calculator.html" class="nav__sublink"><b>ماشین‌حساب مصرف</b><small>مصرف هر وسیله را حساب کن</small></a>
+          </div>
+        </div>
         <a href="about.html" class="nav__link">درباره کاپ</a>
         <a href="faq.html" class="nav__link">سوالات متداول</a>
         <a href="contact.html" class="nav__link nav__link--mobile-only">تماس با ما</a>
@@ -210,6 +216,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=16"></script>
 </body>
 </html>

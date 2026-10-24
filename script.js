@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (mobileToggle && nav) {
     mobileToggle.addEventListener('click', () => setMenu(!nav.classList.contains('active')));
-    nav.querySelectorAll('.nav__link').forEach(link => link.addEventListener('click', () => setMenu(false)));
+    nav.querySelectorAll('.nav__link:not(.nav__toggle), .nav__sublink').forEach(link => link.addEventListener('click', () => setMenu(false)));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
   }
 
@@ -122,3 +122,26 @@ function handleSubmit(e) {
   status.innerHTML = 'برنامهٔ ایمیل شما باز شد؛ پیام را از آنجا ارسال کنید. اگر باز نشد، مستقیم به <a href="mailto:' + KAP_EMAIL + '" dir="ltr">' + KAP_EMAIL + '</a> بنویسید یا با <a href="tel:+982191093189" dir="ltr">021-91093189</a> تماس بگیرید.';
   if (!status.parentNode) form.appendChild(status);
 }
+
+
+/* ---------- Wellness games submenu (added 2026-10-25) ---------- */
+(function () {
+  document.querySelectorAll('.nav__group').forEach(function (g) {
+    var b = g.querySelector('.nav__toggle');
+    if (!b) return;
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = !g.classList.contains('open');
+      g.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', open);
+    });
+  });
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.nav__group.open').forEach(function (g) {
+      if (!g.contains(e.target)) { g.classList.remove('open'); var b = g.querySelector('.nav__toggle'); if (b) b.setAttribute('aria-expanded', 'false'); }
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') document.querySelectorAll('.nav__group.open').forEach(function (g) { g.classList.remove('open'); });
+  });
+})();

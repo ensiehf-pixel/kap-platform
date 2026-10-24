@@ -1746,3 +1746,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .form-note, .form-status { font-size: .85rem; color: var(--gray-700); text-align: center; line-height: 1.9; }
 .form-status { grid-column: 1 / -1; margin-top: 8px; padding: 12px 16px; background: var(--orange-100); border-radius: var(--radius-md); color: var(--navy-900); }
 .form-status a { color: var(--orange-600); font-weight: 700; }
+
+
+/* ===== Wellness games submenu (added 2026-10-25) ===== */
+.nav__group { position: relative; display: flex; align-items: center; }
+.nav__toggle { background: none; border: 0; cursor: pointer; font-family: inherit; display: inline-flex; align-items: center; gap: 6px; }
+.nav__toggle::before { content: ''; order: 2; width: 7px; height: 7px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg) translateY(-2px); transition: transform var(--transition-base); }
+.nav__group.open .nav__toggle::before { transform: rotate(135deg) translateY(-2px); }
+.nav__sub { position: absolute; top: calc(100% + 14px); right: -14px; min-width: 250px; background: var(--white); border-radius: 16px; box-shadow: var(--shadow-lg); padding: 8px; display: none; flex-direction: column; gap: 2px; z-index: 50; }
+.nav__sub::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+.nav__group:hover .nav__sub, .nav__group:focus-within .nav__sub, .nav__group.open .nav__sub { display: flex; }
+.nav__sublink { display: flex; flex-direction: column; gap: 2px; padding: 10px 14px; border-radius: 12px; color: var(--navy-900); }
+.nav__sublink b { font-size: .92rem; font-weight: 700; }
+.nav__sublink small { font-size: .78rem; color: #5C636D; }
+.nav__sublink:hover, .nav__sublink:focus-visible { background: #FFF1E9; }
+.nav__sublink:hover b { color: var(--orange-500); }
+.nav__sublink--active b { color: var(--orange-500); }
+@media (max-width: 1280px) {
+  .nav__group { flex-direction: column; align-items: stretch; }
+  .nav__toggle { width: 100%; justify-content: space-between; padding: 12px 4px; font-size: .98rem; border-bottom: 1px solid var(--gray-200); text-align: right; }
+  .nav__sub { position: static; display: none; box-shadow: none; min-width: 0; padding: 4px 0 8px; background: transparent; }
+  .nav__sub::before { display: none; }
+  .nav__group:hover .nav__sub, .nav__group:focus-within .nav__sub { display: none; }
+  .nav__group.open .nav__sub { display: flex; }
+  .nav__sublink { padding: 10px 16px; border-bottom: 1px solid var(--gray-200); border-radius: 0; }
+}

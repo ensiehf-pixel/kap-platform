@@ -1,0 +1,17 @@
+# Only the website goes to Vercel; working files stay on your computer.
+_backup-*
+_gamma-images
+_mvp_from_kap_energy
+_old-*
+*.zip
+*.bak
+*.mp4
+*.log
+.DS_Store
+Thumbs.db
+node_modules
+deploy-vercel.bat
+_bots
+deploy-log.txt
+.vercel
+.env*
