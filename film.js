@@ -60,7 +60,7 @@
       order.forEach((i, k) => {
         const im = new Image(); im.decoding = 'async';
         im.onload = () => { this.imgs[i] = im; this.key = ''; request(); };
-        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=12'; }, k < 6 ? 0 : 20 + k * 8);
+        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=13'; }, k < 6 ? 0 : 20 + k * 8);
       });
     }
     near(i) { for (let d = 0; d < this.n; d++) { const a = this.imgs[i - d] || this.imgs[i + d]; if (a) return a; } return null; }
@@ -166,7 +166,7 @@
     return bodyFit(meterRect(st.s), st.start ? 0 : SHAPE);
   };
   const SHAPE = 0.55;
-  const LIGHT = { school: 0.5, factory: 0.58, nation: 0.8 }; // how dark each scene is where the meter lands
+  const LIGHT = { school: 0.72, factory: 0.6, nation: 0.8 }; // how dark each scene is where the meter lands
   const mix = (P, Q, t) => ({ x: lerp(P.x, Q.x, t), y: lerp(P.y, Q.y, t), w: lerp(P.w, Q.w, t), h: lerp(P.h, Q.h, t) });
 
   /* ---------- frame ---------- */
