@@ -164,7 +164,7 @@
 @media (prefers-reduced-motion: reduce) { .chapter__seq { display: none; } }
 
 /* chapter 4 — nation */
-.chapter--nation { --focus: 45% 55%; height: 420vh; }
+.chapter--nation { --focus: 45% 55%; height: 540vh; }
 .chapter--nation .chapter__copy { justify-content: flex-start; padding-top: clamp(96px, 14vh, 150px); }
 .chapter--nation .chapter__copy > * { max-width: 640px; }
 .chapter--nation .chapter__shade {
