@@ -60,7 +60,7 @@
       order.forEach((i, k) => {
         const im = new Image(); im.decoding = 'async';
         im.onload = () => { this.imgs[i] = im; this.key = ''; request(); };
-        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=11'; }, k < 6 ? 0 : 20 + k * 8);
+        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=12'; }, k < 6 ? 0 : 20 + k * 8);
       });
     }
     near(i) { for (let d = 0; d < this.n; d++) { const a = this.imgs[i - d] || this.imgs[i + d]; if (a) return a; } return null; }
@@ -107,8 +107,11 @@
     return { x: a[0], y: a[1], w: b[0] - a[0], h: b[1] - a[1] };
   }
   // cut-out box whose meter body fits a target body rect (match height, centre horizontally)
-  function bodyFit(t) {
-    const h = t.h / (CUT.y1 - CUT.y0), w = h / CUT.aspect, bodyW = w * (CUT.x1 - CUT.x0);
+  // k (0→1): how far the cut-out is reshaped toward the scene meter's proportions (so it "sits" in its outline)
+  const BODY_R = (CUT.x1 - CUT.x0) / ((CUT.y1 - CUT.y0) * CUT.aspect); // body width / height of the cut-out
+  function bodyFit(t, k = 0) {
+    const bodyH = t.h, bodyW = lerp(bodyH * BODY_R, t.w, k);
+    const w = bodyW / (CUT.x1 - CUT.x0), h = bodyH / (CUT.y1 - CUT.y0);
     return { x: t.x + t.w / 2 - (w * CUT.x0 + bodyW / 2), y: t.y - h * CUT.y0, w, h };
   }
   function fitMap(s) { // dot layer sized like the cover-fitted photo
@@ -117,19 +120,23 @@
     const [fx, fy] = focusOf(box), k = Math.max(cw / IMG_W, ch / IMG_H);
     Object.assign(s.map.style, { width: IMG_W * k + 'px', height: IMG_H * k + 'px', left: (cw - IMG_W * k) * fx + 'px', top: (ch - IMG_H * k) * fy + 'px' });
   }
-  function setTraveler(b, opacity, arc = 0, dir = 1) {
+  // bright: matches the cut-out to the scene's light; shadow: 1 in the air, 0 once it sits flat on the wall
+  function setTraveler(b, opacity, arc = 0, dir = 1, bright = 1, shadow = 1, press = 0) {
     const vw = window.innerWidth, vh = window.innerHeight;
     const x = b.x + arc * vw * 0.08 * dir, y = b.y - arc * vh * 0.05;
     traveler.style.width = b.w.toFixed(1) + 'px';
-    traveler.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${(arc * -7 * dir).toFixed(2)}deg) scale(${(1 + arc * 0.1).toFixed(3)})`;
+    traveler.style.height = b.h.toFixed(1) + 'px';
+    traveler.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${(arc * -7 * dir).toFixed(2)}deg) scale(${(1 + arc * 0.1 + press).toFixed(3)})`;
     traveler.style.opacity = opacity.toFixed(3);
+    traveler.style.filter = `brightness(${bright.toFixed(3)}) drop-shadow(0 ${(4 + 18 * shadow).toFixed(1)}px ${(8 + 26 * shadow).toFixed(1)}px rgba(0,0,0,${(0.25 + 0.2 * shadow).toFixed(2)}))`;
   }
 
   /* ---------- timing (chapter progress) ---------- */
   const T = {
     lab: { video: [0, 0.6], still: [0.6, 0.66], show: [0.7, 0.76], dim: [0.76, 0.9], out: 0.92 },
-    room: { land: 0.1, handoff: 0.04, video: [0.16, 0.88], out: 0.94 },
-    nation: { land: 0.12, handoff: 0.03, video: [0.15, 0.8], stable: [0.8, 0.86], on: 0.6 },
+    // land: arrives on its spot · sit: settles onto the wall and takes the room's light · dis: becomes the meter in the film
+    room: { land: 0.08, sit: 0.14, dis: [0.14, 0.22], video: [0.24, 0.9], out: 0.95 },
+    nation: { land: 0.1, sit: 0.15, dis: [0.15, 0.22], video: [0.23, 0.8], stable: [0.8, 0.86], on: 0.6 },
   };
 
   /* ---------- the route: stops the meter rests at, in page order ---------- */
@@ -151,12 +158,15 @@
     ch(S.factory, at(S.factory, T.room.land), at(S.factory, T.room.out));
     sl(slots[2]);
     ch(S.nation, at(S.nation, T.nation.land), at(S.nation, 1) + vh * 50, { end: true });
+    R.forEach(st => { if (st.kind === 'ch' && !st.start) st.T = st.end ? T.nation : T.room; });
     return R;
   }
   const rectOf = st => {
     if (st.kind === 'slot') { const r = st.el.getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height }; }
-    return bodyFit(meterRect(st.s));
+    return bodyFit(meterRect(st.s), st.start ? 0 : SHAPE);
   };
+  const SHAPE = 0.55;
+  const LIGHT = { school: 0.5, factory: 0.58, nation: 0.8 }; // how dark each scene is where the meter lands
   const mix = (P, Q, t) => ({ x: lerp(P.x, Q.x, t), y: lerp(P.y, Q.y, t), w: lerp(P.w, Q.w, t), h: lerp(P.h, Q.h, t) });
 
   /* ---------- frame ---------- */
@@ -180,8 +190,8 @@
     for (const s of [S.school, S.factory]) {
       if (!s) continue;
       const p = s.p, R = T.room, f = s.frames, q = seqs[s.el.dataset.chapter];
-      f.off.style.opacity = ramp(p, R.land, R.land + R.handoff);
-      if (q) { q.c.style.opacity = ramp(p, R.land + R.handoff, R.video[0]); q.set((p - R.video[0]) / (R.video[1] - R.video[0])); }
+      f.off.style.opacity = ramp(p, ...R.dis);
+      if (q) { q.c.style.opacity = ramp(p, R.dis[1], R.video[0]); q.set((p - R.video[0]) / (R.video[1] - R.video[0])); }
       f.on.style.opacity = q ? ramp(p, R.video[1], R.video[1] + 0.03) : ramp(p, 0.35, 0.55);
       if (f['empty-on']) f['empty-on'].style.opacity = ramp(p, R.out - 0.02, R.out + 0.01); // the meter leaves the wall
       s.copy.style.setProperty('--in', ramp(p, 0.04, 0.16).toFixed(3));
@@ -192,7 +202,7 @@
     if (nat) {
       const p = nat.p, N = T.nation;
       const q = seqs.nation;
-      if (q) { q.c.style.opacity = ramp(p, N.land, N.land + N.handoff); q.set((p - N.video[0]) / (N.video[1] - N.video[0])); }
+      if (q) { q.c.style.opacity = ramp(p, ...N.dis); q.set((p - N.video[0]) / (N.video[1] - N.video[0])); }
       nat.frames.stable.style.opacity = ramp(p, ...N.stable);
       nat.copy.style.setProperty('--in', ramp(p, 0.04, 0.18).toFixed(3));
       setOn(nat, p > N.on);
@@ -212,10 +222,15 @@
       if (y >= st.in && y <= st.out) {                                   // resting at a stop
         if (st.kind === 'slot') setTraveler(rectOf(st), 1);
         else if (st.start) setTraveler(rectOf(st), ramp(lab.p, ...T.lab.show));
-        else if (st.end) setTraveler(rectOf(st), 1 - ramp(y, st.in, st.in + (st.s.el.offsetHeight - vh) * 0.03));
-        else {                                                           // installed in the scene: the film shows it
-          const fade = (st.s.el.offsetHeight - vh) * 0.035;
-          setTraveler(rectOf(st), Math.max(1 - ramp(y, st.in, st.in + fade), ramp(y, st.out - fade, st.out)));
+        else {                                                           // lands, sits on the wall, becomes the meter in the film
+          const P = st.s.p, C = st.T, L = LIGHT[st.s.el.dataset.chapter] || 1;
+          const sit = ramp(P, C.land, C.sit);
+          let o = 1 - ramp(P, ...C.dis), bright = lerp(1, L, sit), shadow = 1 - sit;
+          if (!st.end && P > C.dis[1]) {                                 // a new one lifts off the wall for the next stop
+            const up = ramp(P, C.out - 0.03, C.out);
+            o = up; bright = lerp(L, 1, up); shadow = up;
+          }
+          setTraveler(rectOf(st), o, 0, 1, bright, shadow, Math.sin(Math.PI * sit) * 0.025);
         }
         done = true;
       } else if (i < R.length - 1 && y > st.out && y < R[i + 1].in) {   // flying to the next stop
