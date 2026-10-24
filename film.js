@@ -61,7 +61,7 @@
       order.forEach((i, k) => {
         const im = new Image(); im.decoding = 'async';
         im.onload = () => { this.imgs[i] = im; this.key = ''; request(); };
-        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=14'; }, k < 6 ? 0 : 20 + k * 8);
+        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=15'; }, k < 6 ? 0 : 20 + k * 8);
       });
     }
     near(i) { for (let d = 0; d < this.n; d++) { const a = this.imgs[i - d] || this.imgs[i + d]; if (a) return a; } return null; }
@@ -138,7 +138,7 @@
     traveler.style.height = b.h.toFixed(1) + 'px';
     traveler.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${(arc * -7 * dir).toFixed(2)}deg) scale(${(1 + arc * 0.1 + press).toFixed(3)})`;
     traveler.style.opacity = opacity.toFixed(3);
-    traveler.style.filter = `brightness(${bright.toFixed(3)}) drop-shadow(0 ${(4 + 18 * shadow).toFixed(1)}px ${(8 + 26 * shadow).toFixed(1)}px rgba(0,0,0,${(0.25 + 0.2 * shadow).toFixed(2)}))`;
+    traveler.style.filter = `brightness(${bright.toFixed(3)}) saturate(${(0.5 + 0.5 * shadow).toFixed(3)}) drop-shadow(0 ${(4 + 18 * shadow).toFixed(1)}px ${(8 + 26 * shadow).toFixed(1)}px rgba(0,0,0,${(0.25 + 0.2 * shadow).toFixed(2)}))`;
     if (travelerOff) {
       ['width', 'height', 'transform', 'filter'].forEach(k => { travelerOff.style[k] = traveler.style[k]; });
       travelerOff.style.opacity = (opacity * screenOff).toFixed(3);
@@ -149,7 +149,8 @@
   const T = {
     lab: { video: [0, 0.6], still: [0.6, 0.66], show: [0.7, 0.76], dim: [0.76, 0.9], out: 0.92 },
     // land: arrives on its spot · sit: settles onto the wall, takes the room's light, screen off until the power comes on
-    room: { land: 0.08, sit: 0.14, video: [0.16, 0.9], out: 0.95 },
+    // swap: it has taken the exact outline and light of the film's meter, and the film's meter takes over in that instant
+    room: { land: 0.08, swap: 0.13, video: [0.15, 0.9], out: 0.95 },
     // nation: the film's first frame is this same meter over the city, so it hands over in place and the film splits it
     nation: { land: 0.1, sit: 0.15, swap: 0.16, video: [0.16, 0.8], stable: [0.8, 0.86], on: 0.6 },
   };
@@ -179,10 +180,11 @@
   const rectOf = st => {
     if (st.kind === 'slot') { const r = st.el.getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height }; }
     if (st.start || st.end) return bodyFit(meterRect(st.s), 0);
-    const C = st.T, vt = (st.s.p - C.video[0]) / (C.video[1] - C.video[0]);
+    const C = st.T, P = st.s.p, vt = (P - C.video[0]) / (C.video[1] - C.video[0]);
     const m = meterRect(st.s, trackAt(st.s, vt).r);
-    const g = m.h * 0.02; // a touch larger, so it fully covers the film's own meter
-    return bodyFit({ x: m.x - g, y: m.y - g, w: m.w + 2 * g, h: m.h + 2 * g }, SHAPE);
+    // reshapes into the film meter's outline while it settles, and back to its own shape as it lifts off
+    const k = P < C.video[0] ? lerp(SHAPE, 1, ramp(P, C.land, C.swap)) : lerp(1, SHAPE, ramp(P, C.out - 0.03, C.out));
+    return bodyFit(m, k);
   };
   const SHAPE = 0.3;
   const NATION_LIGHT = 0.78;
@@ -224,8 +226,8 @@
     for (const s of [S.school, S.factory]) {
       if (!s) continue;
       const p = s.p, R = T.room, f = s.frames, q = seqs[s.el.dataset.chapter];
-      f.off.style.opacity = ramp(p, R.land, R.sit);   // hidden under the landed meter
-      if (q) { q.c.style.opacity = ramp(p, R.sit, R.video[0]); q.set((p - R.video[0]) / (R.video[1] - R.video[0])); }
+      f.off.style.opacity = p >= R.swap ? 1 : 0;      // the film's meter appears exactly when the flying one hands over
+      if (q) { q.c.style.opacity = p >= R.swap ? 1 : 0; q.set((p - R.video[0]) / (R.video[1] - R.video[0])); }
       f.on.style.opacity = q ? ramp(p, R.video[1], R.video[1] + 0.03) : ramp(p, 0.35, 0.55);
       if (f['empty-on']) f['empty-on'].style.opacity = ramp(p, R.out - 0.02, R.out + 0.01); // the meter leaves the wall
       s.copy.style.setProperty('--in', portrait() ? '1' : ramp(p, 0.04, 0.16).toFixed(3));
@@ -259,16 +261,15 @@
         else if (st.end) {                                               // over the city: hands over to the film, which splits it
           const P = st.s.p, C = st.T, sit = ramp(P, C.land, C.sit);
           setTraveler(rectOf(st), P < C.swap ? 1 : 0, 0, 1, lerp(1, NATION_LIGHT, sit), 1 - sit * 0.5, Math.sin(Math.PI * sit) * 0.02);
-        } else {                                                         // lands, sits on the wall and stays there for the whole film
-          const P = st.s.p, C = st.T, vt = clamp((P - C.video[0]) / (C.video[1] - C.video[0]));
-          const sit = ramp(P, C.land, C.sit), tr = trackAt(st.s, vt), on = st.s.track ? st.s.track.on : 0;
-          let bright = lerp(1, tr.l, sit), shadow = 1 - sit;
-          let screenOff = sit * (1 - ramp(vt, on, on + 0.015));          // power comes on with the film
-          if (P > C.out - 0.03) {                                        // lifts off the wall for the next stop
+        } else {                                                         // lands, takes the film meter's place, then the film carries on
+          const P = st.s.p, C = st.T, vt = clamp((P - C.video[0]) / (C.video[1] - C.video[0])), tr = trackAt(st.s, vt);
+          if (P < C.swap) {                                              // settling: outline, light and dark screen match the film's meter
+            const sit = ramp(P, C.land, C.swap);
+            setTraveler(rectOf(st), 1, 0, 1, lerp(1, tr.l, sit), 1 - sit, Math.sin(Math.PI * sit) * 0.02, sit);
+          } else if (P > C.out - 0.03) {                                 // a new one lifts off the wall for the next stop
             const up = ramp(P, C.out - 0.03, C.out);
-            bright = lerp(tr.l, 1, up); shadow = up;
-          }
-          setTraveler(rectOf(st), 1, 0, 1, bright, shadow, Math.sin(Math.PI * sit) * 0.02, screenOff);
+            setTraveler(rectOf(st), 1, 0, 1, lerp(tr.l, 1, up), up, 0, 0);
+          } else { traveler.style.opacity = 0; if (travelerOff) travelerOff.style.opacity = 0; } // the film's own meter
         }
         done = true;
       } else if (i < R.length - 1 && y > st.out && y < R[i + 1].in) {   // flying to the next stop
