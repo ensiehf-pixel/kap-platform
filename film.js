@@ -35,6 +35,7 @@
       label: ch.querySelector('[data-on]'),
       map: ch.querySelector('.nation__map'),
       meter: (ch.dataset.meter || '').split(',').map(Number),
+      track: ch.dataset.track ? JSON.parse(ch.dataset.track) : null, // the meter's place in every frame of the film
       on: null, p: 0,
     };
   });
@@ -60,7 +61,7 @@
       order.forEach((i, k) => {
         const im = new Image(); im.decoding = 'async';
         im.onload = () => { this.imgs[i] = im; this.key = ''; request(); };
-        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=13'; }, k < 6 ? 0 : 20 + k * 8);
+        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=14'; }, k < 6 ? 0 : 20 + k * 8);
       });
     }
     near(i) { for (let d = 0; d < this.n; d++) { const a = this.imgs[i - d] || this.imgs[i + d]; if (a) return a; } return null; }
@@ -96,14 +97,20 @@
 
   /* ---------- geometry ---------- */
   // viewport rect of the meter body inside a chapter photo (object-fit: cover + push-in scale)
-  function meterRect(s) {
+  // where the meter sits in the film at video progress vt (follows the camera), with its light and screen state
+  function trackAt(s, vt) {
+    const t = s.track; if (!t) return { r: s.meter, l: 1 };
+    const f = clamp(vt) * (t.n - 1) / t.step, i = Math.min(t.r.length - 1, Math.floor(f)), j = Math.min(t.r.length - 1, i + 1), a = f - i;
+    return { r: t.r[i].map((v, k) => lerp(v, t.r[j][k], a)), l: lerp(t.l[i], t.l[j], a) };
+  }
+  function meterRect(s, m = s.meter) {
     const box = s.box, r = box.getBoundingClientRect();
     const cw = box.offsetWidth, ch = box.offsetHeight, [fx, fy] = focusOf(box);
     const k = Math.max(cw / IMG_W, ch / IMG_H), ox = (cw - IMG_W * k) * fx, oy = (ch - IMG_H * k) * fy;
     const sc = r.width / cw, oX = fx * cw, oY = fy * ch;
     const left0 = r.left + oX * (sc - 1), top0 = r.top + oY * (sc - 1);
     const map = (u, v) => [left0 + oX + (ox + u * k - oX) * sc, top0 + oY + (oy + v * k - oY) * sc];
-    const [x0, y0, x1, y1] = s.meter, a = map(x0, y0), b = map(x1, y1);
+    const [x0, y0, x1, y1] = m, a = map(x0, y0), b = map(x1, y1);
     return { x: a[0], y: a[1], w: b[0] - a[0], h: b[1] - a[1] };
   }
   // cut-out box whose meter body fits a target body rect (match height, centre horizontally)
@@ -121,7 +128,10 @@
     Object.assign(s.map.style, { width: IMG_W * k + 'px', height: IMG_H * k + 'px', left: (cw - IMG_W * k) * fx + 'px', top: (ch - IMG_H * k) * fy + 'px' });
   }
   // bright: matches the cut-out to the scene's light; shadow: 1 in the air, 0 once it sits flat on the wall
-  function setTraveler(b, opacity, arc = 0, dir = 1, bright = 1, shadow = 1, press = 0) {
+  // the same meter with its screen off, laid over the traveler; shown while it is installed and not yet powered
+  const travelerOff = traveler ? traveler.cloneNode() : null;
+  if (travelerOff) { travelerOff.removeAttribute('id'); travelerOff.src = traveler.src.replace('kap-meter-a4.webp', 'kap-meter-a4-off.webp'); travelerOff.alt = ''; traveler.after(travelerOff); }
+  function setTraveler(b, opacity, arc = 0, dir = 1, bright = 1, shadow = 1, press = 0, screenOff = 0) {
     const vw = window.innerWidth, vh = window.innerHeight;
     const x = b.x + arc * vw * 0.08 * dir, y = b.y - arc * vh * 0.05;
     traveler.style.width = b.w.toFixed(1) + 'px';
@@ -129,14 +139,19 @@
     traveler.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${(arc * -7 * dir).toFixed(2)}deg) scale(${(1 + arc * 0.1 + press).toFixed(3)})`;
     traveler.style.opacity = opacity.toFixed(3);
     traveler.style.filter = `brightness(${bright.toFixed(3)}) drop-shadow(0 ${(4 + 18 * shadow).toFixed(1)}px ${(8 + 26 * shadow).toFixed(1)}px rgba(0,0,0,${(0.25 + 0.2 * shadow).toFixed(2)}))`;
+    if (travelerOff) {
+      ['width', 'height', 'transform', 'filter'].forEach(k => { travelerOff.style[k] = traveler.style[k]; });
+      travelerOff.style.opacity = (opacity * screenOff).toFixed(3);
+    }
   }
 
   /* ---------- timing (chapter progress) ---------- */
   const T = {
     lab: { video: [0, 0.6], still: [0.6, 0.66], show: [0.7, 0.76], dim: [0.76, 0.9], out: 0.92 },
-    // land: arrives on its spot · sit: settles onto the wall and takes the room's light · dis: becomes the meter in the film
-    room: { land: 0.08, sit: 0.14, dis: [0.14, 0.22], video: [0.24, 0.9], out: 0.95 },
-    nation: { land: 0.1, sit: 0.15, dis: [0.15, 0.22], video: [0.23, 0.8], stable: [0.8, 0.86], on: 0.6 },
+    // land: arrives on its spot · sit: settles onto the wall, takes the room's light, screen off until the power comes on
+    room: { land: 0.08, sit: 0.14, video: [0.16, 0.9], out: 0.95 },
+    // nation: the film's first frame is this same meter over the city, so it hands over in place and the film splits it
+    nation: { land: 0.1, sit: 0.15, swap: 0.16, video: [0.16, 0.8], stable: [0.8, 0.86], on: 0.6 },
   };
 
   /* ---------- the route: stops the meter rests at, in page order ---------- */
@@ -163,11 +178,30 @@
   }
   const rectOf = st => {
     if (st.kind === 'slot') { const r = st.el.getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height }; }
-    return bodyFit(meterRect(st.s), st.start ? 0 : SHAPE);
+    if (st.start || st.end) return bodyFit(meterRect(st.s), 0);
+    const C = st.T, vt = (st.s.p - C.video[0]) / (C.video[1] - C.video[0]);
+    const m = meterRect(st.s, trackAt(st.s, vt).r);
+    const g = m.h * 0.02; // a touch larger, so it fully covers the film's own meter
+    return bodyFit({ x: m.x - g, y: m.y - g, w: m.w + 2 * g, h: m.h + 2 * g }, SHAPE);
   };
-  const SHAPE = 0.55;
-  const LIGHT = { school: 0.72, factory: 0.6, nation: 0.8 }; // how dark each scene is where the meter lands
+  const SHAPE = 0.3;
+  const NATION_LIGHT = 0.78;
   const mix = (P, Q, t) => ({ x: lerp(P.x, Q.x, t), y: lerp(P.y, Q.y, t), w: lerp(P.w, Q.w, t), h: lerp(P.h, Q.h, t) });
+
+  const portraitMQ = window.matchMedia('(orientation: portrait)');
+  const portrait = () => portraitMQ.matches; // phones / upright tablets: text stays visible under the film
+
+  // phones / upright tablets: centre the film + text block vertically so no empty band is left under the text
+  function layoutPortrait() {
+    Object.values(S).forEach(s => {
+      if (!portrait()) { s.el.style.removeProperty('--film-top'); return; }
+      const st = s.el.querySelector('.chapter__stage'), cp = s.copy;
+      const head = window.innerWidth <= 768 ? 64 : 68, filmH = s.box.offsetHeight, gap = 22;
+      let textH = 0; [...cp.children].forEach(c => { const r = c.getBoundingClientRect(), m = getComputedStyle(c); textH += r.height + parseFloat(m.marginTop) + parseFloat(m.marginBottom); });
+      const top = Math.max(head, head + (st.clientHeight - head - filmH - gap - textH - 24) / 2);
+      s.el.style.setProperty('--film-top', Math.round(top) + 'px');
+    });
+  }
 
   /* ---------- frame ---------- */
   let ticking = false;
@@ -184,17 +218,17 @@
       if (lab.frames['3']) lab.frames['3'].style.opacity = ramp(p, ...L.still);
       lab.steps.forEach(li => li.classList.toggle('is-on', p >= parseFloat(li.dataset.at)));
       lab.el.style.setProperty('--dim', (ramp(p, ...L.dim) * 0.82).toFixed(3));
-      if (lab.copy) lab.copy.style.setProperty('--in', (1 - ramp(p, L.show[0] - 0.02, L.dim[0] + 0.04)).toFixed(3)); // text steps aside as the meter lifts off
+      if (lab.copy) lab.copy.style.setProperty('--in', portrait() ? '1' : (1 - ramp(p, L.show[0] - 0.02, L.dim[0] + 0.04)).toFixed(3)); // text steps aside as the meter lifts off
     }
     // classroom & factory: empty wall → meter lands → video (display wakes, lights come on, more light)
     for (const s of [S.school, S.factory]) {
       if (!s) continue;
       const p = s.p, R = T.room, f = s.frames, q = seqs[s.el.dataset.chapter];
-      f.off.style.opacity = ramp(p, ...R.dis);
-      if (q) { q.c.style.opacity = ramp(p, R.dis[1], R.video[0]); q.set((p - R.video[0]) / (R.video[1] - R.video[0])); }
+      f.off.style.opacity = ramp(p, R.land, R.sit);   // hidden under the landed meter
+      if (q) { q.c.style.opacity = ramp(p, R.sit, R.video[0]); q.set((p - R.video[0]) / (R.video[1] - R.video[0])); }
       f.on.style.opacity = q ? ramp(p, R.video[1], R.video[1] + 0.03) : ramp(p, 0.35, 0.55);
       if (f['empty-on']) f['empty-on'].style.opacity = ramp(p, R.out - 0.02, R.out + 0.01); // the meter leaves the wall
-      s.copy.style.setProperty('--in', ramp(p, 0.04, 0.16).toFixed(3));
+      s.copy.style.setProperty('--in', portrait() ? '1' : ramp(p, 0.04, 0.16).toFixed(3));
       setOn(s, p > 0.45);
     }
     // nation: crisis → the meter multiplies across the city → stable
@@ -202,9 +236,9 @@
     if (nat) {
       const p = nat.p, N = T.nation;
       const q = seqs.nation;
-      if (q) { q.c.style.opacity = ramp(p, ...N.dis); q.set((p - N.video[0]) / (N.video[1] - N.video[0])); }
+      if (q) { q.c.style.opacity = ramp(p, N.land, N.sit); q.set((p - N.video[0]) / (N.video[1] - N.video[0])); }
       nat.frames.stable.style.opacity = ramp(p, ...N.stable);
-      nat.copy.style.setProperty('--in', ramp(p, 0.04, 0.18).toFixed(3));
+      nat.copy.style.setProperty('--in', portrait() ? '1' : ramp(p, 0.04, 0.18).toFixed(3));
       setOn(nat, p > N.on);
     }
 
@@ -222,15 +256,19 @@
       if (y >= st.in && y <= st.out) {                                   // resting at a stop
         if (st.kind === 'slot') setTraveler(rectOf(st), 1);
         else if (st.start) setTraveler(rectOf(st), ramp(lab.p, ...T.lab.show));
-        else {                                                           // lands, sits on the wall, becomes the meter in the film
-          const P = st.s.p, C = st.T, L = LIGHT[st.s.el.dataset.chapter] || 1;
-          const sit = ramp(P, C.land, C.sit);
-          let o = 1 - ramp(P, ...C.dis), bright = lerp(1, L, sit), shadow = 1 - sit;
-          if (!st.end && P > C.dis[1]) {                                 // a new one lifts off the wall for the next stop
+        else if (st.end) {                                               // over the city: hands over to the film, which splits it
+          const P = st.s.p, C = st.T, sit = ramp(P, C.land, C.sit);
+          setTraveler(rectOf(st), P < C.swap ? 1 : 0, 0, 1, lerp(1, NATION_LIGHT, sit), 1 - sit * 0.5, Math.sin(Math.PI * sit) * 0.02);
+        } else {                                                         // lands, sits on the wall and stays there for the whole film
+          const P = st.s.p, C = st.T, vt = clamp((P - C.video[0]) / (C.video[1] - C.video[0]));
+          const sit = ramp(P, C.land, C.sit), tr = trackAt(st.s, vt), on = st.s.track ? st.s.track.on : 0;
+          let bright = lerp(1, tr.l, sit), shadow = 1 - sit;
+          let screenOff = sit * (1 - ramp(vt, on, on + 0.015));          // power comes on with the film
+          if (P > C.out - 0.03) {                                        // lifts off the wall for the next stop
             const up = ramp(P, C.out - 0.03, C.out);
-            o = up; bright = lerp(L, 1, up); shadow = up;
+            bright = lerp(tr.l, 1, up); shadow = up;
           }
-          setTraveler(rectOf(st), o, 0, 1, bright, shadow, Math.sin(Math.PI * sit) * 0.025);
+          setTraveler(rectOf(st), 1, 0, 1, bright, shadow, Math.sin(Math.PI * sit) * 0.02, screenOff);
         }
         done = true;
       } else if (i < R.length - 1 && y > st.out && y < R[i + 1].in) {   // flying to the next stop
@@ -249,12 +287,14 @@
         done = true;
       }
     }
-    if (!done) traveler.style.opacity = 0;
+    if (!done) { traveler.style.opacity = 0; if (travelerOff) travelerOff.style.opacity = 0; }
   }
 
   function request() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
   window.addEventListener('scroll', request, { passive: true });
   window.addEventListener('resize', () => { Object.values(seqs).forEach(q => { q.key = ''; }); Object.values(S).forEach(s => { s._fit = ''; }); request(); }, { passive: true });
-  window.addEventListener('load', request);
+  window.addEventListener('load', () => { layoutPortrait(); request(); });
+  window.addEventListener('resize', layoutPortrait, { passive: true });
+  layoutPortrait();
   frame();
 })();
