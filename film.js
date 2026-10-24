@@ -174,6 +174,7 @@
       if (lab.frames['3']) lab.frames['3'].style.opacity = ramp(p, ...L.still);
       lab.steps.forEach(li => li.classList.toggle('is-on', p >= parseFloat(li.dataset.at)));
       lab.el.style.setProperty('--dim', (ramp(p, ...L.dim) * 0.82).toFixed(3));
+      if (lab.copy) lab.copy.style.setProperty('--in', (1 - ramp(p, L.show[0] - 0.02, L.dim[0] + 0.04)).toFixed(3)); // text steps aside as the meter lifts off
     }
     // classroom & factory: empty wall → meter lands → video (display wakes, lights come on, more light)
     for (const s of [S.school, S.factory]) {
@@ -201,10 +202,9 @@
     if (!traveler) return;
     const y = window.scrollY, R = route(), FLY = vh * 0.75;
     // long gaps: it waits beside the text (wide screens) or in the corner (small screens), gently floating
-    const pw = vw >= 1300 ? Math.min(120, (vw - 1200) / 2 - 24) : Math.max(56, Math.min(84, vw * 0.14));
-    const park = vw >= 1300
-      ? { w: pw, h: pw * CUT.aspect, x: 16, y: vh * 0.5 - pw * CUT.aspect / 2 }
-      : { w: pw, h: pw * CUT.aspect, x: 12, y: vh - pw * CUT.aspect - 16 };
+    // long gaps: it waits on the left side of the screen, vertically centred, gently floating
+    const pw = vw >= 1024 ? Math.min(180, Math.max(130, vw * 0.1)) : Math.max(96, Math.min(140, vw * 0.27));
+    const park = { w: pw, h: pw * CUT.aspect, x: vw >= 1300 ? Math.max(16, (vw - 1200) / 2 - pw - 12) : 12, y: vh * 0.5 - pw * CUT.aspect / 2 };
     let done = false;
 
     for (let i = 0; i < R.length && !done; i++) {

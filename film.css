@@ -14,7 +14,13 @@
   overflow: hidden; isolation: isolate; color: #fff;
 }
 
-.chapter__frames { position: absolute; inset: 0; transform: scale(calc(1.07 - var(--p, 0) * .07)); transform-origin: var(--focus, 50% 50%); will-change: transform; }
+/* the film is always shown whole: a 16:9 frame fitted inside the screen (no cropping, no zoom) */
+.chapter__stage { background: #07111B; }
+.chapter__frames {
+  position: absolute; left: 50%; top: 50%;
+  width: min(100vw, calc(100vh * 16 / 9)); width: min(100vw, calc(100svh * 16 / 9));
+  aspect-ratio: 16 / 9; transform: translate(-50%, -50%); overflow: hidden;
+}
 .chapter__frame {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: var(--focus, 50% 50%);
@@ -124,8 +130,6 @@
   .chapter--lab { height: 360vh; }
   .chapter__copy { padding-bottom: 40px; }
   .chapter--school .chapter__copy { align-items: flex-start; }
-  .chapter__stage { background: #07111B; }
-  .chapter__frames { bottom: auto; height: 56%; }
   .chapter__shade, .chapter--factory .chapter__shade, .chapter--school .chapter__shade {
     background: linear-gradient(0deg, #07111B 0%, #07111B 44%, rgba(7, 17, 27, .6) 52%, rgba(7, 17, 27, 0) 66%);
   }
@@ -189,16 +193,30 @@
   .nation__stats span { font-size: .72rem; }
   .chapter--nation .chapter__lead { font-size: .84rem; line-height: 1.8; margin-bottom: 12px; }
   .chapter--nation h2 { font-size: 1.5rem; margin-bottom: 10px; }
-  .chapter--nation .chapter__frames { height: 62%; }
   .nation__map i { width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; }
 }
 @media (prefers-reduced-motion: reduce) { .nation__map i { opacity: 1; transform: none; animation: none; } }
 
 /* places on the page where the traveling meter comes to rest */
-.meter-slot { width: clamp(120px, 13vw, 180px); aspect-ratio: 600 / 696; margin: 0 auto 26px; position: relative; }
+.meter-slot { width: clamp(150px, 16vw, 220px); aspect-ratio: 600 / 696; margin: 0 auto 26px; position: relative; }
 .meter-slot::after { content: ''; position: absolute; left: 8%; right: 8%; bottom: -10px; height: 18px; border-radius: 50%;
   background: radial-gradient(closest-side, rgba(255, 87, 34, .35), rgba(255, 87, 34, 0)); }
 .ecommerce__content .meter-slot { margin: 0 0 22px; }
 @media (prefers-reduced-motion: reduce) {
   .meter-slot { background: url(assets/scenes/kap-meter-a4.webp) center / contain no-repeat; }
 }
+
+/* portrait screens (phones, tablets held upright): the whole film on top, the text underneath */
+@media (orientation: portrait) {
+  .chapter { --film-top: 68px; --film-h: 56.25vw; }
+  .chapter__frames { top: var(--film-top); left: 0; width: 100%; transform: none; }
+  .chapter__shade, .chapter--school .chapter__shade, .chapter--factory .chapter__shade, .chapter--nation .chapter__shade {
+    background: linear-gradient(180deg, rgba(7, 17, 27, 0) calc(var(--film-top) + var(--film-h) - 36px), #07111B calc(var(--film-top) + var(--film-h)));
+  }
+  .chapter .chapter__copy, .chapter--school .chapter__copy, .chapter--nation .chapter__copy {
+    justify-content: flex-start; align-items: flex-start;
+    padding-top: calc(var(--film-top) + var(--film-h) + 22px); padding-bottom: 24px;
+  }
+  .chapter__scroll { display: none; }
+}
+@media (orientation: portrait) and (max-width: 768px) { .chapter { --film-top: 64px; } }
