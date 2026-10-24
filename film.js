@@ -2,7 +2,7 @@
    - Chapters: sticky full-screen stages; scroll progress p (0→1) scrubs video frame sequences and photo cross-fades.
    - One real KAP meter travels through the whole page like the bee in the reference:
      lab bench → its place in the intro text → classroom wall → its place in "what KAP does"
-     → factory cabinet → its place in the digital-economy section → it multiplies across the city.
+     → factory cabinet → its place in the digital-economy section → over the city, where the film splits it into many.
    Transform/opacity only, rAF-throttled. Reduced motion: static finished frames (CSS). */
 (() => {
   'use strict';
@@ -129,7 +129,7 @@
   const T = {
     lab: { video: [0, 0.6], still: [0.6, 0.66], show: [0.7, 0.76], dim: [0.76, 0.9], out: 0.92 },
     room: { land: 0.1, handoff: 0.04, video: [0.16, 0.88], out: 0.94 },
-    nation: { land: 0.2, lit: 0.26, stable: [0.4, 0.62], on: 0.55 },
+    nation: { land: 0.12, handoff: 0.03, video: [0.15, 0.8], stable: [0.8, 0.86], on: 0.6 },
   };
 
   /* ---------- the route: stops the meter rests at, in page order ---------- */
@@ -150,7 +150,7 @@
     sl(slots[1]);
     ch(S.factory, at(S.factory, T.room.land), at(S.factory, T.room.out));
     sl(slots[2]);
-    ch(S.nation, at(S.nation, T.nation.land), Infinity, { vanish: true });
+    ch(S.nation, at(S.nation, T.nation.land), at(S.nation, 1) + vh * 50, { end: true });
     return R;
   }
   const rectOf = st => {
@@ -190,9 +190,10 @@
     const nat = S.nation;
     if (nat) {
       const p = nat.p, N = T.nation;
+      const q = seqs.nation;
+      if (q) { q.c.style.opacity = ramp(p, N.land, N.land + N.handoff); q.set((p - N.video[0]) / (N.video[1] - N.video[0])); }
       nat.frames.stable.style.opacity = ramp(p, ...N.stable);
       nat.copy.style.setProperty('--in', ramp(p, 0.04, 0.18).toFixed(3));
-      if (nat.map) { fitMap(nat); nat.map.classList.toggle('is-lit', p > N.lit); }
       setOn(nat, p > N.on);
     }
 
@@ -211,7 +212,7 @@
       if (y >= st.in && y <= st.out) {                                   // resting at a stop
         if (st.kind === 'slot') setTraveler(rectOf(st), 1);
         else if (st.start) setTraveler(rectOf(st), ramp(lab.p, ...T.lab.show));
-        else if (st.vanish) traveler.style.opacity = 0;
+        else if (st.end) setTraveler(rectOf(st), 1 - ramp(y, st.in, st.in + (st.s.el.offsetHeight - vh) * 0.03));
         else {                                                           // installed in the scene: the film shows it
           const fade = (st.s.el.offsetHeight - vh) * 0.035;
           setTraveler(rectOf(st), Math.max(1 - ramp(y, st.in, st.in + fade), ramp(y, st.out - fade, st.out)));
@@ -219,20 +220,15 @@
         done = true;
       } else if (i < R.length - 1 && y > st.out && y < R[i + 1].in) {   // flying to the next stop
         const nx = R[i + 1], A = rectOf(st), B = rectOf(nx), dist = nx.in - st.out, dir = i % 2 ? -1 : 1;
-        let box, arc, o = 1, t = 0, landing = true;
+        let box, arc, o = 1, t = 0;
         if (dist < FLY * 2.4) {
           t = smooth(clamp((y - st.out) / dist)); box = mix(A, B, t); arc = Math.sin(Math.PI * t);
         } else if (y < st.out + FLY) {
-          t = smooth(clamp((y - st.out) / FLY)); box = mix(A, park, t); arc = Math.sin(Math.PI * t) * 0.6; landing = false;
+          t = smooth(clamp((y - st.out) / FLY)); box = mix(A, park, t); arc = Math.sin(Math.PI * t) * 0.6;
         } else if (y > nx.in - FLY) {
           t = smooth(clamp((y - (nx.in - FLY)) / FLY)); box = mix(park, B, t); arc = Math.sin(Math.PI * t) * 0.6;
         } else {
-          box = { ...park, y: park.y + Math.sin(y / 160) * 6 }; arc = 0; landing = false;
-        }
-        if (landing && nx.vanish) {                                      // shrinks into the city and becomes many
-          o = 1 - ramp(t, 0.8, 1);
-          const w = box.w * lerp(1, 0.2, ramp(t, 0.45, 1)), cx = box.x + box.w / 2, cy = box.y + box.h / 2;
-          box = { x: cx - w / 2, y: cy - w * CUT.aspect / 2, w, h: w * CUT.aspect };
+          box = { ...park, y: park.y + Math.sin(y / 160) * 6 }; arc = 0;
         }
         setTraveler(box, o, arc, dir);
         done = true;
