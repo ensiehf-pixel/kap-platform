@@ -1,0 +1,145 @@
+/* =========================================================
+   KAP cinematic scroll story (photo chapters)
+   Each chapter is a tall section with a sticky full-screen stage.
+   Scroll progress (--p, 0→1) drives frame cross-fades and a slow push-in.
+   ========================================================= */
+
+.film { display: block; background: #07111B; }
+
+.chapter { position: relative; height: 260vh; }
+.chapter--lab { height: 300vh; }
+
+.chapter__stage {
+  position: sticky; top: 0; height: 100vh; height: 100svh;
+  overflow: hidden; isolation: isolate; color: #fff;
+}
+
+.chapter__frames { position: absolute; inset: 0; transform: scale(calc(1.07 - var(--p, 0) * .07)); transform-origin: var(--focus, 50% 50%); will-change: transform; }
+.chapter__frame {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: var(--focus, 50% 50%);
+  opacity: 0; will-change: opacity;
+}
+.chapter__frame:first-child { opacity: 1; }
+
+.chapter--lab { --focus: 50% 50%; }
+.chapter--school { --focus: 82% 50%; }
+.chapter--factory { --focus: 12% 50%; }
+
+/* legibility shade: dark from the reading side (right in RTL) and bottom */
+.chapter__shade {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(270deg, rgba(5, 12, 20, .88) 0%, rgba(5, 12, 20, .6) 36%, rgba(5, 12, 20, 0) 64%),
+    linear-gradient(0deg, rgba(5, 12, 20, .55) 0%, rgba(5, 12, 20, 0) 40%);
+}
+.chapter--school .chapter__copy { align-items: flex-end; }
+.chapter--school .chapter__shade {
+  background:
+    linear-gradient(90deg, rgba(5, 12, 20, .8) 0%, rgba(5, 12, 20, .45) 34%, rgba(5, 12, 20, 0) 60%),
+    linear-gradient(0deg, rgba(5, 12, 20, .55) 0%, rgba(5, 12, 20, 0) 40%);
+}
+.chapter--factory .chapter__shade {
+  background:
+    linear-gradient(90deg, rgba(5, 12, 20, 0) 40%, rgba(5, 12, 20, .5) 66%, rgba(5, 12, 20, .8) 100%),
+    linear-gradient(0deg, rgba(5, 12, 20, .55) 0%, rgba(5, 12, 20, 0) 40%);
+}
+
+.chapter__copy {
+  position: absolute; inset: 0; margin: 0 auto;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start;
+  padding-top: 100px; padding-bottom: clamp(48px, 9vh, 96px);
+}
+.chapter__copy > * { max-width: 560px; }
+.chapter__copy > * {
+  opacity: var(--in, 1); transform: translateY(calc((1 - var(--in, 1)) * 24px));
+}
+
+.chapter__kicker {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 700 .78rem/1 'Inter', sans-serif; letter-spacing: .22em; color: #FF8A50;
+  margin-bottom: 18px; direction: ltr;
+}
+.chapter__kicker::before { content: ''; width: 34px; height: 1px; background: currentColor; }
+.chapter h1, .chapter h2 {
+  color: #fff; font-weight: 800; line-height: 1.4;
+  font-size: clamp(1.8rem, 3.6vw, 3.1rem); margin-bottom: 18px;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, .35);
+}
+.chapter .highlight { color: #FF8A50; }
+.chapter__lead { color: rgba(255, 255, 255, .86); font-size: clamp(.95rem, 1.2vw, 1.08rem); line-height: 2; margin-bottom: 22px; }
+
+.chapter__steps { list-style: none; margin: 0 0 26px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chapter__steps li {
+  padding: 7px 14px; border-radius: 999px; font-size: .82rem; font-weight: 600;
+  color: rgba(255, 255, 255, .6); border: 1px solid rgba(255, 255, 255, .22);
+  background: rgba(255, 255, 255, .06); backdrop-filter: blur(6px);
+  transition: color .4s, background .4s, border-color .4s;
+}
+.chapter__steps li::before { content: '○ '; }
+.chapter__steps li.is-on { color: #fff; background: rgba(255, 87, 34, .3); border-color: rgba(255, 138, 80, .8); }
+.chapter__steps li.is-on::before { content: '✓ '; color: #FFB38A; }
+
+.chapter__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn-ghost {
+  display: inline-flex; align-items: center; padding: 14px 28px; border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, .55); color: #fff; font-weight: 700;
+  transition: background .3s, border-color .3s;
+}
+.btn-ghost:hover { background: rgba(255, 255, 255, .12); border-color: #fff; }
+
+.chapter__status {
+  display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px; border-radius: 999px;
+  background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .22);
+  backdrop-filter: blur(8px); font-size: .9rem; font-weight: 600; margin-bottom: 16px;
+}
+.chapter__led { width: 9px; height: 9px; border-radius: 50%; background: #EF5350; box-shadow: 0 0 0 4px rgba(239, 83, 80, .2); transition: background .4s, box-shadow .4s; }
+.chapter.is-on .chapter__led { background: #66BB6A; box-shadow: 0 0 0 4px rgba(102, 187, 106, .25), 0 0 14px #66BB6A; }
+.chapter__link { color: #FFB38A; font-weight: 700; }
+.chapter__link:hover { color: #fff; }
+
+.chapter__scroll {
+  position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font: 600 .7rem/1 'Inter', sans-serif; letter-spacing: .3em; color: rgba(255, 255, 255, .7);
+  opacity: calc(1 - var(--p, 0) * 4);
+}
+.chapter__scroll span { width: 1px; height: 38px; background: linear-gradient(rgba(255, 255, 255, 0), #fff); animation: filmScroll 1.8s ease-in-out infinite; transform-origin: top; }
+@keyframes filmScroll { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+
+/* manifesto (former hero copy) */
+.manifesto { padding: 110px 0 90px; background: #fff; }
+.manifesto__inner { max-width: 860px; text-align: center; }
+.manifesto h2 { font-size: clamp(1.5rem, 2.8vw, 2.2rem); line-height: 1.5; margin: 6px 0 22px; }
+.manifesto .highlight { color: var(--orange-500); }
+.manifesto p { color: #4A5563; line-height: 2.05; margin-bottom: 16px; }
+.manifesto strong { color: var(--navy-900); }
+.manifesto strong.accent { color: var(--orange-500); }
+
+/* header sits on dark photos at the top of the page */
+.header { transition: background .35s, box-shadow .35s, border-color .35s; }
+
+@media (max-width: 768px) {
+  .chapter { height: 230vh; }
+  .chapter--lab { height: 260vh; }
+  .chapter__copy { padding-bottom: 40px; }
+  .chapter--school .chapter__copy { align-items: flex-start; }
+  .chapter__stage { background: #07111B; }
+  .chapter__frames { bottom: auto; height: 56%; }
+  .chapter__shade, .chapter--factory .chapter__shade, .chapter--school .chapter__shade {
+    background: linear-gradient(0deg, #07111B 0%, #07111B 44%, rgba(7, 17, 27, .6) 52%, rgba(7, 17, 27, 0) 66%);
+  }
+  .chapter__lead { font-size: .92rem; line-height: 1.9; }
+  .chapter__steps li { font-size: .74rem; padding: 6px 10px; }
+}
+
+/* Reduced motion: no pinning, show the finished frame of each chapter */
+@media (prefers-reduced-motion: reduce) {
+  .chapter, .chapter--lab { height: auto; }
+  .chapter__stage { position: relative; height: 100svh; }
+  .chapter__frames { transform: none !important; }
+  .chapter__frame { opacity: 0 !important; }
+  .chapter__frame:last-child { opacity: 1 !important; }
+  .chapter__copy > * { opacity: 1 !important; transform: none !important; }
+  .chapter__scroll span { animation: none; }
+}
