@@ -143,3 +143,12 @@
   .chapter__copy > * { opacity: 1 !important; transform: none !important; }
   .chapter__scroll span { animation: none; }
 }
+
+/* the traveling meter (one real device, flies between chapters) */
+.traveler {
+  position: fixed; top: 0; left: 0; z-index: 900; width: 300px; height: auto;
+  pointer-events: none; opacity: 0; transform-origin: 50% 50%; will-change: transform, opacity;
+  filter: drop-shadow(0 22px 34px rgba(0, 0, 0, .45));
+}
+.chapter__dim { position: absolute; inset: 0; background: #050C14; opacity: var(--dim, 0); pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .traveler { display: none; } .chapter__dim { opacity: 0 !important; } }
