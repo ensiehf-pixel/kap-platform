@@ -61,7 +61,7 @@
       order.forEach((i, k) => {
         const im = new Image(); im.decoding = 'async';
         im.onload = () => { this.imgs[i] = im; this.key = ''; request(); };
-        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=16'; }, k < 6 ? 0 : 20 + k * 8);
+        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=17'; }, k < 6 ? 0 : 20 + k * 8);
       });
     }
     near(i) { for (let d = 0; d < this.n; d++) { const a = this.imgs[i - d] || this.imgs[i + d]; if (a) return a; } return null; }
@@ -152,7 +152,7 @@
     // swap: it has taken the exact outline and light of the film's meter, and the film's meter takes over in that instant
     room: { land: 0.08, swap: 0.13, video: [0.15, 0.9], out: 0.95 },
     // office: the meter lifts off before the cut to the meeting room, and waits beside the page while it goes dark
-    org: { land: 0.08, swap: 0.13, video: [0.15, 0.9], out: 0.44 },
+    org: { land: 0.08, swap: 0.13, video: [0.15, 0.9], out: 0.6 },
     // nation: the film's first frame is this same meter over the city, so it hands over in place and the film splits it
     nation: { land: 0.1, sit: 0.15, swap: 0.16, video: [0.16, 0.8], stable: [0.8, 0.86], on: 0.6 },
   };
@@ -234,7 +234,7 @@
       f.on.style.opacity = q ? ramp(p, R.video[1], R.video[1] + 0.03) : ramp(p, 0.35, 0.55);
       if (f['empty-on']) f['empty-on'].style.opacity = ramp(p, R.out - 0.02, R.out + 0.01); // the meter leaves the wall
       s.copy.style.setProperty('--in', portrait() ? '1' : ramp(p, 0.04, 0.16).toFixed(3));
-      setOn(s, p > (s === S.org ? 0.6 : 0.45));
+      setOn(s, p > (s === S.org ? 0.7 : 0.45));
     }
     // nation: crisis → the meter multiplies across the city → stable
     const nat = S.nation;
