@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /_*
+
+# AI search and answer engines are welcome to read and cite this site
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://kap.energy/sitemap.xml

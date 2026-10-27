@@ -3,38 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="سوالات متداول (FAQ) — پاسخ به پرسش‌های کلیدی درباره پلتفرم هوشمند انرژی کاپ، پایلوت‌ها و فناوری‌ها">
-  <title>سوالات متداول | KAP — مدیریت هوشمند مصرف برق</title>
+  <meta name="description" content="پاسخ پرسش‌های رایج دربارهٔ کاپ: تفاوت با BMS، قطع نشدن خودکار تجهیزات، نصب بدون تغییر سیم‌کشی، پایلوت، مراقبت از سالمندان، نیروگاه مجازی و امنیت داده.">
+  <title>سؤالات متداول مدیریت هوشمند مصرف برق | کاپ</title>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-  <meta name="theme-color" content="#0D1B2A">
+  <meta name="theme-color" content="#FAFAFA">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fa_IR">
   <meta property="og:site_name" content="KAP Energy Group">
-  <meta property="og:title" content="سوالات متداول | KAP — مدیریت هوشمند مصرف برق">
-  <meta property="og:description" content="سوالات متداول (FAQ) — پاسخ به پرسش‌های کلیدی درباره پلتفرم هوشمند انرژی کاپ، پایلوت‌ها و فناوری‌ها">
+  <meta property="og:title" content="سؤالات متداول مدیریت هوشمند مصرف برق | کاپ">
+  <meta property="og:description" content="پاسخ پرسش‌های رایج دربارهٔ کاپ: تفاوت با BMS، قطع نشدن خودکار تجهیزات، نصب بدون تغییر سیم‌کشی، پایلوت، مراقبت از سالمندان، نیروگاه مجازی و امنیت داده.">
   <meta property="og:image" content="https://kap.energy/assets/images/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="style.css?v=19">
+  <link rel="stylesheet" href="style.css?v=20">
   <style>
-    .page-hero{padding-top:140px;padding-bottom:70px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);text-align:center;}
+    .page-hero{padding-top:140px;padding-bottom:70px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF1E8 100%);text-align:center;}
     .page-hero h1{max-width:700px;margin:0 auto 20px;}
     .page-hero p{max-width:600px;margin:0 auto;color:#616161;font-size:1.05rem;line-height:1.85;}
     .faq-section{padding:80px 0 100px;background:#fff;}
     .faq-container{max-width:850px;margin:0 auto;}
     .faq-item{border:1px solid #e0e0e0;border-radius:12px;margin-bottom:16px;background:#fff;overflow:hidden;transition:all .3s ease;}
-    .faq-item:hover{border-color:#FF8A50;box-shadow:0 4px 16px rgba(255,87,34,0.06);}
-    .faq-question{width:100%;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;text-align:right;font-size:1.05rem;font-weight:700;color:#0D1B2A;font-family:inherit;outline:none;}
-    .faq-question svg{width:20px;height:20px;color:#FF5722;transition:transform .3s ease;flex-shrink:0;margin-right:16px;}
+    .faq-item:hover{border-color:#FF8A4C;box-shadow:0 4px 16px rgba(255,90,0,0.06);}
+    .faq-question{width:100%;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;text-align:right;font-size:1.05rem;font-weight:700;color:#1A1D20;font-family:inherit;outline:none;}
+    .faq-question svg{width:20px;height:20px;color:#FF5A00;transition:transform .3s ease;flex-shrink:0;margin-right:16px;}
     .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease, padding .35s ease;padding:0 28px;background:#fafafa;color:#616161;font-size:0.95rem;line-height:1.9;}
-    .faq-item.active{border-color:#FF5722;box-shadow:0 6px 20px rgba(255,87,34,0.1);}
+    .faq-item.active{border-color:#FF5A00;box-shadow:0 6px 20px rgba(255,90,0,0.1);}
     .faq-item.active .faq-question svg{transform:rotate(180deg);}
     .faq-item.active .faq-answer{max-height:600px;padding:16px 28px 24px;}
-    .faq-cta{padding:70px 0;background:linear-gradient(165deg,#0D1B2A,#1B2838);text-align:center;}
+    .faq-cta{padding:70px 0;background:linear-gradient(165deg,#1A1D20,#1B2838);text-align:center;}
     .faq-cta h2{color:#fff;margin-bottom:16px;font-size:1.4rem;}
     .faq-cta p{color:rgba(255,255,255,0.7);margin-bottom:30px;}
   </style>
+
+  <meta property="og:url" content="https://kap.energy/faq.html">
+  <link rel="canonical" href="https://kap.energy/faq.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://kap.energy/#org", "name": "KAP Energy Group", "alternateName": ["کاپ", "کارا انرژی پردازان", "KAP"], "url": "https://kap.energy/", "logo": "https://kap.energy/assets/images/kap-logo.png", "email": "info@kap.energy", "telephone": "+98-21-91093189", "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"}, "areaServed": "IR", "slogan": "Energy, made visible", "knowsAbout": ["مدیریت هوشمند مصرف برق", "مدیریت سمت تقاضا", "مدیریت پیک بار", "کنتور هوشمند", "سنسور CT", "تفکیک بار NILM", "نیروگاه مجازی", "ناترازی برق"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "خانه", "item": "https://kap.energy/"}, {"@type": "ListItem", "position": 2, "name": "سؤالات متداول مدیریت هوشمند مصرف برق", "item": "https://kap.energy/faq.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "کاپ دقیقاً چه کاری انجام می‌دهد و تفاوت آن با BMS چیست؟", "acceptedAnswer": {"@type": "Answer", "text": "سامانه‌های متداول BMS و کنتورهای سنتی تنها مصرف کل را ثبت می‌کنند و نیاز به سیم‌کشی‌های سنگین و سخت‌افزارهای گران‌قیمت دارند. کاپ فراتر از یک سامانه پایش ساده است؛ پلتفرمی مبتنی بر هوش مصنوعی و اینترنت اشیاء (IoT) است که الگوهای پنهان مصرف را شناسایی کرده، پتانسیل انعطاف بار را پیش‌بینی می‌کند و ارزش صرفه‌جویی و مدیریت تقاضا را در قالب یک بستر هوشمند تبادل انرژی (نیروگاه مجازی) معامله‌پذیر می‌سازد."}}, {"@type": "Question", "name": "آیا کاپ وسایل برقی یا خط تولید من را به اجبار قطع می‌کند؟", "acceptedAnswer": {"@type": "Answer", "text": "خیر، یکی از اصول بنیادین کاپ «حفظ اختیار و تداوم فعالیت کاربر» است. در فاز پایلوت و عملیاتی، سیستم صرفاً تحلیل‌های دقیق، فرصت‌های اصلاح مصرف و هشدارهای پیشگیرانه را به مدیران یا ساکنان پیشنهاد می‌دهد و هیچ مداخله کنترلی ناخواسته در فرآیند تولید یا رفاه ساکنان اعمال نمی‌شود. کنترل خودکار صرفاً برای تجهیزات غیربحرانی و با تأیید و تنظیم اختصاصی کاربر قابل فعال‌سازی است."}}, {"@type": "Question", "name": "آیا برای راه‌اندازی کاپ نیازی به تغییر سیم‌کشی یا زیرساخت ساختمان است؟", "acceptedAnswer": {"@type": "Answer", "text": "خیر. کاپ از سنسورهای کلمپی غیرتهاجمی (Split-Core CT) و ماژول‌های IoT سبک استفاده می‌کند که بدون قطع برق و بدون دستکاری کابل‌های ساختمانی، در چند دقیقه روی تابلوی برق نصب می‌شوند. همچنین این پلتفرم قابلیت اتصال مستقیم به کنتورهای هوشمند دیجیتال موجود در شبکه برق را داراست."}}, {"@type": "Question", "name": "طرح پایلوت رایگان شامل چه مراکزی می‌شود و چگونه می‌توان ثبت‌نام کرد؟", "acceptedAnswer": {"@type": "Answer", "text": "کاپ در راستای مسئولیت اجتماعی و توسعه زیست‌بوم نوآوری انرژی، هدف استقرار در ۱۰۰ دانشگاه و ۵۰۰۰ مدرسه کشور را به صورت پایلوت رایگان در دستور کار دارد. خانه‌ها و مجتمع‌های مسکونی منتخب نیز می‌توانند در طرح بتا ثبت‌نام کنند. برای صنایع و مجتمع‌های تجاری بزرگ، مدل مشارکت بر اساس سهم از صرفه‌جویی حاصله (Shared Savings) پیشنهاد می‌شود."}}, {"@type": "Question", "name": "فناوری مراقبت هوشمند از سالمندان کاپ چگونه کار می‌کند؟ آیا دوربین نصب می‌شود؟", "acceptedAnswer": {"@type": "Answer", "text": "به هیچ عنوان دوربینی نصب نمی‌شود و حریم خصوصی محفوظ می‌ماند. سیستم با الگوریتم‌های تفکیک بار (NILM)، روتین‌های روزمره سالمند را از روی روشن شدن کتری برقی، یخچال، چراغ‌ها و تلویزیون یاد می‌گیرد. در صورت انحراف محسوس از الگو (مانند روشن نماندن کتری در صبح یا روشن ماندن مداوم چراغ سرویس در نیمه‌شب)، هشداری ملایم به خانواده ارسال می‌گردد."}}, {"@type": "Question", "name": "نیروگاه مجازی (VPP) چیست و چه منفعتی برای کسب‌وکارها دارد؟", "acceptedAnswer": {"@type": "Answer", "text": "نیروگاه مجازی ظرفیت‌های پراکنده کاهش بار در صدها ساختمان و کارخانه را با هوش مصنوعی تجمیع می‌کند. صنایع و مجتمع‌ها با مشارکت اختیاری در جابجایی بار ساعات اوج مصرف شبکه، علاوه بر اجتناب از خاموشی‌های ناگهانی، پاداش‌های مالی یا اعتبار گواهی صرفه‌جویی دریافت می‌کنند."}}, {"@type": "Question", "name": "امنیت داده‌های مصرف برق ما چگونه تضمین می‌شود؟", "acceptedAnswer": {"@type": "Answer", "text": "داده‌های مصرف با پروتکل‌های پیشرفته رمزنگاری (TLS/SSL و AES-256) به سرورهای امن منتقل و ذخیره می‌شوند. داده‌های مصرف هر مشترک کاملاً ایزوله بوده و هیچ دسترسی غیرمجازی به اطلاعات فرآیندی، نام تجهیزات یا اسرار تجاری امکان‌پذیر نیست."}}]}]}</script>
 </head>
 <body>
 
@@ -139,7 +143,7 @@
           <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-answer">
-          به هیچ عنوان دوربینی نصب نمی‌شود و حریم خصوصی ۱۰۰٪ محفوظ است. سیستم با الگوریتم‌های تفکیک بار (NILM)، روتین‌های روزمره سالمند را از روی روشن شدن کتری برقی، یخچال، چراغ‌ها و تلویزیون یاد می‌گیرد. در صورت انحراف محسوس از الگو (مانند روشن نماندن کتری در صبح یا روشن ماندن مداوم چراغ سرویس در نیمه‌شب)، هشداری ملایم به خانواده ارسال می‌گردد.
+          به هیچ عنوان دوربینی نصب نمی‌شود و حریم خصوصی محفوظ می‌ماند. سیستم با الگوریتم‌های تفکیک بار (NILM)، روتین‌های روزمره سالمند را از روی روشن شدن کتری برقی، یخچال، چراغ‌ها و تلویزیون یاد می‌گیرد. در صورت انحراف محسوس از الگو (مانند روشن نماندن کتری در صبح یا روشن ماندن مداوم چراغ سرویس در نیمه‌شب)، هشداری ملایم به خانواده ارسال می‌گردد.
         </div>
       </div>
 
@@ -173,7 +177,7 @@
     <div class="container">
       <h2>سؤال دیگری دارید که در اینجا نیست؟</h2>
       <p>کارشناسان انرژی و هوش مصنوعی کاپ آماده پاسخگویی و ارائه مشاوره تخصصی هستند.</p>
-      <a href="contact.html" class="btn-primary" style="background:#FF5722;color:#fff;">ارتباط با ما <svg viewBox="0 0 20 20" fill="none"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="contact.html" class="btn-primary" style="background:#FF5A00;color:#fff;">ارتباط با ما <svg viewBox="0 0 20 20" fill="none"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </section>
 
@@ -202,7 +206,7 @@
           <a href="solution-education.html">دانشگاه و آموزش</a>
           <a href="solution-business.html">اداری و تجاری</a>
           <a href="solution-industry.html">صنعت</a>
-          <a href="solution-power.html">صنعت برق و رگولاتور</a>
+          <a href="solution-power.html">صنعت برق و خورشیدی</a>
         </div>
         <div class="ft-col">
           <h4>فناوری و محصول</h4>
@@ -228,7 +232,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=16"></script>
+  <script src="script.js?v=20"></script>
   <script>
     // Accordion interaction
     document.querySelectorAll('.faq-question').forEach(button => {

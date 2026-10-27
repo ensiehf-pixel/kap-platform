@@ -4,7 +4,7 @@
    Scroll progress (--p, 0→1) drives frame cross-fades and a slow push-in.
    ========================================================= */
 
-.film { display: block; background: #07111B; }
+.film { display: block; background: #1A1D20; }
 
 .chapter { position: relative; height: 480vh; }
 .chapter--lab { height: 420vh; }
@@ -15,7 +15,7 @@
 }
 
 /* the film is always shown whole: a 16:9 frame fitted inside the screen (no cropping, no zoom) */
-.chapter__stage { background: #07111B; }
+.chapter__stage { background: #1A1D20; }
 .chapter__frames {
   position: absolute; left: 50%; top: 50%;
   width: min(100vw, calc(100vh * 16 / 9)); width: min(100vw, calc(100svh * 16 / 9));
@@ -37,19 +37,19 @@
 .chapter__shade {
   position: absolute; inset: 0; pointer-events: none;
   background:
-    linear-gradient(270deg, rgba(5, 12, 20, .88) 0%, rgba(5, 12, 20, .6) 36%, rgba(5, 12, 20, 0) 64%),
-    linear-gradient(0deg, rgba(5, 12, 20, .55) 0%, rgba(5, 12, 20, 0) 40%);
+    linear-gradient(270deg, rgba(22, 24, 27, .88) 0%, rgba(22, 24, 27, .6) 36%, rgba(22, 24, 27, 0) 64%),
+    linear-gradient(0deg, rgba(22, 24, 27, .55) 0%, rgba(22, 24, 27, 0) 40%);
 }
 .chapter--school .chapter__copy, .chapter--org .chapter__copy { align-items: flex-end; }
 .chapter--school .chapter__shade, .chapter--org .chapter__shade {
   background:
-    linear-gradient(90deg, rgba(5, 12, 20, .8) 0%, rgba(5, 12, 20, .45) 34%, rgba(5, 12, 20, 0) 60%),
-    linear-gradient(0deg, rgba(5, 12, 20, .55) 0%, rgba(5, 12, 20, 0) 40%);
+    linear-gradient(90deg, rgba(22, 24, 27, .8) 0%, rgba(22, 24, 27, .45) 34%, rgba(22, 24, 27, 0) 60%),
+    linear-gradient(0deg, rgba(22, 24, 27, .55) 0%, rgba(22, 24, 27, 0) 40%);
 }
 .chapter--factory .chapter__shade {
   background:
-    linear-gradient(90deg, rgba(5, 12, 20, 0) 40%, rgba(5, 12, 20, .5) 66%, rgba(5, 12, 20, .8) 100%),
-    linear-gradient(0deg, rgba(5, 12, 20, .55) 0%, rgba(5, 12, 20, 0) 40%);
+    linear-gradient(90deg, rgba(22, 24, 27, 0) 40%, rgba(22, 24, 27, .5) 66%, rgba(22, 24, 27, .8) 100%),
+    linear-gradient(0deg, rgba(22, 24, 27, .55) 0%, rgba(22, 24, 27, 0) 40%);
 }
 
 .chapter__copy {
@@ -64,7 +64,7 @@
 
 .chapter__kicker {
   display: inline-flex; align-items: center; gap: 10px;
-  font: 700 .78rem/1 'Inter', sans-serif; letter-spacing: .22em; color: #FF8A50;
+  font: 700 .78rem/1 'Inter', sans-serif; letter-spacing: .22em; color: #FF8A4C;
   margin-bottom: 18px; direction: ltr;
 }
 .chapter__kicker::before { content: ''; width: 34px; height: 1px; background: currentColor; }
@@ -73,7 +73,7 @@
   font-size: clamp(1.8rem, 3.6vw, 3.1rem); margin-bottom: 18px;
   text-shadow: 0 2px 24px rgba(0, 0, 0, .35);
 }
-.chapter .highlight { color: #FF8A50; }
+.chapter .highlight { color: #FF8A4C; }
 .chapter__lead { color: rgba(255, 255, 255, .86); font-size: clamp(.95rem, 1.2vw, 1.08rem); line-height: 2; margin-bottom: 22px; }
 
 .chapter__steps { list-style: none; margin: 0 0 26px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -85,7 +85,7 @@
 }
 .chapter__steps li::before { content: '○ '; }
 .chapter__steps li.is-on { color: #fff; background: rgba(255, 87, 34, .3); border-color: rgba(255, 138, 80, .8); }
-.chapter__steps li.is-on::before { content: '✓ '; color: #FFB38A; }
+.chapter__steps li.is-on::before { content: '✓ '; color: #FFB48A; }
 
 .chapter__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .btn-ghost {
@@ -102,7 +102,7 @@
 }
 .chapter__led { width: 9px; height: 9px; border-radius: 50%; background: #EF5350; box-shadow: 0 0 0 4px rgba(239, 83, 80, .2); transition: background .4s, box-shadow .4s; }
 .chapter.is-on .chapter__led { background: #66BB6A; box-shadow: 0 0 0 4px rgba(102, 187, 106, .25), 0 0 14px #66BB6A; }
-.chapter__link { color: #FFB38A; font-weight: 700; }
+.chapter__link { color: #FFB48A; font-weight: 700; }
 .chapter__link:hover { color: #fff; }
 
 .chapter__scroll {
@@ -132,7 +132,7 @@
   .chapter__copy { padding-bottom: 40px; }
   .chapter--school .chapter__copy, .chapter--org .chapter__copy { align-items: flex-start; }
   .chapter__shade, .chapter--factory .chapter__shade, .chapter--school .chapter__shade, .chapter--org .chapter__shade {
-    background: linear-gradient(0deg, #07111B 0%, #07111B 44%, rgba(7, 17, 27, .6) 52%, rgba(7, 17, 27, 0) 66%);
+    background: linear-gradient(0deg, #1A1D20 0%, #1A1D20 44%, rgba(26, 29, 32, .6) 52%, rgba(26, 29, 32, 0) 66%);
   }
   .chapter__lead { font-size: .92rem; line-height: 1.9; }
   .chapter__steps li { font-size: .74rem; padding: 6px 10px; }
@@ -168,19 +168,19 @@
 .chapter--nation .chapter__copy { justify-content: flex-start; padding-top: clamp(96px, 14vh, 150px); }
 .chapter--nation .chapter__copy > * { max-width: 640px; }
 .chapter--nation .chapter__shade {
-  background: linear-gradient(180deg, rgba(5, 12, 20, .78) 0%, rgba(5, 12, 20, .35) 38%, rgba(5, 12, 20, 0) 55%),
-              linear-gradient(0deg, rgba(5, 12, 20, .45) 0%, rgba(5, 12, 20, 0) 30%);
+  background: linear-gradient(180deg, rgba(22, 24, 27, .78) 0%, rgba(22, 24, 27, .35) 38%, rgba(22, 24, 27, 0) 55%),
+              linear-gradient(0deg, rgba(22, 24, 27, .45) 0%, rgba(22, 24, 27, 0) 30%);
 }
-.chapter--nation .chapter__lead strong { color: #FF8A50; }
+.chapter--nation .chapter__lead strong { color: #FF8A4C; }
 .nation__stats { list-style: none; display: flex; flex-wrap: wrap; gap: 28px; margin: 4px 0 20px; padding: 0; }
 .nation__stats li { display: flex; flex-direction: column; gap: 4px; }
 .nation__stats b { font-size: clamp(1.4rem, 2.4vw, 2rem); font-weight: 800; color: #fff; line-height: 1.2; }
-.nation__stats li:first-child b { color: #FF8A50; }
+.nation__stats li:first-child b { color: #FF8A4C; }
 .nation__stats span { font-size: .82rem; color: rgba(255, 255, 255, .7); }
 .nation__map { position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; }
 .nation__map i {
   position: absolute; left: var(--x); top: var(--y); width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%;
-  background: #FF8A50; box-shadow: 0 0 0 3px rgba(255, 138, 80, .25), 0 0 14px 3px rgba(255, 120, 60, .7);
+  background: #FF8A4C; box-shadow: 0 0 0 3px rgba(255, 138, 80, .25), 0 0 14px 3px rgba(255, 120, 60, .7);
   opacity: 0; transform: scale(.2); transition: opacity .5s, transform .5s;
 }
 .nation__map.is-lit i { opacity: 1; transform: scale(1); transition-delay: calc(var(--d) * .9s); }
@@ -188,7 +188,7 @@
 @keyframes kapDot { 50% { box-shadow: 0 0 0 5px rgba(255, 138, 80, .12), 0 0 20px 5px rgba(255, 120, 60, .55); } }
 @media (max-width: 768px) {
   .chapter--nation .chapter__copy { justify-content: flex-end; padding-top: 0; }
-  .chapter--nation .chapter__shade { background: linear-gradient(0deg, #07111B 0%, #07111B 44%, rgba(7, 17, 27, .6) 52%, rgba(7, 17, 27, 0) 66%); }
+  .chapter--nation .chapter__shade { background: linear-gradient(0deg, #1A1D20 0%, #1A1D20 44%, rgba(26, 29, 32, .6) 52%, rgba(26, 29, 32, 0) 66%); }
   .nation__stats { gap: 16px; margin-bottom: 12px; }
   .nation__stats b { font-size: 1.15rem; }
   .nation__stats span { font-size: .72rem; }
@@ -212,7 +212,7 @@
   .chapter { --film-top: 68px; --film-h: 56.25vw; }
   .chapter__frames { top: var(--film-top); left: 0; width: 100%; transform: none; }
   .chapter__shade, .chapter--school .chapter__shade, .chapter--org .chapter__shade, .chapter--factory .chapter__shade, .chapter--nation .chapter__shade {
-    background: linear-gradient(180deg, rgba(7, 17, 27, 0) calc(var(--film-top) + var(--film-h) - 36px), #07111B calc(var(--film-top) + var(--film-h)));
+    background: linear-gradient(180deg, rgba(26, 29, 32, 0) calc(var(--film-top) + var(--film-h) - 36px), #1A1D20 calc(var(--film-top) + var(--film-h)));
   }
   .chapter .chapter__copy, .chapter--school .chapter__copy, .chapter--org .chapter__copy, .chapter--nation .chapter__copy {
     justify-content: flex-start; align-items: flex-start;

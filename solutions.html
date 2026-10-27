@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="راهکارهای کاپ برای مدیریت هوشمند مصرف برق — خانه، دانشگاه، اداری، صنعت و صنعت برق">
-  <title>راهکارها | KAP — مدیریت هوشمند مصرف برق</title>
+  <meta name="description" content="راهکارهای کاپ برای کاهش مصرف برق و مدیریت پیک بار در خانه، دانشگاه و مدرسه، ساختمان اداری و تجاری، صنعت، و شرکت‌های صنعت برق و انرژی خورشیدی.">
+  <title>راهکارهای مدیریت مصرف برق و کاهش پیک بار | کاپ</title>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-  <meta name="theme-color" content="#0D1B2A">
+  <meta name="theme-color" content="#FAFAFA">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fa_IR">
   <meta property="og:site_name" content="KAP Energy Group">
-  <meta property="og:title" content="راهکارها | KAP — مدیریت هوشمند مصرف برق">
-  <meta property="og:description" content="راهکارهای کاپ برای مدیریت هوشمند مصرف برق — خانه، دانشگاه، اداری، صنعت و صنعت برق">
+  <meta property="og:title" content="راهکارهای مدیریت مصرف برق و کاهش پیک بار | کاپ">
+  <meta property="og:description" content="راهکارهای کاپ برای کاهش مصرف برق و مدیریت پیک بار در خانه، دانشگاه و مدرسه، ساختمان اداری و تجاری، صنعت، و شرکت‌های صنعت برق و انرژی خورشیدی.">
   <meta property="og:image" content="https://kap.energy/assets/images/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="style.css?v=19">
+  <link rel="stylesheet" href="style.css?v=20">
   <style>
-    .sol-hero{padding-top:140px;padding-bottom:80px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF3E0 100%);text-align:center;}
+    .sol-hero{padding-top:140px;padding-bottom:80px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF1E8 100%);text-align:center;}
     .sol-hero h1{max-width:700px;margin:0 auto 20px;}
     .sol-hero p{max-width:600px;margin:0 auto;color:#616161;font-size:1.05rem;line-height:1.85;}
     .sol-cards{padding:80px 0;background:#fff;}
     .sol-cards__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;}
     .sol-big-card{background:#fff;border:1px solid #eee;border-radius:16px;padding:40px 32px;transition:all .35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
-    .sol-big-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:#FF5722;transform:scaleX(0);transition:transform .35s cubic-bezier(.16,1,.3,1);}
-    .sol-big-card:hover{transform:translateY(-8px);box-shadow:0 8px 32px rgba(13,27,42,.1);border-color:#FF8A50;}
+    .sol-big-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:#FF5A00;transform:scaleX(0);transition:transform .35s cubic-bezier(.16,1,.3,1);}
+    .sol-big-card:hover{transform:translateY(-8px);box-shadow:0 8px 32px rgba(13,27,42,.1);border-color:#FF8A4C;}
     .sol-big-card:hover::before{transform:scaleX(1);}
     .sol-big-card__icon{font-size:3rem;margin-bottom:20px;}
     .sol-big-card h3{font-size:1.25rem;margin-bottom:12px;}
@@ -35,13 +35,17 @@
     .sol-loop-banner h2{margin-bottom:16px;font-size:1.5rem;}
     .sol-loop-banner p{color:#616161;margin-bottom:32px;font-size:1rem;}
     .sol-loop-steps{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:32px;}
-    .sol-loop-chip{padding:10px 20px;background:#FFF3E0;color:#FF5722;border-radius:9999px;font-weight:600;font-size:0.88rem;}
+    .sol-loop-chip{padding:10px 20px;background:#FFF1E8;color:#FF5A00;border-radius:9999px;font-weight:600;font-size:0.88rem;}
     .sol-loop-chip span{margin:0 6px;color:#BDBDBD;}
-    .sol-cta-banner{padding:80px 0;background:linear-gradient(165deg,#0D1B2A 0%,#1B2838 100%);text-align:center;}
+    .sol-cta-banner{padding:80px 0;background:linear-gradient(165deg,#1A1D20 0%,#1B2838 100%);text-align:center;}
     .sol-cta-banner h2{color:#fff;margin-bottom:16px;}
     .sol-cta-banner p{color:rgba(255,255,255,.6);margin-bottom:32px;font-size:1rem;}
     @media(max-width:768px){.sol-cards__grid{grid-template-columns:1fr;}.sol-loop-steps{flex-direction:column;align-items:center;}}
   </style>
+
+  <meta property="og:url" content="https://kap.energy/solutions.html">
+  <link rel="canonical" href="https://kap.energy/solutions.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://kap.energy/#org", "name": "KAP Energy Group", "alternateName": ["کاپ", "کارا انرژی پردازان", "KAP"], "url": "https://kap.energy/", "logo": "https://kap.energy/assets/images/kap-logo.png", "email": "info@kap.energy", "telephone": "+98-21-91093189", "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"}, "areaServed": "IR", "slogan": "Energy, made visible", "knowsAbout": ["مدیریت هوشمند مصرف برق", "مدیریت سمت تقاضا", "مدیریت پیک بار", "کنتور هوشمند", "سنسور CT", "تفکیک بار NILM", "نیروگاه مجازی", "ناترازی برق"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "خانه", "item": "https://kap.energy/"}, {"@type": "ListItem", "position": 2, "name": "راهکارهای مدیریت مصرف برق و کاهش پیک بار", "item": "https://kap.energy/solutions.html"}]}]}</script>
 </head>
 <body>
 
@@ -190,7 +194,7 @@
           <a href="solution-education.html">دانشگاه و آموزش</a>
           <a href="solution-business.html">اداری و تجاری</a>
           <a href="solution-industry.html">صنعت</a>
-          <a href="solution-power.html">صنعت برق و رگولاتور</a>
+          <a href="solution-power.html">صنعت برق و خورشیدی</a>
         </div>
         <div class="ft-col">
           <h4>فناوری و محصول</h4>
@@ -216,6 +220,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=16"></script>
+  <script src="script.js?v=20"></script>
 </body>
 </html>
