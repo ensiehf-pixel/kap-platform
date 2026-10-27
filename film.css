@@ -275,8 +275,10 @@
 .chapter .chapter__seo {
   font-size: clamp(.95rem, 1.35vw, 1.15rem); font-weight: 800; line-height: 1.7; color: #1A1D20;
   margin: 0 0 14px; padding: 6px 14px; border-radius: 10px; background: rgba(255, 255, 255, .78);
-  border-inline-start: 3px solid #FF5A00; width: fit-content; text-shadow: none;
+  border: 1px solid rgba(26, 29, 32, .1); width: fit-content; text-shadow: none;
+  display: inline-flex; align-items: center; gap: 10px;
 }
+.chapter .chapter__seo::before { content: ''; flex: none; width: 7px; height: 7px; border-radius: 50%; background: #FF5A00; }
 @media (orientation: landscape) and (min-width: 769px) {
   .chapter--nation .chapter__shade {
     background: linear-gradient(180deg, rgba(234, 234, 234, .95) 0%, rgba(234, 234, 234, .82) 44%, rgba(234, 234, 234, 0) 66%),
