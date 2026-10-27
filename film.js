@@ -57,11 +57,13 @@
     load() {
       if (this.loaded) return; this.loaded = true;
       const dir = `assets/seq/${this.name}/${HD ? 'hd' : 'sd'}/`;
-      const order = [...Array(this.n).keys()]; if (this.rev) order.reverse();
+      // coarse pass first (every 4th frame, then every 2nd, then the rest) so the film is scrubbable early on slow connections
+      const all = [...Array(this.n).keys()]; if (this.rev) all.reverse();
+      const order = [...all.filter((_, k) => k % 4 === 0), ...all.filter((_, k) => k % 4 === 2), ...all.filter((_, k) => k % 2 === 1)];
       order.forEach((i, k) => {
         const im = new Image(); im.decoding = 'async';
         im.onload = () => { this.imgs[i] = im; this.key = ''; request(); };
-        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=20'; }, k < 6 ? 0 : 20 + k * 8);
+        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=21'; }, k < 6 ? 0 : 20 + k * 8);
       });
     }
     near(i) { for (let d = 0; d < this.n; d++) { const a = this.imgs[i - d] || this.imgs[i + d]; if (a) return a; } return null; }
