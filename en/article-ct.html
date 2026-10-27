@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="What is a split-core CT current sensor and how does it measure each circuit's use without cutting power or rewiring? Introducing KAP's dedicated sensors." name="description"/>
+<title>What is a split-core CT sensor? Measuring current without cutting power | KAP</title>
+<link href="../favicon.ico" rel="icon" sizes="any"/>
+<link href="../assets/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../assets/icons/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="#FAFAFA" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="KAP Energy Group" property="og:site_name"/>
+<meta content="What is a split-core CT sensor? Measuring current without cutting power | KAP" property="og:title"/>
+<meta content="What is a split-core CT current sensor and how does it measure each circuit's use without cutting power or rewiring? Introducing KAP's dedicated sensors." property="og:description"/>
+<meta content="https://kap.energy/assets/images/og-image.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link as="font" crossorigin="" href="../assets/fonts/vazirmatn-var.woff2" rel="preload" type="font/woff2"/>
+<link href="../style.css?v=21" rel="stylesheet"/>
+<style>
+    .article-hero{padding-top:140px;padding-bottom:60px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF1E8 100%);}
+    .article-content{max-width:800px;margin:0 auto;padding:60px 24px 100px;}
+    .article-content p{color:#616161;font-size:1.02rem;line-height:2;margin-bottom:24px;}
+    .article-content h2{margin:48px 0 16px;font-size:1.5rem;}
+    .article-content h3{margin:32px 0 12px;font-size:1.2rem;}
+    .article-content img{width:100%;border-radius:16px;margin:32px 0;box-shadow:0 4px 16px rgba(13,27,42,0.08);}
+    .article-content blockquote{border-left:4px solid #FF5A00;padding:16px 24px;background:#FFF1E8;border-radius:0 12px 12px 0;margin:32px 0;font-size:0.95rem;color:#1A1D20;}
+    .article-meta{display:flex;gap:24px;align-items:center;margin-bottom:32px;color:#9E9E9E;font-size:0.85rem;}
+    .tag-inline{display:inline-block;padding:4px 12px;border-radius:20px;background:#FFF1E8;color:#FF5A00;font-size:0.78rem;font-weight:600;}
+  </style>
+<meta content="https://kap.energy/article-ct.html" property="og:url"/>
+<link href="https://kap.energy/article-ct.html" rel="canonical"/>
+<link href="https://kap.energy/article-ct.html" hreflang="fa" rel="alternate"/>
+<link href="https://kap.energy/en/article-ct.html" hreflang="en" rel="alternate"/>
+<link href="https://kap.energy/article-ct.html" hreflang="x-default" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://kap.energy/#org", "name": "KAP Energy Group", "alternateName": ["KAP", "KAP Energy Group", "KAP"], "url": "https://kap.energy/", "logo": "https://kap.energy/assets/images/kap-logo.png", "email": "info@kap.energy", "telephone": "+98-21-91093189", "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"}, "areaServed": "IR", "slogan": "Energy, made visible", "knowsAbout": ["smart electricity management", "demand-side management", "peak load management", "Smart Energy Monitoring Device (SEMD)", "smart meter", "CT sensor", "NILM load disaggregation", "virtual power plant", "electricity supply shortfall"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://kap.energy/en/"}, {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://kap.energy/en/knowledge.html"}, {"@type": "ListItem", "position": 3, "name": "What is a split-core CT sensor? Measuring current without cutting power", "item": "https://kap.energy/en/article-ct.html"}]}, {"@type": "Article", "headline": "Introducing KAP's new generation of dedicated CT sensors for the Smart Energy Monitoring Device (SEMD)", "description": "What is a split-core CT current sensor and how does it measure each circuit's use without cutting power or rewiring? Introducing KAP's dedicated sensors.", "inLanguage": "fa-IR", "mainEntityOfPage": "https://kap.energy/article-ct.html", "image": "https://kap.energy/assets/images/og-image.jpg", "author": {"@type": "Organization", "name": "KAP Energy Group", "url": "https://kap.energy/"}, "publisher": {"@id": "https://kap.energy/#org"}, "datePublished": "2026-08-24", "dateModified": "2026-08-24"}]}</script>
+<link href="../en.css?v=21" rel="stylesheet"/>
+</head>
+<body>
+<!-- Header -->
+<header class="header scrolled" id="header">
+<div class="container header__inner">
+<a aria-label="KAP Energy Group — home" class="logo" href="index.html">
+<picture>
+<source srcset="../assets/images/kap-logo.webp" type="image/webp"/>
+<img alt="KAP Energy Group" class="logo__img" height="160" src="../assets/images/kap-logo.png" width="421"/>
+</picture>
+</a>
+<nav aria-label="Main menu" class="nav" id="nav">
+<a class="nav__link" href="index.html">Home</a>
+<a class="nav__link" href="solutions.html">Solutions</a>
+<a class="nav__link" href="how-it-works.html">How it works</a>
+<a class="nav__link" href="mvp-pilot.html">Trial version &amp; pilot</a>
+<a class="nav__link nav__link--active" href="knowledge.html">Insights</a>
+<div class="nav__group">
+<button aria-controls="nav-wellness" aria-expanded="false" class="nav__link nav__toggle" type="button">Wellness Games</button>
+<div class="nav__sub" id="nav-wellness">
+<a class="nav__sublink" href="../calm-grid.html"><b>Calm Grid</b><small>A breathing and calm game</small></a>
+<a class="nav__sublink" href="../calculator.html"><b>Usage calculator</b><small>Estimate each appliance's use</small></a>
+</div>
+</div>
+<a class="nav__link" href="about.html">About KAP</a>
+<a class="nav__link" href="faq.html">FAQ</a>
+<a class="nav__link nav__link--mobile-only" href="contact.html">Contact us</a>
+<a class="nav__link nav__link--mobile-only" href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Live trial version ↗</a>
+</nav>
+<div class="header__actions">
+<a class="lang-switch" href="../article-ct.html" hreflang="fa" lang="fa">فارسی</a>
+<a class="header__cta" href="contact.html">Contact us</a>
+<a class="header__cta header__cta--dark" href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Trial version ↗</a>
+<button aria-controls="nav" aria-expanded="false" aria-label="Open menu" class="mobile-toggle" id="mobile-toggle">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero -->
+<section class="article-hero">
+<div class="container" style="text-align:center;">
+<span class="tag-inline">Hardware</span>
+<h1 style="margin-top:16px;max-width:700px;margin-right:auto;margin-left:auto;">Introducing KAP's new generation of dedicated CT sensors for the Smart Energy Monitoring Device (SEMD)</h1>
+<div class="article-meta" style="justify-content:center;margin-top:20px;">
+<span>📅 24 August 2026</span>
+<span>⏱ 6 min read</span>
+<span>✍️ KAP engineering team</span>
+</div>
+</div>
+</section>
+<!-- Article Body -->
+<div class="article-content">
+<img alt="KAP dedicated CT sensor" src="../assets/images/technology_illustration.webp"/>
+<p>
+      Load disaggregation is one of the most important capabilities of the new generation of smart meters. KAP's dedicated CT sensors, with an innovative design, can identify the usage pattern of each household appliance without installing a separate sensor on each one.
+    </p>
+<h2>Conventional CT sensors vs. KAP's dedicated CT sensors</h2>
+<p>
+      Conventional CT sensors measure only the total current. KAP's sensors, sampling at 50 kHz on 16 simultaneous channels, can recognise the unique electrical signature of each appliance.
+    </p>
+<blockquote>
+      Every electrical appliance has a unique electrical 'fingerprint'. KAP's dedicated CT sensors identify and track that fingerprint.
+    </blockquote>
+<h2>Technical specifications</h2>
+<p>
+      • Measurement accuracy: ±0.5% (class 0.5)<br/>
+      • 16 simultaneous measurement channels<br/>
+      • Sampling rate: 50 kHz<br/>
+      • Current range: 0.1 to 100 A<br/>
+      • Output: digital (SPI/I2C)<br/>
+      • Service life: 10+ years<br/>
+      • Protection: IP54
+    </p>
+<h2>Installation and operating benefits</h2>
+<p>
+      The biggest advantage of KAP's dedicated CT sensors is that separate smart plugs are no longer needed. Instead of dozens of smart plugs in every home, a single CT sensor is installed at the main meter and disaggregates the load of every appliance. This cuts installation cost by up to 80% and makes maintenance much simpler.
+    </p>
+<div style="text-align:center;margin-top:48px;">
+<a class="btn-primary" href="products.html">See hardware products</a>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer" id="footer">
+<div class="container">
+<div class="ft-grid">
+<div class="ft-brand">
+<a aria-label="KAP Energy Group" href="index.html">
+<picture>
+<source srcset="../assets/images/kap-logo-light.webp" type="image/webp"/>
+<img alt="KAP Energy Group" class="ft-logo" height="160" loading="lazy" src="../assets/images/kap-logo-light.png" width="421"/>
+</picture>
+</a>
+<p class="ft-tagline" dir="ltr">Energy, made visible</p>
+<p>KAP's vision is to link scattered demand-management capacity into the country's virtual power plant.</p>
+<div class="ft-contact">
+<a dir="ltr" href="tel:+982191093189">021-91093189</a>
+<a dir="ltr" href="mailto:info@kap.energy">info@kap.energy</a>
+<a dir="ltr" href="https://kap.energy">kap.energy</a>
+</div>
+</div>
+<div class="ft-col">
+<h4>Solutions</h4>
+<a href="solution-home.html">Homes</a>
+<a href="solution-education.html">Universities &amp; education</a>
+<a href="solution-business.html">Offices &amp; commercial</a>
+<a href="solution-industry.html">Industry</a>
+<a href="solution-power.html">Power industry &amp; solar</a>
+</div>
+<div class="ft-col">
+<h4>Technology &amp; product</h4>
+<a href="how-it-works.html">How it works</a>
+<a href="technology-detail.html">Technology &amp; architecture</a>
+<a href="products.html">Hardware products</a>
+<a href="mvp-pilot.html">Trial version &amp; pilot</a>
+<a href="../calculator.html">Electricity usage calculator</a>
+</div>
+<div class="ft-col">
+<h4>KAP</h4>
+<a href="about.html">About KAP</a>
+<a href="knowledge.html">Insights</a>
+<a href="faq.html">FAQ</a>
+<a href="demo.html">Request a demo</a>
+<a href="contact.html">Contact us</a>
+</div>
+</div>
+<div class="ft-bottom">
+<p>© 2026 KAP Energy Group. All rights reserved.</p>
+<a href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Live trial version ↗</a>
+</div>
+</div>
+</footer>
+<script src="../script.js?v=21"></script>
+</body>
+</html>

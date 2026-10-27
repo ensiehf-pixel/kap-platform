@@ -1,0 +1,20 @@
+/* English (LTR) overrides — loaded only on /en/ pages after style.css */
+body { font-family: 'Inter', 'Vazirmatn', system-ui, -apple-system, sans-serif; letter-spacing: 0; }
+h1, h2, h3, h4 { letter-spacing: -0.01em; }
+html[dir="ltr"] body, html[dir="ltr"] body * { direction: ltr; }
+
+/* keep the scroll-film copy on the same side of the picture as in Persian (landscape screens) */
+@media (orientation: landscape) and (min-width: 769px) {
+  .chapter__copy { align-items: flex-end; }
+  .chapter--school .chapter__copy, .chapter--org .chapter__copy { align-items: flex-start; }
+}
+/* mirrored details */
+
+.ft-tagline, .plain, .nav__toggle { text-align: left; }
+.guide__answer { border-right: 0; padding-right: 0; border-left: 3px solid var(--orange-500); padding-left: 16px; }
+.nav__sub { right: auto; left: -14px; }
+.loop-step__number { right: auto; left: -8px; }
+.article-card__tag { right: auto; left: 16px; }
+.form-group label .required { margin-right: 0; margin-left: 2px; }
+.nav__link::after { right: auto; left: 0; }
+svg:has(> path[d^="M12.5 5L7.5 10"]) { transform: scaleX(-1); }

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="KAP measures each factory line and machine separately, shifts peak-hour load and prevents exceeding the contracted capacity — without stopping production." name="description"/>
+<title>Industrial load management and lower factory electricity use | KAP</title>
+<link href="../favicon.ico" rel="icon" sizes="any"/>
+<link href="../assets/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../assets/icons/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="#FAFAFA" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="KAP Energy Group" property="og:site_name"/>
+<meta content="Industrial load management and lower factory electricity use | KAP" property="og:title"/>
+<meta content="KAP measures each factory line and machine separately, shifts peak-hour load and prevents exceeding the contracted capacity — without stopping production." property="og:description"/>
+<meta content="https://kap.energy/assets/images/og-image.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link as="font" crossorigin="" href="../assets/fonts/vazirmatn-var.woff2" rel="preload" type="font/woff2"/>
+<link href="../style.css?v=21" rel="stylesheet"/>
+<style>
+    .page-hero{padding-top:140px;padding-bottom:80px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF1E8 100%);}
+    .page-hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    .page-hero__content .hero__badge{margin-bottom:24px;}
+    .page-hero__content h1{margin-bottom:20px;}
+    .page-hero__content p{font-size:1.02rem;line-height:1.85;color:#616161;margin-bottom:32px;max-width:520px;}
+    .page-hero__visual img{width:100%;border-radius:16px;box-shadow:0 8px 32px rgba(13,27,42,.1);}
+    .pain-section{padding:80px 0;background:#f5f5f5;}
+    .pain-section h2{text-align:center;margin-bottom:48px;}
+    .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+    .pain-item{background:#fff;border:1px solid #eee;border-radius:12px;padding:24px;position:relative;padding-left:40px;}
+    .pain-item::before{content:'?';position:absolute;top:24px;right:16px;width:24px;height:24px;border-radius:50%;background:#FFF1E8;color:#FF5A00;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.8rem;}
+    .pain-item p{font-size:0.92rem;color:#616161;line-height:1.7;}
+    .how-section{padding:80px 0;background:#fff;}
+    .how-section h2{text-align:center;margin-bottom:16px;}
+    .how-section>div>p{text-align:center;color:#616161;margin-bottom:48px;font-size:1rem;}
+    .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+    .how-card{text-align:center;padding:28px 20px;background:#f9f9f9;border-radius:12px;transition:all .3s;}
+    .how-card:hover{background:#FFF1E8;transform:translateY(-4px);}
+    .how-card__num{width:40px;height:40px;border-radius:50%;background:#FF5A00;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 14px;font-size:0.9rem;}
+    .how-card h4{font-size:0.95rem;margin-bottom:6px;}
+    .how-card p{font-size:0.82rem;color:#9E9E9E;line-height:1.5;}
+    .value-section{padding:80px 0;background:#f5f5f5;}
+    .value-section h2{text-align:center;margin-bottom:48px;}
+    .value-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+    .value-chip{display:flex;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:20px;border:1px solid #eee;transition:all .3s;}
+    .value-chip:hover{border-color:#FF8A4C;box-shadow:0 4px 16px rgba(255,90,0,.1);}
+    .value-chip svg{width:24px;height:24px;color:#FF5A00;flex-shrink:0;}
+    .value-chip span{font-size:0.9rem;font-weight:500;color:#1A1D20;}
+    .faq-section{padding:80px 0;background:#fff;}
+    .faq-section h2{text-align:center;margin-bottom:48px;}
+    .faq-list{max-width:740px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid #eee;padding:20px 0;}
+    .faq-item summary{font-weight:600;font-size:0.95rem;cursor:pointer;color:#1A1D20;list-style:none;display:flex;align-items:center;gap:12px;}
+    .faq-item summary::before{content:'▸';color:#FF5A00;font-size:1.1rem;transition:transform .3s;}
+    .faq-item[open] summary::before{transform:rotate(90deg);}
+    .faq-item p{margin-top:12px;font-size:0.9rem;color:#616161;line-height:1.8;padding-left:28px;}
+    .page-cta{padding:80px 0;background:linear-gradient(165deg,#1A1D20,#1B2838);text-align:center;}
+    .page-cta h2{color:#fff;margin-bottom:16px;}
+    .page-cta p{color:rgba(255,255,255,.6);margin-bottom:32px;}
+    @media(max-width:1024px){.page-hero__inner{grid-template-columns:1fr;text-align:center;}.page-hero__content p{margin-right:auto;margin-left:auto;}.how-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:768px){.how-grid{grid-template-columns:1fr;}.pain-grid{grid-template-columns:1fr;}}
+  </style>
+<meta content="https://kap.energy/solution-industry.html" property="og:url"/>
+<link href="https://kap.energy/solution-industry.html" rel="canonical"/>
+<link href="https://kap.energy/solution-industry.html" hreflang="fa" rel="alternate"/>
+<link href="https://kap.energy/en/solution-industry.html" hreflang="en" rel="alternate"/>
+<link href="https://kap.energy/solution-industry.html" hreflang="x-default" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://kap.energy/#org", "name": "KAP Energy Group", "alternateName": ["KAP", "KAP Energy Group", "KAP"], "url": "https://kap.energy/", "logo": "https://kap.energy/assets/images/kap-logo.png", "email": "info@kap.energy", "telephone": "+98-21-91093189", "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"}, "areaServed": "IR", "slogan": "Energy, made visible", "knowsAbout": ["smart electricity management", "demand-side management", "peak load management", "Smart Energy Monitoring Device (SEMD)", "smart meter", "CT sensor", "NILM load disaggregation", "virtual power plant", "electricity supply shortfall"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://kap.energy/en/"}, {"@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://kap.energy/en/solutions.html"}, {"@type": "ListItem", "position": 3, "name": "Industrial load management and lower factory electricity use", "item": "https://kap.energy/en/solution-industry.html"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will the production line stop?", "acceptedAnswer": {"@type": "Answer", "text": "No. Only pre-approved loads are controlled, and continuous and sensitive processes are brought into scope only after a separate technical assessment and with the operator's consent."}}, {"@type": "Question", "name": "Is KAP suitable for small workshops too?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Small workshops with identifiable loads and manageable processes are among the first industrial areas KAP serves."}}, {"@type": "Question", "name": "How are generator load and grid load separated?", "acceptedAnswer": {"@type": "Answer", "text": "KAP measures and reports load supplied by the grid and by the generator separately, so the benefit of each is calculated correctly."}}, {"@type": "Question", "name": "Does KAP also detect equipment faults or overloads?", "acceptedAnswer": {"@type": "Answer", "text": "Consumption-pattern analysis can reveal unusual behaviour and overloads earlier and send alerts; accuracy depends on the type of load, sensor location and data quality."}}, {"@type": "Question", "name": "Will our production data stay confidential?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Data is encrypted in transit and at rest, access is tiered, and data rights are set out in the contract."}}, {"@type": "Question", "name": "How is KAP's SEMD installed, and how long does it take?", "acceptedAnswer": {"@type": "Answer", "text": "Installation starts with a short technical visit: the circuit map, measurement points and list of controllable loads are recorded. Then split-core current sensors (CT) are clamped onto the panel cables with no power cut and no rewiring, and the SEMD is mounted on the wall next to the panel. Installation time depends on the number of panels and circuits and is confirmed for each site after the visit."}}, {"@type": "Question", "name": "What are the costs and terms?", "acceptedAnswer": {"@type": "Answer", "text": "Pricing is proposed after the site visit, based on the scope of installation and service. A contract usually includes an installation and setup fee and a recurring monitoring and support fee; equipment can be bought or provided as a service. Sharing in the savings is also possible, provided the baseline and calculation method are clearly agreed. KAP does not promise the same savings to every building, because results depend on each site's conditions."}}]}</script>
+<link href="../en.css?v=21" rel="stylesheet"/>
+</head>
+<body>
+<!-- Header -->
+<header class="header scrolled" id="header">
+<div class="container header__inner">
+<a aria-label="KAP Energy Group — home" class="logo" href="index.html">
+<picture>
+<source srcset="../assets/images/kap-logo.webp" type="image/webp"/>
+<img alt="KAP Energy Group" class="logo__img" height="160" src="../assets/images/kap-logo.png" width="421"/>
+</picture>
+</a>
+<nav aria-label="Main menu" class="nav" id="nav">
+<a class="nav__link" href="index.html">Home</a>
+<a class="nav__link nav__link--active" href="solutions.html">Solutions</a>
+<a class="nav__link" href="how-it-works.html">How it works</a>
+<a class="nav__link" href="mvp-pilot.html">Trial version &amp; pilot</a>
+<a class="nav__link" href="knowledge.html">Insights</a>
+<div class="nav__group">
+<button aria-controls="nav-wellness" aria-expanded="false" class="nav__link nav__toggle" type="button">Wellness Games</button>
+<div class="nav__sub" id="nav-wellness">
+<a class="nav__sublink" href="../calm-grid.html"><b>Calm Grid</b><small>A breathing and calm game</small></a>
+<a class="nav__sublink" href="../calculator.html"><b>Usage calculator</b><small>Estimate each appliance's use</small></a>
+</div>
+</div>
+<a class="nav__link" href="about.html">About KAP</a>
+<a class="nav__link" href="faq.html">FAQ</a>
+<a class="nav__link nav__link--mobile-only" href="contact.html">Contact us</a>
+<a class="nav__link nav__link--mobile-only" href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Live trial version ↗</a>
+</nav>
+<div class="header__actions">
+<a class="lang-switch" href="../solution-industry.html" hreflang="fa" lang="fa">فارسی</a>
+<a class="header__cta" href="contact.html">Contact us</a>
+<a class="header__cta header__cta--dark" href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Trial version ↗</a>
+<button aria-controls="nav" aria-expanded="false" aria-label="Open menu" class="mobile-toggle" id="mobile-toggle">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero -->
+<section class="page-hero">
+<div class="container page-hero__inner">
+<div class="page-hero__content">
+<div class="hero__badge">
+<svg fill="currentColor" viewbox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5l2-5z"></path></svg>
+          Industry solution
+        </div>
+<h1>In industry, energy management doesn't just mean <span class="highlight">using less</span> </h1>
+<p>Power restrictions, energy costs and production requirements mean decisions about electrical loads need deeper insight. KAP helps identify consumption and load-management opportunities and measure the results of actions — while respecting each site's operating constraints.</p>
+<a class="btn-primary" href="contact.html">Explore working together
+          <svg fill="none" viewbox="0 0 20 20"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+<div class="page-hero__visual">
+<img alt="KAP smart industrial load management" loading="eager" src="../assets/images/technology_illustration.webp"/>
+</div>
+</div>
+</section>
+<!-- Pain Points -->
+<section class="pain-section">
+<div class="container">
+<h2>When power is restricted:</h2>
+<div class="pain-grid">
+<div class="pain-item"><p>Which load should be managed?</p></div>
+<div class="pain-item"><p>Which load must not be cut?</p></div>
+<div class="pain-item"><p>When can consumption be shifted?</p></div>
+<div class="pain-item"><p>What effect has an action had on consumption and peak?</p></div>
+<div class="pain-item"><p>Can the result be proven?</p></div>
+</div>
+</div>
+</section>
+<!-- How KAP Helps -->
+<section class="how-section">
+<div class="container">
+<h2>How does KAP help?</h2>
+<p>KAP's value cycle in an industrial setting:</p>
+<div class="how-grid">
+<div class="how-card">
+<div class="how-card__num">1</div>
+<h4>Monitor</h4>
+<p>Understand consumption patterns better</p>
+</div>
+<div class="how-card">
+<div class="how-card__num">2</div>
+<h4>Analyse</h4>
+<p>Identify consumption or load worth reviewing</p>
+</div>
+<div class="how-card">
+<div class="how-card__num">3</div>
+<h4>Decide</h4>
+<p>Recommend actions that respect process constraints</p>
+</div>
+<div class="how-card">
+<div class="how-card__num">4</div>
+<h4>Measure</h4>
+<p>Evaluate results against the baseline</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Props -->
+<section class="value-section">
+<div class="container">
+<h2>What do you gain?</h2>
+<div class="value-grid">
+<div class="value-chip">
+<svg fill="none" viewbox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2"></path><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"></circle></svg>
+<span>Better visibility of consumption</span>
+</div>
+<div class="value-chip">
+<svg fill="none" viewbox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2"></path></svg>
+<span>Knowing which loads can be managed</span>
+</div>
+<div class="value-chip">
+<svg fill="none" viewbox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"></path><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"></path></svg>
+<span>Less guesswork in decisions</span>
+</div>
+<div class="value-chip">
+<svg fill="none" viewbox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10" stroke="currentColor" stroke-width="2"></path></svg>
+<span>The ability to measure the results of actions</span>
+</div>
+<div class="value-chip">
+<svg fill="none" viewbox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"></path></svg>
+<span>Preventing hazards and current leakage</span>
+</div>
+<div class="value-chip">
+<svg fill="none" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2"></path></svg>
+<span>Better data for energy planning</span>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="faq-section">
+<div class="container">
+<h2>FAQ — industry</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary>Is KAP going to switch off factory equipment?</summary>
+<p>No; that isn't the basis of the product. In industry, control must respect process constraints, critical loads, continuous production and operating permits.</p>
+</details>
+<details class="faq-item">
+<summary>How does KAP help when power is restricted?</summary>
+<p>The aim can be to better understand which loads can be managed and to evaluate scenarios for reducing or shifting load, so decisions aren't just guesswork.</p>
+</details>
+<details class="faq-item">
+<summary>Can KAP prevent blackouts?</summary>
+<p>KAP cannot guarantee preventing grid blackouts. But better consumption and load management can support demand-side decisions.</p>
+</details>
+<details class="faq-item">
+<summary>Does KAP detect current leakage and safety hazards?</summary>
+<p>By analysing unusual consumption patterns and sudden load changes, KAP can give early warning of possible insulation problems, overloads and current leakage. It does not replace residual-current devices (RCDs); it is a complementary layer of smart monitoring.</p>
+</details>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="guide">
+<div class="container guide__inner">
+<h2>Why do factory electricity costs go up?</h2>
+<p class="guide__answer">In industry, auxiliary equipment left running outside production hours, heavy loads starting at the same time and exceeding the contracted capacity all drive up costs. In the hot season, grid restrictions can also disrupt production. Without measuring each line and machine, you can't tell which load can be shifted.</p>
+</div>
+</section>
+<section class="guide">
+<div class="container guide__inner">
+<h2>How is KAP's SEMD installed, and how long does it take?</h2>
+<p class="guide__answer">Installation starts with a short technical visit: the circuit map, measurement points and list of controllable loads are recorded. Then split-core current sensors (CT) are clamped onto the panel cables with no power cut and no rewiring, and the SEMD is mounted on the wall next to the panel. Installation time depends on the number of panels and circuits and is confirmed for each site after the visit.</p>
+</div>
+</section>
+<section class="guide guide--steps">
+<div class="container guide__inner">
+<h2>KAP in practice: from installation to results in your factory or workshop</h2>
+<p class="guide__answer">KAP works in five steps, and each step has a clear output that operators and the technical manager can see.</p>
+<ol style="margin:14px 0 0;padding-left:22px;color:var(--ink-2);line-height:2.1;">
+<li><strong>Scoping and site visit:</strong> decide which panels and circuits are monitored and which loads must never be controlled.</li>
+<li><strong>Baseline:</strong> current consumption, past bills, working days and weather are recorded so a fair comparison is possible later.</li>
+<li><strong>Understanding consumption:</strong> The SEMD separates the consumption patterns of auxiliary equipment, cooling, hall lighting and shiftable loads, and shows wasted use.</li>
+<li><strong>Alerts and safe control:</strong> an alert and a chance to fix it come first; if wasteful use continues, only pre-approved loads are controlled and every command is logged with its time and reason.</li>
+<li><strong>Results report:</strong> energy saved, peak demand and contracted-capacity status are reported against the baseline so the next decision is based on real numbers.</li>
+</ol>
+<p style="margin-top:14px;">Lower consumption lasts when users understand the reason for each recommendation and see the result; that's why KAP treats short training, simple reports and the ability to log exceptions as part of the service.</p>
+</div>
+</section>
+<section class="guide">
+<div class="container guide__inner">
+<h2>What are the results?</h2>
+<p class="guide__answer">KAP measures each line and machine separately, identifies loads that can be shifted without affecting production and, by controlling when approved loads run together, keeps demand within the contracted capacity. Continuous and sensitive processes are assessed technically on their own before being brought into the control scope. Results are measured the same way as in the University of Tehran pilot, following the IPMVP framework.</p>
+</div>
+</section>
+<section class="guide">
+<div class="container guide__inner">
+<h2>What are the costs and terms?</h2>
+<p class="guide__answer">Pricing is proposed after the site visit, based on the scope of installation and service. A contract usually includes an installation and setup fee and a recurring monitoring and support fee; equipment can be bought or provided as a service. Sharing in the savings is also possible, provided the baseline and calculation method are clearly agreed. KAP does not promise the same savings to every building, because results depend on each site's conditions.</p>
+</div>
+</section>
+<section class="guide guide-faq">
+<div class="container guide__inner">
+<h2>Frequently asked questions</h2>
+<details><summary>Will the production line stop?</summary><p>No. Only pre-approved loads are controlled, and continuous and sensitive processes are brought into scope only after a separate technical assessment and with the operator's consent.</p></details>
+<details><summary>Is KAP suitable for small workshops too?</summary><p>Yes. Small workshops with identifiable loads and manageable processes are among the first industrial areas KAP serves.</p></details>
+<details><summary>How are generator load and grid load separated?</summary><p>KAP measures and reports load supplied by the grid and by the generator separately, so the benefit of each is calculated correctly.</p></details>
+<details><summary>Does KAP also detect equipment faults or overloads?</summary><p>Consumption-pattern analysis can reveal unusual behaviour and overloads earlier and send alerts; accuracy depends on the type of load, sensor location and data quality.</p></details>
+<details><summary>Will our production data stay confidential?</summary><p>Yes. Data is encrypted in transit and at rest, access is tiered, and data rights are set out in the contract.</p></details>
+</div>
+</section>
+<section class="page-cta">
+<div class="container">
+<h2>Is load management possible at your site?</h2>
+<p>Tell us about your situation and we'll look into it.</p>
+<a class="btn-primary" href="contact.html">Start the conversation
+        <svg fill="none" viewbox="0 0 20 20"><path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer" id="footer">
+<div class="container">
+<div class="ft-grid">
+<div class="ft-brand">
+<a aria-label="KAP Energy Group" href="index.html">
+<picture>
+<source srcset="../assets/images/kap-logo-light.webp" type="image/webp"/>
+<img alt="KAP Energy Group" class="ft-logo" height="160" loading="lazy" src="../assets/images/kap-logo-light.png" width="421"/>
+</picture>
+</a>
+<p class="ft-tagline" dir="ltr">Energy, made visible</p>
+<p>KAP's vision is to link scattered demand-management capacity into the country's virtual power plant.</p>
+<div class="ft-contact">
+<a dir="ltr" href="tel:+982191093189">021-91093189</a>
+<a dir="ltr" href="mailto:info@kap.energy">info@kap.energy</a>
+<a dir="ltr" href="https://kap.energy">kap.energy</a>
+</div>
+</div>
+<div class="ft-col">
+<h4>Solutions</h4>
+<a href="solution-home.html">Homes</a>
+<a href="solution-education.html">Universities &amp; education</a>
+<a href="solution-business.html">Offices &amp; commercial</a>
+<a href="solution-industry.html">Industry</a>
+<a href="solution-power.html">Power industry &amp; solar</a>
+</div>
+<div class="ft-col">
+<h4>Technology &amp; product</h4>
+<a href="how-it-works.html">How it works</a>
+<a href="technology-detail.html">Technology &amp; architecture</a>
+<a href="products.html">Hardware products</a>
+<a href="mvp-pilot.html">Trial version &amp; pilot</a>
+<a href="../calculator.html">Electricity usage calculator</a>
+</div>
+<div class="ft-col">
+<h4>KAP</h4>
+<a href="about.html">About KAP</a>
+<a href="knowledge.html">Insights</a>
+<a href="faq.html">FAQ</a>
+<a href="demo.html">Request a demo</a>
+<a href="contact.html">Contact us</a>
+</div>
+</div>
+<div class="ft-bottom">
+<p>© 2026 KAP Energy Group. All rights reserved.</p>
+<a href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Live trial version ↗</a>
+</div>
+</div>
+</footer>
+<script src="../script.js?v=21"></script>
+</body>
+</html>

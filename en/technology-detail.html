@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="KAP technology architecture: clamp-on current sensors with no power cut, a controller with local processing, load disaggregation (NILM), an app with three access levels, and consumption-data security." name="description"/>
+<title>KAP technology: CT sensors, controller and AI analysis of electricity use</title>
+<link href="../favicon.ico" rel="icon" sizes="any"/>
+<link href="../assets/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../assets/icons/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="#FAFAFA" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="KAP Energy Group" property="og:site_name"/>
+<meta content="KAP technology: CT sensors, controller and AI analysis of electricity use" property="og:title"/>
+<meta content="KAP technology architecture: clamp-on current sensors with no power cut, a controller with local processing, load disaggregation (NILM), an app with three access levels, and consumption-data security." property="og:description"/>
+<meta content="https://kap.energy/assets/images/og-image.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link as="font" crossorigin="" href="../assets/fonts/vazirmatn-var.woff2" rel="preload" type="font/woff2"/>
+<link href="../style.css?v=21" rel="stylesheet"/>
+<style>
+    .tech-hero{padding-top:140px;padding-bottom:60px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF1E8 100%);}
+    .tech-section{padding:80px 0;background:#fff;}
+    .tech-section:nth-child(even){background:#fafafa;}
+    .tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    .tech-detail-card{background:#fff;border:1px solid #eee;border-radius:16px;padding:40px;margin-bottom:32px;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);}
+    .tech-detail-card:hover{border-color:#FF8A4C;box-shadow:0 8px 32px rgba(255,90,0,0.1);transform:translateY(-4px);}
+    .tech-detail-card h3{font-size:1.3rem;margin-bottom:12px;}
+    .tech-detail-card p{color:#757575;line-height:1.85;}
+    .spec-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:32px;}
+    .spec-item{background:#FFF1E8;border-radius:12px;padding:24px;text-align:center;}
+    .spec-item .value{font-size:1.8rem;font-weight:800;color:#FF5A00;}
+    .spec-item .label{font-size:0.82rem;color:#616161;margin-top:4px;}
+    @media(max-width:768px){.tech-grid{grid-template-columns:1fr;gap:32px;}}
+  </style>
+<meta content="https://kap.energy/technology-detail.html" property="og:url"/>
+<link href="https://kap.energy/technology-detail.html" rel="canonical"/>
+<link href="https://kap.energy/technology-detail.html" hreflang="fa" rel="alternate"/>
+<link href="https://kap.energy/en/technology-detail.html" hreflang="en" rel="alternate"/>
+<link href="https://kap.energy/technology-detail.html" hreflang="x-default" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://kap.energy/#org", "name": "KAP Energy Group", "alternateName": ["KAP", "KAP Energy Group", "KAP"], "url": "https://kap.energy/", "logo": "https://kap.energy/assets/images/kap-logo.png", "email": "info@kap.energy", "telephone": "+98-21-91093189", "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"}, "areaServed": "IR", "slogan": "Energy, made visible", "knowsAbout": ["smart electricity management", "demand-side management", "peak load management", "Smart Energy Monitoring Device (SEMD)", "smart meter", "CT sensor", "NILM load disaggregation", "virtual power plant", "electricity supply shortfall"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://kap.energy/en/"}, {"@type": "ListItem", "position": 2, "name": "KAP technology: CT sensors, controller and AI analysis of electricity use", "item": "https://kap.energy/en/technology-detail.html"}]}]}</script>
+<link href="../en.css?v=21" rel="stylesheet"/>
+</head>
+<body>
+<!-- Header -->
+<header class="header scrolled" id="header">
+<div class="container header__inner">
+<a aria-label="KAP Energy Group — home" class="logo" href="index.html">
+<picture>
+<source srcset="../assets/images/kap-logo.webp" type="image/webp"/>
+<img alt="KAP Energy Group" class="logo__img" height="160" src="../assets/images/kap-logo.png" width="421"/>
+</picture>
+</a>
+<nav aria-label="Main menu" class="nav" id="nav">
+<a class="nav__link" href="index.html">Home</a>
+<a class="nav__link" href="solutions.html">Solutions</a>
+<a class="nav__link nav__link--active" href="how-it-works.html">How it works</a>
+<a class="nav__link" href="mvp-pilot.html">Trial version &amp; pilot</a>
+<a class="nav__link" href="knowledge.html">Insights</a>
+<div class="nav__group">
+<button aria-controls="nav-wellness" aria-expanded="false" class="nav__link nav__toggle" type="button">Wellness Games</button>
+<div class="nav__sub" id="nav-wellness">
+<a class="nav__sublink" href="../calm-grid.html"><b>Calm Grid</b><small>A breathing and calm game</small></a>
+<a class="nav__sublink" href="../calculator.html"><b>Usage calculator</b><small>Estimate each appliance's use</small></a>
+</div>
+</div>
+<a class="nav__link" href="about.html">About KAP</a>
+<a class="nav__link" href="faq.html">FAQ</a>
+<a class="nav__link nav__link--mobile-only" href="contact.html">Contact us</a>
+<a class="nav__link nav__link--mobile-only" href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Live trial version ↗</a>
+</nav>
+<div class="header__actions">
+<a class="lang-switch" href="../technology-detail.html" hreflang="fa" lang="fa">فارسی</a>
+<a class="header__cta" href="contact.html">Contact us</a>
+<a class="header__cta header__cta--dark" href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Trial version ↗</a>
+<button aria-controls="nav" aria-expanded="false" aria-label="Open menu" class="mobile-toggle" id="mobile-toggle">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero -->
+<section class="tech-hero">
+<div class="container" style="text-align:center;">
+<span class="section-badge">
+<svg fill="currentColor" viewbox="0 0 16 16"><path d="M8 0l1.5 5H15l-4.5 3.5L12 14 8 10.5 4 14l1.5-5.5L1 5h5.5L8 0z"></path></svg>
+        Technology &amp; architecture
+      </span>
+<h1>KAP technology and architecture</h1>
+<p style="max-width:650px;margin:16px auto 0;color:#757575;font-size:1.05rem;line-height:1.85;">
+        By combining advanced CT sensors, custom hardware and AI software, KAP delivers an integrated solution for smart power-grid management.
+      </p>
+</div>
+</section>
+<!-- CT Sensor Section -->
+<section class="tech-section" id="ct-sensor">
+<div class="container">
+<div class="tech-grid">
+<div>
+<span class="section-badge">Dedicated sensor</span>
+<h2>KAP dedicated CT sensor</h2>
+<p style="color:#757575;line-height:1.9;margin:20px 0;">
+            KAP's dedicated CT (current transformer) sensors, with a unique design, can disaggregate the load of each household appliance — with no separate sensor on each one. The sensors are installed at the device and identify each appliance's consumption pattern with high accuracy.
+          </p>
+<div class="spec-list">
+<div class="spec-item"><div class="value">±0.5%</div><div class="label">measurement accuracy</div></div>
+<div class="spec-item"><div class="value">16</div><div class="label">simultaneous channels</div></div>
+<div class="spec-item"><div class="value">50 kHz</div><div class="label">sampling rate</div></div>
+<div class="spec-item"><div class="value">10 years</div><div class="label">service life</div></div>
+</div>
+</div>
+<div>
+<img alt="KAP dedicated CT sensor" src="../assets/images/technology_illustration.webp" style="border-radius:16px;box-shadow:0 8px 32px rgba(13,27,42,0.1);"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Smart Meter Integration -->
+<section class="tech-section" id="smart-meter">
+<div class="container">
+<div class="tech-grid">
+<div>
+<img alt="Integration with smart meters" src="../assets/images/hero_illustration.webp" style="border-radius:16px;box-shadow:0 8px 32px rgba(13,27,42,0.1);"/>
+</div>
+<div>
+<span class="section-badge">Hardware integration</span>
+<h2>Integration with smart meters</h2>
+<p style="color:#757575;line-height:1.9;margin:20px 0;">
+            KAP's technology is designed to work alongside existing smart meters — with no change to the distribution network's infrastructure. Working with meter manufacturers, KAP modules connect plug-and-play and start collecting and analysing data straight away.
+          </p>
+<ul style="color:#616161;line-height:2.2;list-style:none;padding:0;">
+<li>✅ Compatible with single- and three-phase installations</li>
+<li>✅ Installed without interrupting customers' supply</li>
+<li>✅ Supports DLMS/COSEM protocols</li>
+<li>✅ NB-IoT and LoRa wireless connectivity</li>
+<li>✅ Over-the-air (OTA) firmware updates</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Fault Detection -->
+<section class="tech-section" id="fault-detection">
+<div class="container">
+<div class="tech-grid">
+<div>
+<span class="section-badge">Fault detection</span>
+<h2>Fault detection within a 10 m radius</h2>
+<p style="color:#757575;line-height:1.9;margin:20px 0;">
+            Using deep-learning algorithms, KAP's fault-detection system can instantly identify distribution-network faults — short circuits, current leakage, phase imbalance and equipment failure — within 10 m of where the SEMD is installed. Instant alerts are sent to network operators via the app and SMS.
+          </p>
+<div class="spec-list">
+<div class="spec-item"><div class="value">95%</div><div class="label">fault-detection accuracy</div></div>
+<div class="spec-item"><div class="value">&lt;2 seconds</div><div class="label">detection time</div></div>
+<div class="spec-item"><div class="value">10 m</div><div class="label">coverage radius</div></div>
+<div class="spec-item"><div class="value">60%</div><div class="label">reduction in outage time</div></div>
+</div>
+</div>
+<div>
+<img alt="Grid fault detection" src="../assets/images/article_ai_analytics.webp" style="border-radius:16px;box-shadow:0 8px 32px rgba(13,27,42,0.1);"/>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section style="padding:80px 0;background:#1A1D20;text-align:center;">
+<div class="container">
+<h2 style="color:#fff;margin-bottom:16px;">Ready to see KAP's technology up close?</h2>
+<p style="color:rgba(255,255,255,0.6);margin-bottom:32px;">Our technical team is ready to give your organisation a dedicated demo</p>
+<a class="btn-primary" href="demo.html">Request a free demo</a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer" id="footer">
+<div class="container">
+<div class="ft-grid">
+<div class="ft-brand">
+<a aria-label="KAP Energy Group" href="index.html">
+<picture>
+<source srcset="../assets/images/kap-logo-light.webp" type="image/webp"/>
+<img alt="KAP Energy Group" class="ft-logo" height="160" loading="lazy" src="../assets/images/kap-logo-light.png" width="421"/>
+</picture>
+</a>
+<p class="ft-tagline" dir="ltr">Energy, made visible</p>
+<p>KAP's vision is to link scattered demand-management capacity into the country's virtual power plant.</p>
+<div class="ft-contact">
+<a dir="ltr" href="tel:+982191093189">021-91093189</a>
+<a dir="ltr" href="mailto:info@kap.energy">info@kap.energy</a>
+<a dir="ltr" href="https://kap.energy">kap.energy</a>
+</div>
+</div>
+<div class="ft-col">
+<h4>Solutions</h4>
+<a href="solution-home.html">Homes</a>
+<a href="solution-education.html">Universities &amp; education</a>
+<a href="solution-business.html">Offices &amp; commercial</a>
+<a href="solution-industry.html">Industry</a>
+<a href="solution-power.html">Power industry &amp; solar</a>
+</div>
+<div class="ft-col">
+<h4>Technology &amp; product</h4>
+<a href="how-it-works.html">How it works</a>
+<a href="technology-detail.html">Technology &amp; architecture</a>
+<a href="products.html">Hardware products</a>
+<a href="mvp-pilot.html">Trial version &amp; pilot</a>
+<a href="../calculator.html">Electricity usage calculator</a>
+</div>
+<div class="ft-col">
+<h4>KAP</h4>
+<a href="about.html">About KAP</a>
+<a href="knowledge.html">Insights</a>
+<a href="faq.html">FAQ</a>
+<a href="demo.html">Request a demo</a>
+<a href="contact.html">Contact us</a>
+</div>
+</div>
+<div class="ft-bottom">
+<p>© 2026 KAP Energy Group. All rights reserved.</p>
+<a href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Live trial version ↗</a>
+</div>
+</div>
+</footer>
+<script src="../script.js?v=21"></script>
+</body>
+</html>

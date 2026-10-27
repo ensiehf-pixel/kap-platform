@@ -6,6 +6,8 @@
    Transform/opacity only, rAF-throttled. Reduced motion: static finished frames (CSS). */
 (() => {
   'use strict';
+  const LTR = document.documentElement.dir === 'ltr';
+  const ROOT = ((document.currentScript && document.currentScript.src) || '').replace(/film\.js(\?.*)?$/, '');
   const chapters = [...document.querySelectorAll('.chapter')];
   const traveler = document.getElementById('traveler');
   if (!chapters.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -56,7 +58,7 @@
     }
     load() {
       if (this.loaded) return; this.loaded = true;
-      const dir = `assets/seq/${this.name}/${HD ? 'hd' : 'sd'}/`;
+      const dir = `${ROOT}assets/seq/${this.name}/${HD ? 'hd' : 'sd'}/`;
       // coarse pass first (every 4th frame, then every 2nd, then the rest) so the film is scrubbable early on slow connections
       const all = [...Array(this.n).keys()]; if (this.rev) all.reverse();
       const order = [...all.filter((_, k) => k % 4 === 0), ...all.filter((_, k) => k % 4 === 2), ...all.filter((_, k) => k % 2 === 1)];
@@ -256,6 +258,7 @@
     // long gaps: it waits on the left side of the screen, vertically centred, gently floating
     const pw = vw >= 1024 ? Math.min(180, Math.max(130, vw * 0.1)) : Math.max(96, Math.min(140, vw * 0.27));
     const park0 = { w: pw, h: pw * CUT.aspect, x: vw >= 1300 ? Math.max(16, (vw - 1200) / 2 - pw - 12) : 12, y: vh * 0.5 - pw * CUT.aspect / 2 };
+    if (LTR) park0.x = vw - park0.w - park0.x; // English: park in the right-hand gutter, away from the reading start
     let done = false;
 
     for (let i = 0; i < R.length && !done; i++) {
@@ -280,7 +283,7 @@
       } else if (i < R.length - 1 && y > st.out && y < R[i + 1].in) {   // flying to the next stop
         const nx = R[i + 1], A = rectOf(st), B = rectOf(nx), dist = nx.in - st.out, dir = i % 2 ? -1 : 1;
         // after the office the text sits on the left, so it waits on the right edge there
-        const park = st.s === S.org && vw >= 1024 ? { ...park0, x: vw - park0.w - 16 } : park0;
+        const park = st.s === S.org && vw >= 1024 ? { ...park0, x: LTR ? 16 : vw - park0.w - 16 } : park0;
         let box, arc, o = 1, t = 0;
         if (dist < FLY * 2.4) {
           t = smooth(clamp((y - st.out) / dist)); box = mix(A, B, t); arc = Math.sin(Math.PI * t);

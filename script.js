@@ -1,3 +1,4 @@
+const EN = document.documentElement.lang === 'en';
 /* ========================================================
    KAP ENERGY — Landing Page JavaScript
    ======================================================== */
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!nav || !mobileToggle) return;
     nav.classList.toggle('active', open);
     mobileToggle.setAttribute('aria-expanded', String(open));
-    mobileToggle.setAttribute('aria-label', open ? 'بستن منو' : 'باز کردن منو');
+    mobileToggle.setAttribute('aria-label', open ? (EN ? 'Close menu' : 'بستن منو') : (EN ? 'Open menu' : 'باز کردن منو'));
     const spans = mobileToggle.querySelectorAll('span');
     spans[0].style.transform = open ? 'rotate(45deg) translate(5px, 5px)' : 'none';
     spans[1].style.opacity = open ? '0' : '1';
@@ -103,7 +104,7 @@ function handleSubmit(e) {
   const form = e.target;
   const lines = [];
   const cats = [...document.querySelectorAll('.cat-btn.active')].map(b => b.textContent.trim());
-  if (cats.length) lines.push('نوع فعالیت: ' + cats.join('، '));
+  if (cats.length) lines.push((EN ? 'Type of activity: ' : 'نوع فعالیت: ') + cats.join(EN ? ', ' : '، '));
   form.querySelectorAll('input, select, textarea').forEach(el => {
     if (!el.name && !el.id) return;
     if (el.type === 'checkbox' || el.type === 'radio') { if (!el.checked) return; }
@@ -114,12 +115,12 @@ function handleSubmit(e) {
     lines.push(name + ': ' + v);
   });
   const subjectField = form.querySelector('#subject');
-  const subject = (form.dataset.subject || 'پیام از وب‌سایت کاپ') + (subjectField && subjectField.value.trim() ? ' — ' + subjectField.value.trim() : '');
+  const subject = (form.dataset.subject || (EN ? 'Message from the KAP website' : 'پیام از وب‌سایت کاپ')) + (subjectField && subjectField.value.trim() ? ' — ' + subjectField.value.trim() : '');
   const url = 'mailto:' + KAP_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
   window.location.href = url;
   const status = form.querySelector('.form-status') || Object.assign(document.createElement('p'), { className: 'form-status' });
   status.setAttribute('role', 'status');
-  status.innerHTML = 'برنامهٔ ایمیل شما باز شد؛ پیام را از آنجا ارسال کنید. اگر باز نشد، مستقیم به <a href="mailto:' + KAP_EMAIL + '" dir="ltr">' + KAP_EMAIL + '</a> بنویسید یا با <a href="tel:+982191093189" dir="ltr">021-91093189</a> تماس بگیرید.';
+  status.innerHTML = EN ? 'Your email app has opened; send the message from there. If it didn\'t open, write directly to <a href="mailto:' + KAP_EMAIL + '">' + KAP_EMAIL + '</a> or call <a href="tel:+982191093189">+98 21 9109 3189</a>.' : 'برنامهٔ ایمیل شما باز شد؛ پیام را از آنجا ارسال کنید. اگر باز نشد، مستقیم به <a href="mailto:' + KAP_EMAIL + '" dir="ltr">' + KAP_EMAIL + '</a> بنویسید یا با <a href="tel:+982191093189" dir="ltr">021-91093189</a> تماس بگیرید.';
   if (!status.parentNode) form.appendChild(status);
 }
 

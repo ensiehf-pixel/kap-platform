@@ -1847,3 +1847,8 @@ body { background: var(--bg); color: var(--ink); }
 .plain__label{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:var(--orange-600);margin-bottom:6px;}
 .plain__label::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--turquoise);}
 .plain p{margin:0;color:var(--ink);line-height:2;font-size:1rem;}
+
+/* Language switch (fa ⇄ en) */
+.lang-switch { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 36px; padding: 0 10px; border: 1px solid var(--line, #EAEAEA); border-radius: 999px; font-size: .82rem; font-weight: 700; color: var(--ink, #1A1D20); background: #fff; text-decoration: none; transition: border-color .2s, color .2s; }
+.lang-switch:hover, .lang-switch:focus-visible { border-color: var(--orange-500); color: var(--orange-600); }
+.lang-switch[lang="fa"] { font-family: 'Vazirmatn', system-ui, sans-serif; }

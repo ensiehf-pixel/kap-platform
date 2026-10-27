@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="KAP's cycle in five steps: measuring use with CT sensors, analysing consumption patterns with AI, finding consumption that can be improved, safe action and control, and measuring results against the baseline." name="description"/>
+<title>How do the Smart Energy Monitoring Device (SEMD) and electricity demand management work? | KAP</title>
+<link href="../favicon.ico" rel="icon" sizes="any"/>
+<link href="../assets/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../assets/icons/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="#FAFAFA" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="KAP Energy Group" property="og:site_name"/>
+<meta content="How do the Smart Energy Monitoring Device (SEMD) and electricity demand management work? | KAP" property="og:title"/>
+<meta content="KAP's cycle in five steps: measuring use with CT sensors, analysing consumption patterns with AI, finding consumption that can be improved, safe action and control, and measuring results against the baseline." property="og:description"/>
+<meta content="https://kap.energy/assets/images/og-image.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link as="font" crossorigin="" href="../assets/fonts/vazirmatn-var.woff2" rel="preload" type="font/woff2"/>
+<link href="../style.css?v=21" rel="stylesheet"/>
+<style>
+    .page-hero{padding-top:140px;padding-bottom:80px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF1E8 100%);text-align:center;}
+    .page-hero h1{max-width:700px;margin:0 auto 20px;}
+    .page-hero p{max-width:640px;margin:0 auto 32px;color:#616161;font-size:1.05rem;line-height:1.85;}
+    .steps-section{padding:80px 0;background:#fff;}
+    .steps-section h2{text-align:center;margin-bottom:60px;}
+    .step-row{display:grid;grid-template-columns:80px 1fr;gap:32px;align-items:start;margin-bottom:48px;max-width:750px;margin-right:auto;margin-left:auto;}
+    .step-row:last-child{margin-bottom:0;}
+    .step-num{width:64px;height:64px;border-radius:50%;background:#FFF1E8;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:900;color:#FF5A00;flex-shrink:0;position:relative;}
+    .step-num::after{content:'';position:absolute;bottom:-48px;left:50%;width:2px;height:48px;background:#eee;transform:translateX(-50%);}
+    .step-row:last-child .step-num::after{display:none;}
+    .step-body h3{font-size:1.2rem;margin-bottom:10px;color:#1A1D20;}
+    .step-body p{font-size:0.95rem;color:#616161;line-height:1.85;}
+    .mvp-link{padding:70px 0;background:#f5f5f5;text-align:center;}
+    .mvp-link p{color:#616161;margin-bottom:24px;font-size:1rem;}
+    @media(max-width:768px){.step-row{grid-template-columns:1fr;text-align:center;}.step-num{margin:0 auto;}.step-num::after{display:none;}}
+  </style>
+<meta content="https://kap.energy/how-it-works.html" property="og:url"/>
+<link href="https://kap.energy/how-it-works.html" rel="canonical"/>
+<link href="https://kap.energy/how-it-works.html" hreflang="fa" rel="alternate"/>
+<link href="https://kap.energy/en/how-it-works.html" hreflang="en" rel="alternate"/>
+<link href="https://kap.energy/how-it-works.html" hreflang="x-default" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://kap.energy/#org", "name": "KAP Energy Group", "alternateName": ["KAP", "KAP Energy Group", "KAP"], "url": "https://kap.energy/", "logo": "https://kap.energy/assets/images/kap-logo.png", "email": "info@kap.energy", "telephone": "+98-21-91093189", "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"}, "areaServed": "IR", "slogan": "Energy, made visible", "knowsAbout": ["smart electricity management", "demand-side management", "peak load management", "Smart Energy Monitoring Device (SEMD)", "smart meter", "CT sensor", "NILM load disaggregation", "virtual power plant", "electricity supply shortfall"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://kap.energy/en/"}, {"@type": "ListItem", "position": 2, "name": "How do the Smart Energy Monitoring Device (SEMD) and electricity demand management work?", "item": "https://kap.energy/en/how-it-works.html"}]}]}</script>
+<link href="../en.css?v=21" rel="stylesheet"/>
+</head>
+<body>
+<!-- Header -->
+<header class="header scrolled" id="header">
+<div class="container header__inner">
+<a aria-label="KAP Energy Group — home" class="logo" href="index.html">
+<picture>
+<source srcset="../assets/images/kap-logo.webp" type="image/webp"/>
+<img alt="KAP Energy Group" class="logo__img" height="160" src="../assets/images/kap-logo.png" width="421"/>
+</picture>
+</a>
+<nav aria-label="Main menu" class="nav" id="nav">
+<a class="nav__link" href="index.html">Home</a>
+<a class="nav__link" href="solutions.html">Solutions</a>
+<a aria-current="page" class="nav__link nav__link--active" href="how-it-works.html">How it works</a>
+<a class="nav__link" href="mvp-pilot.html">Trial version &amp; pilot</a>
+<a class="nav__link" href="knowledge.html">Insights</a>
+<div class="nav__group">
+<button aria-controls="nav-wellness" aria-expanded="false" class="nav__link nav__toggle" type="button">Wellness Games</button>
+<div class="nav__sub" id="nav-wellness">
+<a class="nav__sublink" href="../calm-grid.html"><b>Calm Grid</b><small>A breathing and calm game</small></a>
+<a class="nav__sublink" href="../calculator.html"><b>Usage calculator</b><small>Estimate each appliance's use</small></a>
+</div>
+</div>
+<a class="nav__link" href="about.html">About KAP</a>
+<a class="nav__link" href="faq.html">FAQ</a>
+<a class="nav__link nav__link--mobile-only" href="contact.html">Contact us</a>
+<a class="nav__link nav__link--mobile-only" href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Live trial version ↗</a>
+</nav>
+<div class="header__actions">
+<a class="lang-switch" href="../how-it-works.html" hreflang="fa" lang="fa">فارسی</a>
+<a class="header__cta" href="contact.html">Contact us</a>
+<a class="header__cta header__cta--dark" href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Trial version ↗</a>
+<button aria-controls="nav" aria-expanded="false" aria-label="Open menu" class="mobile-toggle" id="mobile-toggle">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero -->
+<section class="page-hero">
+<div class="container">
+<div class="hero__badge" style="margin:0 auto 24px;"><svg fill="currentColor" viewbox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5l2-5z"></path></svg> How it works and the architecture</div>
+<h1>From consumption data to <span class="highlight">tangible results</span></h1>
+<p>KAP doesn't just display consumption. The goal is to turn raw energy data into deep insight into opportunities, operational decisions and provable savings.</p>
+</div>
+</section>
+<!-- 5 Steps Section -->
+<section class="steps-section">
+<div class="container">
+<h2>KAP's 5-step cycle</h2>
+<div class="step-row reveal">
+<div class="step-num">1</div>
+<div class="step-body">
+<h3>Real-time monitoring</h3>
+<p>Electricity use at key points is measured without cutting power, using clamp sensors or a connection to digital smart meters. Data is recorded securely in real time and sent to the cloud.</p>
+</div>
+</div>
+<div class="step-row reveal">
+<div class="step-num">2</div>
+<div class="step-body">
+<h3>Pattern and behaviour analysis</h3>
+<p>KAP's AI engine processes consumption behaviour during working hours, grid peaks and closures. Hidden losses, standby loads and voltage fluctuations are separated out and revealed.</p>
+</div>
+</div>
+<div class="step-row reveal">
+<div class="step-num">3</div>
+<div class="step-body">
+<h3>Identifying load-management opportunities</h3>
+<p>The system pinpoints bottlenecks that can be optimised without harming comfort or production — from rescheduling pumps and chillers to moving energy-heavy processes to off-peak hours.</p>
+</div>
+</div>
+<div class="step-row reveal">
+<div class="step-num">4</div>
+<div class="step-body">
+<h3>Action that keeps the user in control</h3>
+<p>Practical recommendations tailored to each site are provided. KAP never makes unwanted interventions or forced cuts; the decision stays with the manager or resident.</p>
+</div>
+</div>
+<div class="step-row reveal">
+<div class="step-num">5</div>
+<div class="step-body">
+<h3>Measuring results against the baseline</h3>
+<p>The effect of every action is evaluated against the consumption baseline and weather variables, so every rial of financial savings and every reduction in peak load is documented and provable.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- trial version link -->
+<section class="mvp-link">
+<div class="container">
+<h3 style="margin-bottom:12px;color:#1A1D20;">See it running live on the platform</h3>
+<p>Experience the real dashboard and consumption-analysis algorithms in the online test version:</p>
+<div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+<a class="btn-outline" href="mvp-pilot.html">Test version and pilot status report</a>
+<a class="btn-primary" href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Open the live trial version 🚀</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer" id="footer">
+<div class="container">
+<div class="ft-grid">
+<div class="ft-brand">
+<a aria-label="KAP Energy Group" href="index.html">
+<picture>
+<source srcset="../assets/images/kap-logo-light.webp" type="image/webp"/>
+<img alt="KAP Energy Group" class="ft-logo" height="160" loading="lazy" src="../assets/images/kap-logo-light.png" width="421"/>
+</picture>
+</a>
+<p class="ft-tagline" dir="ltr">Energy, made visible</p>
+<p>KAP's vision is to link scattered demand-management capacity into the country's virtual power plant.</p>
+<div class="ft-contact">
+<a dir="ltr" href="tel:+982191093189">021-91093189</a>
+<a dir="ltr" href="mailto:info@kap.energy">info@kap.energy</a>
+<a dir="ltr" href="https://kap.energy">kap.energy</a>
+</div>
+</div>
+<div class="ft-col">
+<h4>Solutions</h4>
+<a href="solution-home.html">Homes</a>
+<a href="solution-education.html">Universities &amp; education</a>
+<a href="solution-business.html">Offices &amp; commercial</a>
+<a href="solution-industry.html">Industry</a>
+<a href="solution-power.html">Power industry &amp; solar</a>
+</div>
+<div class="ft-col">
+<h4>Technology &amp; product</h4>
+<a href="how-it-works.html">How it works</a>
+<a href="technology-detail.html">Technology &amp; architecture</a>
+<a href="products.html">Hardware products</a>
+<a href="mvp-pilot.html">Trial version &amp; pilot</a>
+<a href="../calculator.html">Electricity usage calculator</a>
+</div>
+<div class="ft-col">
+<h4>KAP</h4>
+<a href="about.html">About KAP</a>
+<a href="knowledge.html">Insights</a>
+<a href="faq.html">FAQ</a>
+<a href="demo.html">Request a demo</a>
+<a href="contact.html">Contact us</a>
+</div>
+</div>
+<div class="ft-bottom">
+<p>© 2026 KAP Energy Group. All rights reserved.</p>
+<a href="https://mvp.kap.energy/" rel="noopener noreferrer" target="_blank">Live trial version ↗</a>
+</div>
+</div>
+</footer>
+<script src="../script.js?v=21"></script>
+</body>
+</html>

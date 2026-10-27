@@ -2,36 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://kap.energy/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/about.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kap.energy/article-ai.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-ai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-ai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-ai.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/article-ct.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-ct.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-ct.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-ct.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/article-elderly.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-elderly.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-elderly.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-elderly.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/article-energy-intensity.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-energy-intensity.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-energy-intensity.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-energy-intensity.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/article-grid.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-grid.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-grid.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-grid.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/article-vpp.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-vpp.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-vpp.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-vpp.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
@@ -47,77 +68,298 @@
   </url>
   <url>
     <loc>https://kap.energy/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/contact.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/demo.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/demo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/demo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/demo.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/faq.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kap.energy/how-it-works.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/how-it-works.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kap.energy/</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/"/>
     <lastmod>2026-10-27</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://kap.energy/knowledge.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/knowledge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/knowledge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/knowledge.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/mvp-pilot.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/mvp-pilot.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/mvp-pilot.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/mvp-pilot.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/products.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/products.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/products.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/solution-business.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solution-business.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solution-business.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solution-business.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/solution-education.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solution-education.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solution-education.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solution-education.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/solution-home.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solution-home.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solution-home.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solution-home.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/solution-industry.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solution-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solution-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solution-industry.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/solution-power.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solution-power.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solution-power.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solution-power.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kap.energy/solutions.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solutions.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solutions.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solutions.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kap.energy/technology-detail.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/technology-detail.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/technology-detail.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/technology-detail.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/about.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/article-ai.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-ai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-ai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-ai.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/article-ct.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-ct.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-ct.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-ct.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/article-elderly.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-elderly.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-elderly.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-elderly.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/article-energy-intensity.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-energy-intensity.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-energy-intensity.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-energy-intensity.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/article-grid.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-grid.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-grid.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-grid.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/article-vpp.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/article-vpp.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/article-vpp.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/article-vpp.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/contact.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/demo.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/demo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/demo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/demo.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/faq.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/how-it-works.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/how-it-works.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/knowledge.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/knowledge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/knowledge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/knowledge.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/mvp-pilot.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/mvp-pilot.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/mvp-pilot.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/mvp-pilot.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/products.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/products.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/products.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/solution-business.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solution-business.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solution-business.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solution-business.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/solution-education.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solution-education.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solution-education.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solution-education.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/solution-home.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solution-home.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solution-home.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solution-home.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/solution-industry.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solution-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solution-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solution-industry.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/solution-power.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solution-power.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solution-power.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solution-power.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/solutions.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/solutions.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/solutions.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/solutions.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kap.energy/en/technology-detail.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/technology-detail.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/technology-detail.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/technology-detail.html"/>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>
