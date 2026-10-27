@@ -1827,3 +1827,21 @@ body { background: var(--bg); color: var(--ink); }
 /* primary buttons */
 .btn-primary, .header__cta:not(.header__cta--dark) { background: var(--orange-500); }
 .btn-primary:hover { background: var(--orange-600); }
+
+/* solution guide sections: problem · installation · result · cost · FAQ (answer-first) */
+.guide{padding:72px 0;background:#FFFFFF;border-top:1px solid var(--line);}
+.guide:nth-of-type(even){background:var(--bg);}
+.guide__inner{max-width:860px;margin:0 auto;}
+.guide h2{font-size:clamp(1.25rem,2.2vw,1.6rem);margin-bottom:14px;color:var(--ink);}
+.guide p{color:var(--ink-2);line-height:2;font-size:1rem;}
+.guide__answer{font-size:1.06rem;color:var(--ink);border-right:3px solid var(--orange-500);padding-right:16px;}
+.guide-faq details{border:1px solid var(--line);border-radius:12px;padding:16px 22px;margin-bottom:12px;background:#fff;}
+.guide-faq summary{cursor:pointer;font-weight:700;color:var(--ink);}
+.guide-faq details p{margin-top:10px;}
+.guide-faq details[open] summary{color:var(--orange-600);}
+
+/* "in plain words" box: the same idea as the expert text above it, for everyone */
+.plain{margin:18px auto 22px;max-width:760px;background:#FFFFFF;border:1px solid var(--line);border-radius:14px;padding:16px 20px;text-align:right;}
+.plain__label{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:var(--orange-600);margin-bottom:6px;}
+.plain__label::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--turquoise);}
+.plain p{margin:0;color:var(--ink);line-height:2;font-size:1rem;}
