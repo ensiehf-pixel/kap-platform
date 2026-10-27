@@ -65,7 +65,7 @@
       order.forEach((i, k) => {
         const im = new Image(); im.decoding = 'async';
         im.onload = () => { this.imgs[i] = im; this.key = ''; request(); };
-        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=21'; }, k < 6 ? 0 : 20 + k * 8);
+        setTimeout(() => { im.src = dir + String(i + 1).padStart(3, '0') + '.avif?v=22'; }, k < 6 ? 0 : 20 + k * 8);
       });
     }
     near(i) { for (let d = 0; d < this.n; d++) { const a = this.imgs[i - d] || this.imgs[i + d]; if (a) return a; } return null; }
@@ -203,10 +203,15 @@
   // phones / upright tablets: centre the film + text block vertically so no empty band is left under the text
   function layoutPortrait() {
     Object.values(S).forEach(s => {
-      if (!portrait()) { s.el.style.removeProperty('--film-top'); return; }
+      if (!portrait()) { ['--film-top', '--film-w', '--film-h'].forEach(v => s.el.style.removeProperty(v)); return; }
       const st = s.el.querySelector('.chapter__stage'), cp = s.copy;
-      const head = window.innerWidth <= 768 ? 64 : 68, filmH = s.box.offsetHeight, gap = 22;
+      const head = window.innerWidth <= 768 ? 64 : 68, gap = 22;
       let textH = 0; [...cp.children].forEach(c => { const r = c.getBoundingClientRect(), m = getComputedStyle(c); textH += r.height + parseFloat(m.marginTop) + parseFloat(m.marginBottom); });
+      // if film + text don't fit, shrink the film (never below 55% width) so the buttons stay on screen
+      const vw = window.innerWidth, fullH = vw * 9 / 16, room = st.clientHeight - head - gap - textH - 24;
+      const filmH = Math.max(fullH * 0.55, Math.min(fullH, room));
+      s.el.style.setProperty('--film-w', Math.round(filmH * 16 / 9) + 'px');
+      s.el.style.setProperty('--film-h', Math.round(filmH) + 'px');
       const top = Math.max(head, head + (st.clientHeight - head - filmH - gap - textH - 24) / 2);
       s.el.style.setProperty('--film-top', Math.round(top) + 'px');
     });

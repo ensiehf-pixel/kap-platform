@@ -1852,3 +1852,13 @@ body { background: var(--bg); color: var(--ink); }
 .lang-switch { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 36px; padding: 0 10px; border: 1px solid var(--line, #EAEAEA); border-radius: 999px; font-size: .82rem; font-weight: 700; color: var(--ink, #1A1D20); background: #fff; text-decoration: none; transition: border-color .2s, color .2s; }
 .lang-switch:hover, .lang-switch:focus-visible { border-color: var(--orange-500); color: var(--orange-600); }
 .lang-switch[lang="fa"] { font-family: 'Vazirmatn', system-ui, sans-serif; }
+
+/* 2026-10-27 — light-gray footer (replaces the charcoal footer) */
+.footer { background: #EAEAEA; color: #4A4F55; border-top: 1px solid #DCDCDC; }
+.ft-brand p { color: #4A4F55; }
+.ft-col h4 { color: #1A1D20; }
+.ft-col a, .ft-bottom a, .ft-contact a { color: #4A4F55; }
+.ft-col a:hover, .ft-bottom a:hover, .ft-contact a:hover { color: var(--orange-600); }
+.ft-bottom { border-top-color: #D6D6D6; color: #6B7178; }
+.ft-tagline { color: var(--orange-600) !important; }
+.footer__nav a:hover { color: var(--orange-600); }
