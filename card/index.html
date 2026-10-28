@@ -97,7 +97,6 @@ input[dir=ltr]{text-align:left}
       <label for="org">سازمان و سمت</label>
       <input id="org" name="org" autocomplete="organization" maxlength="120">
       <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
-      <label class="consent"><input type="checkbox" id="ok" required> اجازه می‌دهم کاپ این اطلاعات را برای تماس و ارسال اطلاعات محصولات نگه دارد.</label>
       <button class="send" type="submit">ارسال اطلاعات من</button>
       <div class="status" id="st" role="status"></div>
     </form>
@@ -121,7 +120,6 @@ input[dir=ltr]{text-align:left}
     if(d.name.length<2){msg('لطفاً نام خود را بنویسید.','err');f.name.focus();return;}
     if(d.phone.replace(/\D/g,'').length<10){msg('لطفاً شمارهٔ همراه را درست وارد کنید.','err');f.phone.focus();return;}
     if(d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){msg('ایمیل درست نیست.','err');f.email.focus();return;}
-    if(!document.getElementById('ok').checked){msg('برای ارسال، گزینهٔ اجازه را تیک بزنید.','err');return;}
     b.disabled=true;msg('در حال ارسال…');
     var body=new URLSearchParams(d);
     fetch('save.php',{method:'POST',body:body,headers:{'Accept':'application/json'}})
