@@ -1876,3 +1876,8 @@ body { background: var(--bg); color: var(--ink); }
 .visit__note::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--turquoise, #00E5D7); }
 .visit__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 @media (max-width: 560px) { .visit__list > div { grid-template-columns: 1fr; gap: 4px; } .visit__actions a { flex: 1 1 100%; justify-content: center; text-align: center; } }
+
+/* Footer social links */
+.ft-social { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.ft-social a { font-size: .8rem; padding: 6px 12px; border: 1px solid #D6D6D6; border-radius: 999px; color: #4A4F55; background: #fff; line-height: 1.4; }
+.ft-social a:hover { border-color: var(--orange-500); color: var(--orange-600); }
