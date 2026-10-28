@@ -120,7 +120,7 @@ function handleSubmit(e) {
   window.location.href = url;
   const status = form.querySelector('.form-status') || Object.assign(document.createElement('p'), { className: 'form-status' });
   status.setAttribute('role', 'status');
-  status.innerHTML = EN ? 'Your email app has opened; send the message from there. If it didn\'t open, write directly to <a href="mailto:' + KAP_EMAIL + '">' + KAP_EMAIL + '</a> or call <a href="tel:+982191093189">+98 21 9109 3189</a>.' : 'برنامهٔ ایمیل شما باز شد؛ پیام را از آنجا ارسال کنید. اگر باز نشد، مستقیم به <a href="mailto:' + KAP_EMAIL + '" dir="ltr">' + KAP_EMAIL + '</a> بنویسید یا با <a href="tel:+982191093189" dir="ltr">021-91093189</a> تماس بگیرید.';
+  status.innerHTML = EN ? 'Your email app has opened; send the message from there. If it didn\'t open, write directly to <a href="mailto:' + KAP_EMAIL + '">' + KAP_EMAIL + '</a> or call <a href="tel:+982191099814">+98 21 9109 3189</a>.' : 'برنامهٔ ایمیل شما باز شد؛ پیام را از آنجا ارسال کنید. اگر باز نشد، مستقیم به <a href="mailto:' + KAP_EMAIL + '" dir="ltr">' + KAP_EMAIL + '</a> بنویسید یا با <a href="tel:+982191099814" dir="ltr">021-91099814</a> تماس بگیرید.';
   if (!status.parentNode) form.appendChild(status);
 }
 

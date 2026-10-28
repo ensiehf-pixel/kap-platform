@@ -1862,3 +1862,17 @@ body { background: var(--bg); color: var(--ink); }
 .ft-bottom { border-top-color: #D6D6D6; color: #6B7178; }
 .ft-tagline { color: var(--orange-600) !important; }
 .footer__nav a:hover { color: var(--orange-600); }
+
+/* Pilot location and visit arrangements (contact + pilot pages) */
+.visit { padding: 56px 0; background: #FAFAFA; }
+.visit__card { max-width: 860px; margin: 0 auto; background: #fff; border: 1px solid var(--line, #EAEAEA); border-radius: 20px; padding: 32px clamp(20px, 4vw, 40px); box-shadow: 0 10px 30px rgba(26,29,32,.04); }
+.visit__card h2 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); margin: 12px 0 20px; }
+.visit__list { display: grid; gap: 14px; margin: 0 0 18px; }
+.visit__list > div { display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line, #EAEAEA); }
+.visit__list dt { font-weight: 700; color: var(--ink-2, #4A4F55); font-size: .92rem; }
+.visit__list dd { margin: 0; color: var(--ink, #1A1D20); line-height: 1.9; }
+.visit__list dd a { color: var(--orange-600, #E04F00); font-weight: 700; }
+.visit__note { display: flex; align-items: center; gap: 10px; color: var(--ink-2, #4A4F55); font-size: .95rem; margin-bottom: 20px; }
+.visit__note::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--turquoise, #00E5D7); }
+.visit__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 560px) { .visit__list > div { grid-template-columns: 1fr; gap: 4px; } .visit__actions a { flex: 1 1 100%; justify-content: center; text-align: center; } }
