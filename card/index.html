@@ -48,7 +48,7 @@ a{color:inherit;text-decoration:none}
 .logo{background:#fff;border-radius:14px;padding:8px 12px;display:inline-flex;box-shadow:0 6px 20px rgba(0,0,0,.35)}
 .logo img{height:30px;display:block}
 .live{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--muted);background:var(--panel);border:1px solid var(--stroke);padding:7px 12px;border-radius:999px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.live i{width:8px;height:8px;border-radius:50%;background:var(--green);animation:ping 1.8s ease-in-out infinite}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--green)}
 @keyframes ping{50%{opacity:.35;transform:scale(.8)}}
 
 .hero{margin-top:118px}
@@ -87,7 +87,7 @@ h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;c
 /* ---------- sticky exchange bar ---------- */
 .bar{position:fixed;z-index:5;left:0;right:0;bottom:0;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(14,15,18,.92) 35%)}
 .bar button{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:404px;margin:0 auto;padding:16px;border-radius:18px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:#fff;font:800 16.5px Vaz,sans-serif;cursor:pointer}
-.bar button i{width:9px;height:9px;border-radius:50%;background:var(--green);animation:ping 1.8s ease-out infinite}
+.bar button i{width:9px;height:9px;border-radius:50%;background:var(--green)}
 
 /* ---------- bottom sheet ---------- */
 .scrim{position:fixed;inset:0;z-index:9;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .25s ease}
@@ -110,7 +110,7 @@ input[dir=ltr]{text-align:left}
 .status{margin-top:12px;font-size:14px;line-height:1.8;min-height:1em}
 .status.err{color:#FF8A80}
 .done{display:none;text-align:center;padding:18px 0 6px}
-.done .ok{width:64px;height:64px;border-radius:50%;margin:0 auto;display:grid;place-items:center;background:rgba(19,194,110,.16);color:#3EE08F;animation:pop .45s cubic-bezier(.2,1.4,.4,1)}
+.done .ok{width:64px;height:64px;border-radius:50%;margin:0 auto;display:grid;place-items:center;background:rgba(19,194,110,.16);color:#3EE08F;animation:pop .45s cubic-bezier(.22,1,.36,1)}
 .done .ok svg{width:30px;height:30px}
 .done h3{margin-top:14px;font-size:19px;font-weight:900}
 .done p{margin-top:6px;font-size:14px;color:var(--muted);line-height:1.8}
