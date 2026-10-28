@@ -6,128 +6,252 @@
 <title>کارت کاپ | KAP Energy Group</title>
 <meta name="description" content="کارت دیجیتال کاپ: ذخیرهٔ مخاطب، کاتالوگ، تماس و شبکه‌های اجتماعی.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#15171A">
+<meta name="theme-color" content="#0E0F12">
+<meta property="og:title" content="کاپ | مدیریت هوشمند مصرف برق">
+<meta property="og:description" content="کارت دیجیتال کاپ؛ مخاطب را ذخیره کنید و اطلاعات خود را بفرستید.">
+<meta property="og:image" content="https://kap.energy/assets/images/og-image.jpg">
+<meta property="og:url" content="https://kap.energy/card/">
 <link rel="icon" href="../favicon.ico">
 <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ8FZTJ86C"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HZ8FZTJ86C');</script>
 <style>
 @font-face{font-family:Vaz;src:url(../assets/fonts/vazirmatn-var.woff2) format('woff2');font-weight:100 900;font-display:swap}
-:root{--ink:#15171A;--muted:#555B62;--line:#E6E8EA;--bg:#F3F4F5;--card:#fff;--orange:#FF5A00;--magenta:#FF008B;--green:#13A35E}
+:root{
+  --bg:#0E0F12;--panel:rgba(255,255,255,.055);--panel-2:rgba(255,255,255,.09);--stroke:rgba(255,255,255,.11);
+  --ink:#F4F5F6;--muted:#AEB3BA;--orange:#FF5A00;--pink:#FF008B;--green:#13C26E;--cyan:#00E5D7;
+  --grad:linear-gradient(100deg,#FF5A00,#FF2E4D 55%,#FF008B);
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Vaz,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
-.wrap{max-width:440px;margin:0 auto;padding:0 16px 40px}
-.hero{background:var(--ink);color:#fff;border-radius:0 0 28px 28px;margin:0 -16px;padding:28px 24px 30px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--green),var(--orange),var(--magenta))}
-.hero .logo{background:#fff;border-radius:16px;padding:10px 14px;display:inline-block}
-.hero .logo img{height:40px;display:block}
-.hero h1{margin-top:20px;font-size:26px;font-weight:800;line-height:1.4}
-.hero p{margin-top:6px;font-size:15px;color:#C9CDD2;line-height:1.8}
-.save{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;width:100%;padding:16px;border-radius:16px;border:0;background:linear-gradient(100deg,#D84A00,#D8233F 60%,#C8006E);color:#fff;font:800 19px Vaz,sans-serif;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
-.btn{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;text-decoration:none;color:var(--ink);font-size:15px;font-weight:700;min-height:62px}
-.btn svg{width:22px;height:22px;flex:none;color:var(--orange)}
-.btn small{display:block;font-size:12px;font-weight:500;color:var(--muted);direction:ltr;text-align:right}
-.btn.wide{grid-column:1/-1}
-.soc{display:flex;gap:10px;margin-top:10px}
-.soc a{flex:1;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 6px;font-size:14px;font-weight:700;color:var(--ink);text-decoration:none}
-.box{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 18px}
-.box h2{font-size:19px;font-weight:800}
-.box > p{margin-top:6px;font-size:14px;color:var(--muted);line-height:1.8}
-label{display:block;margin-top:14px;font-size:13px;font-weight:700}
-label span{color:var(--orange)}
-input{width:100%;margin-top:6px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;font:500 16px Vaz,sans-serif;background:#FAFAFA;color:var(--ink)}
-input:focus{outline:2px solid var(--orange);outline-offset:0;background:#fff}
+html{background:var(--bg)}
+body{font-family:Vaz,system-ui,sans-serif;color:var(--ink);min-height:100dvh;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+a{color:inherit;text-decoration:none}
+
+/* ---------- living background ---------- */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;will-change:transform}
+.b1{width:420px;height:420px;background:#FF5A00;top:-160px;right:-140px;animation:drift1 16s ease-in-out infinite alternate}
+.b2{width:380px;height:380px;background:#FF008B;top:240px;left:-200px;opacity:.38;animation:drift2 19s ease-in-out infinite alternate}
+.b3{width:340px;height:340px;background:#13C26E;bottom:-160px;right:-120px;opacity:.22;animation:drift1 22s ease-in-out infinite alternate-reverse}
+@keyframes drift1{to{transform:translate(-60px,80px) scale(1.15)}}
+@keyframes drift2{to{transform:translate(70px,-60px) scale(1.1)}}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:34px 34px;mask-image:radial-gradient(ellipse at 50% 20%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 30%,transparent 75%)}
+.wave{position:absolute;left:0;right:0;top:92px;width:100%;height:160px;opacity:.75}
+.wave path{fill:none;stroke-width:1.6;stroke-linecap:round;stroke-dasharray:6 10;animation:flow 3.2s linear infinite}
+.wave path:nth-child(2){animation-duration:4.4s;opacity:.7}
+.wave path:nth-child(3){animation-duration:5.6s;opacity:.5}
+@keyframes flow{to{stroke-dashoffset:-160}}
+
+/* ---------- layout ---------- */
+.wrap{position:relative;z-index:1;max-width:440px;margin:0 auto;padding:max(22px,env(safe-area-inset-top)) 18px calc(110px + env(safe-area-inset-bottom))}
+.top{display:flex;align-items:center;justify-content:space-between}
+.logo{background:#fff;border-radius:14px;padding:8px 12px;display:inline-flex;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.logo img{height:30px;display:block}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--muted);background:var(--panel);border:1px solid var(--stroke);padding:7px 12px;border-radius:999px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--green);animation:ping 1.8s ease-in-out infinite}
+@keyframes ping{50%{opacity:.35;transform:scale(.8)}}
+
+.hero{margin-top:118px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.3px;color:#FF8A4C}
+h1{margin-top:8px;font-size:38px;line-height:1.25;font-weight:900;letter-spacing:-.5px}
+h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shine 6s ease-in-out infinite}
+@keyframes shine{50%{background-position:100% 0}}
+.lead{margin-top:10px;font-size:15.5px;line-height:1.85;color:var(--muted)}
+
+.save{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;width:100%;padding:17px;border-radius:18px;border:0;background:#E04F00;background-image:linear-gradient(100deg,#D84A00,#D8233F 55%,#C8006E);color:#fff;font:800 18.5px Vaz,sans-serif;overflow:hidden;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.4)}
+.save::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(120%);animation:sweep 3.6s ease-in-out infinite 1.2s}
+@keyframes sweep{60%,100%{transform:translateX(-120%)}}
+.save svg{width:22px;height:22px}
+
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+.tile{position:relative;display:flex;flex-direction:column;gap:14px;padding:16px;border-radius:18px;background:var(--panel);border:1px solid var(--stroke);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:transform .2s ease,background .2s ease;overflow:hidden}
+.tile:active{transform:scale(.97);background:var(--panel-2)}
+.tile .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,90,0,.14);color:#FF8A4C}
+.tile:nth-child(2) .ic{background:rgba(255,0,139,.14);color:#FF5CB4}
+.tile:nth-child(3) .ic{background:rgba(19,194,110,.14);color:#3EE08F}
+.tile:nth-child(4) .ic{background:rgba(0,229,215,.12);color:#4FF0E6}
+.tile .ic svg{width:21px;height:21px}
+.tile b{font-size:15.5px;font-weight:800;display:block}
+.tile small{display:block;margin-top:2px;font-size:12.5px;color:var(--muted);direction:ltr;text-align:right}
+
+.soc{display:flex;gap:8px;margin-top:10px}
+.soc a{flex:1;text-align:center;padding:12px 6px;border-radius:14px;background:var(--panel);border:1px solid var(--stroke);font-size:14px;font-weight:700;transition:transform .2s ease}
+.soc a:active{transform:scale(.96)}
+
+.what{margin-top:26px;display:grid;gap:8px}
+.what div{display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:16px;background:var(--panel);border:1px solid var(--stroke);font-size:14.5px;font-weight:600;line-height:1.6}
+.what span{flex:none;font:800 13px Vaz;color:#FF8A4C;direction:ltr;width:26px}
+
+.foot{margin-top:26px;text-align:center;font-size:12px;color:#A3A9B0}
+
+/* ---------- sticky exchange bar ---------- */
+.bar{position:fixed;z-index:5;left:0;right:0;bottom:0;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(14,15,18,.92) 35%)}
+.bar button{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:404px;margin:0 auto;padding:16px;border-radius:18px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:#fff;font:800 16.5px Vaz,sans-serif;cursor:pointer}
+.bar button i{width:9px;height:9px;border-radius:50%;background:var(--green);animation:ping 1.8s ease-out infinite}
+
+/* ---------- bottom sheet ---------- */
+.scrim{position:fixed;inset:0;z-index:9;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .25s ease}
+.sheet{position:fixed;z-index:10;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;background:#16181C;border:1px solid var(--stroke);border-bottom:0;border-radius:26px 26px 0 0;padding:10px 20px calc(22px + env(safe-area-inset-bottom));transform:translateY(105%);transition:transform .38s cubic-bezier(.2,.9,.25,1)}
+.open .scrim{opacity:1;pointer-events:auto}
+.open .sheet{transform:none}
+.grab{width:42px;height:5px;border-radius:3px;background:rgba(255,255,255,.2);margin:0 auto 14px}
+.sheet h2{font-size:20px;font-weight:900}
+.sheet > p{margin-top:4px;font-size:14px;color:var(--muted);line-height:1.8}
+label{display:block;margin-top:14px;font-size:13px;font-weight:700;color:#D5D8DC}
+label span{color:#FF8A4C}
+input{width:100%;margin-top:6px;padding:14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.06);color:#fff;font:500 16px Vaz,sans-serif}
+input::placeholder{color:#949AA2}
+input:focus{outline:2px solid #FF5A00;outline-offset:0;background:rgba(255,255,255,.09)}
 input[dir=ltr]{text-align:left}
-.consent{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:13px;color:var(--muted);line-height:1.7;font-weight:500}
-.consent input{width:20px;height:20px;margin:2px 0 0;flex:none;accent-color:var(--orange)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
-.send{margin-top:18px;width:100%;padding:15px;border:0;border-radius:14px;background:var(--ink);color:#fff;font:800 16px Vaz,sans-serif;cursor:pointer}
+.send{margin-top:18px;width:100%;padding:16px;border:0;border-radius:16px;background:#E04F00;background-image:linear-gradient(100deg,#D84A00,#D8233F 55%,#C8006E);color:#fff;font:800 17px Vaz,sans-serif;cursor:pointer}
 .send:disabled{opacity:.6}
-.status{margin-top:12px;font-size:14px;line-height:1.8}
-.status.ok{color:var(--green);font-weight:700}
-.status.err{color:#C62828}
-.foot{margin-top:26px;text-align:center;font-size:12px;color:var(--muted)}
-.foot a{color:var(--muted)}
-@media (max-width:340px){.grid{grid-template-columns:1fr}}
+.status{margin-top:12px;font-size:14px;line-height:1.8;min-height:1em}
+.status.err{color:#FF8A80}
+.done{display:none;text-align:center;padding:18px 0 6px}
+.done .ok{width:64px;height:64px;border-radius:50%;margin:0 auto;display:grid;place-items:center;background:rgba(19,194,110,.16);color:#3EE08F;animation:pop .45s cubic-bezier(.2,1.4,.4,1)}
+.done .ok svg{width:30px;height:30px}
+.done h3{margin-top:14px;font-size:19px;font-weight:900}
+.done p{margin-top:6px;font-size:14px;color:var(--muted);line-height:1.8}
+@keyframes pop{from{transform:scale(.4);opacity:0}}
+.sent .done{display:block}.sent form,.sent .sheet > h2,.sent .sheet > p{display:none}
+
+/* ---------- entrance ---------- */
+.in{opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.in{opacity:1;transform:none}}
+@media (max-width:350px){h1{font-size:32px}.tiles{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="hero">
-    <div class="logo"><img src="../assets/images/kap-logo.png" alt="KAP Energy Group" width="105" height="40"></div>
-    <h1>کاپ؛ مدیریت هوشمند مصرف برق</h1>
-    <p>پایش، تحلیل و کاهش مصرف غیرضروری برق در خانه، ساختمان و صنعت.</p>
-    <a class="save" href="kap.vcf" download="KAP.vcf" data-ev="save_contact">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+<div class="bg" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="grid-bg"></div>
+  <svg class="wave" viewBox="0 0 400 160" preserveAspectRatio="none">
+    <defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#13C26E"/><stop offset=".5" stop-color="#FF5A00"/><stop offset="1" stop-color="#FF008B"/></linearGradient></defs>
+    <path stroke="url(#lg)" d="M0 90 C 60 40, 110 140, 170 90 S 280 30, 400 80"/>
+    <path stroke="url(#lg)" d="M0 110 C 70 70, 130 150, 200 105 S 300 55, 400 105"/>
+    <path stroke="url(#lg)" d="M0 70 C 50 30, 120 110, 190 70 S 300 20, 400 60"/>
+  </svg>
+</div>
+
+<main class="wrap">
+  <div class="top in" style="animation-delay:.05s">
+    <div class="logo"><img src="../assets/images/kap-logo.png" alt="KAP Energy Group" width="79" height="30"></div>
+    <span class="live"><i></i>KAP Energy Group</span>
+  </div>
+
+  <section class="hero">
+    <p class="eyebrow in" style="animation-delay:.15s">کارت دیجیتال کاپ</p>
+    <h1 class="in" style="animation-delay:.25s">مصرف برق را <span class="g">ببینید،</span><br>هوشمند <span class="g">مدیریت کنید.</span></h1>
+    <p class="lead in" style="animation-delay:.35s">پایش، تحلیل و کاهش مصرف غیرضروری برق در خانه، ساختمان و صنعت.</p>
+    <a class="save in" style="animation-delay:.45s" href="kap.vcf" download="KAP.vcf" data-ev="save_contact" id="saveBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
       ذخیرهٔ مخاطب کاپ
     </a>
-  </header>
+  </section>
 
-  <div class="grid">
-    <a class="btn" href="tel:+982191099814" data-ev="call">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-      <span>تماس<small>021-91099814</small></span></a>
-    <a class="btn" href="mailto:info@kap.energy" data-ev="email">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-      <span>ایمیل<small>info@kap.energy</small></span></a>
-    <a class="btn" href="../assets/kap-catalogue-fa.pdf" target="_blank" rel="noopener" data-ev="catalogue">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>
-      <span>کاتالوگ<small>PDF</small></span></a>
-    <a class="btn" href="https://kap.energy/" data-ev="website">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
-      <span>وب‌سایت<small>kap.energy</small></span></a>
+  <div class="tiles">
+    <a class="tile in" style="animation-delay:.55s" href="tel:+982191099814" data-ev="call">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+      <span><b>تماس</b><small>021-91099814</small></span></a>
+    <a class="tile in" style="animation-delay:.62s" href="mailto:info@kap.energy" data-ev="email">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+      <span><b>ایمیل</b><small>info@kap.energy</small></span></a>
+    <a class="tile in" style="animation-delay:.69s" href="../assets/kap-catalogue-fa.pdf" target="_blank" rel="noopener" data-ev="catalogue">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg></span>
+      <span><b>کاتالوگ</b><small>PDF</small></span></a>
+    <a class="tile in" style="animation-delay:.76s" href="https://kap.energy/" data-ev="website">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
+      <span><b>وب‌سایت</b><small>kap.energy</small></span></a>
   </div>
-  <div class="soc">
+  <div class="soc in" style="animation-delay:.83s">
     <a href="https://ble.ir/kapenergy" target="_blank" rel="noopener" data-ev="bale">بله</a>
     <a href="https://t.me/kap_energy" target="_blank" rel="noopener" data-ev="telegram">تلگرام</a>
     <a href="https://instagram.com/kap.energy" target="_blank" rel="noopener" data-ev="instagram">اینستاگرام</a>
   </div>
 
-  <section class="box" id="exchange">
-    <h2>اطلاعات خودتان را هم بفرستید</h2>
-    <p>تا کارشناس کاپ با شما در تماس باشد و کاتالوگ و به‌روزرسانی‌ها را برایتان بفرستد.</p>
-    <form id="ex" novalidate>
-      <label for="name"><span>*</span> نام و نام خانوادگی</label>
-      <input id="name" name="name" autocomplete="name" required maxlength="80">
-      <label for="phone"><span>*</span> شمارهٔ همراه</label>
-      <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required maxlength="20" placeholder="09xx xxx xxxx">
-      <label for="email">ایمیل</label>
-      <input id="email" name="email" type="email" autocomplete="email" dir="ltr" maxlength="100" placeholder="name@company.com">
-      <label for="org">سازمان و سمت</label>
-      <input id="org" name="org" autocomplete="organization" maxlength="120">
-      <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
-      <button class="send" type="submit">ارسال اطلاعات من</button>
-      <div class="status" id="st" role="status"></div>
-    </form>
-  </section>
+  <div class="what">
+    <div class="in" style="animation-delay:.9s"><span>01</span>پایش مصرف هر مدار و وسیله با حسگر و پریز هوشمند</div>
+    <div class="in" style="animation-delay:.97s"><span>02</span>تحلیل الگوی مصرف و پیشنهاد اقدام با هوش مصنوعی</div>
+    <div class="in" style="animation-delay:1.04s"><span>03</span>سنجش نتیجه نسبت به خط مبنا</div>
+  </div>
 
-  <p class="foot">کاپ (کارا انرژی پردازان هوشمند) · <a href="https://kap.energy/">kap.energy</a></p>
-</div>
+  <p class="foot">کاپ (کارا انرژی پردازان هوشمند) · kap.energy</p>
+</main>
+
+<div class="bar"><button type="button" id="openSheet" data-ev="open_exchange"><i></i>اطلاعات من را هم ارسال کن</button></div>
+
+<div class="scrim" id="scrim"></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="shT">
+  <div class="grab"></div>
+  <h2 id="shT">اطلاعات خودتان را بفرستید</h2>
+  <p>تا کارشناس کاپ با شما در تماس باشد.</p>
+  <form id="ex" novalidate>
+    <label for="name"><span>*</span> نام و نام خانوادگی</label>
+    <input id="name" name="name" autocomplete="name" required maxlength="80">
+    <label for="phone"><span>*</span> شمارهٔ همراه</label>
+    <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required maxlength="20" placeholder="09xx xxx xxxx">
+    <div class="row">
+      <div><label for="email">ایمیل</label><input id="email" name="email" type="email" autocomplete="email" dir="ltr" maxlength="100"></div>
+      <div><label for="org">سازمان و سمت</label><input id="org" name="org" autocomplete="organization" maxlength="120"></div>
+    </div>
+    <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+    <button class="send" type="submit">ارسال</button>
+    <div class="status" id="st" role="status"></div>
+  </form>
+  <div class="done">
+    <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <h3>ممنون! اطلاعات شما رسید.</h3>
+    <p>همکاران ما به‌زودی با شما تماس می‌گیرند.</p>
+  </div>
+</section>
 
 <script>
+/* Where leads go. If SUPABASE_URL and SUPABASE_KEY are filled, rows are inserted into
+   the Supabase table "card_leads"; otherwise they go to save.php (email + CSV on the host). */
+var SUPABASE_URL = '';   // e.g. https://xxxx.supabase.co
+var SUPABASE_KEY = '';   // the project's public "anon" key
 (function(){
   function ev(n){try{gtag('event',n,{event_category:'card'});}catch(e){}}
   document.querySelectorAll('[data-ev]').forEach(function(a){a.addEventListener('click',function(){ev(a.dataset.ev);});});
 
-  var f=document.getElementById('ex'), st=document.getElementById('st'), b=f.querySelector('.send');
+  var body=document.body, f=document.getElementById('ex'), st=document.getElementById('st'), b=f.querySelector('.send');
+  function open(){body.classList.add('open');setTimeout(function(){f.name.focus();},350);}
+  function close(){body.classList.remove('open');}
+  document.getElementById('openSheet').addEventListener('click',open);
+  document.getElementById('scrim').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  // After saving KAP's contact, invite the visitor to send theirs.
+  document.getElementById('saveBtn').addEventListener('click',function(){setTimeout(open,1600);});
+
   function fa2en(s){return s.replace(/[۰-۹]/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d);}).replace(/[٠-٩]/g,function(d){return '٠١٢٣٤٥٦٧٨٩'.indexOf(d);});}
   function msg(t,c){st.className='status '+(c||'');st.textContent=t;}
+
+  function sendSupabase(d){
+    return fetch(SUPABASE_URL.replace(/\/$/,'')+'/rest/v1/card_leads',{method:'POST',
+      headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+      body:JSON.stringify({name:d.name,phone:d.phone,email:d.email||null,org:d.org||null,source:'card',user_agent:navigator.userAgent.slice(0,200)})
+    }).then(function(r){if(!r.ok)throw new Error('sb '+r.status);return {ok:true};});
+  }
+  function sendPhp(d){
+    return fetch('save.php',{method:'POST',body:new URLSearchParams(d),headers:{'Accept':'application/json'}}).then(function(r){return r.json();});
+  }
 
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var d={name:f.name.value.trim(),phone:fa2en(f.phone.value).replace(/[^\d+]/g,''),email:f.email.value.trim(),org:f.org.value.trim(),website:f.website.value};
+    if(d.website)return;
     if(d.name.length<2){msg('لطفاً نام خود را بنویسید.','err');f.name.focus();return;}
     if(d.phone.replace(/\D/g,'').length<10){msg('لطفاً شمارهٔ همراه را درست وارد کنید.','err');f.phone.focus();return;}
     if(d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){msg('ایمیل درست نیست.','err');f.email.focus();return;}
     b.disabled=true;msg('در حال ارسال…');
-    var body=new URLSearchParams(d);
-    fetch('save.php',{method:'POST',body:body,headers:{'Accept':'application/json'}})
-      .then(function(r){return r.json();})
-      .then(function(j){
+    var p = (SUPABASE_URL && SUPABASE_KEY) ? sendSupabase(d).catch(function(){return sendPhp(d);}) : sendPhp(d);
+    p.then(function(j){
         if(!j.ok) throw new Error(j.error||'x');
-        ev('lead_submit');
-        f.reset();msg('ممنون! اطلاعات شما رسید و همکاران ما به‌زودی تماس می‌گیرند.','ok');
+        ev('lead_submit');f.reset();msg('');body.classList.add('sent');
+        setTimeout(close,2600);
       })
       .catch(function(){
         var lines=['نام: '+d.name,'همراه: '+d.phone,'ایمیل: '+(d.email||'-'),'سازمان و سمت: '+(d.org||'-')];
