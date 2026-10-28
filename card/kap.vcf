@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+N:;KAP Energy Group;;;
+FN:کاپ | KAP Energy Group
+ORG:کاپ (کارا انرژی پردازان هوشمند)
+TEL;TYPE=WORK,VOICE:+982191099814
+EMAIL;TYPE=WORK:info@kap.energy
+URL:https://kap.energy/
+URL;TYPE=Catalogue:https://kap.energy/assets/kap-catalogue-fa.pdf
+X-SOCIALPROFILE;TYPE=instagram:https://instagram.com/kap.energy
+X-SOCIALPROFILE;TYPE=telegram:https://t.me/kap_energy
+X-SOCIALPROFILE;TYPE=bale:https://ble.ir/kapenergy
+ADR;TYPE=WORK:;;;Tehran;;;Iran
+NOTE:مدیریت هوشمند مصرف برق — kap.energy
+END:VCARD
