@@ -1247,9 +1247,15 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
 }
 
 .audiences__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.audiences__grid > .audience-card {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 32px 18px;
 }
 
 .audience-card {
@@ -1534,8 +1540,9 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
     display: none;
   }
 
-  .audiences__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .audiences__grid > .audience-card {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 10px);
   }
 
   .ecommerce__inner {
@@ -1635,8 +1642,9 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
     display: none;
   }
 
-  .audiences__grid {
-    grid-template-columns: 1fr;
+  .audiences__grid > .audience-card {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 
   .ecommerce__inner {
