@@ -18,4 +18,6 @@ create policy "website can insert catalogue leads"
   on public.catalogue_leads for insert
   to anon
   with check (true);
+grant usage on schema public to anon;
+grant insert on public.catalogue_leads to anon;
 -- View the rows in Supabase → Table Editor → catalogue_leads (Export → CSV for Excel).

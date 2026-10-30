@@ -2,8 +2,8 @@
    Leads go to Supabase (table catalogue_leads) when SUPABASE_URL and SUPABASE_KEY are set,
    otherwise (or if Supabase fails) to lead.php on the host, which emails info@kap.energy and keeps a CSV. */
 (function () {
-  var SUPABASE_URL = '';   // e.g. https://xxxx.supabase.co
-  var SUPABASE_KEY = '';   // the project's public "anon" key
+  var SUPABASE_URL = 'https://qdflrmecfarfufkltqxd.supabase.co';   // e.g. https://xxxx.supabase.co
+  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFkZmxybWVjZmFyZnVma2x0cXhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMzNjEzNTYsImV4cCI6MjEwODkzNzM1Nn0.a4NmtmGCDdLbdoqGgLvL9HjJQKtRA_1OfHXLlkaJK3c';   // the project's public "anon" key
 
   var me = document.currentScript && document.currentScript.src;
   var BASE = me ? me.replace(/[^\/]*$/, '') : '/';
