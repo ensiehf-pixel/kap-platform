@@ -288,3 +288,24 @@
 }
 .nation__stats li { background: rgba(255, 255, 255, .8); border-radius: 12px; padding: 8px 14px; }
 .nation__stats { gap: 12px; }
+
+/* 2026-10-30 — keep chapter copy inside the screen on short laptop viewports */
+.chapter__copy { justify-content: safe flex-end; overflow: hidden; }
+.chapter h1, .chapter h2 { font-size: clamp(1.45rem, min(3.6vw, 5.6vh), 3.1rem); line-height: 1.35; }
+.chapter h2 .highlight { display: block; }
+.chapter__abbr { display: block; font-size: .5em; font-weight: 700; line-height: 1.5; color: #4A4F55; margin: 4px 0 2px; direction: ltr; text-align: right; }
+.chapter .chapter__seo { font-size: clamp(.85rem, min(1.35vw, 2vh), 1.15rem); }
+.chapter__lead { font-size: clamp(.88rem, min(1.2vw, 1.9vh), 1.08rem); }
+@media (orientation: landscape) and (max-height: 800px) {
+  .chapter__copy { padding-top: 84px; padding-bottom: clamp(20px, 5vh, 56px); }
+  .chapter__kicker { margin-bottom: 10px; }
+  .chapter .chapter__seo { margin-bottom: 8px; padding: 4px 12px; }
+  .chapter h1, .chapter h2 { margin-bottom: 10px; }
+  .chapter__lead { line-height: 1.8; margin-bottom: 14px; }
+  .chapter__steps { margin-bottom: 16px; }
+}
+@media (orientation: landscape) and (max-height: 680px) {
+  .chapter__steps { display: none; }
+  .chapter h1, .chapter h2 { font-size: clamp(1.35rem, min(3.2vw, 5vh), 2.4rem); }
+  .chapter__lead { line-height: 1.7; }
+}
