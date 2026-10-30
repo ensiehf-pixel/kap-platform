@@ -103,12 +103,19 @@
       .then(function (r) { return r.json(); })
       .then(function (j) { if (!j.ok) throw new Error(j.error || 'php'); });
   }
+  // Save to Supabase and, in parallel, to lead.php (which emails info@kap.energy the updated Excel list).
+  // Succeeds if either one stores the lead.
   function send(d) {
-    return (SUPABASE_URL && SUPABASE_KEY) ? sendSupabase(d).catch(function () { return sendPhp(d); }) : sendPhp(d);
+    var jobs = [sendPhp(d)];
+    if (SUPABASE_URL && SUPABASE_KEY) jobs.push(sendSupabase(d));
+    return new Promise(function (ok, fail) {
+      var left = jobs.length;
+      jobs.forEach(function (j) { j.then(ok, function () { if (--left === 0) fail(); }); });
+    });
   }
 
   document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[href*="kap-catalogue-fa.pdf"]');
+    var a = e.target.closest && e.target.closest('a[href*="kap-catalogue-"][href$=".pdf"]');
     if (!a || done()) return;
     e.preventDefault();
     open(a.href);
