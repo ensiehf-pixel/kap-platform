@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="The KAP App for viewing and analysing building and organisational energy use: open the web version or download for Android." name="description"/>
-<title>KAP App: web version and Android download | KAP</title>
+<title>KAP App: web, Android and iPhone | KAP</title>
 <link href="../favicon.ico" rel="icon" sizes="any"/>
 <link href="../assets/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="../assets/icons/apple-touch-icon.png" rel="apple-touch-icon"/>
@@ -13,7 +13,7 @@
 <meta content="website" property="og:type"/>
 <meta content="en_US" property="og:locale"/>
 <meta content="KAP Energy Group" property="og:site_name"/>
-<meta content="KAP App: web version and Android download | KAP" property="og:title"/>
+<meta content="KAP App: web, Android and iPhone | KAP" property="og:title"/>
 <meta content="The KAP App for viewing and analysing building and organisational energy use: open the web version or download for Android." property="og:description"/>
 <meta content="https://kap.energy/assets/images/og-image.jpg" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
@@ -24,7 +24,7 @@
     .page-hero h1{max-width:700px;margin:0 auto 20px;}
     .page-hero p{max-width:640px;margin:0 auto;color:#616161;font-size:1.05rem;line-height:1.85;}
     .app-get{padding:64px 0;background:#FAFAFA;}
-    .app-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto;}
+    .app-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1140px;margin:0 auto;}
     .app-card{background:#fff;border:1px solid #EAEAEA;border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:14px;box-shadow:0 4px 16px rgba(13,27,42,.05);}
     .app-card__icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:#FFF1E8;color:#FF5A00;}
     .app-card--android .app-card__icon{background:#E0FCFA;color:#00A89E;}
@@ -43,7 +43,12 @@
     .demo-cta{padding:72px 0;background:linear-gradient(165deg,#1A1D20,#1B2838);text-align:center;}
     .demo-cta h2{color:#fff;margin-bottom:16px;}
     .demo-cta p{color:rgba(255,255,255,.6);margin-bottom:32px;}
-    @media(max-width:768px){.app-cards,.app-feat ul{grid-template-columns:1fr;}}
+    .app-card--ios .app-card__icon{background:#FFE6F3;color:#FF008B;}
+    .ios-steps{margin:0;padding-inline-start:20px;color:#20252B;font-size:.92rem;line-height:1.9;}
+    .ios-steps li{margin-bottom:4px;}
+    .ios-share{width:18px;height:18px;vertical-align:-3px;color:#007AFF;}
+    @media(max-width:980px){.app-cards{grid-template-columns:1fr;max-width:560px;}}
+    @media(max-width:768px){.app-feat ul{grid-template-columns:1fr;}}
   </style>
 <meta content="https://kap.energy/app.html" property="og:url"/>
 <link href="https://kap.energy/app.html" rel="canonical"/>
@@ -96,7 +101,7 @@
 <section class="page-hero">
     <div class="container">
       <h1>The <span class="highlight">KAP</span> App</h1>
-      <p>See your building's or organisation's energy use in real time, analyse consumption patterns and get reports and alerts, in your browser or on an Android phone.</p>
+      <p>See your building's or organisation's energy use in real time, analyse consumption patterns and get reports and alerts, in your browser, on Android or on iPhone.</p>
     </div>
   </section>
 
@@ -116,6 +121,18 @@
           <a href="../assets/kap-android.apk" class="btn-primary" id="apk-link" download hidden>Download for Android (APK)</a>
           <span class="apk-soon" id="apk-soon">Coming soon to this page</span>
           <small id="apk-note" hidden>If your phone blocks the installation, allow installs from this source for your browser in Settings.</small>
+        </div>
+        <div class="app-card app-card--ios">
+          <div class="app-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+          <h2>iPhone &amp; iPad</h2>
+          <p>Add the KAP App to your Home Screen in three steps:</p>
+          <ol class="ios-steps">
+            <li>Tap the button below to open the KAP App in <b>Safari</b>.</li>
+            <li>Tap the Share button <svg class="ios-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11H5a1 1 0 00-1 1v8a1 1 0 001 1h14a1 1 0 001-1v-8a1 1 0 00-1-1h-1"/></svg> at the bottom of the screen.</li>
+            <li>Choose <b>Add to Home Screen</b>, then tap <b>Add</b>.</li>
+          </ol>
+          <a href="http://app.kap.energy/login#now" class="btn-primary" target="_blank" rel="noopener noreferrer">Open in Safari ↗</a>
+          <small>The KAP icon then sits with your other apps and opens with one tap.</small>
         </div>
       </div>
     </div>
