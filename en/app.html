@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="The KAP App for viewing and analysing building and organisational energy use: open the web version or download for Android." name="description"/>
+<title>KAP App: web version and Android download | KAP</title>
+<link href="../favicon.ico" rel="icon" sizes="any"/>
+<link href="../assets/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../assets/icons/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="#FAFAFA" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="KAP Energy Group" property="og:site_name"/>
+<meta content="KAP App: web version and Android download | KAP" property="og:title"/>
+<meta content="The KAP App for viewing and analysing building and organisational energy use: open the web version or download for Android." property="og:description"/>
+<meta content="https://kap.energy/assets/images/og-image.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link as="font" crossorigin="" href="../assets/fonts/vazirmatn-var.woff2" rel="preload" type="font/woff2"/>
+<link href="../style.css?v=26" rel="stylesheet"/>
+<style>
+    .page-hero{padding-top:140px;padding-bottom:64px;background:linear-gradient(165deg,#fff 0%,#f5f5f5 50%,#FFF1E8 100%);text-align:center;}
+    .page-hero h1{max-width:700px;margin:0 auto 20px;}
+    .page-hero p{max-width:640px;margin:0 auto;color:#616161;font-size:1.05rem;line-height:1.85;}
+    .app-get{padding:64px 0;background:#FAFAFA;}
+    .app-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto;}
+    .app-card{background:#fff;border:1px solid #EAEAEA;border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:14px;box-shadow:0 4px 16px rgba(13,27,42,.05);}
+    .app-card__icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:#FFF1E8;color:#FF5A00;}
+    .app-card--android .app-card__icon{background:#E0FCFA;color:#00A89E;}
+    .app-card__icon svg{width:28px;height:28px;}
+    .app-card h2{font-size:1.25rem;margin:0;}
+    .app-card p{color:#616161;font-size:.95rem;line-height:1.85;margin:0;flex:1;}
+    .app-card .btn-primary,.app-card .btn-outline{align-self:flex-start;}
+    .app-card small{color:#9E9E9E;font-size:.8rem;line-height:1.7;}
+    .app-card [hidden]{display:none!important;}
+    .apk-soon{display:inline-block;align-self:flex-start;padding:12px 20px;border-radius:12px;background:#EAEAEA;color:#20252B;font-weight:700;font-size:.92rem;}
+    .app-feat{padding:72px 0;background:#fff;}
+    .app-feat h2{text-align:center;margin-bottom:36px;}
+    .app-feat ul{list-style:none;padding:0;max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0 48px;}
+    .app-feat li{padding:12px 0;border-bottom:1px solid #f0f0f0;font-size:.95rem;color:#20252B;display:flex;align-items:center;gap:10px;}
+    .app-feat li svg{width:18px;height:18px;flex-shrink:0;color:#FF5A00;}
+    .demo-cta{padding:72px 0;background:linear-gradient(165deg,#1A1D20,#1B2838);text-align:center;}
+    .demo-cta h2{color:#fff;margin-bottom:16px;}
+    .demo-cta p{color:rgba(255,255,255,.6);margin-bottom:32px;}
+    @media(max-width:768px){.app-cards,.app-feat ul{grid-template-columns:1fr;}}
+  </style>
+<meta content="https://kap.energy/app.html" property="og:url"/>
+<link href="https://kap.energy/app.html" rel="canonical"/>
+<link href="https://kap.energy/app.html" hreflang="fa" rel="alternate"/>
+<link href="https://kap.energy/en/app.html" hreflang="en" rel="alternate"/>
+<link href="https://kap.energy/app.html" hreflang="x-default" rel="alternate"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://kap.energy/#org", "sameAs": ["https://ble.ir/kapenergy", "https://t.me/kap_energy", "https://instagram.com/kap.energy", "https://www.youtube.com/@KAPEnergy", "https://www.threads.com/@kap.energy", "https://shenoto.com/channel/podcast/Radio-KAP", "https://www.facebook.com/profile.php?id=61595390015091"], "name": "KAP", "legalName": "Kara Energy Pardazan Hooshmand", "alternateName": ["KAP", "KAP Energy Group", "Kara Energy Pardazan Hooshmand"], "url": "https://kap.energy/", "logo": "https://kap.energy/assets/images/kap-logo.png", "email": "info@kap.energy", "telephone": "+98-21-91099814", "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"}, "areaServed": "IR", "slogan": "Energy, made visible", "knowsAbout": ["smart electricity management", "demand-side management", "peak load management", "ESA ⁦(Energy Saving Application)⁩", "smart meter", "CT sensor", "NILM load disaggregation", "virtual power plant", "electricity supply shortfall"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://kap.energy/en/"}, {"@type": "ListItem", "position": 2, "name": "KAP App", "item": "https://kap.energy/en/app.html"}]}]}</script>
+<!-- Google Analytics (GA4) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HZ8FZTJ86C"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HZ8FZTJ86C');</script>
+<link href="../en.css?v=22" rel="stylesheet"/>
+</head>
+<body>
+<header class="header scrolled" id="header">
+<div class="container header__inner">
+<a aria-label="KAP Energy Group — home" class="logo" href="index.html">
+<picture>
+<source srcset="../assets/images/kap-logo.webp" type="image/webp"/>
+<img alt="KAP Energy Group" class="logo__img" height="160" src="../assets/images/kap-logo.png" width="421"/>
+</picture>
+</a>
+<nav aria-label="Main menu" class="nav" id="nav">
+<a class="nav__link" href="index.html">Home</a>
+<a class="nav__link" href="solutions.html">Solutions</a>
+<a class="nav__link" href="how-it-works.html">How it works</a>
+<a aria-current="page" class="nav__link nav__link--active" href="app.html">Get the App</a>
+<a class="nav__link" href="knowledge.html">Insights</a>
+<div class="nav__group">
+<button aria-controls="nav-wellness" aria-expanded="false" class="nav__link nav__toggle" type="button">Wellness Games</button>
+<div class="nav__sub" id="nav-wellness">
+<a class="nav__sublink" href="../calm-grid.html"><b>Calm Grid</b><small>A breathing and calm game</small></a>
+<a class="nav__sublink" href="../calculator.html"><b>Usage calculator</b><small>Estimate each appliance's use</small></a>
+</div>
+</div>
+<a class="nav__link" href="about.html">About KAP</a>
+<a class="nav__link" href="faq.html">FAQ</a>
+<a class="nav__link nav__link--mobile-only" href="contact.html">Contact us</a>
+<a class="nav__link nav__link--mobile-only" href="http://app.kap.energy/login#now" rel="noopener noreferrer" target="_blank">KAP App ↗</a>
+</nav>
+<div class="header__actions">
+<a aria-label="فارسی" class="lang-switch" href="../app.html" hreflang="fa" lang="en">FA</a>
+<a class="header__cta" href="contact.html">Contact us</a>
+<a class="header__cta header__cta--dark" href="http://app.kap.energy/login#now" rel="noopener noreferrer" target="_blank">App ↗</a>
+<button aria-controls="nav" aria-expanded="false" aria-label="Open menu" class="mobile-toggle" id="mobile-toggle">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</header>
+<section class="page-hero">
+    <div class="container">
+      <h1>The <span class="highlight">KAP</span> App</h1>
+      <p>See your building's or organisation's energy use in real time, analyse consumption patterns and get reports and alerts, in your browser or on an Android phone.</p>
+    </div>
+  </section>
+
+  <section class="app-get" id="download">
+    <div class="container">
+      <div class="app-cards">
+        <div class="app-card">
+          <div class="app-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+          <h2>Web version</h2>
+          <p>No installation needed: open the KAP App from any browser on a computer, tablet or phone.</p>
+          <a href="http://app.kap.energy/login#now" class="btn-primary" target="_blank" rel="noopener noreferrer">Open the KAP App ↗</a>
+        </div>
+        <div class="app-card app-card--android">
+          <div class="app-card__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18a.38.38 0 00-.66-.38l-1.86 3.22A11.4 11.4 0 0012 8.1c-1.74 0-3.4.37-4.92 1.04L5.22 5.92a.38.38 0 00-.66.38L6.4 9.48A10.8 10.8 0 001 18h22a10.8 10.8 0 00-5.4-8.52zM7 15.25a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm10 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg></div>
+          <h2>Android</h2>
+          <p>The KAP App installer for Android phones and tablets.</p>
+          <a href="../assets/kap-android.apk" class="btn-primary" id="apk-link" download hidden>Download for Android (APK)</a>
+          <span class="apk-soon" id="apk-soon">Coming soon to this page</span>
+          <small id="apk-note" hidden>If your phone blocks the installation, allow installs from this source for your browser in Settings.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="app-feat">
+    <div class="container">
+      <h2>What does the KAP App do?</h2>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> Consumption monitoring</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> Data transfer and storage</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> Consumption-pattern analysis</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> Identifying opportunities worth reviewing</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> Reports and dashboard</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2"/></svg> Developing alerts and recommendations</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="demo-cta">
+    <div class="container">
+      <h2>Bring KAP to your building or organisation</h2>
+      <p>Contact us for an account and to arrange installation.</p>
+      <a href="contact.html" class="btn-primary">Contact us</a>
+    </div>
+  </section>
+
+  <footer class="footer" id="footer">
+<div class="container">
+<div class="ft-grid">
+<div class="ft-brand">
+<a aria-label="KAP Energy Group" href="index.html">
+<picture>
+<source srcset="../assets/images/kap-logo.webp" type="image/webp"/>
+<img alt="KAP Energy Group" class="ft-logo" height="160" loading="lazy" src="../assets/images/kap-logo.png" width="421"/>
+</picture>
+</a>
+<p class="ft-tagline" dir="ltr">Energy, made visible</p>
+<p>KAP's vision is to link scattered demand-management capacity into the country's virtual power plant.</p>
+<div class="ft-contact">
+<a dir="ltr" href="tel:+982191099814">021-91099814</a>
+<a dir="ltr" href="mailto:info@kap.energy">info@kap.energy</a>
+<a dir="ltr" href="https://kap.energy">kap.energy</a>
+</div>
+<nav aria-label="KAP on social media" class="ft-social">
+<a href="https://ble.ir/kapenergy" rel="noopener noreferrer me" target="_blank">Bale</a>
+<a href="https://t.me/kap_energy" rel="noopener noreferrer me" target="_blank">Telegram</a>
+<a href="https://instagram.com/kap.energy" rel="noopener noreferrer me" target="_blank">Instagram</a>
+<a href="https://www.youtube.com/@KAPEnergy" rel="noopener noreferrer me" target="_blank">YouTube</a>
+<a href="https://www.threads.com/@kap.energy" rel="noopener noreferrer me" target="_blank">Threads</a>
+<a href="https://shenoto.com/channel/podcast/Radio-KAP" rel="noopener noreferrer me" target="_blank">Radio KAP podcast</a>
+<a href="https://www.facebook.com/profile.php?id=61595390015091" rel="noopener noreferrer me" target="_blank">Facebook</a>
+</nav>
+</div>
+<div class="ft-col">
+<h4>Solutions</h4>
+<a href="solution-home.html">Homes</a>
+<a href="solution-education.html">Universities &amp; education</a>
+<a href="solution-business.html">Offices &amp; commercial</a>
+<a href="solution-industry.html">Industry</a>
+<a href="solution-power.html">Power industry &amp; solar</a>
+</div>
+<div class="ft-col">
+<h4>Technology &amp; product</h4>
+<a href="how-it-works.html">How it works</a>
+<a href="technology-detail.html">Technology &amp; architecture</a>
+<a href="products.html">Hardware products</a>
+<a href="http://app.kap.energy/login#now" rel="noopener noreferrer" target="_blank">KAP App</a>
+<a href="../calculator.html">Electricity usage calculator</a>
+</div>
+<div class="ft-col">
+<h4>KAP</h4>
+<a href="about.html">About KAP</a>
+<a href="knowledge.html">Insights</a>
+<a href="faq.html">FAQ</a>
+<a href="demo.html">Request a demo</a>
+<a href="../assets/kap-catalogue-en.pdf" target="_blank" rel="noopener">KAP catalogue (PDF)</a>
+<a href="contact.html">Contact us</a>
+</div>
+</div>
+<div class="ft-bottom">
+<p>© 2026 KAP (Kara Energy Pardazan Hooshmand). All rights reserved.</p>
+<a href="http://app.kap.energy/login#now" rel="noopener noreferrer" target="_blank">KAP App ↗</a>
+</div>
+</div>
+</footer>
+<script src="../script.js?v=22"></script>
+<script src="../catalogue-gate.js" defer></script>
+<script>(function(){var a=document.getElementById('apk-link');if(!a)return;fetch(a.getAttribute('href'),{method:'HEAD',cache:'no-store'}).then(function(r){if(r.ok){a.hidden=false;document.getElementById('apk-note').hidden=false;document.getElementById('apk-soon').hidden=true;}}).catch(function(){});})();</script>
+</body>
+</html>

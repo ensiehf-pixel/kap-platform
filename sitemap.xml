@@ -115,10 +115,10 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kap.energy/mvp-pilot.html</loc>
-    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/mvp-pilot.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/mvp-pilot.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/mvp-pilot.html"/>
+    <loc>https://kap.energy/app.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/app.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/app.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/app.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
   </url>
@@ -291,10 +291,10 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://kap.energy/en/mvp-pilot.html</loc>
-    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/mvp-pilot.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/mvp-pilot.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/mvp-pilot.html"/>
+    <loc>https://kap.energy/en/app.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://kap.energy/app.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kap.energy/en/app.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kap.energy/app.html"/>
     <lastmod>2026-10-27</lastmod>
     <priority>0.6</priority>
   </url>
